@@ -1,8 +1,9 @@
 ---
+layout: single
 title: "ANNs for Air Quality Assessment and Pollution Forecasting "
 header:
   image: /assets/images/unsplash-sameeha-ANNs.jpg
-  # caption: Photo credit: Ella Ivanescu on [**Unsplash**](https://unsplash.com/photos/JbfhNrpQ_dw)
+  # caption: Photo credit: Ella Ivanescu on [**Unsplash**](https://unsplash.com/photos/JbfhNrpQ_dw){height="150"}
 tags: 
   - blog
   - ANNs
