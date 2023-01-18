@@ -12,11 +12,11 @@ permalink: /about/
 I’m passionate about casually interacting with AI in our day to day lives. I aspire to be an AI Research Scientist in the future. My main interests are in robotics and NLP. I’ve had previous experience in CV, NLP, Information Retrieval, Deep RL, robotics, and conversational bots. I have done AI RnD internships at Amazon and Shield AI. Check out my website [here](https://jacobzietek.me/).
 
 ## Vice President: Aref
-[Website](https://arefmalek.me/)
+I'm into Artificial Intelligence and recently have been exploring Augmented Reality and Algorithms. I like building projects that improve how we physically interact with AI, as well as exploring the social science of everyday systems. In my past internships at AWS and NASA, I've worked in teams that release CV teams for both. I'm excited to learn more about RL and NLP in the future. Feel free to check out some of my old projects and my contact info on my [website](https://arefmalek.me/).
 
 ## Officers:
 
-- Ananya Singh: My main interests lie in Software Engineering and Artificial Intelligence + Machine Learning. As a result, I have experiences exploring these areas during my time as a student through internships with Nintendo and Google, projects in SWE and NLP, SIG AI, research in CV, and as a TA for Data Structures and Algorithms and Introduction to Artificial Intelligence. In my free time, I enjoy exploring nature and music and writing articles about Data Science on Medium!
+- Ananya Singh: I am a Junior at Purdue University studying Computer Science and Data Science with a Concentration in Machine Intelligence. My main interests lie in Software Engineering and Machine Learning. As a result, I have experiences exploring these areas during my time as a student through internships with Nintendo and Google, projects in SWE and NLP, as an officer for SIG AI, researcher in CV, and TA for Data Structures and Algorithms and Introduction to Artificial Intelligence. In my free time, I enjoy exploring nature and music and writing articles about Data Science on Medium!
 
 - Sameeha Afrulbasha: Hey! I'm a sophomore studying data science and stats at Purdue. As an officer and project manager for SIGAI, I'm currently leading a project on time series forecasting. In my free time, I enjoy writing and posting about topics related to machine learning, AI, and stats. I also love trying new foods, boba/coffee runs, and playing badminton.
 
