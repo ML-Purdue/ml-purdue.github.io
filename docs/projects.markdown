@@ -1,9 +1,9 @@
 ---
 layout: single
+title: Spring 2023 Projects
 permalink: /projects/
 ---
 
-# Spring 2023 Projects:
 ## Time Series Forecasting for Air Pollution: 
 In the Time Series forecasting for Air Quality/Pollution group, we are currently working on building an LSTM neural network model with the goal of predicting daily concentrations of PM10 (a pollution metric) in LA, California. We are also carrying out statistical analyses to contextualize why LA is highly polluted and come up with recommendations/policies to mitigate the effects of high pollution events.
 ## Eye disease detection:
