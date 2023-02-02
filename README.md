@@ -2,6 +2,8 @@
 
 V2
 
+Template: https://github.com/mhyfritz/astro-landing-page
+
 ## Commands
 
 | Command                | Action                                            |
