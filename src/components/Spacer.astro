@@ -1,0 +1,12 @@
+---
+export interface Props {
+  y?: number;
+  x?: number;
+}
+const { x, y } = Astro.props;
+---
+
+<div
+  style={`margin-top:${y}px;margin-bottom:${y}px;margin-left:${x}px;margin-right:${x}px`}
+>
+</div>

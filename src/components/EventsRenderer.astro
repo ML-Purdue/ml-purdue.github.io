@@ -1,0 +1,18 @@
+---
+import ContentSection from "./content-section.astro";
+import ListItem from "./data/ListItem.astro";
+
+const posts = (await Astro.glob("../pages/events/23/*.mdx")).reverse();
+---
+
+<ContentSection id="rposts" title="Recent Posts">
+  <ul>
+    {
+      posts.map((post) => (
+        <ListItem url={post.url} title={post.frontmatter.title}>
+          <div>{post.frontmatter.description}...</div>
+        </ListItem>
+      ))
+    }
+  </ul>
+</ContentSection>

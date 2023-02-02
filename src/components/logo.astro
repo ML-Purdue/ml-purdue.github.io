@@ -1,0 +1,10 @@
+---
+import sigaiLogo from "~/assets/logo-main.webp";
+export interface Props {
+  class: string;
+}
+
+const { class: cls } = Astro.props;
+---
+
+<img src={sigaiLogo.src} alt="SIGAI Logo" class={cls} />

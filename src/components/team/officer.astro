@@ -1,0 +1,10 @@
+---
+import ListItem from "../data/ListItem.astro";
+export interface Props {
+  name: string;
+}
+
+const { name } = Astro.props;
+---
+
+<ListItem title={name}><slot /></ListItem>

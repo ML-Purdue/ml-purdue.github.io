@@ -1,9 +1,0 @@
-main:
-    - title: "Upcoming Events"
-      url: / 
-    - title: "About"
-      url: /about/
-    - title: "Projects"
-      url: /projects/
-    - title: "Contact Us"
-      url: /contactus/

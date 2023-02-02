@@ -1,0 +1,29 @@
+---
+import ContentSection from "~/components/content-section.astro";
+import Logo from "./logo.astro";
+---
+
+<ContentSection title="" id="intro">
+  <Logo slot="eyebrow" class="h-32" />
+  <Fragment slot="lead">
+    SIGAI is a group of people interested in discussing <span
+      class="text-primary"
+    >
+      artificial intelligence</span
+    > and working on projects related to all aspects of artificial intelligence.
+  </Fragment>
+  <div class="grid grid-cols-1 gap-2 sm:grid-cols-2">
+    <a
+      href="/team"
+      class="flex items-center justify-center gap-3 border-2 border-current px-6 py-4"
+    >
+      <span>Our Team</span>
+    </a>
+    <a
+      href="/projects"
+      class="flex items-center justify-center gap-3 border-2 border-current px-6 py-4"
+    >
+      <span>Projects</span>
+    </a>
+  </div>
+</ContentSection>

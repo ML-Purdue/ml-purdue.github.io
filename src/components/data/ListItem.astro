@@ -1,0 +1,23 @@
+---
+export interface Props {
+  title: string;
+  url?: string;
+}
+
+const { title, url } = Astro.props;
+---
+
+<li>
+  <div class="my-4">
+    {
+      url ? (
+        <a class="gradient-text text-lg font-bold" href={url}>
+          {title}
+        </a>
+      ) : (
+        <span class="gradient-text text-lg font-bold">{title}</span>
+      )
+    }
+    <slot />
+  </div>
+</li>
