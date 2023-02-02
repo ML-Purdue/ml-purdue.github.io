@@ -1,2 +1,6 @@
 @import "global.css";
 @import "theme.css";
+
+[data-mdx-article] a {
+  text-decoration: underline;
+}

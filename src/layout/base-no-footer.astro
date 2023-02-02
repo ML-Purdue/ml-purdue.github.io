@@ -24,13 +24,12 @@ const description = "Purdue SIGAI Website";
     <meta property="og:image" content="/social.jpg" />
     <meta property="og:url" content={site} />
     <meta name="twitter:card" content="summary_large_image" />
-    <style></style>
   </head>
   <body
     class="h-full overflow-x-hidden bg-default text-default text-base selection:bg-secondary selection:text-white"
   >
     <Header fixed />
-    <article class="mx-auto mt-20 max-w-[80ch]">
+    <article data-mdx-article class="mx-auto mt-20 max-w-[80ch] w-[90vw]">
       <slot />
     </article>
   </body>
