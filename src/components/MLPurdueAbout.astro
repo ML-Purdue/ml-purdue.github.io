@@ -1,0 +1,14 @@
+---
+import ContentSection from "./content-section.astro";
+import ListItem from "./data/ListItem.astro";
+
+const posts = (await Astro.glob("../pages/events/23/*.mdx")).reverse();
+---
+
+<ContentSection id="mlpurdue" title="ML@Purdue">
+  <p>
+    ML@Purdue supports career goals in AI, whether they be entrepreneurial,
+    industrial, or research. We host a range of different projects in our three
+    tracks ....?? idk chatgpt
+  </p>
+</ContentSection>
