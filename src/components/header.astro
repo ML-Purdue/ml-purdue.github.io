@@ -138,7 +138,7 @@ const { fixed } = Astro.props;
 </noscript>
 
 <style>
-  .fixed-header {
+  header.fixed-header[data-fixed="1"] {
     @apply fixed top-0 bottom-auto;
     @apply border-default bg-default text-default;
   }
