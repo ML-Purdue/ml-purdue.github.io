@@ -16,9 +16,13 @@ export interface FooterLink {
   url: string;
 }
 
-export interface NavItem {
+export interface NavItemLink {
   title: string;
-  url: string;
+  url?: string;
+}
+
+export interface NavItem extends NavItemLink {
+  sublinks?: NavItemLink[];
 }
 
 export interface ShowcaseSite {

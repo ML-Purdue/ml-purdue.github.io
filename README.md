@@ -1,4 +1,4 @@
-# SIGAI Website
+# ML-Purdue Website
 
 V2
 

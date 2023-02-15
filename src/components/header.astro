@@ -2,16 +2,30 @@
 import { Icon } from "astro-icon";
 
 import type { NavItem } from "~/types";
-import sigailogo from "~/assets/sigai-logo-sm.png";
+import mlPurdue from "~/assets/sigai-logo-sm.png";
 import Logo from "./logo.astro";
 export interface Props {
   fixed?: boolean;
 }
 const navItems: Array<NavItem> = [
-  { title: "Events", url: "/events" },
-  { title: "Team", url: "/team" },
-  { title: "Projects", url: "/projects" },
+  { title: "About", url: "/about" },
+  {
+    title: "Projects",
+    sublinks: [
+      { title: "Industry", url: "/projects-industry" },
+      { title: "Research", url: "/projects-research" },
+      { title: "Entrepreneurial", url: "/projects-entrepreneurial" },
+    ],
+  },
+  {
+    title: "Education",
+    sublinks: [
+      { title: "Beginner Workshops", url: "/workshops" },
+      { title: "Reading Group", url: "/reading-group" },
+    ],
+  },
   { title: "Contact", url: "/contact" },
+  { title: "Apply", url: "/apply" },
 ];
 const { fixed } = Astro.props;
 ---
@@ -24,19 +38,51 @@ const { fixed } = Astro.props;
   }`}
 >
   <a class="flex items-center gap-3 hover:!text-default" href="/">
-    <h1 class="sr-only">SIGAI</h1>
-    <img src={sigailogo.src} alt="SIGAI Logo" class="h-10" />
+    <h1 class="gradient-text text-center font-extrabold text-sm">ML@Purdue</h1>
   </a>
   <div>
     <div class="flex items-center gap-6">
       <nav class="hidden sm:block">
         <ul class="flex items-center gap-6">
           {
-            navItems.map(({ title, url }) => (
-              <li>
-                <a class="text-sm" href={url}>
-                  {title}
-                </a>
+            navItems.map(({ title, url, sublinks }) => (
+              <li class="relative">
+                {(sublinks?.length || 0) > 0 ? (
+                  <>
+                    <button class="hover-button flex items-center justify-center gap-2 text-sm">
+                      {title}
+                      <svg
+                        height="16"
+                        width="16"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="white"
+                        height="8rem"
+                        width="8rem"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M19 9l-7 7-7-7"
+                        />
+                      </svg>
+                    </button>
+                    <ul
+                      data-hover-link-container
+                      class="pointer-events-none  absolute flex w-max min-w-[100px]
+                     flex-col border-2  border-solid border-[white] bg-[var(--color-background)] p-2 opacity-0 transition-opacity text-sm"
+                    >
+                      {sublinks?.map((x) => (
+                        <a href={x.url}>{x.title}</a>
+                      ))}
+                    </ul>
+                  </>
+                ) : (
+                  <a class="text-sm" href={url}>
+                    {title}
+                  </a>
+                )}
               </li>
             ))
           }
@@ -70,11 +116,24 @@ const { fixed } = Astro.props;
           <nav>
             <ul class="flex flex-col">
               {
-                navItems.map(({ title, url }) => (
+                navItems.map(({ title, url, sublinks }) => (
                   <li>
-                    <a class="block py-4 text-center text-xl" href={url}>
-                      {title}
-                    </a>
+                    {(sublinks?.length || 0) > 0 ? (
+                      <div>
+                        <span class="ml-8 block py-4 text-xl">{title}</span>
+                        <div>
+                          {sublinks?.map(({ title, url }) => (
+                            <a class="ml-16 block py-4 text-xl" href={url}>
+                              {title}
+                            </a>
+                          ))}
+                        </div>
+                      </div>
+                    ) : (
+                      <a class="ml-8 block py-4 text-xl" href={url}>
+                        {title}
+                      </a>
+                    )}
                   </li>
                 ))
               }
@@ -111,21 +170,39 @@ const { fixed } = Astro.props;
     MicroModal.close(menuModalId);
   };
 
-  openNavButton.addEventListener("click", openMenu);
-  closeNavButton.addEventListener("click", closeMenu);
-
-  if (header.dataset.fixed !== "1") {
-    document.addEventListener("scroll", () => {
-      const d = page.clientHeight - page.scrollTop - header.offsetHeight;
-
-      header.classList.toggle("fixed-header", d < 0);
+  function updateHoverLinks(fixedHeader: boolean) {
+    const uls: HTMLUListElement[] = Array.from(
+      document.querySelectorAll("[data-hover-link-container]")
+    );
+    uls.forEach((ul) => {
+      if (fixedHeader) {
+        ul.style.top = "unset";
+        return;
+      }
+      const { height } = ul.getBoundingClientRect();
+      ul.style.top = `-${height}px`;
     });
   }
+  openNavButton.addEventListener("click", openMenu);
+  closeNavButton.addEventListener("click", closeMenu);
+  const hasFixedHeader = header.dataset.fixed === "1";
+  if (!hasFixedHeader) {
+    document.addEventListener("scroll", () => {
+      const d = page.clientHeight - page.scrollTop - header.offsetHeight;
+      header.classList.toggle("fixed-header", d < 0);
+      header.dataset.fixed = `${Number(d < 0)}`;
+      updateHoverLinks(d < 0);
+    });
+  }
+  updateHoverLinks(hasFixedHeader);
 
   menu.addEventListener("click", (event) => {
     if ((event.target as HTMLElement).tagName === "A") {
       closeMenu();
     }
+  });
+  window.addEventListener("resize", () => {
+    updateHoverLinks(hasFixedHeader);
   });
 </script>
 
@@ -138,6 +215,14 @@ const { fixed } = Astro.props;
 </noscript>
 
 <style>
+  ul:hover,
+  .hover-button:active + ul,
+  .hover-button:focus + ul,
+  .hover-button:hover + ul {
+    opacity: 1;
+    pointer-events: all;
+  }
+  
   header.fixed-header[data-fixed="1"] {
     @apply fixed top-0 bottom-auto;
     @apply border-default bg-default text-default;
