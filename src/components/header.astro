@@ -72,7 +72,7 @@ const { fixed } = Astro.props;
                     <ul
                       data-hover-link-container
                       class="pointer-events-none  absolute flex w-max min-w-[100px]
-                     flex-col border-2  border-solid border-[white] bg-[var(--color-background)] p-2 text-sm opacity-0 transition-opacity"
+                     flex-col border-2  border-solid border-[white] bg-[var(--color-background)] p-2 opacity-0 transition-opacity text-sm"
                     >
                       {sublinks?.map((x) => (
                         <a href={x.url}>{x.title}</a>
@@ -222,7 +222,8 @@ const { fixed } = Astro.props;
     opacity: 1;
     pointer-events: all;
   }
-  .fixed-header {
+
+  header.fixed-header[data-fixed="1"] {
     @apply fixed top-0 bottom-auto;
     @apply border-default bg-default text-default;
   }
