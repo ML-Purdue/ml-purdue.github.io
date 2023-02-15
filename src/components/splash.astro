@@ -1,6 +1,6 @@
 ---
 import Starfield from "~/components/starfield.astro";
-import sigLogo from "~/assets/logo-main.webp";
+import mlPurdueLogo from "~/assets/logo-main.webp";
 const widths = [450, 800];
 const sizes = "(min-width: 640px) 42vw, 67vw";
 ---
@@ -12,7 +12,7 @@ const sizes = "(min-width: 640px) 42vw, 67vw";
       data-class="flex flex-col gap-2 self-end sm:gap-4 sm:self-auto sm:justify-self-end"
     >
       <div class="flex items-center justify-center">
-        <img src={sigLogo.src} alt="Logo" class="h-24 md:h-36" />
+        <img src={mlPurdueLogo.src} alt="Logo" class="h-24 md:h-36" />
       </div>
       <div class="gradient-text text-center font-extrabold text-8xl">
         ML@Purdue
@@ -32,12 +32,12 @@ const sizes = "(min-width: 640px) 42vw, 67vw";
     }
   }
 
-  #sig-logo {
+  #ml-purdue-logo {
     animation: float linear 2.5s infinite alternate;
   }
 
   @media (prefers-reduced-motion: reduce) {
-    #sig-logo {
+    #ml-purdue-logo {
       @apply animate-none;
     }
 
