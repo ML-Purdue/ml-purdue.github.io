@@ -7,8 +7,8 @@ export interface Props {
 const { title, url, image } = Astro.props;
 
 // just debug, remove if causes an issue
-const n = `data-${title}`;
-const sp = { [n]: "" };
+const n = `data-title`;
+const sp = { [n]: title };
 ---
 
 <div {...sp}>
