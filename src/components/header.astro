@@ -38,8 +38,7 @@ const { fixed } = Astro.props;
   }`}
 >
   <a class="flex items-center gap-3 hover:!text-default" href="/">
-    <h1 class="sr-only">ML-Purdue</h1>
-    <img src={mlPurdue.src} alt="ML-Purdue Logo" class="h-10" />
+    <h1 class="gradient-text text-center font-extrabold text-sm">ML@Purdue</h1>
   </a>
   <div>
     <div class="flex items-center gap-6">
@@ -191,6 +190,7 @@ const { fixed } = Astro.props;
     document.addEventListener("scroll", () => {
       const d = page.clientHeight - page.scrollTop - header.offsetHeight;
       header.classList.toggle("fixed-header", d < 0);
+      header.dataset.fixed = `${Number(d < 0)}`;
       updateHoverLinks(d < 0);
     });
   }

@@ -1,44 +1,10 @@
 ---
-import { Picture } from "@astrojs/image/components";
-
-import mascot from "~/assets/mascot.jpg";
-
 import Starfield from "~/components/starfield.astro";
 import sigLogo from "~/assets/logo-main.webp";
 const widths = [450, 800];
 const sizes = "(min-width: 640px) 42vw, 67vw";
 ---
 
-<!-- <section class="relative h-full bg-black">
-  <Starfield />
-  <div class="relative grid h-full place-items-center sm:grid-cols-2">
-    <h2
-      class="flex flex-col gap-2 self-end sm:gap-4 sm:self-auto sm:justify-self-end"
-    >
-      <div class="flex items-center justify-center">
-        <img src={sigLogo.src} alt="Logo" class="h-24 md:h-32" />
-      </div>
-      <div
-        class="gradient-text text-center font-extrabold tracking-tighter text-8xl"
-      >
-        Purdue ML@Purdue
-      </div>
-    </h2>
-    <div
-      id="sig-logo"
-      class="w-2/3 p-8 max-w-3xl self-start sm:w-10/12 sm:self-auto sm:justify-self-start"
-    >
-      <Picture
-        class="object-cover w-full h-full rounded-full"
-        src={mascot}
-        widths={widths}
-        sizes={sizes}
-        loading="eager"
-        alt="SIG AI Mascot"
-      />
-    </div>
-  </div>
-</section> -->
 <section class="relative h-full bg-black">
   <Starfield />
   <div class="relative grid h-full place-items-center">
@@ -46,11 +12,9 @@ const sizes = "(min-width: 640px) 42vw, 67vw";
       data-class="flex flex-col gap-2 self-end sm:gap-4 sm:self-auto sm:justify-self-end"
     >
       <div class="flex items-center justify-center">
-        <img src={sigLogo.src} alt="Logo" class="h-24 md:h-32" />
+        <img src={sigLogo.src} alt="Logo" class="h-24 md:h-36" />
       </div>
-      <div
-        class="gradient-text text-center font-extrabold tracking-tighter text-8xl"
-      >
+      <div class="gradient-text text-center font-extrabold text-8xl">
         ML@Purdue
       </div>
     </h2>

@@ -3,7 +3,7 @@ export interface Props {
   y?: number;
   x?: number;
 }
-const { x, y } = Astro.props;
+const { x = 0, y = 0 } = Astro.props;
 ---
 
 <div

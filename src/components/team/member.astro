@@ -1,0 +1,39 @@
+---
+export interface Props {
+  title: string;
+  url?: string;
+  image: ImageMetadata;
+}
+const { title, url, image } = Astro.props;
+
+// just debug, remove if causes an issue
+const n = `data-${title}`;
+const sp = { [n]: "" };
+---
+
+<div {...sp}>
+  <div class="flex w-full flex-col">
+    <h2 class="gradient-text font-extrabold tracking-tight text-3xl">
+      <slot name="name" />
+    </h2>
+    <img src={image?.src} alt="Profile" class="h-96 w-96 rounded-md" />
+    <span class="capitalize text-lg">
+      {
+        url ? (
+          <a
+            href={url}
+            target="_blank"
+            class="inline-block capitalize underline decoration-dotted text-lg"
+          >
+            {title}
+          </a>
+        ) : (
+          { title }
+        )
+      }
+    </span>
+  </div>
+  <p class="max-w-xl text-center font-extrabold text-2xl">
+    <slot />
+  </p>
+</div>

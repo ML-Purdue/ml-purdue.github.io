@@ -12,6 +12,44 @@ import Logo from "./logo.astro";
       artificial intelligence</span
     > and working on projects related to all aspects of artificial intelligence.
   </Fragment>
+</ContentSection>
+
+<ContentSection title="Achievements" id="achievements">
+  <div
+    data-achievements
+    class="flex flex-col gap-2 sm:grid sm:max-w-7xl sm:grid-cols-4 sm:flex-row"
+  >
+    <section>
+      <h1 class="font-bold text-xl">TE Connect awards</h1>
+      <ul>
+        <li>2021-22: <b>3rd Place, 1 Patent</b></li>
+        <li>2022-23: <b>Best Innovation Award, 2 Patents</b></li>
+      </ul>
+    </section>
+    <section>
+      <h1 class="font-bold text-xl">Publications</h1>
+      <a
+        href="https://arxiv.org/abs/2211.14385"
+        target="_blank"
+        class="underline decoration-dotted"
+      >
+        Pac-Man Pete: An extensible framework for building AI in VEX Robotics
+      </a>
+      <div>
+        Collaboration Between Purdue SIGBots and ML@Purdue: Developing a Robust
+        AI Coprocessing Framework for VEX Robotics and Achieving Full Autonomy
+        During the 2021-2022 VRC Game, Tipping Point.
+      </div>
+    </section>
+    <section>
+      <h1 class="font-bold text-xl">Lightning & Wildfires Research Group</h1>
+      <div>Led by Professor Yuan Wang, an Official Purdue Research Group</div>
+    </section>
+    <section>
+      <h1 class="font-bold text-xl">Algo-trading Team</h1>
+      <div>Placed 54/498 at CME 2022 - University Trading Challenge</div>
+    </section>
+  </div>
   <div class="grid grid-cols-1 gap-2 sm:grid-cols-2">
     <a
       href="/team"
@@ -27,3 +65,9 @@ import Logo from "./logo.astro";
     </a>
   </div>
 </ContentSection>
+
+<style>
+  div[data-achievements] section :not(h1) {
+    @apply ml-2 sm:ml-0;
+  }
+</style>
