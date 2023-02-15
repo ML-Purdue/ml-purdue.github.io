@@ -1,0 +1,38 @@
+---
+const { site } = Astro;
+const description = "ML@Purdue Website";
+const REDIR_URL = "/about";
+---
+
+<!DOCTYPE html>
+<html lang="en" class="h-full motion-safe:scroll-smooth" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <!-- <meta name="generator" content={generator} /> -->
+
+    <title>ML@Purdue</title>
+    <meta name="description" content={description} />
+
+    <!-- social media -->
+    <meta property="og:title" content="ML@Purdue" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/social.jpg" />
+    <meta property="og:url" content={site} />
+  </head>
+  <body>
+    <div>Loading...</div>
+    <meta name="application-form-url" content={REDIR_URL} />
+    <noscript>
+      <meta http-equiv="refresh" content={`0;url=${REDIR_URL}`} />
+    </noscript>
+    <script is:inline>
+      location.replace(
+        document
+          .querySelector('[name="application-form-url"]')
+          .getAttribute("content")
+      );
+    </script>
+  </body>
+</html>
