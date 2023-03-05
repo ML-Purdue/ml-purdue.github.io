@@ -2,7 +2,6 @@
 import { Icon } from "astro-icon";
 
 import type { NavItem } from "~/types";
-import mlPurdue from "~/assets/sigai-logo-sm.png";
 import Logo from "./logo.astro";
 export interface Props {
   fixed?: boolean;
@@ -71,7 +70,7 @@ const { fixed } = Astro.props;
                     <ul
                       data-hover-link-container
                       class="pointer-events-none  absolute flex w-max min-w-[100px]
-                     flex-col border-2  border-solid border-[white] bg-[var(--color-background)] p-2 opacity-0 transition-opacity text-sm"
+                     flex-col border-2  border-solid border-[white] bg-[var(--color-background)] p-2 text-sm opacity-0 transition-opacity"
                     >
                       {sublinks?.map((x) => (
                         <a href={x.url}>{x.title}</a>
@@ -222,7 +221,7 @@ const { fixed } = Astro.props;
     opacity: 1;
     pointer-events: all;
   }
-  
+
   header.fixed-header[data-fixed="1"] {
     @apply fixed top-0 bottom-auto;
     @apply border-default bg-default text-default;
