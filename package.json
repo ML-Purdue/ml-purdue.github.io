@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "@fontsource/inter": "^4.5.14",
-    "astro-compress": "^1.1.33",
+    "astro-compress": "^2.0.1",
     "micromodal": "^0.4.10",
     "n": "^9.0.1",
     "sharp": "^0.31.2",

@@ -10,3 +10,19 @@ a,
   @apply bg-clip-text text-transparent;
   @apply bg-gradient-to-br from-indigo-500 via-fuchsia-500 to-pink-500;
 }
+
+.sponsor-t4 {
+  color: #9F2FBF;
+}
+
+.sponsor-t3 {
+  color: #BF6FD6;
+}
+
+.sponsor-t2 {
+  color: #E6B0F6;
+}
+
+.sponsor-t1 {
+  color: #EBCDF4;
+}
