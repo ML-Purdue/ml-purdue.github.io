@@ -1,10 +1,12 @@
 ---
 export interface Props {
+  fullname: string;
   title: string;
+  major: string;
+  year: string;
   url?: string;
-  image: ImageMetadata;
 }
-const { title, url, image } = Astro.props;
+const { fullname, title, major, year, url } = Astro.props;
 
 // just debug, remove if causes an issue
 const n = `data-title`;
@@ -14,9 +16,8 @@ const sp = { [n]: title };
 <div {...sp}>
   <div class="flex w-full flex-col">
     <h2 class="gradient-text font-extrabold tracking-tight text-3xl">
-      <slot name="name" />
+      <span>{fullname}</span>
     </h2>
-    <img src={image?.src} alt="Profile" class="h-96 w-96 rounded-md" />
     <span class="capitalize text-lg">
       {
         url ? (
@@ -28,10 +29,15 @@ const sp = { [n]: title };
             {title}
           </a>
         ) : (
-          { title }
+          <span class="inline-block capitalize underline decoration-dotted text-lg">{title}</span>
         )
       }
     </span>
+    <span class="capitalize text-lg">
+      Major: {major}
+    </span>
+    <span class="capitalize text-lg">
+      Grade: {year}
   </div>
   <p class="max-w-xl text-center font-extrabold text-2xl">
     <slot />
