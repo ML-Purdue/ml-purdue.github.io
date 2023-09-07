@@ -6,6 +6,8 @@ import "~/styles/index.css";
 import ContentSection from "~/components/content-section.astro";
 
 import dagshub from "~/assets/sponsor/dagshub.png";
+import janestreet from "~/assets/sponsor/janestreet.png";
+import uniformsierra from "~/assets/sponsor/uniformsierra.png";
 
 
 const { site } = Astro;
@@ -43,12 +45,14 @@ const description = "ML@Purdue Sponsorship";
             <br />
             <h1 class="font-bold text-xl sponsor-t4">Tier 4: ML@P Maestro</h1>
             <img src={dagshub.src} alt="DagsHub" class="max-w-md rounded-md" />
+            <img src={uniformsierra.src} alt="Uniform Sierra" class="max-w-md rounded-md" />
             <br />
             <h1 class="font-bold text-xl sponsor-t3">Tier 3: Neural Network Ninja</h1>
             <br />
             <h1 class="font-bold text-xl sponsor-t2">Tier 2: SVM Sorcerer</h1>
             <br />
             <h1 class="font-bold text-xl sponsor-t1">Tier 1: Perceptron Pro</h1>
+            <img src={janestreet.src} alt="Jane Street" class="max-w-md rounded-md" style="filter:invert(1)" />
             <br />
         </ContentSection>
     </article>
