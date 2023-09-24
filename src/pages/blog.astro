@@ -47,585 +47,8 @@ const description = "ML@Purdue AIGuide Blog";
         </ContentSection>
         <Spacer y={48} />   
         <ContentSection id="aiguide-interviews-header" title="Interviews">
-            <h1 class="font-bold text-3xl">AI Interpretibility with Jinen Setpal</h1>
-            <h1 class="font-bold text-xl">September 6, 2023</h1>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/4hAJ_BZHTjo?si=ICtCiHmicfKj5KKG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            <h1 class="font-bold text-xl">Transcript</h1>
-            <div class="max-h-80 overflow-y-scroll w-[50vw] text-xs" style="color-scheme: dark;">
-                <p>Jinen is a junior undergrad data science major and ML@Purdue officer. &nbsp;He has
-                    deep experience in ML in both the research and industry side. Today, he will talk about AI interpretability,
-                    which is exactly how it sounds. Building AI that is interpretable to us humans.</p>
-                <p>&nbsp;</p>
-
-                <p>This is a new series, where I, Brian, will interview cool AI professors/students and
-                        talk about their research interests and how students interested in AI can get involved in research. 
-                </p><p>&nbsp;</p>
-                <p>Advice for beginners summary:</p>
-                <ul class="list-disc list-inside">
-                    <li>Check out D2l.ai Dive into Deep Learning</li>
-                    <li>Read books about ML like Python Machine Learning by Sebastian
-                            Raschka</li>
-                    <li>Contact professors</li>
-                    <li>Jinen mentioned arXiv. It is an open access repository of pre
-                            prints (not peer reviewed yet). Lots of ML papers on it and you might have seen links to these on github
-                            if you searched up for a certain algorithm</li>
-                    <li><span>Be interested!!!!!!!!!!</li>
-                </ul>
-                <p>&nbsp;</p>
-                <p>&nbsp;</p>
-
-                <p class="font-bold">Brian:</p>
-                <p><span>Hi. My name&nbsp;is Brian and I&#39;m a freshman and my role is to
-                        interview cool AI students like Jinen here and also, in the future, AI professors.</p><p>&nbsp;</p>
-                <p class="font-bold">Jinen:</p>
-                <p>My name is Jinen and I&#39;m a data science student and I love research.</p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Brian:</p>
-                <p>So, Jinen, I looked at your website and I saw that your research focus is on
-                        interpretability</p>
-                <p>Can you explain what it is in the context of computer vision and natural language
-                        processing?</p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Jinen:</p>
-                <p>Interpretability more generally is the degree to which we can understand why the
-                        model makes the decisions that it says it does. So for instance, in deep learning, this is a problem because
-                        most models are just, you know, hugely parameterized and you give it an input and get an output at the end
-                        and everything that happens in the middle is very difficult for us to understand. And one way of getting
-                        around that is using interpretability techniques to get a grasp on what the model is doing and certain
-                        certain models are more interpretable than others and models that are interpretable by default, so you can
-                        just read their weights and tell what&#39;s happening, are called intrinsically interpretable models and
-                        those that need a lot of manipulation and are done generally after the entire evaluation process is called
-                        ad hoc or post hoc interpretability..</p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Brian:</p>
-                <p>So wow it is raining outside</p>
-                <p>So, let&#39;s say I use chat GPT or something, &nbsp;I mean, when I get the answer,
-                        it looks pretty much right. So how come interpretable models are important? </p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Jinen:</p>
-                <p>Yeah so well, interpretability is important mostly because models like chat GPT
-                        generally are very, very over parameterized, &nbsp;And consequence of that is that they work very easily.
-                        And if you give it an input that is within their training data set, it is very, very likely that they will
-                        get it correct. And the training data set generally is a huge, huge corpus. And that is why it&#39;s very
-                        easy for us as human evaluators to miss certain sorts of mistakes that it tends to make. And one kind of
-                        important thing, especially in domains that have a very much, you know, the models are very, very important
-                        is we need to have a sort of a degree of understanding as to why the model makes a decision. So for chat
-                        GPT, it is mostly a low stakes environment, &nbsp;So even if we do not have interpretability, it&#39;s okay.
-                        That&#39;s fine. We don&#39;t need to know so much. But if we are taking a decision on whether to maybe
-                        evacuate a city based on some statistical models of a tornado or any other natural disaster, it is a very,
-                        very, very high stakes decision and it can impact a lot of people. So it is very important to know why the
-                        model thinks that the city should be evacuated or not be evacuated because guessing incorrectly either way
-                        is going to cost a lot in life and money, &nbsp;</p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Brian:</p>
-                <p>So if a model is interpretable, that means that we as humans, if we see that
-                        there&#39;s a certain bias that we know is incorrect, we can try to step in and fix that.</p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Jinen:</p>
-                <p>Yeah, there is one piece of work that I actually saw did just that. So what was it
-                        exactly? There was this paper called Inventive Risk Minimization and the general idea behind that paper was
-                        that you have a lot of cases where there are spurious correlations and it&#39;s extremely easy to identify
-                        those correlations for a machine learning model. It&#39;s very easy to identify those correlations and fit
-                        to those correlations and not the actual target that we are trying to generalize to. And as a result of
-                        that, it gets a very high accuracy, but it&#39;s not perfect. So you will get like 80% accuracy with a very,
-                        very small parameter set, a lot of regularization functions actually promote using lesser parameters or
-                        promote fewer parameters. So this is in fact a problem because spurious correlations are promoted in the
-                        quest for generalization, &nbsp;And as a result of that, a lot of corners are cut and it tends to identify
-                        something that is completely different from the actual target. So a more practical example of that, the
-                        Inventive Risk Minimization paper gave an example of cows and camels, &nbsp;You will see cows in grasslands
-                        90% of the time and camels in deserts 90% of the time. So if we were to train a CNN on this sample of cows
-                        on grasslands and cows in grasslands and camels in deserts, right there is a very high likelihood that it
-                        will just identify the fact that grasslands are green and deserts are yellow and just on the basis of the
-                        color of the image decide if it&#39;s a cow or a camel. So if you put a cow in a desert and a camel in a
-                        grassland, it would predict it incorrectly every single time. So even though the general sort of
-                        distribution of cows is more in grasslands and camels is more in deserts, we don&#39;t want it to identify
-                        the color of the image because that&#39;s not actually learning anything about it. So they had a theoretical
-                        approach towards fixing that or creating an invariant representation for a single object. So a cow should
-                        have the same intermediate representation regardless of whether it&#39;s in a grassland or it is in a
-                        desert. And it basically had a, they created a regularizer to do that. So that was definitely much too
-                        complicated for me. So what I did was, in addition to that approach, I used interpretively to do the same
-                        problem where I used class activation mappings to basically find a heat map of the region that was used to
-                        identify the image. </p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Brian:</p>
-                <p>So can you explain what a class map activation is? </p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Jinen:</p>
-                <p>Oh yeah, of course, of course. So generally your CNN or convolutional neural network
-                        works by creating patches of the image and then finding a rate map or a filter or a set of filters for the
-                        one set of patches and that&#39;s one day. And you basically propagate through that</p>
-                <p>Now, it is very hard for us to identify based on the output of the dot product
-                        between the actual patch and the filter and to identify what&#39;s happening. So I used the patch filter and
-                        the bias to identify what&#39;s happening because that is the intermediary representation.</p>
-                <p>So a couple of researchers at MIT were able to find a way to get the actual heat map
-                        of the detections that the CNN or the weight map that the CNN was using in order to base its
-                        classifications. So for example, if I was identifying, if I was creating a human classifier and I put the,
-                        like, I ran the image on myself, I would expect that this entire region, which is my body, should have a
-                        high weight edge because it&#39;s trying to identify if the target is a person or a dog, let&#39;s say. So
-                        it should not identify the background. If the background has a high weight edge it means it&#39;s not using
-                        my features to make the classification. It&#39;s using the background to make the classification. So that
-                        was the general idea where I created an intermediary layer that intrinsically created or generated this
-                        class activation mapping.</p>
-                <p>From there, I created a loss function or a regularizer that would specifically ensure
-                        that the focus of the image was the actual target and not the background. And once it was able to do that, I
-                        was able to generalize it and get emergent learning, where the outer distribution error of the model was
-                        reduced very significantly because we are not overfitting to the data thanks to the over parameterized
-                        model. </p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Brian:</p>
-                <p>My next question is, before when you talked about interpretability, you said we have
-                        to make this model interpretable, &nbsp;So is there a scale of how interpretable a model is? Like a numeric
-                        score? Or is it just like, it is interpretable or it&#39;s not interpretable or it&#39;s like medium
-                        interpretable? </p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Jinen:</p>
-                <p>Well, I don&#39;t think there is an objective scale that is defined for
-                        interpretability. However, there are definitely more interpretable models than others. So I guess you could,
-                        if you really had to, you know, rank certain models on a scale of how interpretable they are versus how it,
-                        how uninterpretable they are. If you look at something like a decision tree, that is generally one of the
-                        most interpretable models because the reasons why it specifies the split is generally obvious. But the more
-                        you sort of go through the depth of the model, the harder it is to realize why the decision tree made the
-                        decision it does, even though we can sort of identify exactly what the splits are, we don&#39;t know why the
-                        splits exist. We just know that they exist, &nbsp;That&#39;s one example. Logistic regression is, or
-                        logistical classifiers are mostly straightforward. Linear regressions are also very straightforward, more or
-                        less the same thing. They have a series of weights and each class or each feature has a certain weight
-                        associated with them. So we know that this feature has a very, very high weightage, which means it&#39;s
-                        more important than the others. So this kind of lagging, but deep learning models, you cannot really
-                        understand it. So it&#39;s not super interpretable</p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Brian:</p>
-                <p>It seems like it&#39;s really challenging to, you know, build these interpretable
-                        models.</p>
-                <p>So if you&#39;re designing an interpretable model, are you designing an entirely new
-                        architecture or something? Or are you just sort of making slight modifications to an existing algorithm or
-                        can you do like both? </p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Jinen:</p>
-                <p>Both are generally kind of the way to go. So generally, if you were to sort of set up
-                        intrinsic interpretability, if it is possible to do it just by sort of algorithm, that is generally not
-                        required to change the architecture, &nbsp;So if you&#39;re using a post-hoc technique or something that is
-                        more intrinsic, then that&#39;s fine. And you don&#39;t have to update the architecture at all. But if you
-                        wanted to promote the development of a certain behavior set, right, and you want the behavior set to be
-                        specifically interpretable, maybe it is required to update the architecture a little bit. When I say update
-                        the architecture, most of the time I generally mean just adding more layers or removing some layers or
-                        creating a certain set of layers. And maybe once specifically for some invariant representation, for
-                        example, but besides that, it generally stays the same. So the modifications are not major. It is mostly
-                        editing the actual architecture itself.</p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Brian:</p>
-                <p>So currently, I hear transformers everywhere, you know, like transformers in chat
-                        GPT, transformers for computer vision, and etc. So, these transformers use attention. That mechanism allows
-                        them to focus on different parts of their input. So for example, like different parts of a word or different
-                        parts of an image. And does that make the model interpretable since now we know exactly what parts of the
-                        input it focuses or attends to?</p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Jinen:</p>
-                <p>So, well, this is actually an awesome question. So one of the sort of things that we
-                        look at is or actually I&#39;ll go back to the analogy of the logistic regression versus the deep neural
-                        network thing that I was talking about. So, we said that a logistic regression by itself is quite
-                        interpretable because you have a series of bits and each feature has a bit associated to it</p>
-                <p>So if you want to know why you are making certain decisions, you go to the largest
-                        weight and just go down from there basically, and you will be able to identify what features are making what
-                        degree of impact. Now, it&#39;s interpretable to that extent. So if you want to make a deep neural network,
-                        it is foundationally just a series of logistic regressors that interact with one another in order to
-                        generate a more complicated hybrid being right and that&#39;s sort of the entire thing behind it that makes
-                        it not interpretable. Attention works or like transformers with attention working the same in a similar way
-                        where you have a lot of attention blocks that are stacked sequentially and sometimes even in parallel. And
-                        what this means is that sometimes attention layers communicate information about the actual input that is
-                        not related to things like the that is not immediately related to feature importance for the word
-                        specifically. So for instance, there were a lot of situations where commas and separator tokens in general
-                        had very, very high rates. And the reason for that was not because the separator or the generally irrelevant
-                        token was important for this specific example, it was just trying to communicate something that was present
-                        for the before like for the to the closer closer to the input of the model to something that is in like a
-                        further later layer right and so I think attention with the attention mechanism at a single level, of
-                        course, is very interpretable and I think it builds off intuition right? So we intuitively approach the or
-                        build attention by saying we have the series of words and as a human reader, this is the way I would read it
-                        so let me encode that you mathematically right that&#39;s kind of the approach that CNN&#39;s also used,
-                        where we broke the image up into the neighborhood of important pixels, and then evaluated neighborhood by
-                        neighborhood and we found that that was a better approach to learning than just giving it like feeding it
-                        through an MLP because of the less number of parameters as well. So intuitive biases are super super
-                        important, and they also boost interpretability which is awesome.</p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Brian:</p>
-                <p>So I wanted to move towards questions for beginners in machine learning, people who
-                        are interested in it, because I know that there&#39;s a lot of beginners in the discord. So my question is,
-                        how did you get into AI research at Purdue, like were you interested in it like in high school, or did you
-                        really dig into it here?</p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Jinen:</p>
-                <p>I was very interested in research in general and high school by my interests were at
-                        the time, the intersection of cybersecurity and machine learning. So I was really interested in binary
-                        exploitation and to a certain extent cryptography and machine learning, had always been an interest and
-                        those were those included like CV and MLP domains, but I also really wanted to do something at the
-                        intersection of cybersecurity and machine learning simply because I was interested in that. So I reached out
-                        to professors in the summer before I came to Purdue</p>
-                <p>I met with a professor and Antonio Bianchi, who redirected me to Professor Christina
-                        Garmin, and I worked under the boilers applied cryptography lab for some time after that doing some research
-                        at the intersection of the two which was fun.</p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Brian:</p>
-                <p>Did you take any classes related to AI or like cryphotography?</p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Jinen:</p>
-                <p>Oh, I read a book called Python machine learning by Sebastian last time. That was my
-                        first introduction to machine learning. It was a fantastic book. Honestly, at this point I might not really
-                        recommend anyone to use TensorFlow. But it&#39;s good. So in any case, before I deviate way too much,
-                        reading books is like a super, super awesome way to get familiarized with concepts, because of the shared
-                        amount of knowledge that they&#39;re able to sort of put in that small amount of space. I really like D2L.ai
-                        dive into deep learning. So that&#39;s a fantastic resource. You can just put D2L ai in your browser and it
-                        will give you answer basically every question you have about the most updated things in machine learning,
-                        which is crazy.</p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Brian:</p>
-                <p>Okay, and my final question</p>
-                <p>There&#39;s like some background people right now</p>
-                <p>You know what, I&#39;m just going to move</p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Jinen:</p>
-                <p>Okay, no problem</p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Brian:</p>
-                <p>Okay, my final question and I&#39;m planning to to ask this to all future people I
-                        interview</p>
-                <p>So it&#39;s like a really general question and kind of a basic one. But what do you
-                        think the future of AI will look like? So, you know, it doesn&#39;t have to relate to interpretability or
-                        your current research interests, just like in general.</p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Jinen:</p>
-                <p>Funny, I think that the question is a little bit more more political and then it is
-                        political</p>
-                <p>I mean, not like the politics, politics, political, I mean more is it privately such
-                        lab and industry versus you know stuff in academia style. There is a lot of very, very useful discourse that
-                        genuinely I do not know enough to properly comment about, but the general idea is a lot of papers are being
-                        published to Arxiv instead of like the instead of using Arxiv as a preprint server is just the final
-                        destination of the of the actual paper and we can leave it at that</p>
-                <p>One example of the interpretable interpretable invariant risk minimization paper that
-                        I was talking about that is paper that is just completely that paper is on Arxiv and that&#39;s right it is
-                        not I don&#39;t think at least it is. And that&#39;s a problem because research methodology is is needs to
-                        be verified for errors and it generally is it helps a lot. It helps the process right because if you get
-                        trust the research methodology, it gives a lot of credibility to the process and we don&#39;t want
-                        credibility coming from the name of the organization we wanted coming from the actual power of the research.
-                        And that is a peer review for machine learning generally has been declining to a certain extent, where in a
-                        lot of papers that are published today are very noisy and that is not to diminish the fact that we still
-                        have so many so many amazing papers and but the majority of them are passed through peer review and are
-                        published to major major majors. So it&#39;s important to set up and recognize this dichotomy. I don&#39;t
-                        know what is going to happen with respect to it. If I had to take a wild guess, I would say not much
-                        changes</p>
-                <p>Industry will continue to have a lot more compute and they will continue to push
-                        things to Arxiv and call it a day. If they publish it at all the GPT for paper, if you can call it a paper,
-                        they just put it on their website and left it at that. So as long as they don&#39;t call it research
-                        that&#39;s not a problem with me. It&#39;s just a report. But they still do not provide that value back to
-                        the world because there are reasons and everything that they do is completely commercialized right so that
-                        kind of sucks. I will hope it became free and open source for everyone to use and research got democratized.
-                        I&#39;m not very optimistic unfortunately</p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Brian:</p>
-                <p>I asked all my questions and I mean you were a really good person to interview. So
-                        thank you, Jinen.</p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Jinen:</p>
-                <p>Thank you so much. So yeah, I had a good time</p>
-                <p>&nbsp;</p>
-                <p>&nbsp;</p>
-            </div>
 
 
-
-
-            <Spacer y={24} />
-            <h1 class="font-bold text-3xl">AI with Dr. Eugenio Culurciello</h1>
-            <h1 class="font-bold text-xl">September 16, 2023</h1>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/SfTanE-fvIg?si=nHC6dsIpJ-1E8Y6p" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>            <h1 class="font-bold text-xl">Transcript</h1>
-            <div class="max-h-80 overflow-y-scroll w-[50vw] text-xs" style="color-scheme: dark;">
-                <p>Dr. Eugenio Culurciello is a professor at Purdue in the Biomedical Engineering (BME)
-                        department. He is also the professor advisor for the ML@Purdue club! He is interested in chips,
-                        neuroscience, and neural networks. </p>
-                <p>&nbsp;</p>
-                <p>Other information:</p>
-                <ul class="list-disc list-inside">
-                    <li>Github site: <a class="c8"
-                                href="http://e-lab.github.io/">http://e-lab.github.io/</a>
-                    </li>
-                    <li>Medium blogs: <a class="c8"
-                                href="https://culurciello.medium.com/">https://culurciello.medium.com/</a>
-                    </li>
-                </ul>
-                <p>&nbsp;</p>
-                <p class="font-bold">Brian:</p><p> My name is Brian and I am interviewing Eugenio
-                        Culurciello.</p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Eugenio:</p><p> Nice to meet you, Brian.</p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Brian:</p><p>&nbsp;Thank you for this interview. Can you explain your background? </p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Eugenio:</p><p> So I was actually trained on analog and mix signal
-                        chip, micro chip design. I worked in a neuromorphic engineering area at the beginning. So the idea was to
-                        figure out how to replicate human abilities in silicon or in artificial technologies. And then later I
-                        started working on machine learning and neural networks when I met Yann LeCune. I was at Yale university and
-                        he was at NYU. And then we met and we started working together. First, we started developing some micro chip
-                        accelerators for deep learning. That was like about 15 years ago. Yeah, it&#39;s and yeah, this area was not
-                        really popular. And then, when I joined Purdue in 2011, I continued and my group developed about five
-                        generations of machine learning hardware, but we were also developing neural networks models and like my
-                        group has been also instrumental in like the beginning of by Torch, which was the precursor of PyTorch.
-                    </p>
-                <p>So yeah, we work on all these areas. And right now, I&#39;m a professor at Purdue and
-                        I work on machine learning and AI, and I try to work on multimodal large model at the moment</p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Brian:</p><p> I also saw that you taught some deep learning courses
-                        here</p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Eugenio:</p><p> Absolutely. Yeah, actually, ours was the very first
-                        deep learning course at Purdue we started 2011, 12. And, it was the early days. And yes, we&#39;ve been
-                        teaching deep learning ever, ever since at least once a year.</p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Brian:</p><p> Yeah, I was actually interested in how come the deep
-                        learning courses were taught under BME instead of CS?</p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Eugenio:</p><p> I was, yeah, I was I think under BME because a lot
-                        of our work was like taking inspiration from biology, neuroscience and psychology. And, but the final goal
-                        was like replicating the human brain in our own software. And when I when I joined here, there was a few
-                        people teaching neural networks basic fundamentals, but we were really the first class to teach the most
-                        more modern deep learning, including convolutional neural network and so forth. </p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Brian:</p><p> Okay, so I wanted to ask you about this, this paper I
-                        saw last year. It was called DishBrain and it&#39;s where researchers grew brain cells, and then they teach
-                        it to play the video game Pong. Because you have a lot of experience in hardware, I was wondering whether
-                        this is a plausible idea in the future, where you use real brain chips, and then these chips are
-                        specifically trained for certain tasks.</p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Eugenio:</p><p> I think it would be a good idea also because you
-                        know like currently all the machine learning, models that we built is highly inefficient compared to the
-                        brain, like on the order of 1000 to 10,000 times less efficient. And so like if you could interface to
-                        living and breathing live neural networks that would be awesome. One of the issues there is that we
-                        currently don&#39;t have the capability to really interface that a very large number of cells or high
-                        throughput. So the input and output is a bit limited. But that said, yeah, I think it could be very, very
-                        promising area if we can figure out a way to to grow the right number of electrode to interface with the
-                        tissue.</p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Brian:</p><p> Okay, so it might be hard to like add a like image
-                        sensor or something like directly to this brain shape, I guess</p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Eugenio:</p><p> Yeah, I think that the problem is the number of, you
-                        know, in the brain, like maybe in a millimeter cube you have hundreds of thousands of cells right? But in
-                        terms of like a physical connection we couldn&#39;t have that many, right? There&#39;s probably a million of
-                        connection in there, but we can have the right, you know, the very large number of connection also, or all
-                        the connection that we have with from computers to biology like using some kind of electrical wires and they
-                        usually living cells don&#39;t usually like that that they reject that and that&#39;s also a problem for
-                        wearable technology that are invasive and it&#39;s it&#39;s always been a bit of a problem. I don&#39;t
-                        really know how to solve it at the moment, but yeah, there&#39;s many colleagues here who work in that area
-                        also.</p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Brian:</p><p> Okay. My next question. So, what do you think about
-                        the embodied Turing test, where instead of judging an AI based on how we can mimic human intelligence, you
-                        judge it based on how good it is at doing certain animal related tasks. For example, an artificial beaver
-                        building a realistic dam. And do you think this approach is more promising than current methods focus on
-                        focusing on like, you know, like linguistic simulation</p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Eugenio:</p><p> Yeah, I honestly, you know, yeah, honestly, I agree
-                        with that like I really think that you know, we don&#39;t have a definition of necessarily what is this sort
-                        of an entity or what is another entity, you know, what is constitutes a cat and what is different from a dog
-                        or what really constitutes a human being, because there&#39;s so many levels there and we don&#39;t really
-                        have a formula for it. So I think that the best way for us to say whether artificial system is close to a
-                        real one is just, it&#39;s really what it can do. If you can do the same thing then functionally they might
-                        be equivalent. But you know, that also, you can&rsquo;t possibly test all possible things that one entity
-                        can do, because there are infinite possible combinations so you&#39;ll have to somehow there has to be some
-                        some kind of a test and I don&#39;t know what that is even, even recently with it is a large language model,
-                        you know, people are just started scratching the surface and they call possible there are no possible tests
-                        on these on these systems and try to figure out what capability they really have and they don&#39;t really
-                        have. And it&#39;s very unclear what what the results are what what you can do what you cannot do and at the
-                        end of the day you have to, it&#39;s a bit of a trial and error.</p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Brian:</p><p>&nbsp;Okay, like you just like that&#39;s like you just
-                        like keep coming up with some random tasks and you just see if it does well?</p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Eugenio:</p><p> Yes, I mean, more than random tasks I guess. You
-                        know, it&#39;s always like this. You want artificial system is always to do something. So, I guess the idea
-                        is, you try to make it do what you want and try to make sure that it can can do more or less the thing, the
-                        same thing that a human can so for example, you know autonomous driving right? Even there you have an
-                        infinite number of scenario that that you could face the bite while driving a car right whether you&#39;re
-                        human or artificial. And so you can&#39;t possibly test all of them. You also can&#39;t possibly train on
-                        all of them. So you have to, yeah, you have to test on a lot of conditions and see what the problems are and
-                        design the system in a way that is fairly generic and he has a bit of common sense like us. Other than that,
-                        I&#39;m not sure if, if one could identify a test I will say okay yes this car is good enough to drive or
-                        not. I think we will never have such a test because it&#39;s there&#39;s always possible different
-                        conditions right? For example, years ago I was like driving on the road and all of a sudden I there was a
-                        ladder like blocking my entire lane.</p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Brian:</p><p>&nbsp;A ladder?</p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Eugenio:</p><p> A ladder, yeah like a ladder that you walk on. And
-                        it was like pretty tall and I mean first of all you would have to recognize it and then you have to figure
-                        out what to do and my all the lanes nearby were like completely filled with cars and so I had to decide okay
-                        should I just break or should I go over it and if I go over it my prediction was okay all my tires are gonna
-                        pop. So you see my point my point is I run over it and nothing happened and the point is sometimes
-                        there&#39;s so many different possible cases. One time I was in Baltimore driving on the highway and some
-                        some some guy jumped off from the other lane and run through. I mean it was just all sorts of crazy things
-                        can happen on the road. I mean you could find a crater at some point a bridge that is interruppted you know
-                        it&#39;s all sorts of things so. So I don&#39;t think you test all these cases, right? So I&#39;m not sure
-                        that there is for for for leaving things that have infinite possible action if you infinite possible
-                        scenarios in the environment I don&#39;t think there will ever be a test that can test that all their
-                        capabilities honestly just by the sheer number of possibilities. You know it&#39;s the same for you right so
-                        when you go and take a driving test, what do they test? They test okay a little bit of your abilities. But
-                        it&#39;s just like a tiny subset you know 0.1 percent of what you&#39;ll ever encounter even normally. Yeah
-                        so and then they say yeah you&#39;re ready to drive. So I guess artificial system we usually hold them to a
-                        higher standards you know, where you&#39;re right. Which is you know good and bad but that&#39;s because we
-                        you know we kind of have an idea statistically what a human can do. You know, on the road and where you give
-                        him a driving license but we don&#39;t have a statistical idea what a machine can do so. The point is you
-                        have to test a lot and at some point you&#39;ll have the same kind of statistics and you&#39;ll be okay with
-                        that maybe.</p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Brian:</p><p>&nbsp;So I saw that you had a medium blog and you have
-                        lots of blog articles. So I read through some of them, and in one of your articles, you mentioned that
-                        transformers are really close to universal neural networks and can handle lots of different types of data
-                        such as vision, text, speech and so on. So do you think this is close to the final neural network
-                        architecture</p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Eugenio:</p><p> Yeah I think so honestly like at the beginning at
-                        the beginning of your like let&#39;s say like 10, 15 years ago people were pretty happy by crafting neural
-                        networks and running it on some data and training it. But it was really hard to scale up and continue to
-                        learn different modalities and I think we spend way too much time focusing on creating data sets and
-                        creating custom neural networks for a specific data set. But at the same time people are looking for a swiss
-                        army knife of neural networks. And one such network could be the transformer architecture, which really
-                        surprised us you know honestly just in the last couple of years the capabilities that you know, all the data
-                        you can do and learn when scaled up even with these very simple learning techniques like predictive learning
-                        right? So I would say yeah that&#39;s like a really good. We&#39;re scratching the surface of it on what you
-                        know what the real artificial brain could be. I think we have to embody it and give it more senses and train
-                        multimodal and then try to figure out what can you learn, right? And we also need to figure out this
-                        continual learning capabilities now how much you can continue to learn and learn online. But I think
-                        it&#39;s, I would say now it&#39;s more exciting that five years ago. Five years ago it looked like we were
-                        doing the same things over and over and now it&#39;s, it looks like we have foundational models that can do
-                        much much more and so it&#39;s exciting. I hope, you know, I think by trial and error we will keep looking
-                        and try to find something that can model our brain. And that said we&#39;re still like 1000s of time away
-                        from terms of efficiency. The capabilities are getting better but also, you know, hasn&#39;t been really
-                        used in robotics as much and it hasn&#39;t really improved in the physical world. So I think there&#39;s
-                        still a lot of work to do. It&#39;s a never ending story. But it&#39;s exciting.</p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Brian:</p><p> Okay, so in another medium article that you wrote, you
-                        mentioned spiking neural networks, and those try to actually simulate the spiking in real neurons right and
-                        that seems like a step towards combining more neuroscience to AI. But at the same time, I know that those
-                        networks, they still rely on back propagation, which is not very neuroscience realistic. So in the future,
-                        do you expect that AI will continue to look almost one to one, like a real human brain to an AI, or do you
-                        think there will still be a combination of like engineering where you just just see whatever works?
-                </p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Eugenio:</p><p> Yeah, I think there&#39;s going to be a, you know,
-                        quite a few heuristics but you know the bottom line is that artificial system based on silicon are very
-                        different from biological neural network right? So biological neural network, which are great I mean they
-                        allow us to do all these things. But they have a fundamental problem which is that electricity doesn&#39;t
-                        conduct very well within our body right in a physiological solution. And so they only have, they can only
-                        transmit the pulses and over short channels I mean some channels are pretty long like from our brain all the
-                        way to the spinal cord is like a meter long right? But in general they use this spiking because the problem
-                        is you need to constantly reconstruct the signal that would dissipate otherwise. But in silicon we can make
-                        really good wires right, but in biology, you can have lots of wires in a very, very small area. In silicon
-                        we can&#39;t. We can only make like a few layers of wires and the density is very low. So things are
-                        different. But I think, and also there&#39;s much to learn because in, like in artificial neural network,
-                        &nbsp;you can do back propagation over many layers, you know, because you can look at the very small
-                        differences across many layers right in biology you know the noise is so high and you can only go from layer
-                        to layer. So, I think, you know, in artificial neural networks we still have to learn how to scale up the
-                        layer by layer learning. I don&#39;t know that might be more efficient. I&#39;m not sure. Maybe that&#39;s
-                        one of the ingredients of efficiency in the brain or maybe it&#39;s not. Maybe it turns out that artificial
-                        networks with back propagation are much more efficient or because you propagate the signal very, very, very
-                        easily and you can train them faster. I don&#39;t know if we know the answer to those questions. So
-                        we&#39;ll have to, we&#39;ll have to look at it and learn more and try things. I guess it is also we&#39;re
-                        stuck. Yeah, also like biology stuck with the the own substrate chemical biochemical substrate and we&#39;re
-                        stuck with the silicon chips right? Maybe there&#39;s another medium that would create better brains -
-                        artificial brains. But yeah, that&#39;s what we have right now. And so yeah, it&#39;s not, we can&rsquo;t
-                        answer those questions I guess right now, you know, people will still try to investigate these
-                        issues.</p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Brian:</p><p> So this interview is more oriented
-                        towards beginners, like in the club. I wanted to ask you, do you have any advice for students interested in
-                        AI?</p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Eugenio:</p><p> Absolutely. Yeah. Well, I think it&#39;s, you know,
-                        honestly, it&#39;s a really great time today because of the internet and all the code and example and things
-                        that we can share. I think really what what a person needs is mostly drive. Like at any level, like if you
-                        think if you want to learn there&#39;s so much material but you, you shouldn&#39;t be discouraged and you
-                        have to figure out a way to learn step by step maybe by there&#39;s so many courses and so many levels in
-                        machine learning that I think you can, you know, anyone can can pick it up. And one of the issues of course
-                        also is need to learn programming a little bit. I would say you know, you start with the Python class or
-                        something like that and then you move on to some simple, simple class or simple tutorials on machine
-                        learning and then I think the next step is to jump into some nice project that you like. You see that this
-                        is a ML@Purdue group is really awesome because it allows you to form a group and learn from each other and
-                        do things together which keep you excited and motivated. So I think yeah, like if you&#39;re someone that
-                        already joined such a group or similar group anywhere and you have a passion you can learn really easily and
-                        you, honestly, you don&#39;t even, you don&#39;t need a university. You don&#39;t need a teacher you
-                        don&#39;t need a professor. A lot of the stuff you can go on your own which is nice and also scary and you
-                        just, you need a lot of passion, I think that&#39;s all. That&#39;s true for everything almost you know, but
-                        there&#39;s some things that it&#39;s hard to learn like I can&#39;t learn about nuclear power plant unless
-                        I work in one right? But machine learning, oh, gosh, just need a laptop. So it&#39;s so much easier
-                </p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Brian:</p><p> Yeah, I mean, just watching Youtube videos, I
-                        guess</p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Eugenio:</p><p>&nbsp;Oh my god&nbsp;there&#39;s so much
-                        knowledge in there, right that you can learn from really awesome people and I do it too, you know, I often
-                        like listen to lectures and ideas online and people I never met and it&#39;s really awesome. Yeah, I mean
-                        it&#39;s just all you need is like some area that you&#39;re interested in and just to try to go deep deep
-                        solve all the problems more problems. There&#39;s always a problem to solve. And if you don&#39;t know you
-                        ask a group like even on GitHub there&#39;s there&#39;s amazing projects and you can join them and say what
-                        are the problems you&#39;re trying to solve and help them out. That&#39;s an awesome way to learn. And you
-                        can do that on your own on your laptop anywhere where you are so it&#39;s really great.</p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Brian:</p><p></p>
-                <p>Yeah, I mean, on GitHub nowadays like everything that&#39;s trending is just some AI
-                        model or something</p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Eugenio:</p><p>&nbsp;Yes</p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Brian:</p><p></p>
-                <p>Okay, my last question. So I know this, you might be a little biased, but do you
-                        think AI is just hype, like blockchain or like NFTs?</p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Eugenio:</p><p>&nbsp;Yes. Well, AI is hype because I
-                        mean even you and I talk about AI now. I don&#39;t even like the term match because everything that
-                        we&#39;re doing so far is mostly machine learning. You know? It&#39;s like some basic learning algorithm.
-                        Maybe we&#39;re getting more into it now because we have this large foundational model, but I would say AI
-                        really starts when you have like a robot and you&#39;re trying to do something in the real world and
-                        constrained. And yeah, so I think we still need to do it. I think we don&#39;t know. I mean, definitely it
-                        would play a role but AI in the sense of machine learning neural net or deep learnings. But I think we need
-                        to do more work in robotics, you know, and because we&#39;re still behind so like even with all this
-                        algorithm, we don&#39;t have good algorithm to be able to grasp any kind of object or navigating an
-                        environment and there&#39;s still, we still don&#39;t know how to learn all these things. We still don&#39;t
-                        know how to learn multimodal integration in a robot that you have different sensors it keep learning and
-                        keep training and so I think that&#39;s an area that probably needs to evolve. But yes, if you know, if AI
-                        or what you want to call it now, it&#39;s going to empower this robot and I think it&#39;ll change the world
-                        for sure because we&#39;ll have like artificial entities that are, you know, as good or able as us or
-                        better. They could do lots of other things right there we cannot do. For example, we could send them to
-                        explore the universe because they live forever. They can live forever or they can replicate somewhere else.
-                        And maybe we won&#39;t even be able to know what they find out because our life is much so much shorter
-                        right and so much constrained by where we live in this planet and where we can reach in the short time we
-                        live</p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Brian:</p><p> I was, when you were talking about robotics and AI, I
-                        was like thinking about those food robots around campus. We&rsquo;re going to see like 10 times more of that
-                        or something like we&#39;re just going to see some robots delivering like like I don&#39;t know refrigerator
-                        or something.</p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Eugenio:</p><p>&nbsp;No, that&#39;s right. Yeah, I mean those things
-                        cannot, you know, walk up the stairs or open the door and give things to you. But soon we will be able to do
-                        that. So that&#39;s great</p>
-                <p>And I just hope that we&#39;ll be able to program them and make sure that they only
-                        work for a good cause.</p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Brian:</p><p> Thank you so much for the time</p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Eugenio:</p><p> Okay, so it&#39;s been a pleasure to talk to
-                        you</p>
-                <p>Yes, and you need anything</p>
-                <p>Contact me again</p>
-                <p>Okay, yeah</p>
-                <p>&nbsp;</p>
-            </div>
-
-
-
-
-
-
-
-            <Spacer y={24} />
             <h1 class="font-bold text-3xl">Computer Vision with Aref Malek</h1>
             <h1 class="font-bold text-xl">September 17, 2023</h1>
             <iframe width="560" height="315" src="https://www.youtube.com/embed/nsGnkQPV9AA?si=6GA_2z74a_XnczBr" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -1109,6 +532,597 @@ const description = "ML@Purdue AIGuide Blog";
                 <p>&nbsp;</p>
                 <p>&nbsp;</p>
             </div>
+
+
+
+
+
+
+            
+
+
+
+
+            <Spacer y={24} />
+            <h1 class="font-bold text-3xl">AI with Dr. Eugenio Culurciello</h1>
+            <h1 class="font-bold text-xl">September 16, 2023</h1>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/SfTanE-fvIg?si=nHC6dsIpJ-1E8Y6p" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>            <h1 class="font-bold text-xl">Transcript</h1>
+            <div class="max-h-80 overflow-y-scroll w-[50vw] text-xs" style="color-scheme: dark;">
+                <p>Dr. Eugenio Culurciello is a professor at Purdue in the Biomedical Engineering (BME)
+                        department. He is also the professor advisor for the ML@Purdue club! He is interested in chips,
+                        neuroscience, and neural networks. </p>
+                <p>&nbsp;</p>
+                <p>Other information:</p>
+                <ul class="list-disc list-inside">
+                    <li>Github site: <a class="c8"
+                                href="http://e-lab.github.io/">http://e-lab.github.io/</a>
+                    </li>
+                    <li>Medium blogs: <a class="c8"
+                                href="https://culurciello.medium.com/">https://culurciello.medium.com/</a>
+                    </li>
+                </ul>
+                <p>&nbsp;</p>
+                <p class="font-bold">Brian:</p><p> My name is Brian and I am interviewing Eugenio
+                        Culurciello.</p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Eugenio:</p><p> Nice to meet you, Brian.</p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Brian:</p><p>&nbsp;Thank you for this interview. Can you explain your background? </p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Eugenio:</p><p> So I was actually trained on analog and mix signal
+                        chip, micro chip design. I worked in a neuromorphic engineering area at the beginning. So the idea was to
+                        figure out how to replicate human abilities in silicon or in artificial technologies. And then later I
+                        started working on machine learning and neural networks when I met Yann LeCune. I was at Yale university and
+                        he was at NYU. And then we met and we started working together. First, we started developing some micro chip
+                        accelerators for deep learning. That was like about 15 years ago. Yeah, it&#39;s and yeah, this area was not
+                        really popular. And then, when I joined Purdue in 2011, I continued and my group developed about five
+                        generations of machine learning hardware, but we were also developing neural networks models and like my
+                        group has been also instrumental in like the beginning of by Torch, which was the precursor of PyTorch.
+                    </p>
+                <p>So yeah, we work on all these areas. And right now, I&#39;m a professor at Purdue and
+                        I work on machine learning and AI, and I try to work on multimodal large model at the moment</p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Brian:</p><p> I also saw that you taught some deep learning courses
+                        here</p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Eugenio:</p><p> Absolutely. Yeah, actually, ours was the very first
+                        deep learning course at Purdue we started 2011, 12. And, it was the early days. And yes, we&#39;ve been
+                        teaching deep learning ever, ever since at least once a year.</p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Brian:</p><p> Yeah, I was actually interested in how come the deep
+                        learning courses were taught under BME instead of CS?</p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Eugenio:</p><p> I was, yeah, I was I think under BME because a lot
+                        of our work was like taking inspiration from biology, neuroscience and psychology. And, but the final goal
+                        was like replicating the human brain in our own software. And when I when I joined here, there was a few
+                        people teaching neural networks basic fundamentals, but we were really the first class to teach the most
+                        more modern deep learning, including convolutional neural network and so forth. </p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Brian:</p><p> Okay, so I wanted to ask you about this, this paper I
+                        saw last year. It was called DishBrain and it&#39;s where researchers grew brain cells, and then they teach
+                        it to play the video game Pong. Because you have a lot of experience in hardware, I was wondering whether
+                        this is a plausible idea in the future, where you use real brain chips, and then these chips are
+                        specifically trained for certain tasks.</p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Eugenio:</p><p> I think it would be a good idea also because you
+                        know like currently all the machine learning, models that we built is highly inefficient compared to the
+                        brain, like on the order of 1000 to 10,000 times less efficient. And so like if you could interface to
+                        living and breathing live neural networks that would be awesome. One of the issues there is that we
+                        currently don&#39;t have the capability to really interface that a very large number of cells or high
+                        throughput. So the input and output is a bit limited. But that said, yeah, I think it could be very, very
+                        promising area if we can figure out a way to to grow the right number of electrode to interface with the
+                        tissue.</p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Brian:</p><p> Okay, so it might be hard to like add a like image
+                        sensor or something like directly to this brain shape, I guess</p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Eugenio:</p><p> Yeah, I think that the problem is the number of, you
+                        know, in the brain, like maybe in a millimeter cube you have hundreds of thousands of cells right? But in
+                        terms of like a physical connection we couldn&#39;t have that many, right? There&#39;s probably a million of
+                        connection in there, but we can have the right, you know, the very large number of connection also, or all
+                        the connection that we have with from computers to biology like using some kind of electrical wires and they
+                        usually living cells don&#39;t usually like that that they reject that and that&#39;s also a problem for
+                        wearable technology that are invasive and it&#39;s it&#39;s always been a bit of a problem. I don&#39;t
+                        really know how to solve it at the moment, but yeah, there&#39;s many colleagues here who work in that area
+                        also.</p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Brian:</p><p> Okay. My next question. So, what do you think about
+                        the embodied Turing test, where instead of judging an AI based on how we can mimic human intelligence, you
+                        judge it based on how good it is at doing certain animal related tasks. For example, an artificial beaver
+                        building a realistic dam. And do you think this approach is more promising than current methods focus on
+                        focusing on like, you know, like linguistic simulation</p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Eugenio:</p><p> Yeah, I honestly, you know, yeah, honestly, I agree
+                        with that like I really think that you know, we don&#39;t have a definition of necessarily what is this sort
+                        of an entity or what is another entity, you know, what is constitutes a cat and what is different from a dog
+                        or what really constitutes a human being, because there&#39;s so many levels there and we don&#39;t really
+                        have a formula for it. So I think that the best way for us to say whether artificial system is close to a
+                        real one is just, it&#39;s really what it can do. If you can do the same thing then functionally they might
+                        be equivalent. But you know, that also, you can&rsquo;t possibly test all possible things that one entity
+                        can do, because there are infinite possible combinations so you&#39;ll have to somehow there has to be some
+                        some kind of a test and I don&#39;t know what that is even, even recently with it is a large language model,
+                        you know, people are just started scratching the surface and they call possible there are no possible tests
+                        on these on these systems and try to figure out what capability they really have and they don&#39;t really
+                        have. And it&#39;s very unclear what what the results are what what you can do what you cannot do and at the
+                        end of the day you have to, it&#39;s a bit of a trial and error.</p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Brian:</p><p>&nbsp;Okay, like you just like that&#39;s like you just
+                        like keep coming up with some random tasks and you just see if it does well?</p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Eugenio:</p><p> Yes, I mean, more than random tasks I guess. You
+                        know, it&#39;s always like this. You want artificial system is always to do something. So, I guess the idea
+                        is, you try to make it do what you want and try to make sure that it can can do more or less the thing, the
+                        same thing that a human can so for example, you know autonomous driving right? Even there you have an
+                        infinite number of scenario that that you could face the bite while driving a car right whether you&#39;re
+                        human or artificial. And so you can&#39;t possibly test all of them. You also can&#39;t possibly train on
+                        all of them. So you have to, yeah, you have to test on a lot of conditions and see what the problems are and
+                        design the system in a way that is fairly generic and he has a bit of common sense like us. Other than that,
+                        I&#39;m not sure if, if one could identify a test I will say okay yes this car is good enough to drive or
+                        not. I think we will never have such a test because it&#39;s there&#39;s always possible different
+                        conditions right? For example, years ago I was like driving on the road and all of a sudden I there was a
+                        ladder like blocking my entire lane.</p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Brian:</p><p>&nbsp;A ladder?</p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Eugenio:</p><p> A ladder, yeah like a ladder that you walk on. And
+                        it was like pretty tall and I mean first of all you would have to recognize it and then you have to figure
+                        out what to do and my all the lanes nearby were like completely filled with cars and so I had to decide okay
+                        should I just break or should I go over it and if I go over it my prediction was okay all my tires are gonna
+                        pop. So you see my point my point is I run over it and nothing happened and the point is sometimes
+                        there&#39;s so many different possible cases. One time I was in Baltimore driving on the highway and some
+                        some some guy jumped off from the other lane and run through. I mean it was just all sorts of crazy things
+                        can happen on the road. I mean you could find a crater at some point a bridge that is interruppted you know
+                        it&#39;s all sorts of things so. So I don&#39;t think you test all these cases, right? So I&#39;m not sure
+                        that there is for for for leaving things that have infinite possible action if you infinite possible
+                        scenarios in the environment I don&#39;t think there will ever be a test that can test that all their
+                        capabilities honestly just by the sheer number of possibilities. You know it&#39;s the same for you right so
+                        when you go and take a driving test, what do they test? They test okay a little bit of your abilities. But
+                        it&#39;s just like a tiny subset you know 0.1 percent of what you&#39;ll ever encounter even normally. Yeah
+                        so and then they say yeah you&#39;re ready to drive. So I guess artificial system we usually hold them to a
+                        higher standards you know, where you&#39;re right. Which is you know good and bad but that&#39;s because we
+                        you know we kind of have an idea statistically what a human can do. You know, on the road and where you give
+                        him a driving license but we don&#39;t have a statistical idea what a machine can do so. The point is you
+                        have to test a lot and at some point you&#39;ll have the same kind of statistics and you&#39;ll be okay with
+                        that maybe.</p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Brian:</p><p>&nbsp;So I saw that you had a medium blog and you have
+                        lots of blog articles. So I read through some of them, and in one of your articles, you mentioned that
+                        transformers are really close to universal neural networks and can handle lots of different types of data
+                        such as vision, text, speech and so on. So do you think this is close to the final neural network
+                        architecture</p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Eugenio:</p><p> Yeah I think so honestly like at the beginning at
+                        the beginning of your like let&#39;s say like 10, 15 years ago people were pretty happy by crafting neural
+                        networks and running it on some data and training it. But it was really hard to scale up and continue to
+                        learn different modalities and I think we spend way too much time focusing on creating data sets and
+                        creating custom neural networks for a specific data set. But at the same time people are looking for a swiss
+                        army knife of neural networks. And one such network could be the transformer architecture, which really
+                        surprised us you know honestly just in the last couple of years the capabilities that you know, all the data
+                        you can do and learn when scaled up even with these very simple learning techniques like predictive learning
+                        right? So I would say yeah that&#39;s like a really good. We&#39;re scratching the surface of it on what you
+                        know what the real artificial brain could be. I think we have to embody it and give it more senses and train
+                        multimodal and then try to figure out what can you learn, right? And we also need to figure out this
+                        continual learning capabilities now how much you can continue to learn and learn online. But I think
+                        it&#39;s, I would say now it&#39;s more exciting that five years ago. Five years ago it looked like we were
+                        doing the same things over and over and now it&#39;s, it looks like we have foundational models that can do
+                        much much more and so it&#39;s exciting. I hope, you know, I think by trial and error we will keep looking
+                        and try to find something that can model our brain. And that said we&#39;re still like 1000s of time away
+                        from terms of efficiency. The capabilities are getting better but also, you know, hasn&#39;t been really
+                        used in robotics as much and it hasn&#39;t really improved in the physical world. So I think there&#39;s
+                        still a lot of work to do. It&#39;s a never ending story. But it&#39;s exciting.</p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Brian:</p><p> Okay, so in another medium article that you wrote, you
+                        mentioned spiking neural networks, and those try to actually simulate the spiking in real neurons right and
+                        that seems like a step towards combining more neuroscience to AI. But at the same time, I know that those
+                        networks, they still rely on back propagation, which is not very neuroscience realistic. So in the future,
+                        do you expect that AI will continue to look almost one to one, like a real human brain to an AI, or do you
+                        think there will still be a combination of like engineering where you just just see whatever works?
+                </p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Eugenio:</p><p> Yeah, I think there&#39;s going to be a, you know,
+                        quite a few heuristics but you know the bottom line is that artificial system based on silicon are very
+                        different from biological neural network right? So biological neural network, which are great I mean they
+                        allow us to do all these things. But they have a fundamental problem which is that electricity doesn&#39;t
+                        conduct very well within our body right in a physiological solution. And so they only have, they can only
+                        transmit the pulses and over short channels I mean some channels are pretty long like from our brain all the
+                        way to the spinal cord is like a meter long right? But in general they use this spiking because the problem
+                        is you need to constantly reconstruct the signal that would dissipate otherwise. But in silicon we can make
+                        really good wires right, but in biology, you can have lots of wires in a very, very small area. In silicon
+                        we can&#39;t. We can only make like a few layers of wires and the density is very low. So things are
+                        different. But I think, and also there&#39;s much to learn because in, like in artificial neural network,
+                        &nbsp;you can do back propagation over many layers, you know, because you can look at the very small
+                        differences across many layers right in biology you know the noise is so high and you can only go from layer
+                        to layer. So, I think, you know, in artificial neural networks we still have to learn how to scale up the
+                        layer by layer learning. I don&#39;t know that might be more efficient. I&#39;m not sure. Maybe that&#39;s
+                        one of the ingredients of efficiency in the brain or maybe it&#39;s not. Maybe it turns out that artificial
+                        networks with back propagation are much more efficient or because you propagate the signal very, very, very
+                        easily and you can train them faster. I don&#39;t know if we know the answer to those questions. So
+                        we&#39;ll have to, we&#39;ll have to look at it and learn more and try things. I guess it is also we&#39;re
+                        stuck. Yeah, also like biology stuck with the the own substrate chemical biochemical substrate and we&#39;re
+                        stuck with the silicon chips right? Maybe there&#39;s another medium that would create better brains -
+                        artificial brains. But yeah, that&#39;s what we have right now. And so yeah, it&#39;s not, we can&rsquo;t
+                        answer those questions I guess right now, you know, people will still try to investigate these
+                        issues.</p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Brian:</p><p> So this interview is more oriented
+                        towards beginners, like in the club. I wanted to ask you, do you have any advice for students interested in
+                        AI?</p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Eugenio:</p><p> Absolutely. Yeah. Well, I think it&#39;s, you know,
+                        honestly, it&#39;s a really great time today because of the internet and all the code and example and things
+                        that we can share. I think really what what a person needs is mostly drive. Like at any level, like if you
+                        think if you want to learn there&#39;s so much material but you, you shouldn&#39;t be discouraged and you
+                        have to figure out a way to learn step by step maybe by there&#39;s so many courses and so many levels in
+                        machine learning that I think you can, you know, anyone can can pick it up. And one of the issues of course
+                        also is need to learn programming a little bit. I would say you know, you start with the Python class or
+                        something like that and then you move on to some simple, simple class or simple tutorials on machine
+                        learning and then I think the next step is to jump into some nice project that you like. You see that this
+                        is a ML@Purdue group is really awesome because it allows you to form a group and learn from each other and
+                        do things together which keep you excited and motivated. So I think yeah, like if you&#39;re someone that
+                        already joined such a group or similar group anywhere and you have a passion you can learn really easily and
+                        you, honestly, you don&#39;t even, you don&#39;t need a university. You don&#39;t need a teacher you
+                        don&#39;t need a professor. A lot of the stuff you can go on your own which is nice and also scary and you
+                        just, you need a lot of passion, I think that&#39;s all. That&#39;s true for everything almost you know, but
+                        there&#39;s some things that it&#39;s hard to learn like I can&#39;t learn about nuclear power plant unless
+                        I work in one right? But machine learning, oh, gosh, just need a laptop. So it&#39;s so much easier
+                </p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Brian:</p><p> Yeah, I mean, just watching Youtube videos, I
+                        guess</p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Eugenio:</p><p>&nbsp;Oh my god&nbsp;there&#39;s so much
+                        knowledge in there, right that you can learn from really awesome people and I do it too, you know, I often
+                        like listen to lectures and ideas online and people I never met and it&#39;s really awesome. Yeah, I mean
+                        it&#39;s just all you need is like some area that you&#39;re interested in and just to try to go deep deep
+                        solve all the problems more problems. There&#39;s always a problem to solve. And if you don&#39;t know you
+                        ask a group like even on GitHub there&#39;s there&#39;s amazing projects and you can join them and say what
+                        are the problems you&#39;re trying to solve and help them out. That&#39;s an awesome way to learn. And you
+                        can do that on your own on your laptop anywhere where you are so it&#39;s really great.</p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Brian:</p><p></p>
+                <p>Yeah, I mean, on GitHub nowadays like everything that&#39;s trending is just some AI
+                        model or something</p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Eugenio:</p><p>&nbsp;Yes</p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Brian:</p><p></p>
+                <p>Okay, my last question. So I know this, you might be a little biased, but do you
+                        think AI is just hype, like blockchain or like NFTs?</p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Eugenio:</p><p>&nbsp;Yes. Well, AI is hype because I
+                        mean even you and I talk about AI now. I don&#39;t even like the term match because everything that
+                        we&#39;re doing so far is mostly machine learning. You know? It&#39;s like some basic learning algorithm.
+                        Maybe we&#39;re getting more into it now because we have this large foundational model, but I would say AI
+                        really starts when you have like a robot and you&#39;re trying to do something in the real world and
+                        constrained. And yeah, so I think we still need to do it. I think we don&#39;t know. I mean, definitely it
+                        would play a role but AI in the sense of machine learning neural net or deep learnings. But I think we need
+                        to do more work in robotics, you know, and because we&#39;re still behind so like even with all this
+                        algorithm, we don&#39;t have good algorithm to be able to grasp any kind of object or navigating an
+                        environment and there&#39;s still, we still don&#39;t know how to learn all these things. We still don&#39;t
+                        know how to learn multimodal integration in a robot that you have different sensors it keep learning and
+                        keep training and so I think that&#39;s an area that probably needs to evolve. But yes, if you know, if AI
+                        or what you want to call it now, it&#39;s going to empower this robot and I think it&#39;ll change the world
+                        for sure because we&#39;ll have like artificial entities that are, you know, as good or able as us or
+                        better. They could do lots of other things right there we cannot do. For example, we could send them to
+                        explore the universe because they live forever. They can live forever or they can replicate somewhere else.
+                        And maybe we won&#39;t even be able to know what they find out because our life is much so much shorter
+                        right and so much constrained by where we live in this planet and where we can reach in the short time we
+                        live</p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Brian:</p><p> I was, when you were talking about robotics and AI, I
+                        was like thinking about those food robots around campus. We&rsquo;re going to see like 10 times more of that
+                        or something like we&#39;re just going to see some robots delivering like like I don&#39;t know refrigerator
+                        or something.</p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Eugenio:</p><p>&nbsp;No, that&#39;s right. Yeah, I mean those things
+                        cannot, you know, walk up the stairs or open the door and give things to you. But soon we will be able to do
+                        that. So that&#39;s great</p>
+                <p>And I just hope that we&#39;ll be able to program them and make sure that they only
+                        work for a good cause.</p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Brian:</p><p> Thank you so much for the time</p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Eugenio:</p><p> Okay, so it&#39;s been a pleasure to talk to
+                        you</p>
+                <p>Yes, and you need anything</p>
+                <p>Contact me again</p>
+                <p>Okay, yeah</p>
+                <p>&nbsp;</p>
+            </div>
+
+
+
+
+
+
+            <Spacer y={24} />
+            <h1 class="font-bold text-3xl">AI Interpretibility with Jinen Setpal</h1>
+            <h1 class="font-bold text-xl">September 6, 2023</h1>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/4hAJ_BZHTjo?si=ICtCiHmicfKj5KKG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <h1 class="font-bold text-xl">Transcript</h1>
+            <div class="max-h-80 overflow-y-scroll w-[50vw] text-xs" style="color-scheme: dark;">
+                <p>Jinen is a junior undergrad data science major and ML@Purdue officer. &nbsp;He has
+                    deep experience in ML in both the research and industry side. Today, he will talk about AI interpretability,
+                    which is exactly how it sounds. Building AI that is interpretable to us humans.</p>
+                <p>&nbsp;</p>
+
+                <p>This is a new series, where I, Brian, will interview cool AI professors/students and
+                        talk about their research interests and how students interested in AI can get involved in research. 
+                </p><p>&nbsp;</p>
+                <p>Advice for beginners summary:</p>
+                <ul class="list-disc list-inside">
+                    <li>Check out D2l.ai Dive into Deep Learning</li>
+                    <li>Read books about ML like Python Machine Learning by Sebastian
+                            Raschka</li>
+                    <li>Contact professors</li>
+                    <li>Jinen mentioned arXiv. It is an open access repository of pre
+                            prints (not peer reviewed yet). Lots of ML papers on it and you might have seen links to these on github
+                            if you searched up for a certain algorithm</li>
+                    <li><span>Be interested!!!!!!!!!!</li>
+                </ul>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+
+                <p class="font-bold">Brian:</p>
+                <p><span>Hi. My name&nbsp;is Brian and I&#39;m a freshman and my role is to
+                        interview cool AI students like Jinen here and also, in the future, AI professors.</p><p>&nbsp;</p>
+                <p class="font-bold">Jinen:</p>
+                <p>My name is Jinen and I&#39;m a data science student and I love research.</p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Brian:</p>
+                <p>So, Jinen, I looked at your website and I saw that your research focus is on
+                        interpretability</p>
+                <p>Can you explain what it is in the context of computer vision and natural language
+                        processing?</p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Jinen:</p>
+                <p>Interpretability more generally is the degree to which we can understand why the
+                        model makes the decisions that it says it does. So for instance, in deep learning, this is a problem because
+                        most models are just, you know, hugely parameterized and you give it an input and get an output at the end
+                        and everything that happens in the middle is very difficult for us to understand. And one way of getting
+                        around that is using interpretability techniques to get a grasp on what the model is doing and certain
+                        certain models are more interpretable than others and models that are interpretable by default, so you can
+                        just read their weights and tell what&#39;s happening, are called intrinsically interpretable models and
+                        those that need a lot of manipulation and are done generally after the entire evaluation process is called
+                        ad hoc or post hoc interpretability..</p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Brian:</p>
+                <p>So wow it is raining outside</p>
+                <p>So, let&#39;s say I use chat GPT or something, &nbsp;I mean, when I get the answer,
+                        it looks pretty much right. So how come interpretable models are important? </p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Jinen:</p>
+                <p>Yeah so well, interpretability is important mostly because models like chat GPT
+                        generally are very, very over parameterized, &nbsp;And consequence of that is that they work very easily.
+                        And if you give it an input that is within their training data set, it is very, very likely that they will
+                        get it correct. And the training data set generally is a huge, huge corpus. And that is why it&#39;s very
+                        easy for us as human evaluators to miss certain sorts of mistakes that it tends to make. And one kind of
+                        important thing, especially in domains that have a very much, you know, the models are very, very important
+                        is we need to have a sort of a degree of understanding as to why the model makes a decision. So for chat
+                        GPT, it is mostly a low stakes environment, &nbsp;So even if we do not have interpretability, it&#39;s okay.
+                        That&#39;s fine. We don&#39;t need to know so much. But if we are taking a decision on whether to maybe
+                        evacuate a city based on some statistical models of a tornado or any other natural disaster, it is a very,
+                        very, very high stakes decision and it can impact a lot of people. So it is very important to know why the
+                        model thinks that the city should be evacuated or not be evacuated because guessing incorrectly either way
+                        is going to cost a lot in life and money, &nbsp;</p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Brian:</p>
+                <p>So if a model is interpretable, that means that we as humans, if we see that
+                        there&#39;s a certain bias that we know is incorrect, we can try to step in and fix that.</p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Jinen:</p>
+                <p>Yeah, there is one piece of work that I actually saw did just that. So what was it
+                        exactly? There was this paper called Inventive Risk Minimization and the general idea behind that paper was
+                        that you have a lot of cases where there are spurious correlations and it&#39;s extremely easy to identify
+                        those correlations for a machine learning model. It&#39;s very easy to identify those correlations and fit
+                        to those correlations and not the actual target that we are trying to generalize to. And as a result of
+                        that, it gets a very high accuracy, but it&#39;s not perfect. So you will get like 80% accuracy with a very,
+                        very small parameter set, a lot of regularization functions actually promote using lesser parameters or
+                        promote fewer parameters. So this is in fact a problem because spurious correlations are promoted in the
+                        quest for generalization, &nbsp;And as a result of that, a lot of corners are cut and it tends to identify
+                        something that is completely different from the actual target. So a more practical example of that, the
+                        Inventive Risk Minimization paper gave an example of cows and camels, &nbsp;You will see cows in grasslands
+                        90% of the time and camels in deserts 90% of the time. So if we were to train a CNN on this sample of cows
+                        on grasslands and cows in grasslands and camels in deserts, right there is a very high likelihood that it
+                        will just identify the fact that grasslands are green and deserts are yellow and just on the basis of the
+                        color of the image decide if it&#39;s a cow or a camel. So if you put a cow in a desert and a camel in a
+                        grassland, it would predict it incorrectly every single time. So even though the general sort of
+                        distribution of cows is more in grasslands and camels is more in deserts, we don&#39;t want it to identify
+                        the color of the image because that&#39;s not actually learning anything about it. So they had a theoretical
+                        approach towards fixing that or creating an invariant representation for a single object. So a cow should
+                        have the same intermediate representation regardless of whether it&#39;s in a grassland or it is in a
+                        desert. And it basically had a, they created a regularizer to do that. So that was definitely much too
+                        complicated for me. So what I did was, in addition to that approach, I used interpretively to do the same
+                        problem where I used class activation mappings to basically find a heat map of the region that was used to
+                        identify the image. </p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Brian:</p>
+                <p>So can you explain what a class map activation is? </p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Jinen:</p>
+                <p>Oh yeah, of course, of course. So generally your CNN or convolutional neural network
+                        works by creating patches of the image and then finding a rate map or a filter or a set of filters for the
+                        one set of patches and that&#39;s one day. And you basically propagate through that</p>
+                <p>Now, it is very hard for us to identify based on the output of the dot product
+                        between the actual patch and the filter and to identify what&#39;s happening. So I used the patch filter and
+                        the bias to identify what&#39;s happening because that is the intermediary representation.</p>
+                <p>So a couple of researchers at MIT were able to find a way to get the actual heat map
+                        of the detections that the CNN or the weight map that the CNN was using in order to base its
+                        classifications. So for example, if I was identifying, if I was creating a human classifier and I put the,
+                        like, I ran the image on myself, I would expect that this entire region, which is my body, should have a
+                        high weight edge because it&#39;s trying to identify if the target is a person or a dog, let&#39;s say. So
+                        it should not identify the background. If the background has a high weight edge it means it&#39;s not using
+                        my features to make the classification. It&#39;s using the background to make the classification. So that
+                        was the general idea where I created an intermediary layer that intrinsically created or generated this
+                        class activation mapping.</p>
+                <p>From there, I created a loss function or a regularizer that would specifically ensure
+                        that the focus of the image was the actual target and not the background. And once it was able to do that, I
+                        was able to generalize it and get emergent learning, where the outer distribution error of the model was
+                        reduced very significantly because we are not overfitting to the data thanks to the over parameterized
+                        model. </p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Brian:</p>
+                <p>My next question is, before when you talked about interpretability, you said we have
+                        to make this model interpretable, &nbsp;So is there a scale of how interpretable a model is? Like a numeric
+                        score? Or is it just like, it is interpretable or it&#39;s not interpretable or it&#39;s like medium
+                        interpretable? </p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Jinen:</p>
+                <p>Well, I don&#39;t think there is an objective scale that is defined for
+                        interpretability. However, there are definitely more interpretable models than others. So I guess you could,
+                        if you really had to, you know, rank certain models on a scale of how interpretable they are versus how it,
+                        how uninterpretable they are. If you look at something like a decision tree, that is generally one of the
+                        most interpretable models because the reasons why it specifies the split is generally obvious. But the more
+                        you sort of go through the depth of the model, the harder it is to realize why the decision tree made the
+                        decision it does, even though we can sort of identify exactly what the splits are, we don&#39;t know why the
+                        splits exist. We just know that they exist, &nbsp;That&#39;s one example. Logistic regression is, or
+                        logistical classifiers are mostly straightforward. Linear regressions are also very straightforward, more or
+                        less the same thing. They have a series of weights and each class or each feature has a certain weight
+                        associated with them. So we know that this feature has a very, very high weightage, which means it&#39;s
+                        more important than the others. So this kind of lagging, but deep learning models, you cannot really
+                        understand it. So it&#39;s not super interpretable</p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Brian:</p>
+                <p>It seems like it&#39;s really challenging to, you know, build these interpretable
+                        models.</p>
+                <p>So if you&#39;re designing an interpretable model, are you designing an entirely new
+                        architecture or something? Or are you just sort of making slight modifications to an existing algorithm or
+                        can you do like both? </p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Jinen:</p>
+                <p>Both are generally kind of the way to go. So generally, if you were to sort of set up
+                        intrinsic interpretability, if it is possible to do it just by sort of algorithm, that is generally not
+                        required to change the architecture, &nbsp;So if you&#39;re using a post-hoc technique or something that is
+                        more intrinsic, then that&#39;s fine. And you don&#39;t have to update the architecture at all. But if you
+                        wanted to promote the development of a certain behavior set, right, and you want the behavior set to be
+                        specifically interpretable, maybe it is required to update the architecture a little bit. When I say update
+                        the architecture, most of the time I generally mean just adding more layers or removing some layers or
+                        creating a certain set of layers. And maybe once specifically for some invariant representation, for
+                        example, but besides that, it generally stays the same. So the modifications are not major. It is mostly
+                        editing the actual architecture itself.</p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Brian:</p>
+                <p>So currently, I hear transformers everywhere, you know, like transformers in chat
+                        GPT, transformers for computer vision, and etc. So, these transformers use attention. That mechanism allows
+                        them to focus on different parts of their input. So for example, like different parts of a word or different
+                        parts of an image. And does that make the model interpretable since now we know exactly what parts of the
+                        input it focuses or attends to?</p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Jinen:</p>
+                <p>So, well, this is actually an awesome question. So one of the sort of things that we
+                        look at is or actually I&#39;ll go back to the analogy of the logistic regression versus the deep neural
+                        network thing that I was talking about. So, we said that a logistic regression by itself is quite
+                        interpretable because you have a series of bits and each feature has a bit associated to it</p>
+                <p>So if you want to know why you are making certain decisions, you go to the largest
+                        weight and just go down from there basically, and you will be able to identify what features are making what
+                        degree of impact. Now, it&#39;s interpretable to that extent. So if you want to make a deep neural network,
+                        it is foundationally just a series of logistic regressors that interact with one another in order to
+                        generate a more complicated hybrid being right and that&#39;s sort of the entire thing behind it that makes
+                        it not interpretable. Attention works or like transformers with attention working the same in a similar way
+                        where you have a lot of attention blocks that are stacked sequentially and sometimes even in parallel. And
+                        what this means is that sometimes attention layers communicate information about the actual input that is
+                        not related to things like the that is not immediately related to feature importance for the word
+                        specifically. So for instance, there were a lot of situations where commas and separator tokens in general
+                        had very, very high rates. And the reason for that was not because the separator or the generally irrelevant
+                        token was important for this specific example, it was just trying to communicate something that was present
+                        for the before like for the to the closer closer to the input of the model to something that is in like a
+                        further later layer right and so I think attention with the attention mechanism at a single level, of
+                        course, is very interpretable and I think it builds off intuition right? So we intuitively approach the or
+                        build attention by saying we have the series of words and as a human reader, this is the way I would read it
+                        so let me encode that you mathematically right that&#39;s kind of the approach that CNN&#39;s also used,
+                        where we broke the image up into the neighborhood of important pixels, and then evaluated neighborhood by
+                        neighborhood and we found that that was a better approach to learning than just giving it like feeding it
+                        through an MLP because of the less number of parameters as well. So intuitive biases are super super
+                        important, and they also boost interpretability which is awesome.</p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Brian:</p>
+                <p>So I wanted to move towards questions for beginners in machine learning, people who
+                        are interested in it, because I know that there&#39;s a lot of beginners in the discord. So my question is,
+                        how did you get into AI research at Purdue, like were you interested in it like in high school, or did you
+                        really dig into it here?</p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Jinen:</p>
+                <p>I was very interested in research in general and high school by my interests were at
+                        the time, the intersection of cybersecurity and machine learning. So I was really interested in binary
+                        exploitation and to a certain extent cryptography and machine learning, had always been an interest and
+                        those were those included like CV and MLP domains, but I also really wanted to do something at the
+                        intersection of cybersecurity and machine learning simply because I was interested in that. So I reached out
+                        to professors in the summer before I came to Purdue</p>
+                <p>I met with a professor and Antonio Bianchi, who redirected me to Professor Christina
+                        Garmin, and I worked under the boilers applied cryptography lab for some time after that doing some research
+                        at the intersection of the two which was fun.</p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Brian:</p>
+                <p>Did you take any classes related to AI or like cryphotography?</p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Jinen:</p>
+                <p>Oh, I read a book called Python machine learning by Sebastian last time. That was my
+                        first introduction to machine learning. It was a fantastic book. Honestly, at this point I might not really
+                        recommend anyone to use TensorFlow. But it&#39;s good. So in any case, before I deviate way too much,
+                        reading books is like a super, super awesome way to get familiarized with concepts, because of the shared
+                        amount of knowledge that they&#39;re able to sort of put in that small amount of space. I really like D2L.ai
+                        dive into deep learning. So that&#39;s a fantastic resource. You can just put D2L ai in your browser and it
+                        will give you answer basically every question you have about the most updated things in machine learning,
+                        which is crazy.</p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Brian:</p>
+                <p>Okay, and my final question</p>
+                <p>There&#39;s like some background people right now</p>
+                <p>You know what, I&#39;m just going to move</p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Jinen:</p>
+                <p>Okay, no problem</p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Brian:</p>
+                <p>Okay, my final question and I&#39;m planning to to ask this to all future people I
+                        interview</p>
+                <p>So it&#39;s like a really general question and kind of a basic one. But what do you
+                        think the future of AI will look like? So, you know, it doesn&#39;t have to relate to interpretability or
+                        your current research interests, just like in general.</p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Jinen:</p>
+                <p>Funny, I think that the question is a little bit more more political and then it is
+                        political</p>
+                <p>I mean, not like the politics, politics, political, I mean more is it privately such
+                        lab and industry versus you know stuff in academia style. There is a lot of very, very useful discourse that
+                        genuinely I do not know enough to properly comment about, but the general idea is a lot of papers are being
+                        published to Arxiv instead of like the instead of using Arxiv as a preprint server is just the final
+                        destination of the of the actual paper and we can leave it at that</p>
+                <p>One example of the interpretable interpretable invariant risk minimization paper that
+                        I was talking about that is paper that is just completely that paper is on Arxiv and that&#39;s right it is
+                        not I don&#39;t think at least it is. And that&#39;s a problem because research methodology is is needs to
+                        be verified for errors and it generally is it helps a lot. It helps the process right because if you get
+                        trust the research methodology, it gives a lot of credibility to the process and we don&#39;t want
+                        credibility coming from the name of the organization we wanted coming from the actual power of the research.
+                        And that is a peer review for machine learning generally has been declining to a certain extent, where in a
+                        lot of papers that are published today are very noisy and that is not to diminish the fact that we still
+                        have so many so many amazing papers and but the majority of them are passed through peer review and are
+                        published to major major majors. So it&#39;s important to set up and recognize this dichotomy. I don&#39;t
+                        know what is going to happen with respect to it. If I had to take a wild guess, I would say not much
+                        changes</p>
+                <p>Industry will continue to have a lot more compute and they will continue to push
+                        things to Arxiv and call it a day. If they publish it at all the GPT for paper, if you can call it a paper,
+                        they just put it on their website and left it at that. So as long as they don&#39;t call it research
+                        that&#39;s not a problem with me. It&#39;s just a report. But they still do not provide that value back to
+                        the world because there are reasons and everything that they do is completely commercialized right so that
+                        kind of sucks. I will hope it became free and open source for everyone to use and research got democratized.
+                        I&#39;m not very optimistic unfortunately</p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Brian:</p>
+                <p>I asked all my questions and I mean you were a really good person to interview. So
+                        thank you, Jinen.</p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Jinen:</p>
+                <p>Thank you so much. So yeah, I had a good time</p>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+            </div>
+
+
+
+
+
+
         </ContentSection>
     </article>
     <Footer />
