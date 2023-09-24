@@ -26,3 +26,7 @@ a,
 .sponsor-t1 {
   color: #EBCDF4;
 }
+
+body, :root {
+  color-scheme: dark;
+}
