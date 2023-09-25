@@ -72,77 +72,136 @@ const description = "ML@Purdue DagsHub Hackathon";
                 Nunc congue nulla nec dignissim cursus. Nunc vel risus tellus. Sed et tempor lectus, in ullamcorper risus. Morbi a massa urna. 
                 Pellentesque sit amet diam velit. Nunc sit amet neque pharetra, ultricies leo vel, cursus augue. Etiam ut molestie mi. Nam consectetur.
             </p>
+        </ContentSection>
+        <Spacer y={48} />
+
+        <ContentSection id="pointless" title="Registration">
             <p>To register, please RSVP using <a class="underline" href="https://docs.google.com/forms/d/e/1FAIpQLSfLssmXo_D5OKsFNBrsL0mpdVtJSOFOh57HWieZqU_WTSr-9Q/viewform?usp=send_form"> this form</a>!</p>
         </ContentSection>
         <Spacer y={48} />
 
         <ContentSection id="dh-motive" title="What's In It For Me?">
-            <h1 class="font-bold text-2xl">Guided: Build a state-of-the-art Machine Learning Model!</h1>
-            <p class="w-2/3 text-center">Participate in a graph generation challenge with multimodal data! Obtain the best possible performance on our event leaderboard, and the three best-performing models on unseen data win prizes!</p>
-            <h1 class="font-bold text-2xl">Advanced: Publish a Machine Learning paper under the Reproducibility Challenge!</h1>
-            <p class="w-2/3 text-center">Reimplement a state-of-the-art paper as part of the ML@Purdue hackathon - make it accessible to the entire machine learning community and publish it as a paper under your name! The top three successful projects will get a chance to win _____.</p>
+            <div class="grid grid-cols-2 text-center w-3/4 gap-24">
+                <div>
+                    <h1 class="font-bold text-xl h-16">Guided</h1>
+                    <div>
+                        <p class="text-justify">Build a state-of-the-art Machine Learning Model! 
+                            Participate in a graph generation challenge with multimodal data! 
+                            Obtain the best possible performance on our event leaderboard, and the three best-performing models on unseen data win prizes!</p>
+                    </div>
+                </div>
+                <div>
+                    <h1 class="font-bold text-xl h-16">Advanced</h1>
+                    <div>
+                        <p class="text-justify">
+                            Publish a Machine Learning paper under the Reproducibility Challenge!
+                            Reimplement a state-of-the-art paper as part of the ML@Purdue hackathon - make it accessible to the entire machine learning community and publish it as a paper under your name! 
+                            The top three successful projects will get a chance to win _____.</p>
 
+                    </div>
+                </div>
+            </div>
         </ContentSection>
         <Spacer y={48} />
         <ContentSection id="dh-details" title="Details">
             <h1 class="font-bold text-3xl gradient-text">Prizes</h1>
-            <div class="w-1/3 text-center">
-                <h1 class="font-bold text-xl h-16">Guided</h1>
+            <div class="grid grid-cols-2 text-center w-1/2  gap-24">
                 <div>
-                    <ul>
-                        <li>1st Place: $75 + SWAG</li>
-                        <li>2nd Place: SWAG</li>
-                        <li>3rd Place: SWAG</li>
-                    </ul>
+                    <h1 class="font-bold text-xl h-16">Guided</h1>
+                    <div>
+                        <ul>
+                            <li>1st Place: $75 + SWAG</li>
+                            <li>2nd Place: SWAG</li>
+                            <li>3rd Place: SWAG</li>
+                        </ul>
+                    </div>
                 </div>
-                <br />
-                <h1 class="font-bold text-xl h-16">Advanced</h1>
                 <div>
-                    <ul>
-                        <li>1st Place: $150 + SWAG</li>
-                        <li>2nd Place: $100 + SWAG</li>
-                        <li>3rd Place: SWAG</li>
-                    </ul>
+                    <h1 class="font-bold text-xl h-16">Advanced</h1>
+                    <div>
+                        <ul>
+                            <li>1st Place: $150 + SWAG</li>
+                            <li>2nd Place: $100 + SWAG</li>
+                            <li>3rd Place: SWAG</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
             <br />
             <h1 class="font-bold text-3xl gradient-text">Timeline</h1>
             <ul class="items-center	flex justify-center flex-col">
-                <li>Oct 14: Kickoff & Onboarding to DagsHub and Colab 101</li>
+                <!-- <li>Oct 14: Kickoff & Onboarding to DagsHub and Colab 101</li>
                 <li>Oct 21: Data Engine & Office Hours</li>
                 <li>Oct 28: Competition Midnight & Office Hours</li>
                 <li>Nov 4: Submission Date & Office Hours</li>
-                <li>Nov 11: Closing Ceremony & Winner Announcement</li>
+                <li>Nov 11: Closing Ceremony & Winner Announcement</li> -->
             </ul>
+            <div class="timeline">
+                <div class="container right">
+                  <div class="content">
+                    <h1 class="text-lg">October 14</h1>
+                    <p>Kickoff & Onboarding to DagsHub and Colab 101</p>
+                  </div>
+                </div>
+                <div class="container right">
+                  <div class="content">
+                    <h1 class="text-lg">October 21</h1>
+                    <p>Data Engine & Office Hours</p>
+                  </div>
+                </div>
+                <div class="container right">
+                  <div class="content">
+                    <h1 class="text-lg">October 28</h1>
+                    <p>Competition Midnight & Office Hours</p>
+                  </div>
+                </div>
+                <div class="container right">
+                    <div class="content">
+                      <h1 class="text-lg">November 4</h1>
+                      <p>Submission Date & Office Hours</p>
+                    </div>
+                  </div>
+                  <div class="container right">
+                    <div class="content">
+                      <h1 class="text-lg">November 11</h1>
+                      <p>Closing Ceremony & Winner Announcement</p>
+                    </div>
+                  </div>
+            </div>
             <br />
             <h1 class="font-bold text-3xl gradient-text">Location and Timing</h1>
             <p>TBD</p>
             <br />
             <h1 class="font-bold text-3xl gradient-text">Competition Tracks</h1>
-            <div class="w-1/2">
-                <h1 class="font-bold text-xl h-16 text-center">Guided</h1>
-                <div>
-                    <ul class="list-disc">
-                        <li>Participate in a graph generation challenge!</li>
-                        <li>Template for an end-to-end workflow with baseline performance will be provided.</li>
-                        <li>Log data, experiments and notebooks to your DagsHub repository.</li>
-                        <li>Model performance will be evaluated on a hidden test set.</li>
-                        <li>Top 3 highest scores win prizes!</li>
-                    </ul>
-                </div>
-                <br />
-                <h1 class="font-bold text-xl  text-center h-16">Advanced</h1>
-                <div>
-                    <ul class="list-disc">
-                        <li>Get to publish a paper under the Machine Learning Reproducibility Challenge!</li>
-                        <li>Reproduce novel research from our approved list of papers.</li>
-                        <li>Conduct ablation studies and write a reproducibility report documenting your findings</li>
-                        <li>Your reproducibility report can get published to ReScience (platinum open-access peer-reviewed journal)!</li>
-                        <li>3 best papers win prizes!</li>
 
-                    </ul>
+            <div class="grid grid-cols-2 text-justify w-3/4  gap-24">
+                <div>
+                    <h1 class="font-bold text-xl h-16 text-center">Guided</h1>
+                    <div>
+                        <ul class="list-disc">
+                            <li>Participate in a graph generation challenge!</li>
+                            <li>Template for an end-to-end workflow with baseline performance will be provided.</li>
+                            <li>Log data, experiments and notebooks to your DagsHub repository.</li>
+                            <li>Model performance will be evaluated on a hidden test set.</li>
+                            <li>Top 3 highest scores win prizes!</li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <h1 class="font-bold text-xl h-16 text-center">Advanced</h1>
+                    <div>
+                        <ul class="list-disc">
+                            <li>Get to publish a paper under the Machine Learning Reproducibility Challenge!</li>
+                            <li>Reproduce novel research from our approved list of papers.</li>
+                            <li>Conduct ablation studies and write a reproducibility report documenting your findings</li>
+                            <li>Your reproducibility report can get published to ReScience (platinum open-access peer-reviewed journal)!</li>
+                            <li>3 best papers win prizes!</li>
+    
+                        </ul>
+                    </div>
                 </div>
             </div>
+           
             <br />
         
         </ContentSection>
@@ -169,4 +228,136 @@ const description = "ML@Purdue DagsHub Hackathon";
     updateDate();
     setInterval(updateDate, 1000);
   </script>
+
+    <style>
+        .timeline, .container, .right, .left, .content {
+        box-sizing: border-box;
+        }
+
+        /* The actual timeline (the vertical ruler) */
+        .timeline {
+        position: relative;
+        max-width: 1200px;
+        margin: 0 auto;
+        }
+        
+        /* The actual timeline (the vertical ruler) */
+        .timeline::after {
+        content: '';
+        position: absolute;
+        width: 6px;
+        background-color: white;
+        top: 0;
+        bottom: 0;
+        left: 27%;
+        margin-left: -6px;
+        }
+        
+        /* Container around content */
+        .container {
+        padding: 10px 40px;
+        position: relative;
+        background-color: inherit;
+        width: 50%;
+        }
+        
+        /* The circles on the timeline */
+        .container::after {
+        content: '';
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        right: -17px;
+        background-color: var(--color-primary);
+        border: 4px solid var( --color-secondary);
+        top: 15px;
+        border-radius: 50%;
+        z-index: 1;
+        }
+        
+        /* Place the container to the left */
+        .left {
+        left: 0;
+        }
+        
+        /* Place the container to the right */
+        .right {
+        left: 27%;
+        }
+        
+        /* Add arrows to the left container (pointing right) */
+        .left::before {
+        content: " ";
+        height: 0;
+        position: absolute;
+        top: 22px;
+        width: 0;
+        z-index: 1;
+        right: 30px;
+        border: medium solid white;
+        border-width: 10px 0 10px 10px;
+        border-color: transparent transparent transparent white;
+        }
+        
+        /* Add arrows to the right container (pointing left) */
+        .right::before {
+        content: " ";
+        height: 0;
+        position: absolute;
+        top: 22px;
+        width: 0;
+        z-index: 1;
+        left: 30px;
+        border: medium solid white;
+        border-width: 10px 10px 10px 0;
+        border-color: transparent white transparent transparent;
+        }
+        
+        /* Fix the circle for containers on the right side */
+        .right::after {
+        left: -16px;
+        }
+        
+        /* The actual content */
+        .content {
+        padding: 20px 30px;
+        background-color: var(--color-background-offset);
+        position: relative;
+        border-radius: 6px;
+        width: 150%;
+        }
+        
+        /* Media queries - Responsive timeline on screens less than 600px wide */
+        @media screen and (max-width: 600px) {
+        /* Place the timelime to the left */
+        .timeline::after {
+            left: 31px;
+        }
+        
+        /* Full-width containers */
+        .container {
+            width: 100%;
+            padding-left: 70px;
+            padding-right: 25px;
+        }
+        
+        /* Make sure that all arrows are pointing leftwards */
+        .container::before {
+            left: 60px;
+            border: medium solid white;
+            border-width: 10px 10px 10px 0;
+            border-color: transparent white transparent transparent;
+        }
+        
+        /* Make sure all circles are at the same spot */
+        .left::after, .right::after {
+            left: 15px;
+        }
+        
+        /* Make all right containers behave like the left ones */
+        .right {
+            left: 0%;
+        }
+        }
+    </style>
 </html>
