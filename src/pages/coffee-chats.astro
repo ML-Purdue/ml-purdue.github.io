@@ -1,0 +1,129 @@
+---
+import "@fontsource/inter/variable.css";
+import MLPurdueAbout from "~/components/MLPurdueAbout.astro";
+import Footer from "~/components/footer.astro";
+import Header from "~/components/header.astro";
+import ContentSection from "~/components/content-section.astro";
+import Spacer from "~/components/Spacer.astro";
+
+import "~/styles/index.css";
+
+const { site } = Astro;
+const description = "ML@Purdue Coffee Chats";
+---
+
+<!DOCTYPE html>
+<html lang="en" class="h-full motion-safe:scroll-smooth" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <!-- <meta name="generator" content={generator} /> -->
+
+    <title>ML@Purdue - Coffee Chats</title>
+    <meta name="description" content={description} />
+
+    <!-- social media -->
+    <meta property="og:title" content="ML@Purdue" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/social.png" />
+    <meta property="og:url" content={site} />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body
+    class="h-full overflow-x-hidden bg-default text-default text-base selection:bg-secondary selection:text-white"
+  >
+    <Header fixed />
+    <article class="mx-auto mt-20 w-[80vw] max-w-[80ch]">
+        <ContentSection id="mlpurdue" title="Coffee Chats">
+            <p>
+                Coffee chats are designed so members can anonymously match with leadership members and meet someone who has similar interests as them for a quick 30 minute chat. 
+                Limitied to one choice per member.
+            </p>
+            <Spacer y={8} />
+            <div class="flex flex-col gap-y-16 gap-x-24 md:grid md:grid-cols-2">
+                <div class="flex w-full flex-col">
+                    <h2 class="gradient-text font-extrabold tracking-tight text-3xl">
+                        <span>Member #1</span>
+                    </h2>
+                    <span class="capitalize text-lg">
+                        <p class="underline">Job Interests</p> Industry, Entrepreneurship
+                    </span>
+                    <span class="capitalize text-lg">
+                        <p class="underline">AI/ML Interests</p> Computer Vision, Natural Language Processing, Large Language Models (LLMs), Reinforcement Learning, Interactable AI
+                    </span>
+                </div>
+                <div class="flex w-full flex-col">
+                    <h2 class="gradient-text font-extrabold tracking-tight text-3xl">
+                        <span>Member #2</span>
+                    </h2>
+                    <span class="capitalize text-lg">
+                        <p class="underline">Job Interests</p> Industry, Research
+                    </span>
+                    <span class="capitalize text-lg">
+                        <p class="underline">AI/ML Interests</p> Machine Learning Operations (MLOps), Computer Vision, Natural Language Processing, Large Language Models (LLMs), Machine Interpretability, Reinforcement Learning, Interactable AI, Human Computer Interaction (HCI)
+                    </span>
+                </div>
+                <div class="flex w-full flex-col">
+                    <h2 class="gradient-text font-extrabold tracking-tight text-3xl">
+                        <span>Member #3</span>
+                    </h2>
+                    <span class="capitalize text-lg">
+                        <p class="underline">Job Interests</p> Industry, Entrepreneurship
+                    </span>
+                    <span class="capitalize text-lg">
+                        <p class="underline">AI/ML Interests</p> AI Infrastructure, Accelerators, Systems
+                    </span>
+                </div>
+                <div class="flex w-full flex-col">
+                    <h2 class="gradient-text font-extrabold tracking-tight text-3xl">
+                        <span>Member #4</span>
+                    </h2>
+                    <span class="capitalize text-lg">
+                        <p class="underline">Job Interests</p> Industry, Research
+                    </span>
+                    <span class="capitalize text-lg">
+                        <p class="underline">AI/ML Interests</p> Computer Vision, Natural Language Processing, Large Language Models (LLMs)
+                    </span>
+                </div>
+                <div class="flex w-full flex-col">
+                    <h2 class="gradient-text font-extrabold tracking-tight text-3xl">
+                        <span>Member #5</span>
+                    </h2>
+                    <span class="capitalize text-lg">
+                        <p class="underline">Job Interests</p> Research
+                    </span>
+                    <span class="capitalize text-lg">
+                        <p class="underline">AI/ML Interests</p> Computer Vision, Machine Interpretability
+                    </span>
+                </div>
+                <div class="flex w-full flex-col">
+                    <h2 class="gradient-text font-extrabold tracking-tight text-3xl">
+                        <span>Member #6</span>
+                    </h2>
+                    <span class="capitalize text-lg">
+                        <p class="underline">Job Interests</p> Industry, Entrepreneurship, Research
+                    </span>
+                    <span class="capitalize text-lg">
+                        <p class="underline">AI/ML Interests</p> Machine Learning Operations (MLOps), Computer Vision, Natural Language Processing, Large Language Models (LLMs), Algorithmic Trading
+                    </span>
+                </div>
+                <div class="flex w-full flex-col">
+                    <h2 class="gradient-text font-extrabold tracking-tight text-3xl">
+                        <span>Member #7</span>
+                    </h2>
+                    <span class="capitalize text-lg">
+                        <p class="underline">Job Interests</p> Industry, Research
+                    </span>
+                    <span class="capitalize text-lg">
+                        <p class="underline">AI/ML Interests</p> Computer Vision, Natural Language Processing, Algorithmic Trading
+                    </span>
+                </div>
+            </div>
+            <Spacer y={16} />
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfZm5i9HrR6yifrCf1awFHUZP-fjcCuWL91ut5fAWpx1TgK1A/viewform?embedded=true" width="640" height="800" frameborder="0" marginheight="0" marginwidth="0" style="width:40vw;filter:invert(0.9) saturate(2) hue-rotate(232deg)">Loading…</iframe>
+        </ContentSection>
+    </article>
+    <Footer />
+  </body>
+</html>
