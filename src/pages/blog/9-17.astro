@@ -1,0 +1,526 @@
+---
+import "@fontsource/inter/variable.css";
+import Footer from "~/components/footer.astro";
+import Header from "~/components/header.astro";
+import "~/styles/index.css";
+import ContentSection from "~/components/content-section.astro";
+import Spacer from "~/components/Spacer.astro";
+
+
+const { site } = Astro;
+const description = "ML@Purdue AIGuide Blog";
+
+---
+
+<!DOCTYPE html>
+<html lang="en" class="h-full motion-safe:scroll-smooth" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <!-- <meta name="generator" content={generator} /> -->
+
+    <title>ML@Purdue - AIGuide Blog</title>
+    <meta name="description" content={description} />
+
+    <!-- social media -->
+    <meta property="og:title" content="ML@Purdue" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/social.png" />
+    <meta property="og:url" content={site} />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body
+    class="h-full overflow-x-hidden bg-default text-default text-base selection:bg-secondary selection:text-white"
+  >
+    <Header fixed />
+    <Spacer y={96} />
+        <article class="mx-auto mt-20 w-[65vw] max-w-[120ch]">
+        <ContentSection id="aiguide-interviews-header" title="Computer Vision with Aref Malek">
+            <h1 class="font-bold text-xl">September 17, 2023</h1>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/qfpsBDeLVVU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <h1 class="font-bold text-xl">Transcript</h1>
+            <div class="max-h-80 overflow-y-scroll w-[50vw] text-xs" style="color-scheme: dark;">
+                <p>Aref is a Purdue CS major/math minor senior and the VP of the ML@Purdue club. He is
+                    interested in computer vision and have pursued them through personal projects and internships. </p>
+                <p>&nbsp;</p>
+                <p>Note: You don&rsquo;t need to read the entire transcript or watch the entire video.
+                        If you see an interesting question, you can just jump to it. Additionally there are some points in the video
+                        where there were background noises so you may notice "jumps".</p>
+                <p>&nbsp;</p>
+                <p>Resources by Aref</p>
+                <ul class="list-disc list-inside">
+                    <li>D2L.ai (<a href="https://d2l.ai/">https://d2l.ai/</a>)&nbsp;interesting since Jinen in a previous interview also recommended this!</li>
+                    <li>Andrej Karpathy (<a href="https://www.youtube.com/@AndrejKarpathy">https://www.youtube.com/@AndrejKarpathy</a>)&nbsp;has
+                            a really helpful youtube channel</li>
+                </ul>
+                <p>&nbsp;</p>
+                <p class="font-bold">Brian:</p><p>&nbsp;Hi, my name is Brian and I&#39;m interviewing
+                        Aref, the vice president of the ML@Purdue Club</p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Aref:</p><p>&nbsp;Hey, good to meet you. Sup, Brian? </p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Brian:</p><p> Hi, can you explain your background?</p>
+                <p>&nbsp;</p>
+                <p>*** Weird noise so had to cut out </p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Aref:</p><p> Background as far as stuff goes, I really liked
+                        Computer Vision for a while. Jacob and I both were both into that when we started like just talking and
+                        becoming friends. I think my first like four into it was with a club called AMP, Autonomous Motors Sports at
+                        Purdue. They had a data mining course for it where one of the graduate students on the team was like,
+                        I&#39;ll like mentor a bunch of younger kids and you know, let them do their little research or try little
+                        projects and figure it out. So I did that for a while and I really liked it. So much so that I thought I was
+                        going to be a vision person for sure. I worked after that, like professionally, I worked at NASA where I
+                        didn&#39;t do pure computer vision I worked with a bunch of like Google Cloud AI tools. Basically try to put
+                        together a project that they could use internally. In the fall, in the second semester of my sophomore year,
+                        I worked on a project called VEX. It was like VEX Robotics. Right now, Nick, I believe is the lead for that.
+                        Basically, it was just like a robotics competition that&#39;s done around the country every year where
+                        pretty much you try to just pick up rings or some sort of objective and what&#39;s special about it, I guess
+                        the semester that we did it, is that we were actually using a purely like a ML approach, meaning that there
+                        was no deterministic algorithm. Like if I see the ring, then I&#39;ll go forward and pick it up. We were
+                        trying to take a completely deep learning approach. So I did that throughout the spring of my sophomore year
+                        and learned a lot more about computer vision. There was a little bit of reinforcement learning involved as
+                        well. I didn&#39;t touch that side as much, but that&#39;s just some stuff that we took a plate around with.
+                        Heading into that summer, I, very diverse background, but I&#39;ll just keep going. That summer, I worked as
+                        a software intern at Amazon. I worked actually on a computer vision product, but I was a purely software
+                        dev. I was working like on the back end for that machine. I wrote a little bit of like systems code, you
+                        could say. And then after that, I had a little bit more research experience. I worked with Professor Bera in
+                        the Ideas Lab. I worked under a visiting student at the time on a project that was like a speech to facial,
+                        like a facial motion synthesis. And I&#39;ll explain what that means later. But I worked on that for a
+                        couple of months before I spent this past summer at NASA again in Virginia, where I worked on a project for
+                        like wildfires. Now I work as a full stack developer at Tesla for the Supercharging Network. So very long,
+                        but we&#39;ll piece that apart as time goes along.</p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Brian:</p><p> Yeah, so like I had like questions about, you know, a
+                        little more, you know, in-depth detail of your background. So I see that you participated in the autonomous
+                        motor sports club. So can you just explain what that club does? And, you know, your specific project?
+                    </p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Aref:</p><p>&nbsp;Yeah, I mentioned a little bit at the beginning,
+                        but let me like start from the top. So AMP stands for Autonomous Motorsports Purdue. It specifically is a
+                        club that works on a race car that&#39;s used at the Indy 500. And what that means is that not like the
+                        actual, like, nationally televised Indy 500. There&#39;s a thing called the Indy Autonomous Challenge. And
+                        what was special about that project is that cars will pretty much race around that like 500 track with
+                        obstacles and cones and things like that. But what&#39;s special is that it was entirely AI based. People
+                        use different approaches, right? Some people would hard-code it. Some people would try to like use deep
+                        learning. But what was special about it at its core was that nobody was actually touching the car when it
+                        moved. All the maneuvers that it did, all the racing that it did was completely by itself. AMP, as far as I
+                        was concerned, was like a, was a VIP project from Purdue&#39;s Datamine, which I believe many first and
+                        second years take apart of. At the time, what I worked on there is that they were trying to figure out like,
+                        can we use a network, like just a one-and-done network to pretty much predict where the car is going and
+                        what it&#39;s going to do. So what we worked on was that given some environment that we make, let&#39;s say
+                        that we have a model of what the actual racetrack looks like in Unity or some sort of VR environment, can we
+                        train the network that&#39;s in this little VR environment and actually successfully routes around? I worked
+                        a lot on the vision aspect of that. I learned a lot because I&#39;d started at zero, right? So it was a
+                        really rough start and then we got a little bit better over time. That&#39;s the general overview. I worked
+                        on that as like a VIP student for a while and then for a couple of weeks, not too long, I was just talking
+                        with and tried to help out the actual graduate team that works there. The guy that I did that with
+                        originally is now like the team lead of the entire Purdue team and he&#39;s like a senior. So he&#39;s doing
+                        very good for himself.</p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Brian:</p><p> Okay, so I saw this YouTube video about race cars. And
+                        so I have very limited knowledge on it, but I know that for race cars around turns, you want to go slow,
+                        right? And there&#39;s like an optimal sort of planning. So did you incorporate that somehow into your
+                        predictive algorithm? </p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Aref:</p><p> Actually, yeah, that&#39;s a big thing that you
+                        struggle with when you&#39;re collecting data for these networks, especially from a vision point of view. If
+                        you just take the naive approach of like, okay, here&#39;s a car. I&#39;m at the wheel as a person driving,
+                        I&#39;m just going to predict how much do I turn the wheel and how much am I going to press the gas pedal.
+                        Because I mean, you&#39;re certainly not going to slow down a bunch when you&#39;re driving, right?
+                        You&#39;re just everything on the slow as you don&#39;t fly up the edge, but you&#39;re trying to go fast at
+                        the end of the day. So anyways, if you took the naive approach of just predicting those two things when
+                        you&#39;re driving, what happens is that because the car in general is just going straight and then just
+                        trying to turn at specific points, right? The roundabout, or I guess I&#39;d call it the turn. What happens
+                        is that when you actually train the network, it&#39;s pretty much only used to like, if it averages out
+                        where it&#39;s turning, it&#39;s kind of like slightly going to the left, right? Not like a sharp turn
+                        that&#39;s usually made as you round the corner, but it averages it out just like something in the middle.
+                        And that sucks because when you actually drive, you&#39;re in a situation where I&#39;m going to go, I&#39;m
+                        going to go straight, I&#39;m going to go closer and closer to the edge of the curb, and then I&#39;m going
+                        to completely fly off, right? So anyways, when we were designing like our data, like when we actually like
+                        built the data that it was going to train on, we had to make sure that the car was able to like swerve off
+                        the lane. We built in like situations where the car would drive, fly off the lane, and we punished it for
+                        it, obviously. And we would also start to reward the car for following a series of points. You could imagine
+                        when you&#39;re driving on the road, you pretty much predict like, either I&#39;m going to syay straight on
+                        the highway, this lane got backed up or it&#39;s closing off, so I&#39;m going to change my path to merge
+                        onto a different lane, something like that, right? Pretty much we had to think about how the where the car
+                        is going to be, rather than how are we actually going to move the car at this instant. </p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Brian:</p><p> Okay, so when you did your, you know, when you like
+                        set up your training data, did you like already pre-compute like the optimal path? And then that is what the
+                        virtual car is going to follow? </p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Aref:</p><p> Yeah, so we would, long story short, pretty much we
+                        would like have a set of different driving styles. One where it would wave back and forth, one where it
+                        would take wide turns, narrow turns, we would vary the whole mix, right? And what we do is that for any
+                        point in time that the car was at, this car would actually be looking like maybe 10 seconds in the past,
+                        right? And the data that it has or like the training data is like, where was the car at every single second,
+                        10 seconds from now? So let&#39;s say that I was making that, that was that turn that you said, right? So
+                        that means that at second one, I&#39;m here at second two, I&#39;m a little bit further actually closer to
+                        the grass, meaning I&#39;m like closer on the turn, which means I lower my centripetal force, right? And
+                        something like that along the turn so that when the car goes wide or something like that, in the actual
+                        training, we would know to punish the car because it didn&#39;t follow the path that we set out. Yeah, so we
+                        gave it paths to train on pretty much.</p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Brian:</p><p>&nbsp;so is there like, like an already existing sort
+                        of optimal path algorithm out there? </p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Aref:</p><p> There actually is. We were trying to keep up with this
+                        one paper from NVIDIA, I think called PilotNet. And what they did is pretty much at any given moment, the
+                        network will like cars here, it has like four different like paths open to it and it&#39;s basically just
+                        waiting the values of each one. So one network pretty much did the job of like, here&#39;s your eight paths
+                        or something. The second network said, here&#39;s the optimality of each, and then the car would choose
+                        where to go from there.</p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Brian:</p><p> Okay, so I wanted to move on to your NASA intern
+                        experience. So I saw that you worked on wildfire localization and can you go more into detail about, you
+                        know, the specific algorithm you use, what, you know, challenges there were with the problem, etc.
+                </p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Aref:</p><p>&nbsp;Yeah, I won&#39;t talk too much about the
+                        algorithms. I&#39;m supposed to be working on it still</p>
+                <p>That&#39;s a whole different conversation. But anyways, I&#39;ll give you the
+                        overview of the problem. There&#39;s an existing paper already that pretty much says like, NASA had access
+                        to these drones, they were basically like from the army, they were called predator drones, they&#39;re used
+                        for very questionable things and stuff like that.</p>
+                <p>&nbsp;</p>
+                <p>*** Weird noise so had to cut out</p>
+                <p>&nbsp;</p>
+                <p>The reason why it&#39;s important is that there&#39;s this big drone that can fly
+                        super high in the sky and it&#39;s huge. This thing is like maybe like a bigger than a school bus in length
+                        and super wide. And so what&#39;s special about that is that you can put a whole bunch of sensing data. So
+                        like the mid 2000s, up until like the mid 2010s, when there was fires in California, NASA was allowed to put
+                        like this thing called the AMS sensor, it&#39;s like autonomous modular sensor. And so what it did is that
+                        when you put it on, it would have not only access to like general camera, like your iPhone type camera,
+                        you&#39;d have access to infrared readings, you would have access to thermal readings, you would have access
+                        to a bunch of like different sensors. And so what&#39;s special about that is that you basically have this
+                        really good problem set of like, here&#39;s all the fires in California at different times of day, and
+                        different types of weather. And so regardless what the weather is like, whatever, regardless of what the
+                        lighting is like, we can tell what fire looks like, right? Because we can tell that, okay, when it&#39;s
+                        infrared, even if it&#39;s cloudy or something, we can still see the heat rays make it to the sensor. No one
+                        ever took a deep learning approach to that. And so the paper that was done by interns about two years ago,
+                        was the first to say like, Hey, here&#39;s the suite of stuff, let&#39;s make a bunch of networks that are
+                        light, that are super lightweight, that can fly on like a less solidified drone, but still get the job done.
+                        So what that means is that like, even if we don&#39;t get access to like a super high, fancy done, 
+                </p>
+                <p>&nbsp;</p>
+                <p>*** Weird noise so had to cut out</p>
+                <p>&nbsp;</p>
+                <p>we could still get these networks benchmark them for whichever one&#39;s the best and
+                        then fly it on the drone and collect the data. The reason why that&#39;s important is that right now, the
+                        way that the forest system does it is that whenever there&#39;s a fire, they fly some like fire spotting
+                        drones over it, they label the data, and then they&#39;re they&#39;re ready to say like, here&#39;s where
+                        the fire is in like 12 hours, which is problematic, right? It&#39;s a little bit of a slow response. So our
+                        dream, so our dream with the thing is that we want to be able to have a lighter drone, right? It might not
+                        have the full sensor suite, but whatever it has, we load our like our network onto it. It flies over
+                        wherever the fire is, it does our little detection, and then at least you have a 80% of the way to the
+                        solution, right? So that even though you&#39;ll have to have someone in the loop to label it, you won&#39;t
+                        have to have a 12 hour turnover loop. That&#39;s something that we really want to improve.</p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Brian:</p><p>&nbsp;You mentioned that this drone uses a hyper
+                        spectral like sensor or something, uses many different types of, you know, sensors like infrared, I guess,
+                        like RGB too. My question is, is it possible if you could maybe just hard code this? Like, I&#39;m not
+                        really sure. But like, if the thermal rating is above X, then there&#39;s a fire. So what would be the
+                        advantage of using deep learning? </p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Aref:</p><p>&nbsp;So the reason why is because it&#39;s really hard
+                        to capture. It&#39;s actually a very good thing that you brought that up. A lot of the existing papers
+                        pretty much do that. There&#39;s another thing called the Landsat satellite. And it&#39;s this big satellite
+                        that NASA sends into space. And it pretty much has almost the same suite of sensors. And you have to think
+                        about how. expensive that is to fly that in space. Basically, what people do is that they come up with like
+                        hard coded algorithms, like you said, where it&#39;s like, if the ratio between the thermal at this area and
+                        like the IR this area is above 0.72, then that&#39;s one of the factors that may lead to fire. The problem
+                        is that you&#39;ll never get it perfect, right? Because if it was perfect to get it, then there wouldn&#39;t
+                        be a space or if there was a way to get it perfectly, then we wouldn&#39;t have a 12 hour turnover time to
+                        detect fire, right? Yeah, let&#39;s just think about your example, right? Let&#39;s say that if thermal was
+                        high enough and IR was there, then we&#39;re going to say that there&#39;s a fire. Now let&#39;s think about
+                        it&#39;s a hot day in Texas, we&#39;re flying over, there&#39;s going to be a fire, but we also fly over
+                        like Houston, right? Houston&#39;s hot, the sun&#39;s bright, and that means that sun is reflecting off the
+                        ground, that asphalt, like the highways, is hot as hell, right? So that means that it&#39;s going to pick up
+                        high IR and high thermal. Even though if I looked at it, right? It&#39;s just black asphalt. That&#39;s an
+                        example, right? Because that was one of our false positives. When we try that algorithm, when we looked at
+                        parts of Southern California, it would mark roads as fires very often actually. </p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Brian:</p><p> Okay, so I guess this deep learning approach is a more
+                        general approach? </p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Aref:</p><p> Yeah, also the important part about it is that if you
+                        can generalize for RGB, like saying like, okay, when I have RGB like this, I tend to have IR and thermal
+                        like this, right? And that means that I&#39;m very likely to predict that this is a fire. Let&#39;s say that
+                        it was a pretty cloudy, like it was very smoky when I flew over the, when I flew over Southern California,
+                        but I saw these red patches and when I looked at the IR and the thermal, it gave me indicators that there
+                        was fire and the label was fire. So that means that even when we fly it, this is actually one of our
+                        hypotheses, is that like even when we fly it without access to IR and thermal, because the RGB is associated
+                        with that outcome, which is fire, we would still have a strong predictor for it</p>
+                <p>That&#39;s something we have to test and that&#39;s something why I have to keep
+                        working. </p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Brian:</p><p> Okay, my next question So I saw that</p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Aref:</p><p>&nbsp;So let me know if that doesn&#39;t make sense.
+                        I&#39;ll clarify. I tend to speak pretty fast</p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Brian:</p><p>&nbsp;No, I think it made sense. Okay, so I think
+                        earlier you also mentioned that you joined the Ideas Lab. And I saw that you did research in the VR area. So
+                        can you explain what type of research you did? </p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Aref:</p><p> Yeah, the paper is actually already out. I&#39;ll talk
+                        about like what they did because I actually, I stopped taking part in things happened and whatever. So
+                        basically the dream of that project was that like, let&#39;s say that we&#39;re in a voice room, right? So
+                        we&#39;re doing Zoom like this. And let&#39;s say that we&#39;re not very comfortable showing our face, but
+                        we have an avatar, like we have like the Apple Animoji, right? So let&#39;s say that when I&#39;m speaking,
+                        right? Now that I&#39;ve learned how I&#39;ve learned, this is how I look when I&#39;m mad, this is how I
+                        look when I&#39;m surprised, things like that, I&#39;m able to just take in my language, right? My actual
+                        speech and figure out what my face would look like at the time. So the whole point of this is that like, if
+                        I&#39;m in VR, right, and I don&#39;t have access to compute or like track my face purely, I&#39;m able to
+                        turn in my speech to an expressive talking head pretty much. So we call it speech to effective gestures. But
+                        what that means is that like, even if I&#39;m just speaking, you can figure out what my emotions like,
+                        right? And if I had a 3D like a thing about a 3D cloud of like a human face, right? Think about Snapchat
+                        filters. When I&#39;m angry, right? It&#39;s able to figure out what my face looks like at that time. So
+                        that&#39;s what we&#39;re trying to figure out</p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Brian:</p><p> So it tries to like incorporate the semantic meaning
+                        behind your sentences, and it just maps out onto like a avatar</p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Aref:</p><p>&nbsp;Yeah, but not only that, right? I&#39;m also
+                        speaking, the avatar speaking, right? So first off, it has to learn how mouth movements work, one, but also
+                        how mouth movements and facial expressions combine. </p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Brian:</p><p> Oh, so does the model also take into account maybe the
+                        volume of your voice? So like, maybe if I&#39;m, I don&#39;t know, like, I can&#39;t really think of an
+                        example, but maybe if I&#39;m loud at one point, that might lead to a different expression as opposed to
+                        when I&#39;m, you know, whispering or something?</p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Aref:</p><p>&nbsp;Yeah, actually, there&#39;s a thing called VAD in
+                        the emotional space. I forget what the D stands for, but one is for valence and arousal. So you could think
+                        of like the arousal was like how energetic this level is, right? So if I&#39;m very angry and I&#39;m super
+                        loud, my arousal is pretty high, right? So like, part of like when you express emotion is that like,
+                        obviously, you&#39;re going to classify what&#39;s your emotion, whether mine might be inquisitive, yours
+                        might be like questioning or to use like a common emotion angry, right? So even though I classify that,
+                        right, I have to figure out that like, based off this like sound snippet, what is like the face look like to
+                        go extra loud or things like that, right? That&#39;s part of your training data.</p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Brian:</p><p> Okay, so it takes that into account the VAD? What did
+                        you say? </p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Aref:</p><p>&nbsp;VAD is just an example of what I&#39;m saying. In
+                        our example, like, the whole idea is that we synthesize speech in the motion, right? And then once we
+                        synthesize speech and motion, let&#39;s say our training data with someone speaking and then their audio
+                        file, right? So when someone&#39;s speaking, obviously your face changes when you&#39;re like making more
+                        noise, right? So you could think of it that like the facial motion that&#39;s expressed with that is now
+                        associated with that sound bite. But on top of that, right, you also have a label for what emotion that
+                        is</p>
+                <p>So when I&#39;m speaking loud and I&#39;m saying that word and I&#39;m angry, it
+                        looks different than when I&#39;m speaking loud and I&#39;m explaining how angry I am to you.</p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Brian:</p><p> Okay, wait, so, so from what I&#39;m gathering, the
+                        algorithm that you worked on, it tried to predict your, you know, some facial expression of an avatar based
+                        on how you speak and not the words themselves. So like, if you said the word, I&#39;m not really sure. Like,
+                        let&#39;s say that I said something angry, like a sentence that would indicate that I&#39;m angry, when I
+                        talk to it, what I said, like, as if I was passive, then the face would look passive.</p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Aref:</p><p> Yeah, you can think of it is that like, if you close
+                        your eyes and you hear me talk, now that we&#39;ve talked for a little, you can imagine what my face looks
+                        like at the time, right? So you&#39;re imagining that you close my eyes. And let&#39;s say you imagine your
+                        mom yelling at you, right? You know exactly what your mom&#39;s face looks like. And so the whole idea is
+                        that like, if I could synthesize what you look like, when you speak with this assumed emotion, right? Then I
+                        could make a better construction of like a realistic person speaking. The whole point of the emotion is that
+                        as people, right, when we conversate, we don&#39;t speak monotone, right? It&#39;s a it&#39;s a hard way to
+                        actually express ideas without using emotion. And so our intuition was that if we feed an emotion to the
+                        context of generating a face that speaks, right, you get a much. more realistic output</p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Brian:</p><p> Yeah, I mean, that&#39;s really interesting. Wait, so
+                        when you actually train your algorithm, is it like, you like, somebody says a sentence, and then there&#39;s
+                        like some sort of like camera or something like showing the exact 3D coordinates of like the outline of your
+                        face. And then you just feed that into the model.</p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Aref:</p><p> Yeah, there&#39;s actually, so like, I can explain, at
+                        least when I looked at it, this paper has been worked for like six months after I left. So they did a lot of
+                        stuff that was different than when I was saw it. But I can explain to you what I understood at the time. The
+                        way that it looked like to me was that like, let&#39;s say the training data is like a bunch of people that
+                        have their facial emotions, like corner parts of their whole face tracked, right? And when they&#39;re
+                        speaking, yes, we have this audio clip, but also we have a label for what it looks like so that this is an
+                        angry person saying a sentence. And this is what their face looked like at every single second of that clip,
+                        right? Meaning that like, this is what their whole like thing about the Snapchat facial filter where it has
+                        like a whole polygon, this is what the polygons look like at every moment. So the whole idea is that
+                        you&#39;re not really reconstructing a person&#39;s face, but that polygon, because you map those those
+                        meshes and like in VR in any sort of game, right? Your your meshes was actually mapped on top of the
+                        skeleton structure. So you can imagine that we&#39;re just predicting what an average face would speak at
+                        that time. And then you map stuff on top of it. </p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Brian:</p><p> So I mean, I can see how this can have any
+                        applications or like VR. So I was going to ask, what is your opinion on the metaverse? Like, is that gonna,
+                        you know, pan out? </p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Aref:</p><p> I hate to say I have a crystal ball because I
+                        don&#39;t, I predicted wrong a lot of times. But I do think that it&#39;s a little bit silly not to imagine
+                        that our lives aren&#39;t going to get more integrated with computing as life goes on. I mean, before, what
+                        was the bar for like AI, like, okay, I would never be able to beat somebody at chess, that&#39;s a long gone
+                        game, right? But never be able to beat somebody at Go, that&#39;s that&#39;s gone. It will never be able to
+                        drive a car. I mean, I work at a company that literally challenges that, right? And then now it&#39;s like,
+                        it&#39;ll never be able to write essays and the bar for essays has now risen. It&#39;s a moving game where
+                        like, I don&#39;t know what I define is like, we&#39;re only gonna, we&#39;re gonna live real life SAO
+                        pretty much, right? If anyone out there watches this anime. I don&#39;t know if that&#39;s how I describe
+                        it, but a lot more of your life will be interacting with different forms. Let me rephrase this. A lot more
+                        of your life will be interacting online, right? And so however we can make that more expressive and more, I
+                        guess, core to the human like emotion, I think that&#39;ll be very valuable as time goes on</p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Brian:</p><p> Okay, so what made you interested in AI and what kind
+                        of resources did you use to learn more about it at Purdue? </p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Aref:</p><p> Good question. I&#39;m interested in AI, but I would
+                        also call myself a generalist</p>
+                <p>I don&#39;t think I&#39;m like a superstar in any specific field. I just like to
+                        learn a lot. What I think helped me a lot is honestly, I, I bother a lot of people like I ask, I like ask a
+                        lot of people like, Hey, I want to learn this, I&#39;m doing this, do you have any tips for it? Let&#39;s
+                        say for example, I wanted to learn more about doing a research skill project, right? I would, let&#39;s say
+                        at this time, I tried a couple of tutorials, I made a couple of networks, I like the stuff I want to take it
+                        more seriously. I would shoot emails to professors saying, I like this, what you do is similar</p>
+                <p>Let&#39;s say what Professor Bera, the ideas lab, he works on turning human like
+                        emotion into like a the AI and robotic space. I like those things are worked on human expression into, in a
+                        like a computer vision product, meaning that I would interact with my real world and I turned that into like
+                        a something in the computing space, it&#39;s called AirDraw.</p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Brian:</p><p>&nbsp;Airdraw. Oh. I think I saw a video, it&#39;s like
+                        where you just like you draw in the air </p>
+                <p>(here is video: <a class="c6"
+                            href="https://arefmalek.github.io/blog/Airdraw/">https://arefmalek.github.io/blog/Airdraw/</a>)</p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Aref:</p><p> I made that. But anyways, what&#39;s important about
+                        that is that like, I always just reached out and then I said, Hey, I want to learn a bunch. Do you have any
+                        time for me? And I try to find my way there. Resources that I recommend to everyone, I would recommend that
+                        you just start to read more, meaning that you don&#39;t have to understand 100% get to like 50%, 70%, 80%. I
+                        would use stuff like d2l ai. I would use stuff like Andrej Karpethy. </p>
+                <p>(He has a youtube channel)</p>
+                <p>He&#39;s really brilliant. I just love to listen to him speak and just teach. And
+                        also like Purdue, I would say Purdue curriculum is trending more towards AI. That&#39;s why we have a whole
+                        major for it now. But a lot of the courses will help you gain foundational knowledge or at least understand
+                        where the history of AI was</p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Brian:</p><p> Yeah, yeah, I mean, I know that AI majors, they need
+                        to take like some philosophy courses or something</p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Aref:</p><p> Yeah. But let&#39;s say that it&#39;s a very broad
+                        question</p>
+                <p>&nbsp;</p>
+                <p>*** Weird noise so had to cut out</p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Aref:</p><p> I&#39;ll say like this. Let&#39;s say imagine I&#39;m a
+                        freshman student, no way I experience, I really like ML@Purdue. And let&#39;s say I don&#39;t think I&#39;m
+                        like qualified enough to join an ML project here</p>
+                <p>How would I make myself a little bit more presentable or try to improve my chances? I
+                        would say first off, with your math skills, what can you learn and what can you make, right? So let&#39;s
+                        say that at first I was able to make, I was able to follow a couple of tutorials, I learned a bit of Dumpi,
+                        then I learned PyTorch, I made a couple of CNNs, maybe I made an LSTM, I made a couple of networks, right? I
+                        learned how back propagation works, I learned how to make stuff, right? That&#39;s considered AI. Now, if I
+                        have that knowledge, could I do it at a little bit of a higher level than tutorial, right? The resources
+                        aren&#39;t real available to me, but could I learn given some mentorship of like a lab or something? I would
+                        do that, I would reach out to a lab and say, hey, I&#39;m starting out, I really want to learn and I like
+                        what you guys do for X, Y, and Z</p>
+                <p>I noticed that you guys probably need help with this, could I help? I would try to do
+                        that for a while. And then once I realized that I can thoroughly understand the baseline, which is like
+                        tutorial level, I understand what those things are doing. And then if I was doing research, I understand
+                        that these requirements come, then it just shows that I&#39;m someone who can learn, right? I don&#39;t
+                        master computer vision, I don&#39;t consider myself a master at all. But I think I can learn, right? If the
+                        situation comes down to it. And I think that&#39;s the most important thing you can show on a club app, a
+                        job app, research application, anything, right?</p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Brian:</p><p> Yeah, so you just mentioned research. So would you say
+                        that it&#39;s easy to reach out to professors here for research opportunities? </p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Aref:</p><p> Yes and no. Certain professors are very open to
+                        accepting new people, certain professors aren&#39;t. For example, Professor Bera&rsquo;s lab has ballooned
+                        from like 10 to 15 students to like 30 to 40. Their students are pretty much always looking for someone else
+                        to come in. And if they&#39;re not, I mean, there&#39;s different professors that are very open to students
+                        as well. There&#39;s a whole blossoming of AI in the past year or so. So I would say that like, if you have
+                        a way to say like, hey, I know that you&#39;re working in AI, I have these skills, I&#39;d like to learn a
+                        little bit more. Could you take me in? It&#39;s, I&#39;d be hard pressed to say that the entire school would
+                        say no to you</p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Brian:</p><p> Okay, so my final question. So this is sort of a
+                        general open-ended question</p>
+                <p>How do you think AI will shape our world? It&#39;s a very broad question. </p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Aref:</p><p> Yeah. That&#39;s a very, very broad question.
+                        That&#39;s like saying like, how will computer science change the world? It&#39;s, so I will answer it from
+                        how, if I was asking this question, what I would think it means, and then I&#39;ll try to answer that. So I
+                        was asking this question, I would imagine like, how will AI shape, let&#39;s say the face of CS, the face of
+                        the tech industry, and also how everyday people interact with their computers. Let&#39;s just keep it
+                        simple, right? So at the base level, I would say that the way I would describe the whole AI trend is kind of
+                        no different than any of the other trend that&#39;s occurring right now. Let&#39;s think back like three
+                        years ago, right? And let&#39;s say that people thought that banks were going to die out, we&#39;re going to
+                        have blockchain instead. Yeah, like cryptocurrency was going to be the new US dollar or something like that,
+                        right? This was definitely things that people said, right? And now when you open LinkedIn, you&#39;re going
+                        to hear like at least five people in a row say like, AI won&#39;t replace you, of course, they&#39;re using
+                        AI will, and they&#39;ll all say the same thing, right? And so I would say from that point of view, as
+                        anyone that&#39;s thinking about like their personal investment, it&#39;s another tool that&#39;s being
+                        created, right? Obviously, you&#39;ll have to advance. I&#39;m sure someone that says I&#39;m trying to look
+                        for a job, but I don&#39;t know how to use Google will struggle, right? And so the same will be true with
+                        chat GPT, with all the other LLM tools and stuff like that</p>
+                <p>But what I wouldn&#39;t fall into is I wouldn&#39;t be one of those people that&#39;s
+                        going to say like our robot overloads are just bound to come in and take us over, right? That I think
+                        we&#39;re a bit away from. And the reason why is because I&#39;m hesitant to trust any sort of doom and
+                        gloom approach. I think they&#39;re trying to profit off you at the end of the day. That&#39;s what I&#39;d
+                        say. So someone that&#39;s worried about themselves, because I am too, right? I&#39;m sure that a lot of the
+                        work that I do, if it&#39;s not in pure research, will eventually become replaceable. That&#39;s a sign that
+                        as a humanity, we&#39;re growing, right? If in like, I hope in 10 years, I won&#39;t need to know React.
+                        That&#39;s a sign that the field hasn&#39;t like advanced at all. You know? So I would say that like as
+                        someone who&#39;s like worried about the advancement of technology, it&#39;s part of the course. I mean, we
+                        automate people all the time. When the car was invented, a lot of people lost their jobs. Like a lot of jobs
+                        were to take care of horses. We don&#39;t need horses anymore. We have a car, right? But that&#39;s bound to
+                        occur. And it&#39;s a little sad to know that it&#39;s bound to happen. But also it&#39;s part of the
+                        course. Now, what&#39;s the second way I would talk about this? What does that mean for someone interacting
+                        with their computer, right? The way that I like, we look at people use computers and like the 50s and 60s in
+                        NASA, when like the moon landings were happening versus like now are totally different. I mean, the
+                        calculator has more power than the first rocket to the moon. That&#39;s, you know, and what does that mean?
+                        That means that at every scale of technology is about to change. Basically, every single company is racing
+                        to figure out like what&#39;s the best hardware design to train LLMs. Like I said before, it&#39;s publicly
+                        stated this isn&#39;t like insider knowledge. Tesla had self-proclaimed top 10 supercomputers in the world
+                        just to train an AI that just sees things. But now you can imagine in order to train a chat GPT or any sort
+                        of model like that, every single query you send to Chat GPT uses eight NVIDIA GPUs on average. That&#39;s
+                        like the stat that&#39;s thrown around. So you can imagine that like if it&#39;s a one query per person to
+                        eight GPUs, GPUs are expensive. That&#39;s not going to last forever. Every company is racing even at the
+                        pure hardware silicon level</p>
+                <p>Like how do we make a new design just like handle this, right? That&#39;s why
+                        Tesla&#39;s stocks skyrocketed because of Dojo. That&#39;s why Google is making things called TPUs.
+                        That&#39;s why NVIDIA makes so much money. That&#39;s why AMD is trying to compete with them. That&#39;s the
+                        base level. People are making new ML frameworks. NVIDIA obviously has CUDA. That&#39;s like what they run
+                        while processing other GPUs. I&#39;m sure that Tesla&#39;s going to make something</p>
+                <p>I don&#39;t know, but they might AMD is bound to make something because they want to
+                        compete. Apple&#39;s going to do the same thing. Basically at every single level to handle this new disrupt
+                        in technology, we&#39;re going to change how we design things. And eventually, I think AI will also be
+                        something that&#39;s similar to commodity. Let&#39;s think about the iPhone 16 years ago. The iPhone is
+                        almost as old as us. So if you think about that, when people first saw it, what do they think that iPhones
+                        in 16 years would look like? Do they think it would look like what it does now? Or do they think it&#39;s
+                        going to be like, I&#39;m going to open my eyes and I see Jarvis around me? Let&#39;s be honest. They
+                        probably imagine the second. I think what we tend to forget is that at the end of the day, technology has a
+                        financial incentive. So however fast it can be a commodity is probably where it&#39;s going to head. And it
+                        probably won&#39;t leave. That&#39;s why Google is like the original algorithm that Google runs can never
+                        run the whole internet today. All this SEO stuff that people figured out will make it pretty much
+                        inaccessible. So what I&#39;m getting at is that as someone that thinks about how they interact with their
+                        computer, I think what you&#39;re failing to realize is that whatever commoditization we find for AI, well,
+                        at the end of the day, be a product. I mean, we&#39;re America, we&#39;re a very capitalist place. So
+                        we&#39;re trying to find a way to make this usable for people as a product, but also how do we actually meet
+                        our goals, aspirations, career goals, finance goals, whatever. Does that answer the question? It&#39;s a
+                        very open-ended question. So I&#39;m sorry that I gave an open ended answer.</p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Brian:</p><p> No, That was the point. I wanted everyone I
+                        interviewed, if I asked them that question, everyone will have completely different answers. So yeah, that
+                        was great. So yeah, thank you so much for allowing me to interview you Aref.</p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Aref:</p><p> Yeah, it&#39;s my pleasure. Appreciate you doing this
+                        service pretty much. Some of the smartest people I know are interviewing with you, and I&#39;m just really
+                        excited to hear what they say. Yeah</p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Brian:</p><p> Well, I just like cool stuff, and I&#39;d love to hear
+                        more</p>
+                <p>&nbsp;</p>
+                <p class="font-bold">Aref:</p><p>&nbsp;Yeah, cool</p>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+            </div>
+        </ContentSection>
+    </article>
+    <Footer />
+  </body>
+</html>

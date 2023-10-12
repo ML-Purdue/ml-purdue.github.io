@@ -1,0 +1,477 @@
+---
+import "@fontsource/inter/variable.css";
+import Footer from "~/components/footer.astro";
+import Header from "~/components/header.astro";
+import "~/styles/index.css";
+import ContentSection from "~/components/content-section.astro";
+import Spacer from "~/components/Spacer.astro";
+
+
+const { site } = Astro;
+const description = "ML@Purdue AIGuide Blog";
+
+---
+
+<!DOCTYPE html>
+<html lang="en" class="h-full motion-safe:scroll-smooth" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <!-- <meta name="generator" content={generator} /> -->
+
+    <title>ML@Purdue - AIGuide Blog</title>
+    <meta name="description" content={description} />
+
+    <!-- social media -->
+    <meta property="og:title" content="ML@Purdue" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/social.png" />
+    <meta property="og:url" content={site} />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body
+    class="h-full overflow-x-hidden bg-default text-default text-base selection:bg-secondary selection:text-white"
+  >
+    <Header fixed />
+    <Spacer y={96} />
+        <article class="mx-auto mt-20 w-[65vw] max-w-[120ch]">
+        <ContentSection id="aiguide-interviews-header" title="Robotics + LLM with Jacob Zietek">
+            <h1 class="font-bold text-xl">September 23, 2023</h1>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/xlRaYy4sFpY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <h1 class="font-bold text-xl">Transcript</h1>
+            <div class="max-h-80 overflow-y-scroll w-[50vw] text-xs" style="color-scheme: dark;">
+                <p>Jacob is THE ML@Purdue President and is a CS major. He is interested in both Natural Language
+                    Processing and Robotics and also the intersection of them both - Using large language models to control
+                    robots!</p>
+            <p>&nbsp;</p>
+            <p>Other information:</p>
+            <ul class="list-disc list-inside">
+                <li>Medium blog post on LLM + robots <a target="_blank"
+                            href="https://medium.com/ml-purdue/recent-advancements-in-language-capable-robotics-88fe31145451">https://medium.com/ml-purdue/recent-advancements-in-language-capable-robotics-88fe31145451</a>
+                </li>
+                <li>Personal website <a target="_blank"
+                            href="https://www.jacobzietek.me/">https://www.jacobzietek.me/</a>
+                </li>
+            </ul>
+            <p>Things that were referenced in talk:</p>
+            <ul class="list-disc list-inside"></ul>
+                <li>Langchain <a target="_blank"
+                            href="https://www.langchain.com/">https://www.langchain.com/</a>
+                </li>
+                <li>Amazon TaskBot Challenge</li>
+                <li>Using Chat GPT to play minecraft <a target="_blank"
+                            href="https://www.wired.com/story/fast-forward-gpt-4-minecraft-chatgpt/">https://www.wired.com/story/fast-forward-gpt-4-minecraft-chatgpt/</a>
+                </li>
+                <li>Open AI CLIP model <a target="_blank"
+                            href="https://openai.com/research/clip">https://openai.com/research/clip</a>
+                </li>
+            </ul>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p class="font-bold">Brian:</p>
+            <p>Hi, my name is Brian and I&#39;m interviewing Jacob</p>
+            <p>&nbsp;</p>
+            <p class="font-bold">Jacob:</p>
+            <p>Hi, can I go now? Yeah</p>
+            <p>Wonderful</p>
+            <p>So, hi, I&#39;m Jacob Zajtek</p>
+            <p>I&#39;m the founder and president of MLAP Purdue, currently a sophomore in computer
+                    science at Purdue University. And my last semester, I specialized mostly in robotics and AI applications.
+                    Yeah, very excited to talk to you today</p>
+            <p>&nbsp;</p>
+            <p class="font-bold">Brian:</p>
+            <p>Yeah. How come you started the ML@P Purdue club? </p>
+            <p>&nbsp;</p>
+            <p class="font-bold">Jacob:</p>
+            <p>Sure. So, MLAP Purdue spun off of a previous club known as ACM-SIG AI. So, ACM-SIG AI
+                    had some structural issues with how it was built, where SIG AI was kind of like a sub-organization of the
+                    SIG AI organization, of the ACM organization. So, because we were a sub-organization, we didn&#39;t have our
+                    own independent bank accounts. We didn&#39;t have any power within like the ACM to make any big changes. And
+                    we wanted to make some really ambitious strides to unite the three schools that had huge AI initiatives,
+                    which is the Polytechnic School here, the ECE School, and then the College of Science. So, because we had
+                    ambitious funds to do that, and the ACM structurally wasn&#39;t really there to support us, we decided to
+                    branch out and make our own organization. </p>
+            <p>&nbsp;</p>
+            <p class="font-bold">Brian:</p>
+            <p>Okay. What was the general ACM organization focused on? </p>
+            <p>&nbsp;</p>
+            <p class="font-bold">Jacob:</p>
+            <p>I believe, you know, I wasn&#39;t too involved with the ACM itself. I was more in SIG
+                    AI. It was mainly focused on only serving the computer science community. And anything we did had to be tied
+                    to computer science in some way. There were some issues like when I was a sophomore and a junior, where some
+                    of the other subclubs like robotics and stuff like that started recruiting more ECE people, which caused
+                    some tensions and some problems</p>
+            <p>So, we decided to avoid that altogether. And instead of continuing with the ACM, just
+                    break off and form our own organization</p>
+            <p>&nbsp;</p>
+            <p class="font-bold">Brian:</p>
+            <p>Okay. So, I wanted to go through some of your research projects. I saw that one of
+                    your research projects was related to effects robotics. So I was hoping you could explain a little bit more
+                    about it.</p>
+            <p>&nbsp;</p>
+            <p class="font-bold">Jacob:</p>
+            <p>Sure. Yeah so, I wouldn&#39;t really call it a research project. It was more, you
+                    know, that project was under SIG AI and we were just trying to compete in the VEX AI competition, which was
+                    a new competition that started that year. So, a little background about SIGBOTS. SIGBOTS is the robotics
+                    team under ACM. They&#39;re really great people. They work on a ton of stuff for the community. And they
+                    also make like their own programming language that a ton of people use within the VEX community. So, high
+                    schoolers, middle schoolers, and also university teams. Because of that, they got access to like a lot of
+                    exclusive information about the AI competition. And they reached out to us to see if we&#39;d be interested
+                    in adding AI capabilities into one of their robots. So, what we&#39;re trying to do is make a fully
+                    autonomous system that we&#39;ve competed in that year&#39;s game</p>
+            <p>&nbsp;</p>
+            <p class="font-bold">Brian:</p>
+            <p>So, what kind of tasks was it responsible for and how was AI incorporated into
+                    it?</p>
+            <p>&nbsp;</p>
+            <p class="font-bold">Jacob:</p>
+            <p>Sure. So, the whole game was pretty complicated, but we decided to focus on a sub
+                    problem within that game, which was collecting all of the rings and putting them on some sort of, let&#39;s
+                    just say, pole. . Like the pole that you could carry on the robot. So, we used some hard-coded code just to
+                    get the poles into the robot. And then we had a computer vision system detect and track the rings. And then
+                    we would collect all the rings. That was our goal.</p>
+            <p>&nbsp;</p>
+            <p class="font-bold">Brian:</p>
+            <p>Okay. So, the AI component was like navigating where the rings are on the floor?
+                </p>
+            <p>&nbsp;</p>
+            <p>Yeah. So, we actually, we use a reinforcement learning approach. You want to make it
+                    a little bit more difficult, obviously</p>
+            <p>You know, you could do some sort of A-star algorithm or traditional path planning
+                    once you have the position of the rings.</p>
+            <p>But yeah, we decided to create an embodiment of the robot inside of a
+                    simulation.</p>
+            <p>And we trained a reinforcement learning model on that. </p>
+            <p>And this is, you know, kind of just to push the capabilities of the limited compute
+                    power that we had at the time as well.</p>
+            <p>We wanted to see if it was even possible. </p>
+            <p>Okay</p>
+            <p>&nbsp;</p>
+            <p class="font-bold">Brian:</p>
+            <p>Wait, so for like a simulator, do you use something like, like Mujoco or something?
+                </p>
+            <p>&nbsp;</p>
+            <p class="font-bold">Jacob:</p>
+            <p>I actually used Unity. Looking back on it, you know, knowing what I know now, we
+                    probably should use something like Mujoco. We were using Unity.</p>
+            <p>&nbsp;</p>
+            <p class="font-bold">Brian:</p>
+            <p>That&#39;s interesting. Wait, so is it like in Unity, you had to make a copy of the
+                    robot inside? </p>
+            <p>&nbsp;</p>
+            <p class="font-bold">Jacob:</p>
+            <p>It had like a copy of the robot and the entire field. The entire game was in the
+                    simulation pretty much. And it&#39;s just a classic reinforcement learning problem where you had rewards for
+                    picking up rings. And it was called adversarial reinforcement learning where there was an enemy also picking
+                    up rings. So you tried to maximize your own score. Actually, there&#39;s some pretty funny problems that I
+                    ran into where rather than the two robots competing, they would just sit in the corner so that neither of
+                    them would score. And both of their scores would be zero instead of one being negative and one being
+                    positive. We had that, that was our training setup for that. Yeah, that was my VEX project. That was my
+                    earliest project. I would say in AI or my earliest serious project, I spent about a year in it. Knowing what
+                    I know now, I would have done a lot of things differently. </p>
+            <p>&nbsp;</p>
+            <p class="font-bold">Brian:</p>
+            <p>Okay. Where there any problems like putting your trained virtual agent and putting it
+                    onto an actual robot? Because I know many theres different variables you may not be able to consider like
+                    friction forces or something.</p>
+            <p>&nbsp;</p>
+            <p class="font-bold">Jacob:</p>
+            <p>Yes, that&#39;s a that&#39;s a good question. So in general, doing sim to real
+                    transfer is extremely difficult. So for us, we abstracted away a lot. We tried to abstract away a lot of
+                    things so that the sim to real barrier would be easier to break. So I believe the inputs the model, we had
+                    the positions with respect to where the robot is. So it&#39;s not the absolute but the relative positions of
+                    all the rings that we detect and I believe that was like the only input that we had into the model, just the
+                    relative positions of the rings. So there was no like images that we had to worry about. Also friction and
+                    stuff like that, you don&#39;t really care about that. Because the only input is like going forward or
+                    backward or turning. So yeah, just, you know, that part is like a non issue. Controlling the robots is just
+                    you&#39;re controlling what percentage of the power you&#39;re outputting to the wheels. So yeah, you know,
+                    just just to reiterate the to break this sim to real barrier, we just abstracted away a lot of the fields.
+                    If we were to have taken a different approach like doing pure RGB values, it would have been a lot more
+                    difficult. Some strategies people like to use is like photorealistic simulations. Just very heavy data
+                    augmentations as well. Sorry, that&#39;s another thing we also use data augmentations. So the exact
+                    positions were not we didn&#39;t feed the exact positions, we had like quite a bit of noise as well
+            </p>
+            <p>&nbsp;</p>
+            <p class="font-bold">Brian:</p>
+            <p>So I was also interested in the work in the Amazon taskbot challenge. I don&#39;t
+                    know if that&#39;s like, I feel like sensitive information or something, but I was hoping if you could
+                    explain a little bit more about that.</p>
+            <p>&nbsp;</p>
+            <p class="font-bold">Jacob:</p>
+            <p>Sure. So the Amazon prize is a series of competitions that Alexa or Amazon Alexa made
+                    in order to get university teams involved with industry research. So the taskbot challenge is one of the
+                    challenges in this series of competitions. I came across it while I was working at Amazon, and I reached out
+                    to some professors to see if they&#39;d be interested in taking on the project if we got in. The taskbot
+                    challenge consists of using a multimodal Alexa device, so something with the screen on it that can display
+                    visual as well as output sound in order to lead users through specific categories of tutorials. So it&#39;s
+                    cooking DIY and also home improvement tasks. So you&#39;re supposed to be able to fluently walk users
+                    through some sort of task, make sure that whatever they ask can get them into the appropriate tutorial,
+                    things like this. It&#39;s a pretty complicated like information retrieval problem, conversational problem.
+                    Does that answer your question? </p>
+            <p>&nbsp;</p>
+            <p class="font-bold">Brian:</p>
+            <p>Yeah, yeah. Wait, so by multimodal, does that mean like the Amazon Alexa also has
+                    access to a camera and also like a microphone or something? Like I never</p>
+            <p>&nbsp;</p>
+            <p class="font-bold">Jacob:</p>
+            <p>No just the outputs are multimodal, so you can display stuff on the screen and then
+                    like the speech as well</p>
+            <p>&nbsp;</p>
+            <p class="font-bold">Brian:</p>
+            <p>Okay, so I know you&#39;re really interested in things like LLMs and robotics. And I
+                    also like read through your medium article. So I was hoping if you could explain the different ways you can
+                    use an LLM to control a robot</p>
+            <p>&nbsp;</p>
+            <p>Yeah, so most of my my interests are using LLMs as an orchestrator of like sub skills
+                    or sub policies. Which is actually, you know, the research I&#39;m working in both industry and research
+                    right now. I&#39;m trying to make, you know, this large language model just understand that it can call kind
+                    of like an API, like it has a set of skills it can call, and then it could use that skill to get context
+                    about its environment in order to produce a better answer or in order to, you know, do something physically
+                    in the real world. So there are a few different approaches to using an LLM, like in order to control its
+                    environment. One that I&#39;m fond of is giving it sort of like a structured API that it can call and then
+                    returning those outputs as context into the API. So this is called like skill training. If you&#39;ve ever
+                    heard of like the library lang chain, this is like implemented where it has a set of skills and then it can
+                    chain those together, keep calling these skills with new information, and then use that as context. Another
+                    way that people use LLMs is code generation. So instead of using predefined skills, the, the task for the
+                    LLM is to generate code that you can then reuse later. There&#39;s a really interesting Minecraft paper
+                    about this where let&#39;s say, you know, you have an iron pickaxe right now and you want to find diamonds.
+                    The robot then has to develop sub skills in order to then find diamonds. So it has to use like, you know,
+                    digging down and a bunch of other stuff in order to find diamonds. I think the last one that&#39;s really
+                    interesting is writing, writing code that serves as a reward function for stuff like reinforcement learning.
+                    So let me think of a good example for this. I think like a really easy one is let&#39;s say you want to
+                    train a robot just to move forward. It would write a goal or it would create a reward function based off of
+                    how close you get to some goal. And then you use that reward function to train the robot later. Does that
+                    make sense? And of course, like this works on more complicated tasks as well. I saw something pretty
+                    interesting on like the Cheetah robot, where it&#39;s just quad petal robots</p>
+            <p>&nbsp;</p>
+            <p class="font-bold">Brian:</p>
+            <p>Oh, is it like that, like that MIT one? </p>
+            <p>&nbsp;</p>
+            <p class="font-bold">Jacob:</p>
+            <p>No, no, this actually it might be, but I&#39;m thinking of one that&#39;s in
+                    simulation. And I believe the paper demonstrates, again, if I&#39;m recalling this correctly, that it could
+                    like, just by giving it a command like, write some sort of reward to make this robot frolic or jump high or
+                    run fast or run slow jog. It&#39;s able to demonstrate that it understands how to create a reward
+                    function</p>
+            <p>&nbsp;</p>
+            <p class="font-bold">Brian:</p>
+            <p>Yeah, that&#39;s really interesting. Wait, so, this relates to an earlier question I
+                    had</p>
+            <p>So like, regarding like the Minecraft video, where it can just like, you know,
+                    generate new like code, like, if it doesn&#39;t know how to like, mine diamonds or something, it just like,
+                    adds that to its own like task library, I guess. Do you think you can just, I mean, I know like that paper,
+                    they just like, use regular chat GPT. So they didn&#39;t like, train like a Minecraft chat GPT or something.
+                    Do you think that like such an out of the box approach can also be used, you know, like, throughout
+                    robotics, like you don&#39;t need a specific robot tuning LLM, you just use the newest chat GPT or
+                    something. </p>
+            <p>&nbsp;</p>
+            <p>Yeah, so this is, this is like my area of research. So that&#39;s actually what
+                    I&#39;m doing in industry right now is I&#39;m just trying to use out of the box approaches in order to
+                    build very powerful systems. So just in general, you know, this is just my opinion, but I think that out of
+                    the box approaches massively pre trained models, it&#39;s kind of the way that of the future, if you want to
+                    build very generalizable systems that can work very generalizable and also interactable systems, I think
+                    it&#39;s going to be the way of the future. So yeah, 100%. I think, you know, we&#39;ll start seeing these
+                    approaches be used in industry for robotics, or even for like personal assistance. </p>
+            <p>&nbsp;</p>
+            <p class="font-bold">Brian:</p>
+            <p>Yeah, I mean, I think it kind of like intuitively makes sense because like, like, a
+                    regular, like chat GPT or something, it&#39;s kind of like a, like, like a digital human kid or something.
+                    Like, you&#39;re just like telling you what to do, and it just like does it for you. So it already knows
+                    about like, knows about Minecraft, it knows about, you know, general details about robotics, like it knows
+                    what is a Diet Coke or whatever, or like, what is a table that already has those concepts ingrained in
+                    it.</p>
+            <p>&nbsp;</p>
+            <p class="font-bold">Jacob:</p>
+            <p>Yeah even if you don&#39;t use it directly, you&#39;re going to use it as a backbone
+                    for something, or you&#39;re going to be fine tuning stuff, like, like, you know, massively pre trained
+                    neural networks are going to be such a useful tool. And we&#39;re only now like just discovering what we can
+                    do with them. I think also, yeah, I think, you know, we see it a lot, especially through some zero shot
+                    models, like CLIP, as I heard it, yeah, like CLIP as well. As you know, even as like, and better is
+                    something like this, it just, you know, it&#39;s able to encode information in such a nice way. That&#39;s
+                    very generalizable</p>
+            <p>&nbsp;</p>
+            <p class="font-bold">Brian:</p>
+            <p>Okay, so like so around campus, there&#39;s like those like random food robots. And
+                    you know, because of your experience in robotics and machine learning, I was wondering if you had any
+                    insights into how that system might work</p>
+            <p>&nbsp;</p>
+            <p class="font-bold">Jacob:</p>
+            <p>Um, actually, yeah, I spoke about this with a friend recently, actually. So it&#39;s
+                    funny you asked this. So as far as I know, there&#39;s two main ways to do autonomous driving. And this is
+                    like an autonomous driving problem. One is you pre map the entire, pre map the entire environment that you
+                    want the robots to move in. And then you have some sort of planning algorithm that can deal with like
+                    dynamic obstacles, which are like humans, dogs, things like this that might get in the way. And of course,
+                    you know, you have classic planning algorithms that can go through set spaces like like a star or something
+                    like that, like A Start, if you discretize the entire map. I think that&#39;s probably how they&#39;re doing
+                    it. Just I&#39;ve watched these robots. Um, there was some pretty wacky things where if they were planning
+                    the map, just based on like LIDAR or or their cameras, they would have been able to adapt to it. But they
+                    don&#39;t. And then the other approach is you build a local map on hand using cameras or other sensors like
+                    LIDAR. And then you have some sort of global map to, to how do you call it? I guess to push you in the right
+                    direction, right? So you can think of like Google Maps as your initial planner. And then you build some sort
+                    of local representation. And try to follow that path, if that makes sense.</p>
+            <p>&nbsp;</p>
+            <p class="font-bold">Brian:</p>
+            <p>Um, I was wondering, like, I know there&#39;s not that many, like traffic lights
+                    here, but like, I&#39;m pretty sure like it still somehow knows like meant to not cross the street
+            </p>
+            <p>&nbsp;</p>
+            <p class="font-bold">Jacob:</p>
+            <p>I think, you know, when I observe them as a freshman, like, I&#39;ve seen them, I
+                    haven&#39;t seen them too much since I moved off of campus. But when I was a freshman, I saw them and they
+                    would just crawl forward. And then they would just keep going back, crawl forward, keep going back. So I
+                    don&#39;t, I don&#39;t know if they recognize traffic. When I was a freshman, it seems like they didn&#39;t.
+                    It&#39;s just whenever other people would cross the street, that&#39;s when they would do it. I also heard a
+                    rumor that I don&#39;t want to defame the company or anything like this, but I heard a rumor that they have
+                    like humans controlling specifically at the intersections so that. </p>
+            <p>&nbsp;</p>
+            <p class="font-bold">Brian:</p>
+            <p>Oh, yeah. I mean, that makes sense. I know like, what&#39;s that other like car
+                    company, like Google or something? </p>
+            <p>&nbsp;</p>
+            <p class="font-bold">Jacob:</p>
+            <p>Waymo? </p>
+            <p>&nbsp;</p>
+            <p class="font-bold">Brian:</p>
+            <p>Yeah, I&#39;m pretty sure like that company, they also have like human operators
+                    sometimes</p>
+            <p>So I guess it would also make sense that for food robots, you would probably want the
+                    same thing</p>
+            <p>&nbsp;</p>
+            <p class="font-bold">Jacob:</p>
+            <p>Yeah, it&#39;s probably like super cheap as well. Yeah, yeah, they just like, like
+                    outsource it to like some random person around the world, and then they just like drive in there free time.
+                    Oh, no, not the driving, but telling whether or not you can cross, I think is the hardest problem.. Yeah,
+                    like recognizing the little crosswalk guy that pops up on the screen or recognized in the light, you know,
+                    depending on your orientation, how do you know if it&#39;s for you or for the other side of the street, like
+                    parallel, they&#39;re perpendicular to you. Yeah, I mean, I just like look at it, look at green. Yeah,
+                    it&#39;s just a tough problem to solve.</p>
+            <p>&nbsp;</p>
+            <p class="font-bold">Brian:</p>
+            <p>How do you, because I know you just like really have a large interest in robotics,
+                    how do you think, you know, the future of robotics will look like, you know, are there going to be more of
+                    those like food robots outside, except they&#39;re like walking or stuff and then you&#39;re just doing like
+                    gymnastics or something or we&#39;ll have like robot dogs</p>
+            <p>&nbsp;</p>
+            <p class="font-bold">Jacob:</p>
+            <p>Yeah, well, when I was a kid, it was, it&#39;s pretty interesting because a lot of
+                    high risk situations are a lot of use cases that would be considered high risk. People did not want to
+                    consider AI for at all. </p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>*** There were some really loud noises so had to cut out</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>Yeah, so I think you know, AI and robots are being used a lot more for like high risk
+                    situations. And I think, you know, as a society, we&#39;re trusting it to do a lot more things. So
+                    previously, you know, I&#39;ve seen in industries like banking, finance, medicine as well. You know, we
+                    didn&#39;t really want to trust AI systems to do anything involving this, except for maybe like insurance,
+                    you know, predicting insurance premiums. But now, you know, we have medical transcriptions of like doctors
+                    visits, we have summarizations of visits based on like doctors notes. So we&#39;re starting to trust AI a
+                    little bit more. In terms of robotics, you know, we see the military starting to use AI a lot more, which is
+                    a high risk situation. So I think AI and robots are going to be involved a lot more in our day to day lives.
+                    I can&#39;t exactly say what they&#39;re going to be taking over or which jobs they&#39;re going to take,
+                    how they&#39;re going to help us or hurt us. But yeah, you know, I think, you know, with chat GPT becoming
+                    popular science, it&#39;s just more people are getting used to the idea of AI being in our daily lives. So
+                    it&#39;s only going to keep accelerating</p>
+            <p>&nbsp;</p>
+            <p class="font-bold">Brian:</p>
+            <p>Yeah, I mean, I think it&#39;s like really interesting that, you know, like people
+                    keep talking about like how their online information is like, you know, super important. And then they like
+                    ask chat GBT some like really personal questions, like, I have skin rashes or something like what kind of
+                    disease I have, or they like upload their entire email list or something</p>
+            <p>&nbsp;</p>
+            <p class="font-bold">Jacob:</p>
+            <p>So yeah, that&#39;s like, yeah, it&#39;s not even like regular people. I know at
+                    Amazon, they had to get employees to stop uploading Amazon information into chat GPT. So it&#39;ll be very
+                    interesting to see how like privacy laws as well advance. And I don&#39;t think like America is doing quite
+                    enough. The EU is really, really leading a lot of these regulations on AI</p>
+            <p>&nbsp;</p>
+            <p class="font-bold">Brian:</p>
+            <p>Oh, yeah, the EU I think I read an article or something, like saying that they
+                    proposed like keeping large language models to only like big companies and research companies</p>
+            <p>And they didn&#39;t want developers to have access to them, like regular
+                    people</p>
+            <p>&nbsp;</p>
+            <p class="font-bold">Jacob:</p>
+            <p>That&#39;s pretty interesting. I don&#39;t think that&#39;s the right answer either.
+                    But I think it&#39;s, I don&#39;t know, I think it&#39;s like an education issue, right? Like you can&#39;t,
+                    I don&#39;t think a lot of people know about like data logging and stuff like this. But it was never an
+                    issue when Facebook logged all your data, or Twitter logged all your data. And yeah, I think a lot of people
+                    also trust chat GPT. And they think that AI or omnipotent and omniscience and they can, you know, everything
+                    that they say is correct when it&#39;s not. So maybe there&#39;s going to be some really regulations in
+                    place to make sure you make that a lot more clear to users. The average person doesn&#39;t understand like
+                    anything about computers. So it&#39;s, it&#39;s, you know, it&#39;s scary to think about those people using
+                    AI, especially if they use other products that aren&#39;t as well built as chat GPT, or any other open AI
+                    products. Yeah, a lot can go wrong with that.</p>
+            <p>&nbsp;</p>
+            <p class="font-bold">Brian:</p>
+            <p>Yeah, like I heard about, okay, I heard someone is like selling like a corrupted
+                    version of chat GPT. It was like, I think it was like crime GPT or something. Like to commit crimes. Like, I
+                    don&#39;t know, I just thought that it was kind of funny. </p>
+            <p>&nbsp;</p>
+            <p class="font-bold">Jacob:</p>
+            <p>Yeah, no, that is funny. But I&#39;m also thinking about like legal, legal stuff as
+                    well, right? Like what happens when lawyers start using it? I wouldn&#39;t say it&#39;s like an old lawyer.
+                    He doesn&#39;t know anything about how AI works and they just kind of trust it. You know, maybe I
+                    shouldn&#39;t use the term like old lawyer. I think, you know, we&#39;ve seen this happen with lawyers in
+                    recent times where they will just cite cases that don&#39;t exist just because chat GBT said so. It&#39;s
+                    like, man, maybe you shouldn&#39;t use this</p>
+            <p>Stick to other stuff until AI has like verifiable information in all these.
+            </p>
+            <p>&nbsp;</p>
+            <p class="font-bold">Brian:</p>
+            <p>Okay, so I want to ask you whether some resources for beginners interested in AI,
+                    like what did you do? Like, did you order like any courses you took, some like online YouTube channels you
+                    watched, etc? </p>
+            <p>&nbsp;</p>
+            <p class="font-bold">Jacob:</p>
+            <p>Yeah, I think I get this question quite a bit. And if you want to learn how to use AI
+                    and build stuff with AI, I think the only right answer is just to start building stuff with AI that uses
+                    it</p>
+            <p>If you want to build a computer vision application, you have to use computer vision
+                    tools and see how they work. If you want to learn about the theory, I&#39;d say, you know, probably wait
+                    until you can take a class if you are a student at Purdue. But if you really are eager to learn about some
+                    of the theory of AI in ML, there&#39;s some really great online resources. I usually recommend D2l ai.
+                </p>
+            <p>&nbsp;</p>
+            <p class="font-bold">Brian:</p>
+            <p>Like I asked like two other people before this interview, like I interviewed two
+                    other people and they said the same thing like D2l ai</p>
+            <p>&nbsp;</p>
+            <p class="font-bold">Jacob:</p>
+            <p>Is it Jinen and Arev</p>
+            <p>&nbsp;</p>
+            <p class="font-bold">Brian:</p>
+            <p>Yeah</p>
+            <p>&nbsp;</p>
+            <p class="font-bold">Jacob:</p>
+            <p>Yeah, yeah, yeah. Yeah, we all say the same thing. It&#39;s all D2l ai. I use it
+                    quite a bit if I don&#39;t know anything about like the state of the art somewhere. It&#39;s a great
+                    resource. I mean, it&#39;s super comprehensive, but it doesn&#39;t get too technical. Yeah, it goes through
+                    like all the math of AI ML, linear algebra. Yeah, overall just great</p>
+            <p>&nbsp;</p>
+            <p class="font-bold">Brian:</p>
+            <p>Is it just like blog posts or something?</p>
+            <p><span class="c9 c2"></p>
+            <p class="font-bold">Jacob:</p>
+            <p>Like, it&#39;s a textbook. It&#39;s a full textbook that&#39;s available online
+                    written by bunch of professors and industry professionals</p>
+            <p>&nbsp;</p>
+            <p class="font-bold">Brian:</p>
+            <p>So, yeah, those are all my questions</p>
+            <p>I thought you had some like pretty cool answers</p>
+            <p>So thank you for allowing me to interview</p>
+            <p>&nbsp;</p>
+            <p class="font-bold">Jacob:</p>
+            <p>Yeah, thanks for having me along</p>
+            <p>Appreciate it</p>
+            <p>And thanks for all the work you&#39;re doing for ML@Purdue</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            </div>
+        </ContentSection>
+    </article>
+    <Footer />
+  </body>
+</html>
