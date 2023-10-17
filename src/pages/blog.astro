@@ -11,6 +11,8 @@ import thumbnail916 from "~/assets/blog/9-16.jpeg";
 import thumbnail917 from "~/assets/blog/9-17.jpg";
 import thumbnail923 from "~/assets/blog/9-23.jpg";
 import thumbnail929 from "~/assets/blog/9-29.jpg";
+import blog1 from "~/assets/blog/blog-1.webp";
+import blog2 from "~/assets/blog/blog-2.png";
 
 const { site } = Astro;
 const description = "ML@Purdue AIGuide Blog";
@@ -50,7 +52,19 @@ const description = "ML@Purdue AIGuide Blog";
                 <p>Interviewer: Brian Song</p>
                 <p>If you are interested in helping out please reach out to aiml [at] purdue [dot] edu!</p>
         </ContentSection>
-        <Spacer y={48} />   
+        <Spacer y={48} />
+        <ContentSection id="aiguide-blogs" title="Blog Posts">
+          <a href="https://medium.com/@sigaipurdue/ml-youtube-channel-tier-list-783e314d81c6">
+            <h1 class="font-bold text-3xl text-center">Machine Learning Youtube Channel Tier List</h1>
+            <img src={blog1.src}  class="mx-auto w-1/3"/>
+          </a>  
+          <Spacer y={16} />
+          <a href="https://medium.com/@sigaipurdue/ml-tools-platform-stuff-2c86de32e707">
+            <h1 class="font-bold text-3xl text-center">Machine Learning Tools and Platforms</h1>
+            <img src={blog2.src}  class="mx-auto w-1/3"/>
+          </a> 
+        </ContentSection>   
+        <Spacer y={48} />
         <ContentSection id="aiguide-interviews-header" title="Interviews">
 
             <a href="/blog/9-29">
