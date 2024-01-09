@@ -9,19 +9,11 @@ export interface Props {
 const navItems: Array<NavItem> = [
   { title: "About", url: "/about" },
   { title: "Projects", url: "https://jacob-zietek.notion.site/cb2f4b5c6c9a46d584ffbab4eb322336?v=9b9044caf9f243e1803d058673700963" },
-  {
-    title: "Events",
-    sublinks: [
-    { title: "Events Calendar", url: "/events" },
-    { title: "DagsHub Hackathon", url: "/dagshub-hackathon" },
-    { title: "Coffee Chats", url: "/coffee-chats" },
-      { title: "Archive", url: "/events-archive" },
-    ],
-  },
+  { title: "Events", url: "/#eventscalendar" },
   { title: "AIGuide Blog", url: "/blog"},
   { title: "Sponsor", url: "/sponsor"},
   { title: "Contact", url: "/contact" },
-  { title: "Apply", url: "/apply" },
+  { title: "Archive", url: "/events-archive" },
 ];
 const { fixed } = Astro.props;
 ---

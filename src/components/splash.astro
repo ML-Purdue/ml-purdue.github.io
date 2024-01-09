@@ -1,6 +1,7 @@
 ---
 import Starfield from "~/components/starfield.astro";
 import mlPurdueLogo from "~/assets/logo-main.webp";
+import Footer from "./footer.astro";
 const widths = [450, 800];
 const sizes = "(min-width: 640px) 42vw, 67vw";
 ---
@@ -16,6 +17,9 @@ const sizes = "(min-width: 640px) 42vw, 67vw";
       </div>
       <div class="gradient-text text-center font-extrabold text-8xl">
         ML@Purdue
+      </div>
+      <div>
+        <Footer ignoreHome={true}></Footer>
       </div>
     </h2>
   </div>

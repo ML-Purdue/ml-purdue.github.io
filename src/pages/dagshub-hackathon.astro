@@ -223,10 +223,10 @@ const description = "ML@Purdue DagsHub Hackathon";
         let hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         let minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
         let seconds = Math.floor((diff % (1000 * 60)) / 1000);
-        dayElements[0].innerHTML = days;
-        dayElements[1].innerHTML = hours;
-        dayElements[2].innerHTML = minutes;
-        dayElements[3].innerHTML = seconds;
+        dayElements[0].innerHTML = Math.max(0,days);
+        dayElements[1].innerHTML = Math.max(0,hours);
+        dayElements[2].innerHTML = Math.max(0,minutes);
+        dayElements[3].innerHTML = Math.max(0,seconds);
     }
     updateDate();
     setInterval(updateDate, 1000);
