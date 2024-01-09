@@ -12,9 +12,12 @@ import thumbnail917 from "~/assets/blog/9-17.jpg";
 import thumbnail923 from "~/assets/blog/9-23.jpg";
 import thumbnail929 from "~/assets/blog/9-29.jpg";
 import thumbnail1030 from "~/assets/blog/10-30.jpeg";
+import thumbnail121 from "~/assets/blog/12-1.jpeg";
+import thumbnail1219 from "~/assets/blog/12-19.jpeg";
 import blog1 from "~/assets/blog/blog-1.webp";
 import blog2 from "~/assets/blog/blog-2.png";
 import blog3 from "~/assets/blog/blog-3.png";
+import blog4 from "~/assets/blog/blog-4.webp";
 
 const { site } = Astro;
 const description = "ML@Purdue AIGuide Blog";
@@ -74,15 +77,32 @@ const description = "ML@Purdue AIGuide Blog";
             <h1 class="font-bold text-3xl text-center">3 (out of many…) Ways Neuroscience Inspired Machine Learning</h1>
             <img src={blog3.src}  class="mx-auto w-1/3"/>
           </a>  
+          <Spacer y={16} />
+          <a href="https://medium.com/@sigaipurdue/by-brian-song-68d37bd6deb5">
+            <h1 class="font-bold text-3xl text-center">Remote Sensing 🌎 + ML 🤖 = 🤤</h1>
+            <img src={blog4.src}  class="mx-auto w-1/3"/>
+          </a>  
         </ContentSection>   
         <Spacer y={48} />
         <ContentSection id="aiguide-interviews-header" title="Interviews">
+          <a href="/blog/12-19">
+            <h1 class="font-bold text-3xl text-center">Forestry/Agriculture/AI with Dr. Jingjing Liang</h1>
+            <h1 class="font-bold text-xl text-center">December 19, 2023</h1>
+            <img src={thumbnail1219.src}  class="mx-auto w-1/3"/>
+          </a> 
+          <Spacer y={16} />
+          <a href="/blog/12-1">
+            <h1 class="font-bold text-3xl text-center">AI + Governance with Dr. Daniel Schiff</h1>
+            <h1 class="font-bold text-xl text-center">December 1, 2023</h1>
+            <img src={thumbnail121.src}  class="mx-auto w-1/3"/>
+          </a> 
+          <Spacer y={16} />
           <a href="/blog/10-30">
             <h1 class="font-bold text-3xl text-center">AI/Hardware/Neuroscience with Dr. Kaushik Roy </h1>
             <h1 class="font-bold text-xl text-center">October 30, 2023</h1>
             <img src={thumbnail1030.src}  class="mx-auto w-1/3"/>
           </a> 
-
+          <Spacer y={16} />
             <a href="/blog/9-29">
               <h1 class="font-bold text-3xl text-center">AI in Classrooms with Dr. Lindsay Hamm </h1>
               <h1 class="font-bold text-xl text-center">September 29, 2023</h1>
