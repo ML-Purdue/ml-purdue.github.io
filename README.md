@@ -16,4 +16,3 @@ Template: https://github.com/mhyfritz/astro-landing-page
 | `npm run astro --help` | Get help using the Astro CLI                      |
 | `npm run format`       | Format code with [Prettier](https://prettier.io/) |
 | `npm run clean`        | Remove `node_modules` and build output            |
-

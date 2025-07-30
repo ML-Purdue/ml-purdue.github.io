@@ -11,10 +11,8 @@ import uniformsierra from "~/assets/sponsor/uniformsierra.png";
 import teconnectivity from "~/assets/sponsor/TE_Connectivity_logo.png";
 import numerade from "~/assets/sponsor/numerade.png";
 
-
 const { site } = Astro;
 const description = "ML@Purdue Sponsorship";
-
 ---
 
 <!DOCTYPE html>
@@ -40,25 +38,46 @@ const description = "ML@Purdue Sponsorship";
   >
     <Header fixed />
     <article class="mx-auto mt-20 w-[90vw] max-w-[80ch]">
-        <ContentSection id="sponsors-title" title="Sponsors">
-            <p>
-                We thank all of our sponsors for supporting us and helping us achieve our mission! To learn more about who we are, our mission, and our sponsorship tiers, please view our  <u><a href="/ML@P_Sponsorship_Packet.pdf" target="_blank">sponsorship packet</a></u>.
-            </p>
-            <br />
-            <h1 class="font-bold text-xl sponsor-t4">Tier 4: ML@P Maestro</h1>
-            <img src={dagshub.src} alt="DagsHub" class="max-w-md rounded-md" />
-            <img src={uniformsierra.src} alt="Uniform Sierra" class="max-w-md rounded-md" />
-            <br />
-            <h1 class="font-bold text-xl sponsor-t3">Tier 3: Neural Network Ninja</h1>
-            <br />
-            <h1 class="font-bold text-xl sponsor-t2">Tier 2: SVM Sorcerer</h1>
-            <br />
-            <h1 class="font-bold text-xl sponsor-t1">Tier 1: Perceptron Pro</h1>
-            <img src={janestreet.src} alt="Jane Street" class="max-w-md rounded-md" style="filter:invert(1)" />
-            <img src={teconnectivity.src} alt="TE Connectivity" class="max-w-md rounded-md"  />
-            <img src={numerade.src} alt="Numerade" class="max-w-md rounded-md"  />
-            <br />
-        </ContentSection>
+      <ContentSection id="sponsors-title" title="Sponsors">
+        <p>
+          We thank all of our sponsors for supporting us and helping us achieve
+          our mission! To learn more about who we are, our mission, and our
+          sponsorship tiers, please view our <u
+            ><a href="/ML@P_Sponsorship_Packet.pdf" target="_blank"
+              >sponsorship packet</a
+            ></u
+          >.
+        </p>
+        <br />
+        <h1 class="sponsor-t4 font-bold text-xl">Tier 4: ML@P Maestro</h1>
+        <img src={dagshub.src} alt="DagsHub" class="max-w-md rounded-md" />
+        <img
+          src={uniformsierra.src}
+          alt="Uniform Sierra"
+          class="max-w-md rounded-md"
+        />
+        <br />
+        <h1 class="sponsor-t3 font-bold text-xl">
+          Tier 3: Neural Network Ninja
+        </h1>
+        <br />
+        <h1 class="sponsor-t2 font-bold text-xl">Tier 2: SVM Sorcerer</h1>
+        <br />
+        <h1 class="sponsor-t1 font-bold text-xl">Tier 1: Perceptron Pro</h1>
+        <img
+          src={janestreet.src}
+          alt="Jane Street"
+          class="max-w-md rounded-md"
+          style="filter:invert(1)"
+        />
+        <img
+          src={teconnectivity.src}
+          alt="TE Connectivity"
+          class="max-w-md rounded-md"
+        />
+        <img src={numerade.src} alt="Numerade" class="max-w-md rounded-md" />
+        <br />
+      </ContentSection>
     </article>
     <Footer />
   </body>

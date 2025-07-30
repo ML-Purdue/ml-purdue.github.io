@@ -3,67 +3,15 @@ import ContentSection from "~/components/content-section.astro";
 import Logo from "./logo.astro";
 ---
 
-<ContentSection title="" id="intro">
-  <Logo slot="eyebrow" class="h-32" />
-  <Fragment slot="lead">
-
-    ML@Purdue is the central club for <span class="text-primary">AI/ML career growth</span> for Purdue students. ML@Purdue supports careers in industry, research, and entrepreneurial ventures through projects and various events. The club serves to connect Purdue students to AI/ML leaders in and out of Purdue.
-  </Fragment>
-</ContentSection>
-<ContentSection id="eventscalendar" title="Events Calendar">
-  <iframe id="events" style="width:75vw; height:65vh;filter:invert(0.9) saturate(2) hue-rotate(232deg)" src="https://calendar.google.com/calendar/u/0/embed?src=3951dbb2399906412eb63e032ca35716de8ccd8a871bfbfb89008309123454e0@group.calendar.google.com&ctz=America/Indiana/Indianapolis" />
-</ContentSection>
-<ContentSection title="Achievements" id="achievements">
-  <div
-    data-achievements
-    class="flex flex-col gap-2 sm:grid sm:max-w-7xl sm:grid-cols-4 sm:flex-row"
-  >
-    <section>
-      <h1 class="font-bold text-xl">TE Connect awards</h1>
-      <ul>
-        <li>2021-22: <b>3rd Place, 1 Patent</b></li>
-        <li>2022-23: <b>Best Innovation Award, 2 Patents</b></li>
-      </ul>
-    </section>
-    <section>
-      <h1 class="font-bold text-xl">Publications</h1>
-      <a
-        href="https://arxiv.org/abs/2211.14385"
-        target="_blank"
-        class="underline decoration-dotted"
-      >
-        Pac-Man Pete: An extensible framework for building AI in VEX Robotics
-      </a>
-      <div>
-        Collaboration Between Purdue SIGBots and ML@Purdue: Developing a Robust
-        AI Coprocessing Framework for VEX Robotics and Achieving Full Autonomy
-        During the 2021-2022 VRC Game, Tipping Point.
-      </div>
-    </section>
-    <section>
-      <h1 class="font-bold text-xl">Lightning & Wildfires Research Group</h1>
-      <div>Led by Professor Yuan Wang, an Official Purdue Research Group</div>
-    </section>
-    <section>
-      <h1 class="font-bold text-xl">Algo-trading Team</h1>
-      <div>Placed 54/498 at CME 2022 - University Trading Challenge</div>
-    </section>
-  </div>
-  <div class="grid grid-cols-1 gap-2 sm:grid-cols-2">
-    <a
-      href="/team"
-      class="flex items-center justify-center gap-3 border-2 border-current px-6 py-4"
-    >
-      <span>Our Team</span>
-    </a>
-    <a
-      href="/projects"
-      class="flex items-center justify-center gap-3 border-2 border-current px-6 py-4"
-    >
-      <span>Projects</span>
-    </a>
-  </div>
-</ContentSection>
+<div class="glass py-10 sm:py-20">
+  <ContentSection id="eventscalendar" title="EVENTS CALENDAR">
+    <iframe
+      id="events"
+      style="width:75vw; height:65vh;filter:invert(0.9) saturate(2) hue-rotate(232deg)"
+      src="https://calendar.google.com/calendar/u/0/embed?src=3951dbb2399906412eb63e032ca35716de8ccd8a871bfbfb89008309123454e0@group.calendar.google.com&ctz=America/Indiana/Indianapolis"
+    ></iframe>
+  </ContentSection>
+</div>
 
 <style>
   div[data-achievements] section :not(h1) {

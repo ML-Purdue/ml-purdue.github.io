@@ -11,11 +11,11 @@ const { title, url } = Astro.props;
   <div class="my-4">
     {
       url ? (
-        <a class="gradient-text text-lg font-bold" href={url}>
+        <a class="gradient-text font-bold text-lg" href={url}>
           {title}
         </a>
       ) : (
-        <span class="gradient-text text-lg font-bold">{title}</span>
+        <span class="gradient-text font-bold text-lg">{title}</span>
       )
     }
     <slot />

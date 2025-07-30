@@ -6,10 +6,8 @@ import "~/styles/index.css";
 import ContentSection from "~/components/content-section.astro";
 import Spacer from "~/components/Spacer.astro";
 
-
 const { site } = Astro;
 const description = "ML@Purdue AIGuide Blog";
-
 ---
 
 <!DOCTYPE html>
@@ -35,440 +33,703 @@ const description = "ML@Purdue AIGuide Blog";
   >
     <Header fixed />
     <Spacer y={96} />
-        <article class="mx-auto mt-20 w-[65vw] max-w-[120ch]">
-        <ContentSection id="aiguide-interviews-header" title="AI in Classrooms with Dr. Lindsay Hamm">
-            <h1 class="font-bold text-xl">September 29, 2023</h1>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/m5RvDbQTsNc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            <h1 class="font-bold text-xl">Transcript</h1>
-            <div class="max-h-80 overflow-y-scroll w-[50vw] text-xs" style="color-scheme: dark;">
-                <p>Dr. Hamm is a Sociology professor (currently I am taking her SOC 411 class!) and an
-                    AI Innovation Fellow at Purdue, studying the integration of AI in Purdue classrooms. She has explored the
-                    use of AI in her own classrooms and is working on Charlie, a chat bot that will provide students feedback on
-                    their essays. </p>
-            <p>&nbsp;</p>
-            <p>Other information:</p>
-            <ul>
-                <li ><a class="c7"
-                            href="https://www.cla.purdue.edu/directory/profiles/lindsay-hamm.html">https://www.cla.purdue.edu/directory/profiles/lindsay-hamm.html</a>
-                </li>
-            </ul>
-            <p>&nbsp;</p>
-            <p>Things that were referenced in talk:</p>
-            <ul class="list-disc list-inside">
-                <li >Shirley cards <a class="c7"
-                            href="https://www.npr.org/2014/11/13/363517842/for-decades-kodak-s-shirley-cards-set-photography-s-skin-tone-standard">https://www.npr.org/2014/11/13/363517842/for-decades-kodak-s-shirley-cards-set-photography-s-skin-tone-standard</a>
-                </li>
-                <li >Purdue Governance and Responsible AI Lab (GRAIL) <a
-                            class="c7"
-                            href="https://cla.purdue.edu/academic/polsci/research/labs/grail/">https://cla.purdue.edu/academic/polsci/research/labs/grail/</a>
-                </li>
-            </ul>
-            <p>If you email them I&rsquo;m pretty sure you can just drop by at their lab meetings! 
-            </p>
-            <p>&nbsp;</p>
-            <p class="font-bold">Brian:</p>
-            <p>Hi, my name is Brian and I&#39;m interviewing Dr Hamm, who is also my sociology
-                    teacher</p>
-            <p>&nbsp;</p>
-            <p class="font-bold">Hamm:</p>
-            <p>Hi, I&#39;m Dr Lindsay Ham and I am Brian&#39;s sociology teacher</p>
-            <p>&nbsp;</p>
-            <p class="font-bold">Brian:</p>
-            <p>Can you explain your role as an AI fellow at Purdue? </p>
-            <p>&nbsp;</p>
-            <p class="font-bold">Hamm:</p>
-            <p>Yes, so the Innovation Hub is something that started at Purdue a couple of years ago
-                    and I started working with the Innovation Hub on my Charlie project where we&#39;ve been working since 2019
-                    to develop a bot inside of Circuit, which is a program we already have for peer review of essays. And so
-                    this bot is we&#39;re training it to give students feedback on early drafts of papers in line with how we
-                    would grade on a rubric. And so I started working with the Innovation Hub when they started on this project
-                    so we could expand it past my my social problems class. And then this summer they wanted to have different
-                    fellows who were doing things across the university in different ways that we&#39;re working with technology
-                    and really trying to pull people together in a conversation where everybody can know where to go when they
-                    have questions about something and that we can all kind of work together to do research or see how things
-                    are moving in our fields or help students navigate these new kinds of things too. So they asked if I wanted
-                    to be the AI fellow for the Innovation Hub so I started in the summer and since then what I&#39;ve mostly
-                    done is talk to as many people as possible in different contexts. So over email, over interviews or, well,
-                    like in coffee shops or on zoom and different places so that I can try to see what are people&#39;s
-                    questions around AI at Purdue. So how are staff thinking about this, how are faculty thinking about it,
-                    especially with their teaching, but also how are students using it and what are their concerns. So in this
-                    role I&#39;ve been on a couple of research teams where we&#39;re trying to collect data, empirical data on
-                    how do people across different roles feel about this about what might change and how they might use these
-                    things and maybe what their fears are about how it might be used in ways that they might not expect or want.
-                    And so we&#39;ve got that project going and then we are also looking at how people are teaching about AI in
-                    their classes, how instructors are teaching about AI and what kind of considerations students are bringing
-                    up and they&#39;re bringing up about AI in across the world. So AI policies, the labor that goes into
-                    creating AI bots, what AI bots might do, issues of and personal, what is that called, IP is, do you remember
-                    what that means? Personal IP is it&#39;s like copyright but for your own </p>
-            <p>&nbsp;</p>
-            <p class="font-bold">Brian:</p>
-            <p>Internet protocol? </p>
-            <p>&nbsp;</p>
-            <p class="font-bold">Hamm:</p>
-            <p>Wait, I don&#39;t know, it&#39;s like your own, it&#39;s like your own intellectual
-                    property I&#39;m sorry Yes. And so it&#39;s about like how do we protect intellectual property and how do we
-                    cite things from AI? So if AI is using your intellectual property, but then you create something with AI
-                    where how do you cite that and who gets the credit for it? And there are all these huge questions and a lot
-                    of them have been things that we&#39;ve been contemplating for quite some time and then with the release of
-                    chat gpt it shoved all of them into open discussion. So everybody is hard to ignore these questions now.
-                    It&#39;s something that we all are talking about and need to consider to help shape it the way we want it to
-                    be</p>
-            <p>&nbsp;</p>
-            <p class="font-bold">Brian:</p>
-            <p>Okay So I think before you mentioned the fears of AI like how you know the fears that
-                    teachers have can you explain in detail some of those fears? </p>
-            <p>&nbsp;</p>
-            <p class="font-bold">Hamm:</p>
-            <p>So on the teacher side, I think this is something that we&#39;ve seen happen with the
-                    introduction of statistical packages and calculators and the internet and computers about we know this stuff
-                    is going to change. We know these tools are going to make some parts of our jobs easier and some parts of
-                    them possibly harder. And so what we are trying to do with instructors at Purdue is see where can this make
-                    your job easier and where and maybe save you time maybe help you make more detailed information for your
-                    students better assignments</p>
-            <p>And so we&#39;re experimenting with that and then on the other side we&#39;re
-                    experimenting with what are the ways that AI could change our classrooms and ways that we might not
-                    anticipate or in ways that we want to anticipate so we can help we can help make sure that our classrooms
-                    remain places where students can learn and we can learn from our students. So an example is when my students
-                    started using discord a lot more or slack one of the two, one of those apps. They were using that a lot in
-                    my really large social problems class and when they first started doing this I I didn&#39;t want to be part
-                    of it because that&#39;s a lot to monitor right so I wanted to monitor you can have discussions in places
-                    where I am officially a part of them and you can have discussions over here but I don&#39;t want to be at it
-                    I don&#39;t want to be in control of it. And so what ended up happening was my students would talk to each
-                    other and it was like a game of telephone on this tool where then they would think something was due when it
-                    wasn&#39;t or they would think something was that there was an assignment that there actually wasn&#39;t in
-                    the syllabus. And so instead of talking to me they had this game of telephone going on and it was like
-                    having a purple minion as a TA in the class with all of these hundreds of students who were across a couple
-                    of different sections. So sometimes I worry that if we do have AI bots where students are using them to help
-                    them specifically with our classes</p>
-            <p>I think there&#39;s a ton of potential there and I would really like to tap into
-                    that. But I also worry that it might be like releasing a bunch of purple minions into my classroom and it
-                    might make communication harder. It might mean that I spend much more time working on miscommunication than
-                    it is on me trying to help students work through ideas</p>
-            <p>&nbsp;</p>
-            <p class="font-bold">Brian:</p>
-            <p>Yeah, I mean, yeah, I think that definitely makes sense because like I was like doing
-                    my math homework and I wanted to see if I could just ask chat gpt to do like this integral and it just gave
-                    me like the wrong answer</p>
-            <p>&nbsp;</p>
-            <p class="font-bold">Hamm:</p>
-            <p>So Right, right. And so I think a lot of people and you&#39;ve mentioned too that
-                    this has the potential to revolutionize education, right, where everybody has their own personal AI tutor.
-                    But with that potential that&#39;s kind of the potential we had with the internet too. And so we&#39;ve seen
-                    that a lot of resources are more available in places where they might not have been before. But we can also
-                    see the potential for increased stratification over who has access to what information, what are bots
-                    telling you, what was it trained on. So was it trained on something that&#39;s based in empirical science or
-                    was it trained on something that someone&#39;s using to try to shape your perception of the world in a way
-                    they might want to? That might not be based in empirical science. So there are all of these questions,
-                    especially around what are these bots trained on? And how how are they shaping the way people are talking to
-                    each other? How are they shaping what people are concerned about? So it&#39;s like if you have social media,
-                    we&#39;ve seen what things like Facebook and Twitter and X have done to communication across the world. And
-                    now we have these new platforms where you don&#39;t just have these algorithms shaping what you see or what
-                    you watch next, but you have these bots that have a corpus that is controlled by someone or something and is
-                    using it too. So it&#39;s a tool and I keep emphasizing that to people. Humans are still running the show.
-                    So we need to make sure we understand what humans are doing with these tools and try to be part of the
-                    conversation</p>
-            <p>&nbsp;</p>
-            <p class="font-bold">Brian:</p>
-            <p>So I think that sort of leads to my next question about your Charlie AI research
-                    project, because I know that for that project you sort of like, you&#39;re very focused on curating the
-                    right data for that</p>
-            <p>&nbsp;</p>
-            <p class="font-bold">Hamm:</p>
-            <p>So we&#39;ve spent several years collecting essays from students and then grading
-                    them, sometimes double grading them to make sure that we were training Charlie to appropriately mark on the
-                    rubric where students might be missing something or where students were doing really well. And so then
-                    students could use that and then come to my office hours or talk with each other and try to figure out how
-                    to do better on the rubric in the places where they might be struggling. And so it helps me help students
-                    more quickly because we could look at what Charlie gave them and say, all right, well, this is where we can
-                    focus on your essay to see what&#39;s happening here. And Charlie isn&#39;t perfect. So Charlie happens to
-                    grade particularly harshly on one part of the sociology paper and students would always think, I can&#39;t
-                    get this score up. And so we&#39;re going to try to recode Charlie on that one. But it would be one of those
-                    things where students would then come and talk to me more about this part of what I&#39;m teaching them,
-                    which is a more complicated part of the theory. And then we could have actual discussions about it because
-                    they knew that was something they wanted to know more about instead of coming in and saying, I don&#39;t
-                    understand things, but I don&#39;t know what I don&#39;t understand. And I don&#39;t know what to ask you
-                    for more help</p>
-            <p>&nbsp;</p>
-            <p class="font-bold">Brian:</p>
-            <p>Okay, wait, so is Charlie like what kind of like model is Charlie fine tuned on?
-                </p>
-            <p>&nbsp;</p>
-            <p class="font-bold">Hamm:</p>
-            <p>So Charlie is a basic LLM that people at Purdue online have built. And then we were
-                    working. so, I was working on Charlie for my social problems class. And then with the Innovation Hub grant,
-                    we started training Charlie on the general research paper rubric that SCLA 101 and Cornerstone uses. So
-                    you&#39;ve got plenty like lots and lots of classes that are using that</p>
-            <p>So over the last fall, we spent collecting a corpus of thousands of papers that we
-                    had people grade according to that rubric. So we could train Charlie to do that. And so then when we got
-                    everything together and we were running the models, we were finding that it was really hard that it
-                    didn&#39;t want to converge on a lot of the parts of the rubric. So we thought like what information do
-                    students really need? What are we asking them to do with these rubrics and these prompts? And then chat GPT
-                    launched. So we knew that we could build on top of chat GPT, like a lot of other people are doing to create
-                    their own kinds of bots. And so what we&#39;ve been doing now is feeding the paper. So Charlie assesses a
-                    paper and sees on each part of the rubric as a student doing really well, as a student doing, you know, not
-                    so well as a student doing needs a lot of improvement. And so then we feed those scores and the essay into
-                    right now chat GPT for and then then it spits out comments for how to improve those parts of the essays or
-                    it says, you know, you did well on this, maybe you could incorporate more of that. And then a student would
-                    get all of that feedback in circuit. So the student wouldn&#39;t see the parts where Charlie is talking to
-                    chat GPT and then chat GPT is talking to circuit. It would just see the parts in circuit. They would just
-                    see the parts in circuit.</p>
-            <p>&nbsp;</p>
-            <p class="font-bold">Brian:</p>
-            <p>Do you notice if your fine tuned chat GPT model like it adopts the personality of the
-                    comments, of the teacher comments, or or like extends those comments to predict something else? </p>
-            <p>&nbsp;</p>
-            <p class="font-bold">Hamm:</p>
-            <p>So this is a really excellent question. Yeah, this is where we are right now. So we
-                    had the team has been absolutely awesome and they gave us a printout of this is eight essays. And this is
-                    the different kinds of feedback that we could give a student. And so we looked at it and we met as a group
-                    and we thought about what do we want students to get it. And a lot of instructors were very worried about
-                    the parts where chat GPT would give them a sentence. They would say like, for example, you can rephrase it
-                    this way. And so instructors were worried that students would just copy and paste those things without
-                    critically assessing them or seeing if they were actually good to put in their paper. And so we decided that
-                    instead of that we are now collecting a new like a new smaller corpus of comments that professors would
-                    actually put on papers so that we can train the model even more to talk like that professor. So the the for
-                    cornerstone and this rubric the big general research paper rubric</p>
-            <p>This is so you&#39;ll have like an average of what a cornerstone professor would give
-                    you on comment wise on the different parts of the rubric. And our hope is that once we get this running and
-                    we figure out the user interface for it, what we want students to see on their side is that we can take this
-                    and train more rubrics that professors are using and take comments from them. And papers from them and train
-                    the bot to give feedback as that professor would</p>
-            <p>&nbsp;</p>
-            <p class="font-bold">Brian:</p>
-            <p>Oh, okay. So is it like each there&#39;s like, is it like there&#39;s multiple
-                    Charlie bots and each of those bots are for each professor or class and then students will be assigned to
-                    that bot or class bot</p>
-            <p>&nbsp;</p>
-            <p class="font-bold">Hamm:</p>
-            <p>So Charlie is I think one and so this is where you get in the more complicated
-                    stuff</p>
-            <p>I might not necessarily know but Charlie is trained on these different rubrics. So
-                    like and the rubrics are with prompts right for Charlie. And so in circuit right now we have these two
-                    rubrics we&#39;ve been training. And so what they&#39;ve done in circuit is if you ask the team, they can
-                    turn Charlie on for that rubric and then you use that rubric in circuit. So that&#39;s the Charlie
-                    rubric</p>
-            <p>So our hope is that as we roll out the cornerstone rubric especially because my
-                    social problems rubric is really limited to like what we&#39;re talking about in social problems and
-                    analyzing claims. But this research paper rubric is much, much broader and much more applicable to a lot of
-                    different things. And so we&#39;re hoping that we can launch this and people can pick it up for their
-                    classes if they want to. And then they might also want to work with us to train their own rubric on
-                    it</p>
-            <p>&nbsp;</p>
-            <p class="font-bold">Brian:</p>
-            <p>So yeah, I mean I think in the future it&#39;s going to be really clear that
-                    we&#39;re going to have these AI teachers. So for example, I know that Khan Academy, they partner with
-                    OpenAI to make their, you know, custom AI bot called like KhanMigo or something. And you know these bots are
-                    going to be like really conversational. They&#39;re going to be like trained on specific courses just like
-                    your work with Charlie. And they&#39;re going to answer like any variant of any question that any students
-                    have. So my question is how will the traditional role of a teacher change? </p>
-            <p>&nbsp;</p>
-            <p class="font-bold">Hamm:</p>
-            <p>I think that&#39;s a great question. And so what we&#39;ve been seeing it do now
-                    across different universities and classes that have tried to create bots for them for their classes is that
-                    people, professors are using these as tool or teachers are using these as an additional teaching aid
-                    basically. So in a classroom when you were in elementary school or in high school, you might have had
-                    teacher aides that were helping with different parts of a class or then you might have had like you have
-                    teaching assistants right now. Human teaching assistants, graduate and undergraduate teaching assistants.
-                    And I really see this moving as professors being able to spend less time on some of the stuff that AI might
-                    be able to help students work through whenever they want to. So if you want to work through a problem at
-                    three o&#39;clock in the morning, I am not going to be awake to help you with that. And if I ever wake,
-                    I&#39;m not interested in helping you with that at that point, but Charlie can help you with that or another
-                    bot can help you with that. And so the key to this is what, how has that bot been trained and how can we
-                    teach students to critically assess what they&#39;re getting back out of that bot? To make sure that it is
-                    correct because we don&#39;t, and this is something we talked about with Charlie a lot. We don&#39;t want to
-                    get into a situation where Charlie says your paper is great on all of these things. And then you turn it in
-                    and we assess it and we&#39;re like, oh wait, no, you didn&#39;t actually do the prompts very well. And so
-                    that would lead to a lot of miscommunication and a lot of probably tension, right? And so we want these to
-                    be tools that decrease tension that increase the ability of students to access what they need quickly when
-                    they need it so that they can come into classrooms and classrooms can be even more flipped than they are
-                    now, right? Like we wouldn&#39;t need as much lecturing or we wouldn&#39;t need as much time in class to
-                    just cover basics, right? It might be a way for students to because right now I&#39;ll show students a video
-                    in class and you&#39;ll notice like three minutes in, ten minutes in, they&#39;ve started wandering already.
-                    But if they could interact with the bot and that&#39;s fine, like me too, me, we all, all of our attention
-                    spans have really shortened. And that&#39;s something that we need to not to say is bad, but try to work
-                    with it and see how can we use this. And so if you have a bot where students don&#39;t have to just watch
-                    what you told them to watch or watch your lecture in the order that you&#39;re doing it, and they could have
-                    a more personalized experience, that leaves us so much more room to work on the hard stuff in class on
-                    synthesizing, on pushing for new ideas, on creating new things. So the potential to move up the ladder of
-                    learning and creativity is I&#39;m so excited about that potential</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p class="font-bold">Brian:</p>
-            <p>Okay, so basically in your opinion, like these bots, these are mainly like
-                    supplements to human teachers and that will inevitably like enhance the entire educational
-                    experience?</p>
-            <p>&nbsp;</p>
-            <p class="font-bold">Hamm:</p>
-            <p>I hope so. It depends on how they end up getting used, right? So who is going, are we
-                    going to see monetized models where some people have access to much better bots? Are we going to be able to
-                    see people in all regions have access to the same kind of information, the same kind of tools? So you&#39;re
-                    in my social inequality class, right? And so this is also a place where we&#39;re looking at where is the
-                    potential to increase or reduce stratification using this kind of tool? And hopefully we are all having this
-                    conversation. We saw what the internet did and we can learn lessons from how much the internet changed, how
-                    we interact with each other, how people find jobs, how people find resources, how people connect with each
-                    other, and we can use those lessons to make sure that these new bots, these new tools are also really
-                    helpful for everybody, not just parts of the populations</p>
-            <p>&nbsp;</p>
-            <p class="font-bold">Brian:</p>
-            <p>Okay, so this because I&#39;m part of your social inequality class, my next question
-                    is going to be kind of inspired by that. So, you know, right now there&#39;s like a lot of optimism about
-                    AI, like AI is going to replace all the white collar workers or something, or AI is going to be the best
-                    teacher. We&#39;re going to find the most talented person no matter if they&#39;re like poor or they&#39;re
-                    from some random country. But at the same time, as I said before, it&#39;s going to replace many jobs. And
-                    before you also mentioned, I guess like more wealthy people, they might have like better chatbots than like
-                    poor people. And those might have like better data and so on. And right now, there&#39;s like a lot of
-                    biases on, you know, gender and race in these AIs</p>
-            <p>So for example, I know Snapchat AI, they thought they labeled like a black person as
-                    primates or something. So I was wondering like what steps do you believe need to be taken to safeguard
-                    against these negative impacts of AI in terms of inequality? And furthermore, how can we work towards
-                    improving inclusivity and fairness in these AI systems? </p>
-            <p>&nbsp;</p>
-            <p class="font-bold">Hamm:</p>
-            <p>So from a Purdue standpoint and like a higher education standpoint, I think this is
-                    why programs like Cornerstone and having students take humanities classes and these other classes where
-                    they&#39;re learning how to build these tools is really important, right? So remember the human aspect of
-                    these things and to learn about where inequality creeps in, even if you&#39;re not intending to do it. So
-                    that&#39;s something we&#39;ve talked about in class, that not all stratification is created to on purpose
-                    discriminate against a group or to keep a group from something. It&#39;s usually people who are following
-                    interesting ideas, people who are trying to make things easier or better for them and people that they know
-                    and think about. And so one of the things that is really important for people to remember as they develop
-                    these technologies is where are places where we might be hoarding opportunities from groups, where are
-                    places where we might be exploiting groups by using their labor to create something and then they don&#39;t
-                    have access to it or we don&#39;t adequately compensate them for it. We can watch for where people are
-                    emulating these practices and maybe carrying over biases that were built into the original machines, the
-                    original algorithms that then get produced over and over and over again. And so these are all things that
-                    humans are going to have to pay attention to. So do you know, like you mentioned that Instagram issue
-            </p>
-            <p>There are lots of issues about this. So I taught a tech and society class when I was
-                    in grad school. And we talked about the different ways that it wasn&#39;t an on purpose maybe that these
-                    technologies were built to not recognize a variety of skin tones or to not realize that maybe women
-                    skeletons are kind of different than men&#39;s the average men&#39;s skeleton. So some of the things we
-                    would talk about are, do you know about the history of using Shirley cards to calibrate cameras?</p>
-            <p>&nbsp;</p>
-            <p class="font-bold">Brian:</p>
-            <p>I have no idea. Can you explain? </p>
-            <p>&nbsp;</p>
-            <p class="font-bold">Hamm:</p>
-            <p>So the Shirley cards, it was when they were first developing the color cameras, they
-                    trained them on these images of a white woman. And so they the camera was always kind of aiming for that
-                    kind of skin tone and was picking that up. It was highlighting that. And so then as you use this camera, it
-                    takes terrible pictures of people who don&#39;t match the Shirley card, right? It will wash them out or it
-                    will, it will actually not pick them up at all if they&#39;re in a situation where they&#39;re not the kind
-                    of color that the camera is looking for. And I&#39;m probably I&#39;m massively oversimplifying this, but
-                    it&#39;s something that people realized needed to change so that you could take good pictures of everyone.
-                    But as people emulated that technology, they kept emulating the Shirley card problem. Or a personal example
-                    for me is that my grandmother needed to have her knees replaced. But this was before they started making
-                    different size knee replacements for men and women. So her knee replacements bothered her terribly because
-                    they were too big for her knees. But they hadn&#39;t really considered that they were just trying to make
-                    knee replacements. And usually men were the models. So that&#39;s the size of the knee replacements they
-                    had. But now we go back and we think, Oh, okay, we should we should think more about different sizes of
-                    people when we&#39;re thinking about these kinds of technologies</p>
-            <p>&nbsp;</p>
-            <p class="font-bold">Brian:</p>
-            <p>Yeah, I see/ Yeah, I mean, when you mentioned Shirley, sorry, were they called
-                    Shirley card? </p>
-            <p>&nbsp;</p>
-            <p class="font-bold">Hamm:</p>
-            <p>Shirley cards</p>
-            <p>&nbsp;</p>
-            <p class="font-bold">Brian:</p>
-            <p>Shirley card. Was that like a old technology? </p>
-            <p>&nbsp;</p>
-            <p class="font-bold">Hamm:</p>
-            <p>Right, when they were first developing color photos. So yeah, a really long time ago.
-                    But because it was built into how people made cameras and adjusted them, it got carried through a long time,
-                    decades, because people weren&#39;t going back and remembering how that was built into the initial
-                    technology.</p>
-            <p>*** her dog opened the door</p>
-            <p>My dogs are, yeah, yeah</p>
-            <p>&nbsp;</p>
-            <p class="font-bold">Brian:</p>
-            <p>Yeah, I mean, I think that&#39;s like really interesting because I think this year, I
-                    don&#39;t know if this is like true or not, but I heard that like, some Chinese phones, they have like these
-                    algorithms inside to like, you know, make your to enhance those photos. And it&#39;s good for like Chinese
-                    people, but not for like, like darker skin tone people. So I mean, I think it&#39;s like really interesting
-                    how that problem is still carried on to today</p>
-            <p>&nbsp;</p>
-            <p class="font-bold">Hamm:</p>
-            <p>Yeah, yeah, because whoever built the technology is usually with their generalized
-                    other is probably people that look like them, or people that they see often in media. And so they&#39;re
-                    calibrating their technologies for that. Another example that went viral a couple of years ago was paper,
-                    the automatic paper towel dispensers that wouldn&#39;t register dark skin tones so that you couldn&#39;t get
-                    a paper towel unless your like white friend walked over and wave their hand under it. So there are there are
-                    tons of little examples about this about like race and gender that you would think aren&#39;t going to be a
-                    big deal, but then are they actually do have it&#39;s a it&#39;s a way that technology is built for people
-                    with certain abilities or people with certain skin tones</p>
-            <p>And then your your tech doesn&#39;t fit them or may actually end up harming them in
-                    some way that you&#39;ve never intended to do</p>
-            <p>&nbsp;</p>
-            <p class="font-bold">Brian:</p>
-            <p>And you know, regarding this like, you know, you know, maybe like some company or a
-                    group of people like they create this like AI that they didn&#39;t intend to harm people, but it does
-            </p>
-            <p>Like, relating to that, do you think governments should regulate like this large AI
-                    companies who have these like, large language models are used by so many people? Do you think they should be
-                    the ones regulating like what kind of data is responsible to use and so on? </p>
-            <p>&nbsp;</p>
-            <p class="font-bold">Hamm:</p>
-            <p>I think this is a really, really fasting fascinating question. Luckily, we have the
-                    lab from the political science department called Grail. I don&#39;t know if you&#39;ve heard of that yet.
-                    They&#39;re pretty new. And so they are studying governance of AI in countries and across like international
-                    borders. And looking at how people are making policies and using AI and developing AI. So they are working
-                    on these questions right now. Personally, I think it would be better if we had something like the UN
-                    resolution about genetic technologies, where you have kind of a centralized body for something that&#39;s
-                    such a global issue, thinking about these things</p>
-            <p>But then you have, like, who will enforce this? And how will it have any teeth? And
-                    what will that look like? I&#39;m not, because this is such a global technology, I don&#39;t know if just
-                    doing it on the national level would be the best idea. But I&#39;m open to seeing studies about this and
-                    people really exploring these questions. </p>
-            <p>&nbsp;</p>
-            <p class="font-bold">Brian:</p>
-            <p>Yeah, think with AI, it&#39;s just, you know, like super cool, for AI researchers,
-                    since it can do like tons of crazy stuff. But at the same time, because you want to go super fast, you know,
-                    do cool things really fast, you are also leaving that problem of biases or like inequality into the
-                    equation. </p>
-            <p>&nbsp;</p>
-            <p class="font-bold">Hamm:</p>
-            <p>So yeah, humans tend to look like to do things quickly, right? Like we have a problem
-                    and we want to solve it really quickly. And we like shiny things. I love shiny things. It&#39;s how I got
-                    involved with AI to begin with. I didn&#39;t go to grad school for AI. And but I like tools and I love how
-                    humans make tools and how humans use these things to make life better or unintentionally, maybe have
-                    unintended consequences that make life not better. And I find that fascinating how humans are always
-                    manipulating the environment and trying to make things different and better in some way. But sometimes we do
-                    need to take a step back, you know, use the wisdom and the lessons from past innovations and hold off for a
-                    second</p>
-            <p>And so there are some places where I think it would be good to pause a little bit.
-                    Like we&#39;ve been developing Charlie for since 2019. And we&#39;ve had so many questions pop up. And
-                    we&#39;re working slowly on trying to build the best tool that we can without building in things we
-                    don&#39;t want to see in it. So that&#39;s something that I think some of the tech that gets released really
-                    fast, those bots may not have had as much consideration behind them</p>
-            <p>&nbsp;</p>
-            <p class="font-bold">Brian:</p>
-            <p>Yeah, so I think you answered all my questions like really well. Thank you for
-                    letting me interview you</p>
-            <p>&nbsp;</p>
-            <p>Yeah, can I say a final thing? </p>
-            <p>&nbsp;</p>
-            <p class="font-bold">Brian:</p>
-            <p>Oh, yeah, sure</p>
-            <p>&nbsp;</p>
-            <p class="font-bold">Hamm:</p>
-            <p>Okay, sweet. So I thank you so much for asking me questions about this. And so in the
-                    AI fellow role, I&#39;ve been trying to connect lots of different groups of people who are concerned about
-                    AI or interested in AI. And we really don&#39;t want to leave students out of that conversation. So having a
-                    representative of a group of students is phenomenal. And I&#39;m hoping to meet with more just to pull
-                    students into how are we developing this? How are we governing it? Especially when we&#39;re thinking about
-                    guidelines at Purdue. And so how do we want to think about this? Where do we want this stuff to have access
-                    to information? Where do we not want it to have access to information? How can we help our students and
-                    everybody who&#39;s involved at Purdue use this technology in ways that will help them in their careers
-                    wherever they end up going. So we really want to make sure that we have people representing all parts of
-                    Purdue in these discussions. </p>
-            <p>&nbsp;</p>
-            <p class="font-bold">Brian:</p>
-            <p>Okay. Thank you once again</p>
-            <p>&nbsp;</p>
-            </div>
-        </ContentSection>
+    <article class="mx-auto mt-20 w-[65vw] max-w-[120ch]">
+      <ContentSection
+        id="aiguide-interviews-header"
+        title="AI in Classrooms with Dr. Lindsay Hamm"
+      >
+        <h1 class="font-bold text-xl">September 29, 2023</h1>
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/m5RvDbQTsNc"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+        <h1 class="font-bold text-xl">Transcript</h1>
+        <div
+          class="max-h-80 w-[50vw] overflow-y-scroll text-xs"
+          style="color-scheme: dark;"
+        >
+          <p>
+            Dr. Hamm is a Sociology professor (currently I am taking her SOC 411
+            class!) and an AI Innovation Fellow at Purdue, studying the
+            integration of AI in Purdue classrooms. She has explored the use of
+            AI in her own classrooms and is working on Charlie, a chat bot that
+            will provide students feedback on their essays.
+          </p>
+          <p>&nbsp;</p>
+          <p>Other information:</p>
+          <ul>
+            <li>
+              <a
+                class="c7"
+                href="https://www.cla.purdue.edu/directory/profiles/lindsay-hamm.html"
+                >https://www.cla.purdue.edu/directory/profiles/lindsay-hamm.html</a
+              >
+            </li>
+          </ul>
+          <p>&nbsp;</p>
+          <p>Things that were referenced in talk:</p>
+          <ul class="list-inside list-disc">
+            <li>
+              Shirley cards <a
+                class="c7"
+                href="https://www.npr.org/2014/11/13/363517842/for-decades-kodak-s-shirley-cards-set-photography-s-skin-tone-standard"
+                >https://www.npr.org/2014/11/13/363517842/for-decades-kodak-s-shirley-cards-set-photography-s-skin-tone-standard</a
+              >
+            </li>
+            <li>
+              Purdue Governance and Responsible AI Lab (GRAIL) <a
+                class="c7"
+                href="https://cla.purdue.edu/academic/polsci/research/labs/grail/"
+                >https://cla.purdue.edu/academic/polsci/research/labs/grail/</a
+              >
+            </li>
+          </ul>
+          <p>
+            If you email them I&rsquo;m pretty sure you can just drop by at
+            their lab meetings!
+          </p>
+          <p>&nbsp;</p>
+          <p class="font-bold">Brian:</p>
+          <p>
+            Hi, my name is Brian and I&#39;m interviewing Dr Hamm, who is also
+            my sociology teacher
+          </p>
+          <p>&nbsp;</p>
+          <p class="font-bold">Hamm:</p>
+          <p>
+            Hi, I&#39;m Dr Lindsay Ham and I am Brian&#39;s sociology teacher
+          </p>
+          <p>&nbsp;</p>
+          <p class="font-bold">Brian:</p>
+          <p>Can you explain your role as an AI fellow at Purdue?</p>
+          <p>&nbsp;</p>
+          <p class="font-bold">Hamm:</p>
+          <p>
+            Yes, so the Innovation Hub is something that started at Purdue a
+            couple of years ago and I started working with the Innovation Hub on
+            my Charlie project where we&#39;ve been working since 2019 to
+            develop a bot inside of Circuit, which is a program we already have
+            for peer review of essays. And so this bot is we&#39;re training it
+            to give students feedback on early drafts of papers in line with how
+            we would grade on a rubric. And so I started working with the
+            Innovation Hub when they started on this project so we could expand
+            it past my my social problems class. And then this summer they
+            wanted to have different fellows who were doing things across the
+            university in different ways that we&#39;re working with technology
+            and really trying to pull people together in a conversation where
+            everybody can know where to go when they have questions about
+            something and that we can all kind of work together to do research
+            or see how things are moving in our fields or help students navigate
+            these new kinds of things too. So they asked if I wanted to be the
+            AI fellow for the Innovation Hub so I started in the summer and
+            since then what I&#39;ve mostly done is talk to as many people as
+            possible in different contexts. So over email, over interviews or,
+            well, like in coffee shops or on zoom and different places so that I
+            can try to see what are people&#39;s questions around AI at Purdue.
+            So how are staff thinking about this, how are faculty thinking about
+            it, especially with their teaching, but also how are students using
+            it and what are their concerns. So in this role I&#39;ve been on a
+            couple of research teams where we&#39;re trying to collect data,
+            empirical data on how do people across different roles feel about
+            this about what might change and how they might use these things and
+            maybe what their fears are about how it might be used in ways that
+            they might not expect or want. And so we&#39;ve got that project
+            going and then we are also looking at how people are teaching about
+            AI in their classes, how instructors are teaching about AI and what
+            kind of considerations students are bringing up and they&#39;re
+            bringing up about AI in across the world. So AI policies, the labor
+            that goes into creating AI bots, what AI bots might do, issues of
+            and personal, what is that called, IP is, do you remember what that
+            means? Personal IP is it&#39;s like copyright but for your own
+          </p>
+          <p>&nbsp;</p>
+          <p class="font-bold">Brian:</p>
+          <p>Internet protocol?</p>
+          <p>&nbsp;</p>
+          <p class="font-bold">Hamm:</p>
+          <p>
+            Wait, I don&#39;t know, it&#39;s like your own, it&#39;s like your
+            own intellectual property I&#39;m sorry Yes. And so it&#39;s about
+            like how do we protect intellectual property and how do we cite
+            things from AI? So if AI is using your intellectual property, but
+            then you create something with AI where how do you cite that and who
+            gets the credit for it? And there are all these huge questions and a
+            lot of them have been things that we&#39;ve been contemplating for
+            quite some time and then with the release of chat gpt it shoved all
+            of them into open discussion. So everybody is hard to ignore these
+            questions now. It&#39;s something that we all are talking about and
+            need to consider to help shape it the way we want it to be
+          </p>
+          <p>&nbsp;</p>
+          <p class="font-bold">Brian:</p>
+          <p>
+            Okay So I think before you mentioned the fears of AI like how you
+            know the fears that teachers have can you explain in detail some of
+            those fears?
+          </p>
+          <p>&nbsp;</p>
+          <p class="font-bold">Hamm:</p>
+          <p>
+            So on the teacher side, I think this is something that we&#39;ve
+            seen happen with the introduction of statistical packages and
+            calculators and the internet and computers about we know this stuff
+            is going to change. We know these tools are going to make some parts
+            of our jobs easier and some parts of them possibly harder. And so
+            what we are trying to do with instructors at Purdue is see where can
+            this make your job easier and where and maybe save you time maybe
+            help you make more detailed information for your students better
+            assignments
+          </p>
+          <p>
+            And so we&#39;re experimenting with that and then on the other side
+            we&#39;re experimenting with what are the ways that AI could change
+            our classrooms and ways that we might not anticipate or in ways that
+            we want to anticipate so we can help we can help make sure that our
+            classrooms remain places where students can learn and we can learn
+            from our students. So an example is when my students started using
+            discord a lot more or slack one of the two, one of those apps. They
+            were using that a lot in my really large social problems class and
+            when they first started doing this I I didn&#39;t want to be part of
+            it because that&#39;s a lot to monitor right so I wanted to monitor
+            you can have discussions in places where I am officially a part of
+            them and you can have discussions over here but I don&#39;t want to
+            be at it I don&#39;t want to be in control of it. And so what ended
+            up happening was my students would talk to each other and it was
+            like a game of telephone on this tool where then they would think
+            something was due when it wasn&#39;t or they would think something
+            was that there was an assignment that there actually wasn&#39;t in
+            the syllabus. And so instead of talking to me they had this game of
+            telephone going on and it was like having a purple minion as a TA in
+            the class with all of these hundreds of students who were across a
+            couple of different sections. So sometimes I worry that if we do
+            have AI bots where students are using them to help them specifically
+            with our classes
+          </p>
+          <p>
+            I think there&#39;s a ton of potential there and I would really like
+            to tap into that. But I also worry that it might be like releasing a
+            bunch of purple minions into my classroom and it might make
+            communication harder. It might mean that I spend much more time
+            working on miscommunication than it is on me trying to help students
+            work through ideas
+          </p>
+          <p>&nbsp;</p>
+          <p class="font-bold">Brian:</p>
+          <p>
+            Yeah, I mean, yeah, I think that definitely makes sense because like
+            I was like doing my math homework and I wanted to see if I could
+            just ask chat gpt to do like this integral and it just gave me like
+            the wrong answer
+          </p>
+          <p>&nbsp;</p>
+          <p class="font-bold">Hamm:</p>
+          <p>
+            So Right, right. And so I think a lot of people and you&#39;ve
+            mentioned too that this has the potential to revolutionize
+            education, right, where everybody has their own personal AI tutor.
+            But with that potential that&#39;s kind of the potential we had with
+            the internet too. And so we&#39;ve seen that a lot of resources are
+            more available in places where they might not have been before. But
+            we can also see the potential for increased stratification over who
+            has access to what information, what are bots telling you, what was
+            it trained on. So was it trained on something that&#39;s based in
+            empirical science or was it trained on something that someone&#39;s
+            using to try to shape your perception of the world in a way they
+            might want to? That might not be based in empirical science. So
+            there are all of these questions, especially around what are these
+            bots trained on? And how how are they shaping the way people are
+            talking to each other? How are they shaping what people are
+            concerned about? So it&#39;s like if you have social media,
+            we&#39;ve seen what things like Facebook and Twitter and X have done
+            to communication across the world. And now we have these new
+            platforms where you don&#39;t just have these algorithms shaping
+            what you see or what you watch next, but you have these bots that
+            have a corpus that is controlled by someone or something and is
+            using it too. So it&#39;s a tool and I keep emphasizing that to
+            people. Humans are still running the show. So we need to make sure
+            we understand what humans are doing with these tools and try to be
+            part of the conversation
+          </p>
+          <p>&nbsp;</p>
+          <p class="font-bold">Brian:</p>
+          <p>
+            So I think that sort of leads to my next question about your Charlie
+            AI research project, because I know that for that project you sort
+            of like, you&#39;re very focused on curating the right data for that
+          </p>
+          <p>&nbsp;</p>
+          <p class="font-bold">Hamm:</p>
+          <p>
+            So we&#39;ve spent several years collecting essays from students and
+            then grading them, sometimes double grading them to make sure that
+            we were training Charlie to appropriately mark on the rubric where
+            students might be missing something or where students were doing
+            really well. And so then students could use that and then come to my
+            office hours or talk with each other and try to figure out how to do
+            better on the rubric in the places where they might be struggling.
+            And so it helps me help students more quickly because we could look
+            at what Charlie gave them and say, all right, well, this is where we
+            can focus on your essay to see what&#39;s happening here. And
+            Charlie isn&#39;t perfect. So Charlie happens to grade particularly
+            harshly on one part of the sociology paper and students would always
+            think, I can&#39;t get this score up. And so we&#39;re going to try
+            to recode Charlie on that one. But it would be one of those things
+            where students would then come and talk to me more about this part
+            of what I&#39;m teaching them, which is a more complicated part of
+            the theory. And then we could have actual discussions about it
+            because they knew that was something they wanted to know more about
+            instead of coming in and saying, I don&#39;t understand things, but
+            I don&#39;t know what I don&#39;t understand. And I don&#39;t know
+            what to ask you for more help
+          </p>
+          <p>&nbsp;</p>
+          <p class="font-bold">Brian:</p>
+          <p>
+            Okay, wait, so is Charlie like what kind of like model is Charlie
+            fine tuned on?
+          </p>
+          <p>&nbsp;</p>
+          <p class="font-bold">Hamm:</p>
+          <p>
+            So Charlie is a basic LLM that people at Purdue online have built.
+            And then we were working. so, I was working on Charlie for my social
+            problems class. And then with the Innovation Hub grant, we started
+            training Charlie on the general research paper rubric that SCLA 101
+            and Cornerstone uses. So you&#39;ve got plenty like lots and lots of
+            classes that are using that
+          </p>
+          <p>
+            So over the last fall, we spent collecting a corpus of thousands of
+            papers that we had people grade according to that rubric. So we
+            could train Charlie to do that. And so then when we got everything
+            together and we were running the models, we were finding that it was
+            really hard that it didn&#39;t want to converge on a lot of the
+            parts of the rubric. So we thought like what information do students
+            really need? What are we asking them to do with these rubrics and
+            these prompts? And then chat GPT launched. So we knew that we could
+            build on top of chat GPT, like a lot of other people are doing to
+            create their own kinds of bots. And so what we&#39;ve been doing now
+            is feeding the paper. So Charlie assesses a paper and sees on each
+            part of the rubric as a student doing really well, as a student
+            doing, you know, not so well as a student doing needs a lot of
+            improvement. And so then we feed those scores and the essay into
+            right now chat GPT for and then then it spits out comments for how
+            to improve those parts of the essays or it says, you know, you did
+            well on this, maybe you could incorporate more of that. And then a
+            student would get all of that feedback in circuit. So the student
+            wouldn&#39;t see the parts where Charlie is talking to chat GPT and
+            then chat GPT is talking to circuit. It would just see the parts in
+            circuit. They would just see the parts in circuit.
+          </p>
+          <p>&nbsp;</p>
+          <p class="font-bold">Brian:</p>
+          <p>
+            Do you notice if your fine tuned chat GPT model like it adopts the
+            personality of the comments, of the teacher comments, or or like
+            extends those comments to predict something else?
+          </p>
+          <p>&nbsp;</p>
+          <p class="font-bold">Hamm:</p>
+          <p>
+            So this is a really excellent question. Yeah, this is where we are
+            right now. So we had the team has been absolutely awesome and they
+            gave us a printout of this is eight essays. And this is the
+            different kinds of feedback that we could give a student. And so we
+            looked at it and we met as a group and we thought about what do we
+            want students to get it. And a lot of instructors were very worried
+            about the parts where chat GPT would give them a sentence. They
+            would say like, for example, you can rephrase it this way. And so
+            instructors were worried that students would just copy and paste
+            those things without critically assessing them or seeing if they
+            were actually good to put in their paper. And so we decided that
+            instead of that we are now collecting a new like a new smaller
+            corpus of comments that professors would actually put on papers so
+            that we can train the model even more to talk like that professor.
+            So the the for cornerstone and this rubric the big general research
+            paper rubric
+          </p>
+          <p>
+            This is so you&#39;ll have like an average of what a cornerstone
+            professor would give you on comment wise on the different parts of
+            the rubric. And our hope is that once we get this running and we
+            figure out the user interface for it, what we want students to see
+            on their side is that we can take this and train more rubrics that
+            professors are using and take comments from them. And papers from
+            them and train the bot to give feedback as that professor would
+          </p>
+          <p>&nbsp;</p>
+          <p class="font-bold">Brian:</p>
+          <p>
+            Oh, okay. So is it like each there&#39;s like, is it like
+            there&#39;s multiple Charlie bots and each of those bots are for
+            each professor or class and then students will be assigned to that
+            bot or class bot
+          </p>
+          <p>&nbsp;</p>
+          <p class="font-bold">Hamm:</p>
+          <p>
+            So Charlie is I think one and so this is where you get in the more
+            complicated stuff
+          </p>
+          <p>
+            I might not necessarily know but Charlie is trained on these
+            different rubrics. So like and the rubrics are with prompts right
+            for Charlie. And so in circuit right now we have these two rubrics
+            we&#39;ve been training. And so what they&#39;ve done in circuit is
+            if you ask the team, they can turn Charlie on for that rubric and
+            then you use that rubric in circuit. So that&#39;s the Charlie
+            rubric
+          </p>
+          <p>
+            So our hope is that as we roll out the cornerstone rubric especially
+            because my social problems rubric is really limited to like what
+            we&#39;re talking about in social problems and analyzing claims. But
+            this research paper rubric is much, much broader and much more
+            applicable to a lot of different things. And so we&#39;re hoping
+            that we can launch this and people can pick it up for their classes
+            if they want to. And then they might also want to work with us to
+            train their own rubric on it
+          </p>
+          <p>&nbsp;</p>
+          <p class="font-bold">Brian:</p>
+          <p>
+            So yeah, I mean I think in the future it&#39;s going to be really
+            clear that we&#39;re going to have these AI teachers. So for
+            example, I know that Khan Academy, they partner with OpenAI to make
+            their, you know, custom AI bot called like KhanMigo or something.
+            And you know these bots are going to be like really conversational.
+            They&#39;re going to be like trained on specific courses just like
+            your work with Charlie. And they&#39;re going to answer like any
+            variant of any question that any students have. So my question is
+            how will the traditional role of a teacher change?
+          </p>
+          <p>&nbsp;</p>
+          <p class="font-bold">Hamm:</p>
+          <p>
+            I think that&#39;s a great question. And so what we&#39;ve been
+            seeing it do now across different universities and classes that have
+            tried to create bots for them for their classes is that people,
+            professors are using these as tool or teachers are using these as an
+            additional teaching aid basically. So in a classroom when you were
+            in elementary school or in high school, you might have had teacher
+            aides that were helping with different parts of a class or then you
+            might have had like you have teaching assistants right now. Human
+            teaching assistants, graduate and undergraduate teaching assistants.
+            And I really see this moving as professors being able to spend less
+            time on some of the stuff that AI might be able to help students
+            work through whenever they want to. So if you want to work through a
+            problem at three o&#39;clock in the morning, I am not going to be
+            awake to help you with that. And if I ever wake, I&#39;m not
+            interested in helping you with that at that point, but Charlie can
+            help you with that or another bot can help you with that. And so the
+            key to this is what, how has that bot been trained and how can we
+            teach students to critically assess what they&#39;re getting back
+            out of that bot? To make sure that it is correct because we
+            don&#39;t, and this is something we talked about with Charlie a lot.
+            We don&#39;t want to get into a situation where Charlie says your
+            paper is great on all of these things. And then you turn it in and
+            we assess it and we&#39;re like, oh wait, no, you didn&#39;t
+            actually do the prompts very well. And so that would lead to a lot
+            of miscommunication and a lot of probably tension, right? And so we
+            want these to be tools that decrease tension that increase the
+            ability of students to access what they need quickly when they need
+            it so that they can come into classrooms and classrooms can be even
+            more flipped than they are now, right? Like we wouldn&#39;t need as
+            much lecturing or we wouldn&#39;t need as much time in class to just
+            cover basics, right? It might be a way for students to because right
+            now I&#39;ll show students a video in class and you&#39;ll notice
+            like three minutes in, ten minutes in, they&#39;ve started wandering
+            already. But if they could interact with the bot and that&#39;s
+            fine, like me too, me, we all, all of our attention spans have
+            really shortened. And that&#39;s something that we need to not to
+            say is bad, but try to work with it and see how can we use this. And
+            so if you have a bot where students don&#39;t have to just watch
+            what you told them to watch or watch your lecture in the order that
+            you&#39;re doing it, and they could have a more personalized
+            experience, that leaves us so much more room to work on the hard
+            stuff in class on synthesizing, on pushing for new ideas, on
+            creating new things. So the potential to move up the ladder of
+            learning and creativity is I&#39;m so excited about that potential
+          </p>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <p class="font-bold">Brian:</p>
+          <p>
+            Okay, so basically in your opinion, like these bots, these are
+            mainly like supplements to human teachers and that will inevitably
+            like enhance the entire educational experience?
+          </p>
+          <p>&nbsp;</p>
+          <p class="font-bold">Hamm:</p>
+          <p>
+            I hope so. It depends on how they end up getting used, right? So who
+            is going, are we going to see monetized models where some people
+            have access to much better bots? Are we going to be able to see
+            people in all regions have access to the same kind of information,
+            the same kind of tools? So you&#39;re in my social inequality class,
+            right? And so this is also a place where we&#39;re looking at where
+            is the potential to increase or reduce stratification using this
+            kind of tool? And hopefully we are all having this conversation. We
+            saw what the internet did and we can learn lessons from how much the
+            internet changed, how we interact with each other, how people find
+            jobs, how people find resources, how people connect with each other,
+            and we can use those lessons to make sure that these new bots, these
+            new tools are also really helpful for everybody, not just parts of
+            the populations
+          </p>
+          <p>&nbsp;</p>
+          <p class="font-bold">Brian:</p>
+          <p>
+            Okay, so this because I&#39;m part of your social inequality class,
+            my next question is going to be kind of inspired by that. So, you
+            know, right now there&#39;s like a lot of optimism about AI, like AI
+            is going to replace all the white collar workers or something, or AI
+            is going to be the best teacher. We&#39;re going to find the most
+            talented person no matter if they&#39;re like poor or they&#39;re
+            from some random country. But at the same time, as I said before,
+            it&#39;s going to replace many jobs. And before you also mentioned,
+            I guess like more wealthy people, they might have like better
+            chatbots than like poor people. And those might have like better
+            data and so on. And right now, there&#39;s like a lot of biases on,
+            you know, gender and race in these AIs
+          </p>
+          <p>
+            So for example, I know Snapchat AI, they thought they labeled like a
+            black person as primates or something. So I was wondering like what
+            steps do you believe need to be taken to safeguard against these
+            negative impacts of AI in terms of inequality? And furthermore, how
+            can we work towards improving inclusivity and fairness in these AI
+            systems?
+          </p>
+          <p>&nbsp;</p>
+          <p class="font-bold">Hamm:</p>
+          <p>
+            So from a Purdue standpoint and like a higher education standpoint,
+            I think this is why programs like Cornerstone and having students
+            take humanities classes and these other classes where they&#39;re
+            learning how to build these tools is really important, right? So
+            remember the human aspect of these things and to learn about where
+            inequality creeps in, even if you&#39;re not intending to do it. So
+            that&#39;s something we&#39;ve talked about in class, that not all
+            stratification is created to on purpose discriminate against a group
+            or to keep a group from something. It&#39;s usually people who are
+            following interesting ideas, people who are trying to make things
+            easier or better for them and people that they know and think about.
+            And so one of the things that is really important for people to
+            remember as they develop these technologies is where are places
+            where we might be hoarding opportunities from groups, where are
+            places where we might be exploiting groups by using their labor to
+            create something and then they don&#39;t have access to it or we
+            don&#39;t adequately compensate them for it. We can watch for where
+            people are emulating these practices and maybe carrying over biases
+            that were built into the original machines, the original algorithms
+            that then get produced over and over and over again. And so these
+            are all things that humans are going to have to pay attention to. So
+            do you know, like you mentioned that Instagram issue
+          </p>
+          <p>
+            There are lots of issues about this. So I taught a tech and society
+            class when I was in grad school. And we talked about the different
+            ways that it wasn&#39;t an on purpose maybe that these technologies
+            were built to not recognize a variety of skin tones or to not
+            realize that maybe women skeletons are kind of different than
+            men&#39;s the average men&#39;s skeleton. So some of the things we
+            would talk about are, do you know about the history of using Shirley
+            cards to calibrate cameras?
+          </p>
+          <p>&nbsp;</p>
+          <p class="font-bold">Brian:</p>
+          <p>I have no idea. Can you explain?</p>
+          <p>&nbsp;</p>
+          <p class="font-bold">Hamm:</p>
+          <p>
+            So the Shirley cards, it was when they were first developing the
+            color cameras, they trained them on these images of a white woman.
+            And so they the camera was always kind of aiming for that kind of
+            skin tone and was picking that up. It was highlighting that. And so
+            then as you use this camera, it takes terrible pictures of people
+            who don&#39;t match the Shirley card, right? It will wash them out
+            or it will, it will actually not pick them up at all if they&#39;re
+            in a situation where they&#39;re not the kind of color that the
+            camera is looking for. And I&#39;m probably I&#39;m massively
+            oversimplifying this, but it&#39;s something that people realized
+            needed to change so that you could take good pictures of everyone.
+            But as people emulated that technology, they kept emulating the
+            Shirley card problem. Or a personal example for me is that my
+            grandmother needed to have her knees replaced. But this was before
+            they started making different size knee replacements for men and
+            women. So her knee replacements bothered her terribly because they
+            were too big for her knees. But they hadn&#39;t really considered
+            that they were just trying to make knee replacements. And usually
+            men were the models. So that&#39;s the size of the knee replacements
+            they had. But now we go back and we think, Oh, okay, we should we
+            should think more about different sizes of people when we&#39;re
+            thinking about these kinds of technologies
+          </p>
+          <p>&nbsp;</p>
+          <p class="font-bold">Brian:</p>
+          <p>
+            Yeah, I see/ Yeah, I mean, when you mentioned Shirley, sorry, were
+            they called Shirley card?
+          </p>
+          <p>&nbsp;</p>
+          <p class="font-bold">Hamm:</p>
+          <p>Shirley cards</p>
+          <p>&nbsp;</p>
+          <p class="font-bold">Brian:</p>
+          <p>Shirley card. Was that like a old technology?</p>
+          <p>&nbsp;</p>
+          <p class="font-bold">Hamm:</p>
+          <p>
+            Right, when they were first developing color photos. So yeah, a
+            really long time ago. But because it was built into how people made
+            cameras and adjusted them, it got carried through a long time,
+            decades, because people weren&#39;t going back and remembering how
+            that was built into the initial technology.
+          </p>
+          <p>*** her dog opened the door</p>
+          <p>My dogs are, yeah, yeah</p>
+          <p>&nbsp;</p>
+          <p class="font-bold">Brian:</p>
+          <p>
+            Yeah, I mean, I think that&#39;s like really interesting because I
+            think this year, I don&#39;t know if this is like true or not, but I
+            heard that like, some Chinese phones, they have like these
+            algorithms inside to like, you know, make your to enhance those
+            photos. And it&#39;s good for like Chinese people, but not for like,
+            like darker skin tone people. So I mean, I think it&#39;s like
+            really interesting how that problem is still carried on to today
+          </p>
+          <p>&nbsp;</p>
+          <p class="font-bold">Hamm:</p>
+          <p>
+            Yeah, yeah, because whoever built the technology is usually with
+            their generalized other is probably people that look like them, or
+            people that they see often in media. And so they&#39;re calibrating
+            their technologies for that. Another example that went viral a
+            couple of years ago was paper, the automatic paper towel dispensers
+            that wouldn&#39;t register dark skin tones so that you couldn&#39;t
+            get a paper towel unless your like white friend walked over and wave
+            their hand under it. So there are there are tons of little examples
+            about this about like race and gender that you would think
+            aren&#39;t going to be a big deal, but then are they actually do
+            have it&#39;s a it&#39;s a way that technology is built for people
+            with certain abilities or people with certain skin tones
+          </p>
+          <p>
+            And then your your tech doesn&#39;t fit them or may actually end up
+            harming them in some way that you&#39;ve never intended to do
+          </p>
+          <p>&nbsp;</p>
+          <p class="font-bold">Brian:</p>
+          <p>
+            And you know, regarding this like, you know, you know, maybe like
+            some company or a group of people like they create this like AI that
+            they didn&#39;t intend to harm people, but it does
+          </p>
+          <p>
+            Like, relating to that, do you think governments should regulate
+            like this large AI companies who have these like, large language
+            models are used by so many people? Do you think they should be the
+            ones regulating like what kind of data is responsible to use and so
+            on?
+          </p>
+          <p>&nbsp;</p>
+          <p class="font-bold">Hamm:</p>
+          <p>
+            I think this is a really, really fasting fascinating question.
+            Luckily, we have the lab from the political science department
+            called Grail. I don&#39;t know if you&#39;ve heard of that yet.
+            They&#39;re pretty new. And so they are studying governance of AI in
+            countries and across like international borders. And looking at how
+            people are making policies and using AI and developing AI. So they
+            are working on these questions right now. Personally, I think it
+            would be better if we had something like the UN resolution about
+            genetic technologies, where you have kind of a centralized body for
+            something that&#39;s such a global issue, thinking about these
+            things
+          </p>
+          <p>
+            But then you have, like, who will enforce this? And how will it have
+            any teeth? And what will that look like? I&#39;m not, because this
+            is such a global technology, I don&#39;t know if just doing it on
+            the national level would be the best idea. But I&#39;m open to
+            seeing studies about this and people really exploring these
+            questions.
+          </p>
+          <p>&nbsp;</p>
+          <p class="font-bold">Brian:</p>
+          <p>
+            Yeah, think with AI, it&#39;s just, you know, like super cool, for
+            AI researchers, since it can do like tons of crazy stuff. But at the
+            same time, because you want to go super fast, you know, do cool
+            things really fast, you are also leaving that problem of biases or
+            like inequality into the equation.
+          </p>
+          <p>&nbsp;</p>
+          <p class="font-bold">Hamm:</p>
+          <p>
+            So yeah, humans tend to look like to do things quickly, right? Like
+            we have a problem and we want to solve it really quickly. And we
+            like shiny things. I love shiny things. It&#39;s how I got involved
+            with AI to begin with. I didn&#39;t go to grad school for AI. And
+            but I like tools and I love how humans make tools and how humans use
+            these things to make life better or unintentionally, maybe have
+            unintended consequences that make life not better. And I find that
+            fascinating how humans are always manipulating the environment and
+            trying to make things different and better in some way. But
+            sometimes we do need to take a step back, you know, use the wisdom
+            and the lessons from past innovations and hold off for a second
+          </p>
+          <p>
+            And so there are some places where I think it would be good to pause
+            a little bit. Like we&#39;ve been developing Charlie for since 2019.
+            And we&#39;ve had so many questions pop up. And we&#39;re working
+            slowly on trying to build the best tool that we can without building
+            in things we don&#39;t want to see in it. So that&#39;s something
+            that I think some of the tech that gets released really fast, those
+            bots may not have had as much consideration behind them
+          </p>
+          <p>&nbsp;</p>
+          <p class="font-bold">Brian:</p>
+          <p>
+            Yeah, so I think you answered all my questions like really well.
+            Thank you for letting me interview you
+          </p>
+          <p>&nbsp;</p>
+          <p>Yeah, can I say a final thing?</p>
+          <p>&nbsp;</p>
+          <p class="font-bold">Brian:</p>
+          <p>Oh, yeah, sure</p>
+          <p>&nbsp;</p>
+          <p class="font-bold">Hamm:</p>
+          <p>
+            Okay, sweet. So I thank you so much for asking me questions about
+            this. And so in the AI fellow role, I&#39;ve been trying to connect
+            lots of different groups of people who are concerned about AI or
+            interested in AI. And we really don&#39;t want to leave students out
+            of that conversation. So having a representative of a group of
+            students is phenomenal. And I&#39;m hoping to meet with more just to
+            pull students into how are we developing this? How are we governing
+            it? Especially when we&#39;re thinking about guidelines at Purdue.
+            And so how do we want to think about this? Where do we want this
+            stuff to have access to information? Where do we not want it to have
+            access to information? How can we help our students and everybody
+            who&#39;s involved at Purdue use this technology in ways that will
+            help them in their careers wherever they end up going. So we really
+            want to make sure that we have people representing all parts of
+            Purdue in these discussions.
+          </p>
+          <p>&nbsp;</p>
+          <p class="font-bold">Brian:</p>
+          <p>Okay. Thank you once again</p>
+          <p>&nbsp;</p>
+        </div>
+      </ContentSection>
     </article>
     <Footer />
   </body>

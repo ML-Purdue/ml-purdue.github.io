@@ -2,19 +2,29 @@
 import { Icon } from "astro-icon";
 
 import type { NavItem } from "~/types";
+import mlPurdueLogo from "~/assets/mlp.png";
 import Logo from "./logo.astro";
 export interface Props {
   fixed?: boolean;
 }
 const navItems: Array<NavItem> = [
   { title: "About", url: "/about" },
-  { title: "Projects", url: "https://mlpurdue.notion.site/8e83150770684e118ed6f423ba54fb81" },
-  { title: "Reading Group", url: "https://mlpurdue.notion.site/Reading-Group-Schedule-56fa4e3969464ea79da87033a688c9f2?pvs=4" },
-  { title: "Workshops", url: "https://mlpurdue.notion.site/Workshop-Schedule-2567b8f7e0b64903bb7fdd14cde9aeff?pvs=4" },
-  { title: "Events", url: "/#eventscalendar" },
-  { title: "AI/ML Guides", url: "https://mlpurdue.notion.site/AI-ML-Guides-336e3bf13bd44738bb24217b678650d7"},
-  { title: "Sponsor", url: "https://mlpurdue.notion.site/2023-2024-Sponsors-51f7ef777d104eecb3fb6edc2e693209"},
-  { title: "Contact", url: "/contact" },
+  {
+    title: "Projects",
+    url: "https://mlpurdue.notion.site/8e83150770684e118ed6f423ba54fb81",
+  },
+  {
+    title: "Reading Group",
+    url: "https://mlpurdue.notion.site/Reading-Group-Schedule-56fa4e3969464ea79da87033a688c9f2?pvs=4",
+  },
+  {
+    title: "Workshops",
+    url: "https://mlpurdue.notion.site/Workshop-Schedule-2567b8f7e0b64903bb7fdd14cde9aeff?pvs=4",
+  },
+  {
+    title: "Sponsor",
+    url: "https://mlpurdue.notion.site/2023-2024-Sponsors-51f7ef777d104eecb3fb6edc2e693209",
+  },
 ];
 const { fixed } = Astro.props;
 ---
@@ -26,8 +36,8 @@ const { fixed } = Astro.props;
     fixed ? "fixed-header" : ""
   }`}
 >
-  <a class="flex items-center gap-3 hover:!text-default" href="/">
-    <h1 class="gradient-text text-center font-extrabold text-sm">ML@Purdue</h1>
+  <a class="hover:!text-default" href="/">
+    <img src={mlPurdueLogo.src} alt="Logo" class="h-[4rem]" />
   </a>
   <div>
     <div class="flex items-center gap-6">
@@ -38,7 +48,7 @@ const { fixed } = Astro.props;
               <li class="relative">
                 {(sublinks?.length || 0) > 0 ? (
                   <>
-                    <button class="hover-button flex items-center justify-center gap-2 text-sm">
+                    <button class="hover-button flex items-center justify-center gap-2 font-bold text-sm">
                       {title}
                       <svg
                         height="16"
@@ -60,7 +70,7 @@ const { fixed } = Astro.props;
                     <ul
                       data-hover-link-container
                       class="pointer-events-none  absolute flex w-max min-w-[100px]
-                     flex-col border-2  border-solid border-[white] bg-[var(--color-background)] p-2 text-sm opacity-0 transition-opacity"
+                     flex-col border-2  border-solid border-[white] bg-[var(--color-background)] p-2 opacity-0 transition-opacity text-sm"
                     >
                       {sublinks?.map((x) => (
                         <a href={x.url}>{x.title}</a>
@@ -68,7 +78,7 @@ const { fixed } = Astro.props;
                     </ul>
                   </>
                 ) : (
-                  <a class="text-sm" href={url}>
+                  <a class="font-semibold text-sm" href={url}>
                     {title}
                   </a>
                 )}
@@ -87,7 +97,7 @@ const { fixed } = Astro.props;
       </button>
     </div>
     <div id="menu-modal" class="modal hidden" aria-hidden="true">
-      <div class="fixed inset-0 bg-default px-8 py-4 text-default">
+      <div class="fixed inset-0 bg-default py-4 text-default">
         <div class="space-y-4" role="dialog" aria-modal="true">
           <header class="text-right">
             <button
@@ -99,8 +109,23 @@ const { fixed } = Astro.props;
               <Icon pack="mdi" name="close" class="h-8" />
             </button>
           </header>
-          <div class="flex justify-center">
-            <Logo class="h-16" />
+          <div class="flex justify-center items-center w-screen border-b-2 border-purple-500 pb-5">
+            <a class="hover:!text-default" href="/">
+              <img src={mlPurdueLogo.src} alt="Logo" class="h-[7rem]" />
+            </a>
+            <div class="mb-2 flex items-center justify-center lg:mb-0">
+              <h1 class="orbitron text-center font-bold text-white text-6xl">ML</h1>
+              <h2
+                class="orbitron -ml-4 mb-4 text-center text-white text-xl md:-ml-10 md:text-5xl"
+              >
+                @
+              </h2>
+              <h1
+                class="orbitron ml-3 text-center font-semibold text-white text-4xl sm:ml-5"
+              >
+                PURDUE
+              </h1>
+            </div>
           </div>
           <nav>
             <ul class="flex flex-col">
@@ -119,8 +144,10 @@ const { fixed } = Astro.props;
                         </div>
                       </div>
                     ) : (
-                      <a class="ml-8 block py-4 text-xl" href={url}>
-                        {title}
+                      <a class="block font-semibold text-lg" href={url}>
+                        <div class="flex w-screen items-center justify-center pb-3 border-b-2 mb-3 border-purple-500">
+                          {title}
+                        </div>
                       </a>
                     )}
                   </li>
@@ -204,6 +231,13 @@ const { fixed } = Astro.props;
 </noscript>
 
 <style>
+  [data-hover-link-container] {
+    position: absolute;
+    left: 0;
+    z-index: 10;
+    top: 100%; /* fallback in case JS hasn’t run yet */
+  }
+
   ul:hover,
   .hover-button:active + ul,
   .hover-button:focus + ul,

@@ -1,4 +1,6 @@
 /* TODO: consider creating <Button> and <GradientText> components */
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap");
+
 a,
 .btn {
   @apply transition-colors duration-200;
@@ -12,21 +14,66 @@ a,
 }
 
 .sponsor-t4 {
-  color: #9F2FBF;
+  color: #9f2fbf;
 }
 
 .sponsor-t3 {
-  color: #BF6FD6;
+  color: #bf6fd6;
 }
 
 .sponsor-t2 {
-  color: #E6B0F6;
+  color: #e6b0f6;
 }
 
 .sponsor-t1 {
-  color: #EBCDF4;
+  color: #ebcdf4;
 }
 
-body, :root {
+body,
+:root {
   color-scheme: dark;
+}
+
+.orbitron {
+  font-family: "Orbitron", sans-serif;
+  font-style: normal;
+}
+
+.mask-radial {
+  mask-image: radial-gradient(
+    circle at center,
+    rgba(0, 0, 0, 0.5) 0%,
+    rgba(0, 0, 0, 0.3) 25%,
+    rgba(0, 0, 0, 0.2) 40%,
+    rgba(0, 0, 0, 0.1) 60%,
+    rgba(0, 0, 0, 0.05) 80%
+  );
+  -webkit-mask-image: radial-gradient(
+    circle at center,
+    rgba(0, 0, 0, 0.5) 0%,
+    rgba(0, 0, 0, 0.4) 25%,
+    rgba(0, 0, 0, 0.2) 40%,
+    rgba(0, 0, 0, 0.1) 60%,
+    rgba(0, 0, 0, 0.05) 80%
+  );
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+  mask-size: cover;
+  -webkit-mask-size: cover;
+}
+
+.glass {
+  background: rgba(164, 93, 245, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2),
+    inset 0 4px 20px rgba(255, 255, 255, 0.3);
+  margin-inline: 10px;
+  text-align: center;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }

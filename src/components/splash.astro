@@ -1,25 +1,31 @@
 ---
 import Starfield from "~/components/starfield.astro";
-import mlPurdueLogo from "~/assets/mlp.png";
 import Footer from "./footer.astro";
 const widths = [450, 800];
 const sizes = "(min-width: 640px) 42vw, 67vw";
 ---
 
-<section class="relative h-full bg-black">
+<section class="image relative h-full bg-black">
   <Starfield />
-  <div class="relative grid h-full place-items-center">
+  <div class="gradient relative z-20 grid h-full place-items-center">
     <h2
       data-class="flex flex-col gap-2 self-end sm:gap-4 sm:self-auto sm:justify-self-end"
     >
-      <div class="flex items-center justify-center">
-        <img src={mlPurdueLogo.src} alt="Logo" class="h-28 md:h-[10rem]" />
+      <div class="mt-20 mb-2 flex items-center justify-center lg:mb-0">
+        <h1 class="orbitron text-center font-bold text-white text-9xl">ML</h1>
+        <h2
+          class="orbitron -ml-7 mb-6 text-center text-white text-4xl md:-ml-10 md:text-5xl"
+        >
+          @
+        </h2>
+        <h1
+          class="orbitron ml-3 text-center font-semibold text-white text-7xl sm:ml-5"
+        >
+          PURDUE
+        </h1>
       </div>
-      <div class="gradient-text text-center font-extrabold text-8xl">
-        ML@Purdue
-      </div>
-      <div>
-        <Footer ignoreHome={true}></Footer>
+      <div class="-mt-24 ml-20 place-items-end md:ml-0">
+        <Footer ignoreHome={true} />
       </div>
     </h2>
   </div>

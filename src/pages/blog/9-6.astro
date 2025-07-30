@@ -6,10 +6,8 @@ import "~/styles/index.css";
 import ContentSection from "~/components/content-section.astro";
 import Spacer from "~/components/Spacer.astro";
 
-
 const { site } = Astro;
 const description = "ML@Purdue AIGuide Blog";
-
 ---
 
 <!DOCTYPE html>
@@ -35,290 +33,488 @@ const description = "ML@Purdue AIGuide Blog";
   >
     <Header fixed />
     <Spacer y={96} />
-        <article class="mx-auto mt-20 w-[65vw] max-w-[120ch]">
-        <ContentSection id="aiguide-interviews-header" title="AI Interpretibility with Jinen Setpal">
-            <h1 class="font-bold text-xl">September 6, 2023</h1>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/d6L8Tf3TQhA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            <h1 class="font-bold text-xl">Transcript</h1>
-            <div class="max-h-80 overflow-y-scroll w-[50vw] text-xs" style="color-scheme: dark;">
-                <p>Jinen is a junior undergrad data science major and ML@Purdue officer. &nbsp;He has
-                    deep experience in ML in both the research and industry side. Today, he will talk about AI interpretability,
-                    which is exactly how it sounds. Building AI that is interpretable to us humans.</p>
-                <p>&nbsp;</p>
+    <article class="mx-auto mt-20 w-[65vw] max-w-[120ch]">
+      <ContentSection
+        id="aiguide-interviews-header"
+        title="AI Interpretibility with Jinen Setpal"
+      >
+        <h1 class="font-bold text-xl">September 6, 2023</h1>
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/d6L8Tf3TQhA"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+        <h1 class="font-bold text-xl">Transcript</h1>
+        <div
+          class="max-h-80 w-[50vw] overflow-y-scroll text-xs"
+          style="color-scheme: dark;"
+        >
+          <p>
+            Jinen is a junior undergrad data science major and ML@Purdue
+            officer. &nbsp;He has deep experience in ML in both the research and
+            industry side. Today, he will talk about AI interpretability, which
+            is exactly how it sounds. Building AI that is interpretable to us
+            humans.
+          </p>
+          <p>&nbsp;</p>
 
-                <p>This is a new series, where I, Brian, will interview cool AI professors/students and
-                        talk about their research interests and how students interested in AI can get involved in research. 
-                </p><p>&nbsp;</p>
-                <p>Advice for beginners summary:</p>
-                <ul class="list-disc list-inside">
-                    <li>Check out D2l.ai Dive into Deep Learning</li>
-                    <li>Read books about ML like Python Machine Learning by Sebastian
-                            Raschka</li>
-                    <li>Contact professors</li>
-                    <li>Jinen mentioned arXiv. It is an open access repository of pre
-                            prints (not peer reviewed yet). Lots of ML papers on it and you might have seen links to these on github
-                            if you searched up for a certain algorithm</li>
-                    <li><span>Be interested!!!!!!!!!!</li>
-                </ul>
-                <p>&nbsp;</p>
-                <p>&nbsp;</p>
+          <p>
+            This is a new series, where I, Brian, will interview cool AI
+            professors/students and talk about their research interests and how
+            students interested in AI can get involved in research.
+          </p><p>&nbsp;</p>
+          <p>Advice for beginners summary:</p>
+          <ul class="list-inside list-disc">
+            <li>Check out D2l.ai Dive into Deep Learning</li>
+            <li>
+              Read books about ML like Python Machine Learning by Sebastian
+              Raschka
+            </li>
+            <li>Contact professors</li>
+            <li>
+              Jinen mentioned arXiv. It is an open access repository of pre
+              prints (not peer reviewed yet). Lots of ML papers on it and you
+              might have seen links to these on github if you searched up for a
+              certain algorithm
+            </li>
+            <li><span>Be interested!!!!!!!!!!</span></li>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
 
-                <p class="font-bold">Brian:</p>
-                <p><span>Hi. My name&nbsp;is Brian and I&#39;m a freshman and my role is to
-                        interview cool AI students like Jinen here and also, in the future, AI professors.</p><p>&nbsp;</p>
-                <p class="font-bold">Jinen:</p>
-                <p>My name is Jinen and I&#39;m a data science student and I love research.</p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Brian:</p>
-                <p>So, Jinen, I looked at your website and I saw that your research focus is on
-                        interpretability</p>
-                <p>Can you explain what it is in the context of computer vision and natural language
-                        processing?</p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Jinen:</p>
-                <p>Interpretability more generally is the degree to which we can understand why the
-                        model makes the decisions that it says it does. So for instance, in deep learning, this is a problem because
-                        most models are just, you know, hugely parameterized and you give it an input and get an output at the end
-                        and everything that happens in the middle is very difficult for us to understand. And one way of getting
-                        around that is using interpretability techniques to get a grasp on what the model is doing and certain
-                        certain models are more interpretable than others and models that are interpretable by default, so you can
-                        just read their weights and tell what&#39;s happening, are called intrinsically interpretable models and
-                        those that need a lot of manipulation and are done generally after the entire evaluation process is called
-                        ad hoc or post hoc interpretability..</p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Brian:</p>
-                <p>So wow it is raining outside</p>
-                <p>So, let&#39;s say I use chat GPT or something, &nbsp;I mean, when I get the answer,
-                        it looks pretty much right. So how come interpretable models are important? </p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Jinen:</p>
-                <p>Yeah so well, interpretability is important mostly because models like chat GPT
-                        generally are very, very over parameterized, &nbsp;And consequence of that is that they work very easily.
-                        And if you give it an input that is within their training data set, it is very, very likely that they will
-                        get it correct. And the training data set generally is a huge, huge corpus. And that is why it&#39;s very
-                        easy for us as human evaluators to miss certain sorts of mistakes that it tends to make. And one kind of
-                        important thing, especially in domains that have a very much, you know, the models are very, very important
-                        is we need to have a sort of a degree of understanding as to why the model makes a decision. So for chat
-                        GPT, it is mostly a low stakes environment, &nbsp;So even if we do not have interpretability, it&#39;s okay.
-                        That&#39;s fine. We don&#39;t need to know so much. But if we are taking a decision on whether to maybe
-                        evacuate a city based on some statistical models of a tornado or any other natural disaster, it is a very,
-                        very, very high stakes decision and it can impact a lot of people. So it is very important to know why the
-                        model thinks that the city should be evacuated or not be evacuated because guessing incorrectly either way
-                        is going to cost a lot in life and money, &nbsp;</p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Brian:</p>
-                <p>So if a model is interpretable, that means that we as humans, if we see that
-                        there&#39;s a certain bias that we know is incorrect, we can try to step in and fix that.</p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Jinen:</p>
-                <p>Yeah, there is one piece of work that I actually saw did just that. So what was it
-                        exactly? There was this paper called Inventive Risk Minimization and the general idea behind that paper was
-                        that you have a lot of cases where there are spurious correlations and it&#39;s extremely easy to identify
-                        those correlations for a machine learning model. It&#39;s very easy to identify those correlations and fit
-                        to those correlations and not the actual target that we are trying to generalize to. And as a result of
-                        that, it gets a very high accuracy, but it&#39;s not perfect. So you will get like 80% accuracy with a very,
-                        very small parameter set, a lot of regularization functions actually promote using lesser parameters or
-                        promote fewer parameters. So this is in fact a problem because spurious correlations are promoted in the
-                        quest for generalization, &nbsp;And as a result of that, a lot of corners are cut and it tends to identify
-                        something that is completely different from the actual target. So a more practical example of that, the
-                        Inventive Risk Minimization paper gave an example of cows and camels, &nbsp;You will see cows in grasslands
-                        90% of the time and camels in deserts 90% of the time. So if we were to train a CNN on this sample of cows
-                        on grasslands and cows in grasslands and camels in deserts, right there is a very high likelihood that it
-                        will just identify the fact that grasslands are green and deserts are yellow and just on the basis of the
-                        color of the image decide if it&#39;s a cow or a camel. So if you put a cow in a desert and a camel in a
-                        grassland, it would predict it incorrectly every single time. So even though the general sort of
-                        distribution of cows is more in grasslands and camels is more in deserts, we don&#39;t want it to identify
-                        the color of the image because that&#39;s not actually learning anything about it. So they had a theoretical
-                        approach towards fixing that or creating an invariant representation for a single object. So a cow should
-                        have the same intermediate representation regardless of whether it&#39;s in a grassland or it is in a
-                        desert. And it basically had a, they created a regularizer to do that. So that was definitely much too
-                        complicated for me. So what I did was, in addition to that approach, I used interpretively to do the same
-                        problem where I used class activation mappings to basically find a heat map of the region that was used to
-                        identify the image. </p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Brian:</p>
-                <p>So can you explain what a class map activation is? </p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Jinen:</p>
-                <p>Oh yeah, of course, of course. So generally your CNN or convolutional neural network
-                        works by creating patches of the image and then finding a rate map or a filter or a set of filters for the
-                        one set of patches and that&#39;s one day. And you basically propagate through that</p>
-                <p>Now, it is very hard for us to identify based on the output of the dot product
-                        between the actual patch and the filter and to identify what&#39;s happening. So I used the patch filter and
-                        the bias to identify what&#39;s happening because that is the intermediary representation.</p>
-                <p>So a couple of researchers at MIT were able to find a way to get the actual heat map
-                        of the detections that the CNN or the weight map that the CNN was using in order to base its
-                        classifications. So for example, if I was identifying, if I was creating a human classifier and I put the,
-                        like, I ran the image on myself, I would expect that this entire region, which is my body, should have a
-                        high weight edge because it&#39;s trying to identify if the target is a person or a dog, let&#39;s say. So
-                        it should not identify the background. If the background has a high weight edge it means it&#39;s not using
-                        my features to make the classification. It&#39;s using the background to make the classification. So that
-                        was the general idea where I created an intermediary layer that intrinsically created or generated this
-                        class activation mapping.</p>
-                <p>From there, I created a loss function or a regularizer that would specifically ensure
-                        that the focus of the image was the actual target and not the background. And once it was able to do that, I
-                        was able to generalize it and get emergent learning, where the outer distribution error of the model was
-                        reduced very significantly because we are not overfitting to the data thanks to the over parameterized
-                        model. </p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Brian:</p>
-                <p>My next question is, before when you talked about interpretability, you said we have
-                        to make this model interpretable, &nbsp;So is there a scale of how interpretable a model is? Like a numeric
-                        score? Or is it just like, it is interpretable or it&#39;s not interpretable or it&#39;s like medium
-                        interpretable? </p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Jinen:</p>
-                <p>Well, I don&#39;t think there is an objective scale that is defined for
-                        interpretability. However, there are definitely more interpretable models than others. So I guess you could,
-                        if you really had to, you know, rank certain models on a scale of how interpretable they are versus how it,
-                        how uninterpretable they are. If you look at something like a decision tree, that is generally one of the
-                        most interpretable models because the reasons why it specifies the split is generally obvious. But the more
-                        you sort of go through the depth of the model, the harder it is to realize why the decision tree made the
-                        decision it does, even though we can sort of identify exactly what the splits are, we don&#39;t know why the
-                        splits exist. We just know that they exist, &nbsp;That&#39;s one example. Logistic regression is, or
-                        logistical classifiers are mostly straightforward. Linear regressions are also very straightforward, more or
-                        less the same thing. They have a series of weights and each class or each feature has a certain weight
-                        associated with them. So we know that this feature has a very, very high weightage, which means it&#39;s
-                        more important than the others. So this kind of lagging, but deep learning models, you cannot really
-                        understand it. So it&#39;s not super interpretable</p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Brian:</p>
-                <p>It seems like it&#39;s really challenging to, you know, build these interpretable
-                        models.</p>
-                <p>So if you&#39;re designing an interpretable model, are you designing an entirely new
-                        architecture or something? Or are you just sort of making slight modifications to an existing algorithm or
-                        can you do like both? </p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Jinen:</p>
-                <p>Both are generally kind of the way to go. So generally, if you were to sort of set up
-                        intrinsic interpretability, if it is possible to do it just by sort of algorithm, that is generally not
-                        required to change the architecture, &nbsp;So if you&#39;re using a post-hoc technique or something that is
-                        more intrinsic, then that&#39;s fine. And you don&#39;t have to update the architecture at all. But if you
-                        wanted to promote the development of a certain behavior set, right, and you want the behavior set to be
-                        specifically interpretable, maybe it is required to update the architecture a little bit. When I say update
-                        the architecture, most of the time I generally mean just adding more layers or removing some layers or
-                        creating a certain set of layers. And maybe once specifically for some invariant representation, for
-                        example, but besides that, it generally stays the same. So the modifications are not major. It is mostly
-                        editing the actual architecture itself.</p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Brian:</p>
-                <p>So currently, I hear transformers everywhere, you know, like transformers in chat
-                        GPT, transformers for computer vision, and etc. So, these transformers use attention. That mechanism allows
-                        them to focus on different parts of their input. So for example, like different parts of a word or different
-                        parts of an image. And does that make the model interpretable since now we know exactly what parts of the
-                        input it focuses or attends to?</p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Jinen:</p>
-                <p>So, well, this is actually an awesome question. So one of the sort of things that we
-                        look at is or actually I&#39;ll go back to the analogy of the logistic regression versus the deep neural
-                        network thing that I was talking about. So, we said that a logistic regression by itself is quite
-                        interpretable because you have a series of bits and each feature has a bit associated to it</p>
-                <p>So if you want to know why you are making certain decisions, you go to the largest
-                        weight and just go down from there basically, and you will be able to identify what features are making what
-                        degree of impact. Now, it&#39;s interpretable to that extent. So if you want to make a deep neural network,
-                        it is foundationally just a series of logistic regressors that interact with one another in order to
-                        generate a more complicated hybrid being right and that&#39;s sort of the entire thing behind it that makes
-                        it not interpretable. Attention works or like transformers with attention working the same in a similar way
-                        where you have a lot of attention blocks that are stacked sequentially and sometimes even in parallel. And
-                        what this means is that sometimes attention layers communicate information about the actual input that is
-                        not related to things like the that is not immediately related to feature importance for the word
-                        specifically. So for instance, there were a lot of situations where commas and separator tokens in general
-                        had very, very high rates. And the reason for that was not because the separator or the generally irrelevant
-                        token was important for this specific example, it was just trying to communicate something that was present
-                        for the before like for the to the closer closer to the input of the model to something that is in like a
-                        further later layer right and so I think attention with the attention mechanism at a single level, of
-                        course, is very interpretable and I think it builds off intuition right? So we intuitively approach the or
-                        build attention by saying we have the series of words and as a human reader, this is the way I would read it
-                        so let me encode that you mathematically right that&#39;s kind of the approach that CNN&#39;s also used,
-                        where we broke the image up into the neighborhood of important pixels, and then evaluated neighborhood by
-                        neighborhood and we found that that was a better approach to learning than just giving it like feeding it
-                        through an MLP because of the less number of parameters as well. So intuitive biases are super super
-                        important, and they also boost interpretability which is awesome.</p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Brian:</p>
-                <p>So I wanted to move towards questions for beginners in machine learning, people who
-                        are interested in it, because I know that there&#39;s a lot of beginners in the discord. So my question is,
-                        how did you get into AI research at Purdue, like were you interested in it like in high school, or did you
-                        really dig into it here?</p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Jinen:</p>
-                <p>I was very interested in research in general and high school by my interests were at
-                        the time, the intersection of cybersecurity and machine learning. So I was really interested in binary
-                        exploitation and to a certain extent cryptography and machine learning, had always been an interest and
-                        those were those included like CV and MLP domains, but I also really wanted to do something at the
-                        intersection of cybersecurity and machine learning simply because I was interested in that. So I reached out
-                        to professors in the summer before I came to Purdue</p>
-                <p>I met with a professor and Antonio Bianchi, who redirected me to Professor Christina
-                        Garmin, and I worked under the boilers applied cryptography lab for some time after that doing some research
-                        at the intersection of the two which was fun.</p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Brian:</p>
-                <p>Did you take any classes related to AI or like cryphotography?</p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Jinen:</p>
-                <p>Oh, I read a book called Python machine learning by Sebastian last time. That was my
-                        first introduction to machine learning. It was a fantastic book. Honestly, at this point I might not really
-                        recommend anyone to use TensorFlow. But it&#39;s good. So in any case, before I deviate way too much,
-                        reading books is like a super, super awesome way to get familiarized with concepts, because of the shared
-                        amount of knowledge that they&#39;re able to sort of put in that small amount of space. I really like D2L.ai
-                        dive into deep learning. So that&#39;s a fantastic resource. You can just put D2L ai in your browser and it
-                        will give you answer basically every question you have about the most updated things in machine learning,
-                        which is crazy.</p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Brian:</p>
-                <p>Okay, and my final question</p>
-                <p>There&#39;s like some background people right now</p>
-                <p>You know what, I&#39;m just going to move</p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Jinen:</p>
-                <p>Okay, no problem</p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Brian:</p>
-                <p>Okay, my final question and I&#39;m planning to to ask this to all future people I
-                        interview</p>
-                <p>So it&#39;s like a really general question and kind of a basic one. But what do you
-                        think the future of AI will look like? So, you know, it doesn&#39;t have to relate to interpretability or
-                        your current research interests, just like in general.</p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Jinen:</p>
-                <p>Funny, I think that the question is a little bit more more political and then it is
-                        political</p>
-                <p>I mean, not like the politics, politics, political, I mean more is it privately such
-                        lab and industry versus you know stuff in academia style. There is a lot of very, very useful discourse that
-                        genuinely I do not know enough to properly comment about, but the general idea is a lot of papers are being
-                        published to Arxiv instead of like the instead of using Arxiv as a preprint server is just the final
-                        destination of the of the actual paper and we can leave it at that</p>
-                <p>One example of the interpretable interpretable invariant risk minimization paper that
-                        I was talking about that is paper that is just completely that paper is on Arxiv and that&#39;s right it is
-                        not I don&#39;t think at least it is. And that&#39;s a problem because research methodology is is needs to
-                        be verified for errors and it generally is it helps a lot. It helps the process right because if you get
-                        trust the research methodology, it gives a lot of credibility to the process and we don&#39;t want
-                        credibility coming from the name of the organization we wanted coming from the actual power of the research.
-                        And that is a peer review for machine learning generally has been declining to a certain extent, where in a
-                        lot of papers that are published today are very noisy and that is not to diminish the fact that we still
-                        have so many so many amazing papers and but the majority of them are passed through peer review and are
-                        published to major major majors. So it&#39;s important to set up and recognize this dichotomy. I don&#39;t
-                        know what is going to happen with respect to it. If I had to take a wild guess, I would say not much
-                        changes</p>
-                <p>Industry will continue to have a lot more compute and they will continue to push
-                        things to Arxiv and call it a day. If they publish it at all the GPT for paper, if you can call it a paper,
-                        they just put it on their website and left it at that. So as long as they don&#39;t call it research
-                        that&#39;s not a problem with me. It&#39;s just a report. But they still do not provide that value back to
-                        the world because there are reasons and everything that they do is completely commercialized right so that
-                        kind of sucks. I will hope it became free and open source for everyone to use and research got democratized.
-                        I&#39;m not very optimistic unfortunately</p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Brian:</p>
-                <p>I asked all my questions and I mean you were a really good person to interview. So
-                        thank you, Jinen.</p>
-                <p>&nbsp;</p>
-                <p class="font-bold">Jinen:</p>
-                <p>Thank you so much. So yeah, I had a good time</p>
-                <p>&nbsp;</p>
-                <p>&nbsp;</p>
-            </div>
-        </ContentSection>
+            <p class="font-bold">Brian:</p>
+            <p>
+              <span
+                >Hi. My name&nbsp;is Brian and I&#39;m a freshman and my role is
+                to interview cool AI students like Jinen here and also, in the
+                future, AI professors.</span
+              ><p>&nbsp;</p>
+              <p class="font-bold">Jinen:</p>
+              <p>
+                My name is Jinen and I&#39;m a data science student and I love
+                research.
+              </p>
+              <p>&nbsp;</p>
+              <p class="font-bold">Brian:</p>
+              <p>
+                So, Jinen, I looked at your website and I saw that your research
+                focus is on interpretability
+              </p>
+              <p>
+                Can you explain what it is in the context of computer vision and
+                natural language processing?
+              </p>
+              <p>&nbsp;</p>
+              <p class="font-bold">Jinen:</p>
+              <p>
+                Interpretability more generally is the degree to which we can
+                understand why the model makes the decisions that it says it
+                does. So for instance, in deep learning, this is a problem
+                because most models are just, you know, hugely parameterized and
+                you give it an input and get an output at the end and everything
+                that happens in the middle is very difficult for us to
+                understand. And one way of getting around that is using
+                interpretability techniques to get a grasp on what the model is
+                doing and certain certain models are more interpretable than
+                others and models that are interpretable by default, so you can
+                just read their weights and tell what&#39;s happening, are
+                called intrinsically interpretable models and those that need a
+                lot of manipulation and are done generally after the entire
+                evaluation process is called ad hoc or post hoc
+                interpretability..
+              </p>
+              <p>&nbsp;</p>
+              <p class="font-bold">Brian:</p>
+              <p>So wow it is raining outside</p>
+              <p>
+                So, let&#39;s say I use chat GPT or something, &nbsp;I mean,
+                when I get the answer, it looks pretty much right. So how come
+                interpretable models are important?
+              </p>
+              <p>&nbsp;</p>
+              <p class="font-bold">Jinen:</p>
+              <p>
+                Yeah so well, interpretability is important mostly because
+                models like chat GPT generally are very, very over
+                parameterized, &nbsp;And consequence of that is that they work
+                very easily. And if you give it an input that is within their
+                training data set, it is very, very likely that they will get it
+                correct. And the training data set generally is a huge, huge
+                corpus. And that is why it&#39;s very easy for us as human
+                evaluators to miss certain sorts of mistakes that it tends to
+                make. And one kind of important thing, especially in domains
+                that have a very much, you know, the models are very, very
+                important is we need to have a sort of a degree of understanding
+                as to why the model makes a decision. So for chat GPT, it is
+                mostly a low stakes environment, &nbsp;So even if we do not have
+                interpretability, it&#39;s okay. That&#39;s fine. We don&#39;t
+                need to know so much. But if we are taking a decision on whether
+                to maybe evacuate a city based on some statistical models of a
+                tornado or any other natural disaster, it is a very, very, very
+                high stakes decision and it can impact a lot of people. So it is
+                very important to know why the model thinks that the city should
+                be evacuated or not be evacuated because guessing incorrectly
+                either way is going to cost a lot in life and money, &nbsp;
+              </p>
+              <p>&nbsp;</p>
+              <p class="font-bold">Brian:</p>
+              <p>
+                So if a model is interpretable, that means that we as humans, if
+                we see that there&#39;s a certain bias that we know is
+                incorrect, we can try to step in and fix that.
+              </p>
+              <p>&nbsp;</p>
+              <p class="font-bold">Jinen:</p>
+              <p>
+                Yeah, there is one piece of work that I actually saw did just
+                that. So what was it exactly? There was this paper called
+                Inventive Risk Minimization and the general idea behind that
+                paper was that you have a lot of cases where there are spurious
+                correlations and it&#39;s extremely easy to identify those
+                correlations for a machine learning model. It&#39;s very easy to
+                identify those correlations and fit to those correlations and
+                not the actual target that we are trying to generalize to. And
+                as a result of that, it gets a very high accuracy, but it&#39;s
+                not perfect. So you will get like 80% accuracy with a very, very
+                small parameter set, a lot of regularization functions actually
+                promote using lesser parameters or promote fewer parameters. So
+                this is in fact a problem because spurious correlations are
+                promoted in the quest for generalization, &nbsp;And as a result
+                of that, a lot of corners are cut and it tends to identify
+                something that is completely different from the actual target.
+                So a more practical example of that, the Inventive Risk
+                Minimization paper gave an example of cows and camels, &nbsp;You
+                will see cows in grasslands 90% of the time and camels in
+                deserts 90% of the time. So if we were to train a CNN on this
+                sample of cows on grasslands and cows in grasslands and camels
+                in deserts, right there is a very high likelihood that it will
+                just identify the fact that grasslands are green and deserts are
+                yellow and just on the basis of the color of the image decide if
+                it&#39;s a cow or a camel. So if you put a cow in a desert and a
+                camel in a grassland, it would predict it incorrectly every
+                single time. So even though the general sort of distribution of
+                cows is more in grasslands and camels is more in deserts, we
+                don&#39;t want it to identify the color of the image because
+                that&#39;s not actually learning anything about it. So they had
+                a theoretical approach towards fixing that or creating an
+                invariant representation for a single object. So a cow should
+                have the same intermediate representation regardless of whether
+                it&#39;s in a grassland or it is in a desert. And it basically
+                had a, they created a regularizer to do that. So that was
+                definitely much too complicated for me. So what I did was, in
+                addition to that approach, I used interpretively to do the same
+                problem where I used class activation mappings to basically find
+                a heat map of the region that was used to identify the image.
+              </p>
+              <p>&nbsp;</p>
+              <p class="font-bold">Brian:</p>
+              <p>So can you explain what a class map activation is?</p>
+              <p>&nbsp;</p>
+              <p class="font-bold">Jinen:</p>
+              <p>
+                Oh yeah, of course, of course. So generally your CNN or
+                convolutional neural network works by creating patches of the
+                image and then finding a rate map or a filter or a set of
+                filters for the one set of patches and that&#39;s one day. And
+                you basically propagate through that
+              </p>
+              <p>
+                Now, it is very hard for us to identify based on the output of
+                the dot product between the actual patch and the filter and to
+                identify what&#39;s happening. So I used the patch filter and
+                the bias to identify what&#39;s happening because that is the
+                intermediary representation.
+              </p>
+              <p>
+                So a couple of researchers at MIT were able to find a way to get
+                the actual heat map of the detections that the CNN or the weight
+                map that the CNN was using in order to base its classifications.
+                So for example, if I was identifying, if I was creating a human
+                classifier and I put the, like, I ran the image on myself, I
+                would expect that this entire region, which is my body, should
+                have a high weight edge because it&#39;s trying to identify if
+                the target is a person or a dog, let&#39;s say. So it should not
+                identify the background. If the background has a high weight
+                edge it means it&#39;s not using my features to make the
+                classification. It&#39;s using the background to make the
+                classification. So that was the general idea where I created an
+                intermediary layer that intrinsically created or generated this
+                class activation mapping.
+              </p>
+              <p>
+                From there, I created a loss function or a regularizer that
+                would specifically ensure that the focus of the image was the
+                actual target and not the background. And once it was able to do
+                that, I was able to generalize it and get emergent learning,
+                where the outer distribution error of the model was reduced very
+                significantly because we are not overfitting to the data thanks
+                to the over parameterized model.
+              </p>
+              <p>&nbsp;</p>
+              <p class="font-bold">Brian:</p>
+              <p>
+                My next question is, before when you talked about
+                interpretability, you said we have to make this model
+                interpretable, &nbsp;So is there a scale of how interpretable a
+                model is? Like a numeric score? Or is it just like, it is
+                interpretable or it&#39;s not interpretable or it&#39;s like
+                medium interpretable?
+              </p>
+              <p>&nbsp;</p>
+              <p class="font-bold">Jinen:</p>
+              <p>
+                Well, I don&#39;t think there is an objective scale that is
+                defined for interpretability. However, there are definitely more
+                interpretable models than others. So I guess you could, if you
+                really had to, you know, rank certain models on a scale of how
+                interpretable they are versus how it, how uninterpretable they
+                are. If you look at something like a decision tree, that is
+                generally one of the most interpretable models because the
+                reasons why it specifies the split is generally obvious. But the
+                more you sort of go through the depth of the model, the harder
+                it is to realize why the decision tree made the decision it
+                does, even though we can sort of identify exactly what the
+                splits are, we don&#39;t know why the splits exist. We just know
+                that they exist, &nbsp;That&#39;s one example. Logistic
+                regression is, or logistical classifiers are mostly
+                straightforward. Linear regressions are also very
+                straightforward, more or less the same thing. They have a series
+                of weights and each class or each feature has a certain weight
+                associated with them. So we know that this feature has a very,
+                very high weightage, which means it&#39;s more important than
+                the others. So this kind of lagging, but deep learning models,
+                you cannot really understand it. So it&#39;s not super
+                interpretable
+              </p>
+              <p>&nbsp;</p>
+              <p class="font-bold">Brian:</p>
+              <p>
+                It seems like it&#39;s really challenging to, you know, build
+                these interpretable models.
+              </p>
+              <p>
+                So if you&#39;re designing an interpretable model, are you
+                designing an entirely new architecture or something? Or are you
+                just sort of making slight modifications to an existing
+                algorithm or can you do like both?
+              </p>
+              <p>&nbsp;</p>
+              <p class="font-bold">Jinen:</p>
+              <p>
+                Both are generally kind of the way to go. So generally, if you
+                were to sort of set up intrinsic interpretability, if it is
+                possible to do it just by sort of algorithm, that is generally
+                not required to change the architecture, &nbsp;So if you&#39;re
+                using a post-hoc technique or something that is more intrinsic,
+                then that&#39;s fine. And you don&#39;t have to update the
+                architecture at all. But if you wanted to promote the
+                development of a certain behavior set, right, and you want the
+                behavior set to be specifically interpretable, maybe it is
+                required to update the architecture a little bit. When I say
+                update the architecture, most of the time I generally mean just
+                adding more layers or removing some layers or creating a certain
+                set of layers. And maybe once specifically for some invariant
+                representation, for example, but besides that, it generally
+                stays the same. So the modifications are not major. It is mostly
+                editing the actual architecture itself.
+              </p>
+              <p>&nbsp;</p>
+              <p class="font-bold">Brian:</p>
+              <p>
+                So currently, I hear transformers everywhere, you know, like
+                transformers in chat GPT, transformers for computer vision, and
+                etc. So, these transformers use attention. That mechanism allows
+                them to focus on different parts of their input. So for example,
+                like different parts of a word or different parts of an image.
+                And does that make the model interpretable since now we know
+                exactly what parts of the input it focuses or attends to?
+              </p>
+              <p>&nbsp;</p>
+              <p class="font-bold">Jinen:</p>
+              <p>
+                So, well, this is actually an awesome question. So one of the
+                sort of things that we look at is or actually I&#39;ll go back
+                to the analogy of the logistic regression versus the deep neural
+                network thing that I was talking about. So, we said that a
+                logistic regression by itself is quite interpretable because you
+                have a series of bits and each feature has a bit associated to
+                it
+              </p>
+              <p>
+                So if you want to know why you are making certain decisions, you
+                go to the largest weight and just go down from there basically,
+                and you will be able to identify what features are making what
+                degree of impact. Now, it&#39;s interpretable to that extent. So
+                if you want to make a deep neural network, it is foundationally
+                just a series of logistic regressors that interact with one
+                another in order to generate a more complicated hybrid being
+                right and that&#39;s sort of the entire thing behind it that
+                makes it not interpretable. Attention works or like transformers
+                with attention working the same in a similar way where you have
+                a lot of attention blocks that are stacked sequentially and
+                sometimes even in parallel. And what this means is that
+                sometimes attention layers communicate information about the
+                actual input that is not related to things like the that is not
+                immediately related to feature importance for the word
+                specifically. So for instance, there were a lot of situations
+                where commas and separator tokens in general had very, very high
+                rates. And the reason for that was not because the separator or
+                the generally irrelevant token was important for this specific
+                example, it was just trying to communicate something that was
+                present for the before like for the to the closer closer to the
+                input of the model to something that is in like a further later
+                layer right and so I think attention with the attention
+                mechanism at a single level, of course, is very interpretable
+                and I think it builds off intuition right? So we intuitively
+                approach the or build attention by saying we have the series of
+                words and as a human reader, this is the way I would read it so
+                let me encode that you mathematically right that&#39;s kind of
+                the approach that CNN&#39;s also used, where we broke the image
+                up into the neighborhood of important pixels, and then evaluated
+                neighborhood by neighborhood and we found that that was a better
+                approach to learning than just giving it like feeding it through
+                an MLP because of the less number of parameters as well. So
+                intuitive biases are super super important, and they also boost
+                interpretability which is awesome.
+              </p>
+              <p>&nbsp;</p>
+              <p class="font-bold">Brian:</p>
+              <p>
+                So I wanted to move towards questions for beginners in machine
+                learning, people who are interested in it, because I know that
+                there&#39;s a lot of beginners in the discord. So my question
+                is, how did you get into AI research at Purdue, like were you
+                interested in it like in high school, or did you really dig into
+                it here?
+              </p>
+              <p>&nbsp;</p>
+              <p class="font-bold">Jinen:</p>
+              <p>
+                I was very interested in research in general and high school by
+                my interests were at the time, the intersection of cybersecurity
+                and machine learning. So I was really interested in binary
+                exploitation and to a certain extent cryptography and machine
+                learning, had always been an interest and those were those
+                included like CV and MLP domains, but I also really wanted to do
+                something at the intersection of cybersecurity and machine
+                learning simply because I was interested in that. So I reached
+                out to professors in the summer before I came to Purdue
+              </p>
+              <p>
+                I met with a professor and Antonio Bianchi, who redirected me to
+                Professor Christina Garmin, and I worked under the boilers
+                applied cryptography lab for some time after that doing some
+                research at the intersection of the two which was fun.
+              </p>
+              <p>&nbsp;</p>
+              <p class="font-bold">Brian:</p>
+              <p>
+                Did you take any classes related to AI or like cryphotography?
+              </p>
+              <p>&nbsp;</p>
+              <p class="font-bold">Jinen:</p>
+              <p>
+                Oh, I read a book called Python machine learning by Sebastian
+                last time. That was my first introduction to machine learning.
+                It was a fantastic book. Honestly, at this point I might not
+                really recommend anyone to use TensorFlow. But it&#39;s good. So
+                in any case, before I deviate way too much, reading books is
+                like a super, super awesome way to get familiarized with
+                concepts, because of the shared amount of knowledge that
+                they&#39;re able to sort of put in that small amount of space. I
+                really like D2L.ai dive into deep learning. So that&#39;s a
+                fantastic resource. You can just put D2L ai in your browser and
+                it will give you answer basically every question you have about
+                the most updated things in machine learning, which is crazy.
+              </p>
+              <p>&nbsp;</p>
+              <p class="font-bold">Brian:</p>
+              <p>Okay, and my final question</p>
+              <p>There&#39;s like some background people right now</p>
+              <p>You know what, I&#39;m just going to move</p>
+              <p>&nbsp;</p>
+              <p class="font-bold">Jinen:</p>
+              <p>Okay, no problem</p>
+              <p>&nbsp;</p>
+              <p class="font-bold">Brian:</p>
+              <p>
+                Okay, my final question and I&#39;m planning to to ask this to
+                all future people I interview
+              </p>
+              <p>
+                So it&#39;s like a really general question and kind of a basic
+                one. But what do you think the future of AI will look like? So,
+                you know, it doesn&#39;t have to relate to interpretability or
+                your current research interests, just like in general.
+              </p>
+              <p>&nbsp;</p>
+              <p class="font-bold">Jinen:</p>
+              <p>
+                Funny, I think that the question is a little bit more more
+                political and then it is political
+              </p>
+              <p>
+                I mean, not like the politics, politics, political, I mean more
+                is it privately such lab and industry versus you know stuff in
+                academia style. There is a lot of very, very useful discourse
+                that genuinely I do not know enough to properly comment about,
+                but the general idea is a lot of papers are being published to
+                Arxiv instead of like the instead of using Arxiv as a preprint
+                server is just the final destination of the of the actual paper
+                and we can leave it at that
+              </p>
+              <p>
+                One example of the interpretable interpretable invariant risk
+                minimization paper that I was talking about that is paper that
+                is just completely that paper is on Arxiv and that&#39;s right
+                it is not I don&#39;t think at least it is. And that&#39;s a
+                problem because research methodology is is needs to be verified
+                for errors and it generally is it helps a lot. It helps the
+                process right because if you get trust the research methodology,
+                it gives a lot of credibility to the process and we don&#39;t
+                want credibility coming from the name of the organization we
+                wanted coming from the actual power of the research. And that is
+                a peer review for machine learning generally has been declining
+                to a certain extent, where in a lot of papers that are published
+                today are very noisy and that is not to diminish the fact that
+                we still have so many so many amazing papers and but the
+                majority of them are passed through peer review and are
+                published to major major majors. So it&#39;s important to set up
+                and recognize this dichotomy. I don&#39;t know what is going to
+                happen with respect to it. If I had to take a wild guess, I
+                would say not much changes
+              </p>
+              <p>
+                Industry will continue to have a lot more compute and they will
+                continue to push things to Arxiv and call it a day. If they
+                publish it at all the GPT for paper, if you can call it a paper,
+                they just put it on their website and left it at that. So as
+                long as they don&#39;t call it research that&#39;s not a problem
+                with me. It&#39;s just a report. But they still do not provide
+                that value back to the world because there are reasons and
+                everything that they do is completely commercialized right so
+                that kind of sucks. I will hope it became free and open source
+                for everyone to use and research got democratized. I&#39;m not
+                very optimistic unfortunately
+              </p>
+              <p>&nbsp;</p>
+              <p class="font-bold">Brian:</p>
+              <p>
+                I asked all my questions and I mean you were a really good
+                person to interview. So thank you, Jinen.
+              </p>
+              <p>&nbsp;</p>
+              <p class="font-bold">Jinen:</p>
+              <p>Thank you so much. So yeah, I had a good time</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+            </p>
+          </ul>
+        </div>
+        <Footer />
+      </ContentSection>
     </article>
-    <Footer />
   </body>
 </html>

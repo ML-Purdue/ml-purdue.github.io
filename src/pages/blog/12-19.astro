@@ -6,10 +6,8 @@ import "~/styles/index.css";
 import ContentSection from "~/components/content-section.astro";
 import Spacer from "~/components/Spacer.astro";
 
-
 const { site } = Astro;
 const description = "ML@Purdue AIGuide Blog";
-
 ---
 
 <!DOCTYPE html>
@@ -35,13 +33,28 @@ const description = "ML@Purdue AIGuide Blog";
   >
     <Header fixed />
     <Spacer y={96} />
-        <article class="mx-auto mt-20 w-[65vw] max-w-[120ch]">
-        <ContentSection id="aiguide-interviews-header" title="Forestry/Agriculture/AI with Dr. Jingjing Liang">
-            <h1 class="font-bold text-xl">December 19, 2023</h1>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/lUYDrc81nP0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            <a target="_blank" href="https://docs.google.com/document/d/1AIiyNk9Fuz7ArERNYrBzkfpsH5OpLeuK2sR61XJEZWo/edit"><h1 class="font-bold text-xl underline decoration-dotted	">Link to transcript</h1></a>
-            
-        </ContentSection>
+    <article class="mx-auto mt-20 w-[65vw] max-w-[120ch]">
+      <ContentSection
+        id="aiguide-interviews-header"
+        title="Forestry/Agriculture/AI with Dr. Jingjing Liang"
+      >
+        <h1 class="font-bold text-xl">December 19, 2023</h1>
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/lUYDrc81nP0"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+        <a
+          target="_blank"
+          href="https://docs.google.com/document/d/1AIiyNk9Fuz7ArERNYrBzkfpsH5OpLeuK2sR61XJEZWo/edit"
+          ><h1 class="font-bold underline decoration-dotted text-xl">
+            Link to transcript
+          </h1></a
+        >
+      </ContentSection>
     </article>
     <Footer />
   </body>
