@@ -109,26 +109,26 @@ const { fixed } = Astro.props;
               <Icon pack="mdi" name="close" class="h-8" />
             </button>
           </header>
-          <div class="flex justify-center items-center w-screen border-b-2 border-purple-500 pb-5">
+          <div class="flex items-center justify-center -ml-3 w-screen pb-2">
             <a class="hover:!text-default" href="/">
-              <img src={mlPurdueLogo.src} alt="Logo" class="h-[7rem]" />
+              <img src={mlPurdueLogo.src} alt="Logo" class="h-[5rem]" />
             </a>
-            <div class="mb-2 flex items-center justify-center lg:mb-0">
-              <h1 class="orbitron text-center font-bold text-white text-6xl">ML</h1>
+            <div class="flex items-center justify-center lg:mb-0">
+              <h1 class="orbitron text-center font-bold text-white text-8xl">ML</h1>
               <h2
-                class="orbitron -ml-4 mb-4 text-center text-white text-xl md:-ml-10 md:text-5xl"
+                class="orbitron -ml-6 mb-4 text-center text-white text-3xl md:-ml-10 md:text-5xl"
               >
                 @
               </h2>
               <h1
-                class="orbitron ml-3 text-center font-semibold text-white text-4xl sm:ml-5"
+                class="orbitron ml-3 text-center font-semibold text-white text-6xl sm:ml-5"
               >
                 PURDUE
               </h1>
             </div>
           </div>
           <nav>
-            <ul class="flex flex-col">
+            <ul class="flex flex-col -mt-2 sm:mt-0">
               {
                 navItems.map(({ title, url, sublinks }) => (
                   <li>
@@ -144,8 +144,8 @@ const { fixed } = Astro.props;
                         </div>
                       </div>
                     ) : (
-                      <a class="block font-semibold text-lg" href={url}>
-                        <div class="flex w-screen items-center justify-center pb-3 border-b-2 mb-3 border-purple-500">
+                      <a class="flex text-base items-center justify-center" href={url}>
+                        <div class="flex orbitron w-[90vw] hover:text-purple-500 lowercase glass py-4 mb-3">
                           {title}
                         </div>
                       </a>

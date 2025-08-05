@@ -7,12 +7,12 @@ export interface Props {
 const { title, id } = Astro.props;
 ---
 
-<section id={id} class="flex scroll-mt-24 flex-col items-center gap-4">
-  <div class="flex flex-col items-center gap-4">
+<section id={id} class="flex scroll-mt-24 flex-col items-start gap-4">
+  <div class="flex flex-col gap-4">
     <slot name="eyebrow" />
     <h2
       style="line-height: normal"
-      class="orbitron mb-0 text-center tracking-tight text-white text-6xl"
+      class="orbitron mb-0 ml-7 tracking-tight leading-tight text-white text-7xl"
     >
       {title}
     </h2>

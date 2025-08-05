@@ -14,8 +14,8 @@ const sp = { [n]: title };
 ---
 
 <div {...sp}>
-  <div class="flex w-full flex-col text-center">
-    <h2 class="font-semibold tracking-tight text-white text-2xl">
+  <div class="leading-tight flex glass flex-col w-full m:w-[45vw] lg:w-[29vw] px-5 xl:px-0 py-5 text-center">
+    <h2 class="orbitron tracking-tight text-white text-xl">
       <span>{fullname}</span>
     </h2>
     <span class="capitalize text-lg">
@@ -24,7 +24,7 @@ const sp = { [n]: title };
           <a
             href={url}
             target="_blank"
-            class="m-2 inline-block rounded-full bg-purple-900 py-2 px-5 font-semibold capitalize text-sm hover:bg-purple-200"
+            class="m-2 inline-block rounded-md bg-purple-900 my-2 py-1 px-5 capitalize text-sm hover:bg-purple-100"
           >
             {title}
           </a>
@@ -35,14 +35,9 @@ const sp = { [n]: title };
         )
       }
     </span>
-    <div class="flex items-center justify-center gap-2">
-      <span class="text-md capitalize">
-        Major: {major}
-      </span>
-      <div class="h-5 border-l-2 border-dotted border-purple-400"></div>
-      <span class="text-md capitalize">
-        Grade: {year}
-      </span>
+    <div class="flex flex-col w-full text-sm capitalize px-16">
+      <span class="self-start">Major: {major}</span>
+      <span class="self-end">Grade: {year}</span>
     </div>
   </div>
   <p class="max-w-xl text-center font-extrabold text-2xl">
