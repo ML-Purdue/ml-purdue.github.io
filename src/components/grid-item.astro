@@ -1,0 +1,24 @@
+---
+export interface Props {
+  date: string,
+  topic: string,
+  leading: string,
+  status: string,
+}
+
+const { date, topic, leading, status } = Astro.props;
+---
+
+<section class="relative flex w-screen border-b-[1px] border-purple-500 h-[26vh]">
+  <div class="flex flex-col justify-between items-end border-r-[1px] h-full w-[26vw] -mt-4 text-right border-purple-500 p-4">
+    <h2 class="text-sm leading-tight mb-2">{date}</h2>
+    <span class="bg-purple-900 ml-3 text-white rounded-md py-1 px-5 text-sm">
+        {status}
+    </span>
+  </div>
+
+  <div class="flex flex-col justify-center h-full pl-4">
+    <span class="orbitron text-2xl">{topic}</span>
+    <h2 class="text-base mt-2">{leading}</h2>
+  </div>
+</section>

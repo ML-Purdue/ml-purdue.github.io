@@ -30,3 +30,10 @@ export interface ShowcaseSite {
   image: ImageMetadata;
   url: string;
 }
+
+export interface WorkshopItem {
+  date: string,
+  topic: string,
+  leading: string,
+  status: string,
+}
