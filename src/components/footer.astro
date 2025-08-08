@@ -25,7 +25,7 @@ const links: Array<FooterLink> = [
     icon: "fa-brands:instagram",
   },
   {
-    url: "https://www.linkedin.com/groups/14119715/",
+    url: "https://www.linkedin.com/company/ml-purdue/",
     description: "ML-Purdue LinkedIn group",
     icon: "fa-brands:linkedin",
   },
@@ -39,7 +39,7 @@ const { ignoreHome = false } = Astro.props;
 
 <footer class="relative flex h-64 items-center justify-center">
   <ul
-    class=`relative grid grid-cols-5 gap-3 sm:grid-cols-${ignoreHome ? 4 : 5}`
+    class=`relative grid grid-cols-5 gap-3 -ml-5 sm:ml-0 sm:gap-3 sm:grid-cols-${ignoreHome ? 4 : 5}`
   >
     {
       links.slice(ignoreHome ? 1 : 0).map((link) => (

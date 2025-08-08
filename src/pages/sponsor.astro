@@ -46,10 +46,10 @@ const description = "ML@Purdue Sponsorship";
           <p class="max-w-[75%] text-start text-sm">
             We thank all of our sponsors for supporting us and helping us achieve
             our mission! To learn more about who we are, our mission, and our
-            sponsorship tiers, please view our <u
-            ><a href="/ML@P_Sponsorship_Packet.pdf" target="_blank"
-              ><b>sponsorship packet</b></a
-            ></u>.
+            sponsorship tiers, please view our 
+            <a href="/ML@P_Sponsorship_Packet.pdf" target="_blank" class="font-black">
+              sponsorship packet
+            </a>.
           </p>
         </div>
 
@@ -60,16 +60,18 @@ const description = "ML@Purdue Sponsorship";
             </h1>
             <h2 class="sponsor-t4 text-sm font-semibold leading-tight mb-2">ML@P Maestro</h2>
           </div>
-          <img 
-            src={dagshub.src} 
-            alt="DagsHub" 
-            class="max-w-[35vw] pl-4 md:pl-10 rounded-md object-contain" 
-          />
-          <img
-            src={uniformsierra.src}
-            alt="Uniform Sierra"
-            class="max-w-[35vw] -mr-11 rounded-md object-contain"
-          />
+          <div class="ml-3 flex flex-col sm:flex-row">
+            <img 
+              src={dagshub.src} 
+              alt="DagsHub" 
+              class="w-[60vw] sm:w-[35vw] pl-4 md:pl-10 rounded-md object-contain" 
+            />
+            <img
+              src={uniformsierra.src}
+              alt="Uniform Sierra"
+              class="w-[60vw] sm:w-[35vw] mt-5 -mr-11 rounded-md object-contain"
+            />
+          </div>
         </div>
 
         <div class="flex w-screen border-b-[1px] border-purple-500 h-[32vh]">
@@ -97,22 +99,24 @@ const description = "ML@Purdue Sponsorship";
             </h1>
             <h2 class="sponsor-t1 text-sm font-semibold leading-tight mb-2">Perceptron Pro</h2>
           </div>
-          <img
-            src={janestreet.src}
-            alt="Jane Street"
-            class="max-w-[23vw] ml-4 md:ml-10 rounded-md object-contain"
-            style="filter:invert(1)"
-          />
-          <img
-            src={teconnectivity.src}
-            alt="TE Connectivity"
-            class="max-w-[20vw] ml-5 rounded-md object-contain"
-          />
-          <img 
-            src={numerade.src} 
-            alt="Numerade" 
-            class="max-w-[23vw] rounded-md object-contain" 
-          />
+          <div class="flex flex-col sm:flex-row">
+            <img
+              src={janestreet.src}
+              alt="Jane Street"
+              class="w-[43vw] sm:w-[23vw] ml-4 md:ml-10 rounded-md object-contain"
+              style="filter:invert(1)"
+            />
+            <img
+              src={teconnectivity.src}
+              alt="TE Connectivity"
+              class="w-[30vw] sm:w-[20vw] mt-3 ml-5 rounded-md object-contain"
+            />
+            <img 
+              src={numerade.src} 
+              alt="Numerade" 
+              class="w-[43vw] sm:w-[23vw] rounded-md object-contain" 
+            />
+          </div>
         </div>
         <br />
       </ContentSection>

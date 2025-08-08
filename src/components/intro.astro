@@ -2,15 +2,15 @@
 import ContentSection from "~/components/content-section.astro";
 ---
 
-<div class="glass py-10 sm:py-20 flex items-center justify-center">
-  <ContentSection id="eventscalendar" title="EVENTS CALENDAR">
-    <div class="flex justify-center items-center w-full">
-      <iframe
-        id="events"
-        class="w-[75vw] h-[65vh]"
-        style="filter: invert(0.9) saturate(2) hue-rotate(232deg);"
-        src="https://calendar.google.com/calendar/u/0/embed?src=3951dbb2399906412eb63e032ca35716de8ccd8a871bfbfb89008309123454e0@group.calendar.google.com&ctz=America/Indiana/Indianapolis"
-      ></iframe>
-    </div>
-  </ContentSection>
+<div class="glass py-10 sm:py-20 flex flex-col items-center justify-center">
+  <h1 class="text-center orbitron text-5xl sm:text-7xl mb-6">EVENTS CALENDAR</h1>
+  <div class="flex justify-center items-center w-full">
+    <iframe
+      id="events"
+      class="w-[75vw] h-[65vh]"
+      style="filter: invert(0.9) saturate(2) hue-rotate(232deg);"
+      src="https://calendar.google.com/calendar/u/0/embed?src=3951dbb2399906412eb63e032ca35716de8ccd8a871bfbfb89008309123454e0@group.calendar.google.com&ctz=America/Indiana/Indianapolis"
+    ></iframe>
+  </div>
 </div>
+

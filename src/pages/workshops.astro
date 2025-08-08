@@ -5,46 +5,7 @@ import Spacer from "~/components/Spacer.astro";
 import Footer from "~/components/footer.astro";
 import Header from "~/components/header.astro";
 import "~/styles/index.css";
-import { WorkshopItem } from "~/types";
-
-const workshopItems: Array<WorkshopItem> = [
-  { 
-    date: "September 12, 2024",
-    topic: "Intro to Neural Networks with PyTorch",
-    leading: "Harmya Bhatt",
-    status: "completed",
-  },
-  {
-    date: "April 7, 2024",
-    topic: "BERT",
-    leading: "Brian S",
-    status: "completed",
-  },
-  {
-    date: "March 24, 2024",
-    topic: "Transformer Architecture",
-    leading: "Harmya Bhatt",
-    status: "completed",
-  },
-  {
-    date: "March 3, 2024",
-    topic: "Large-Scale Training on HPC (SLURM)",
-    leading: "Jinen Setpal",
-    status: "completed",
-  },
-  {
-    date: "February 20, 2024",
-    topic: "CNNs and Transfer Learning",
-    leading: "candysha",
-    status: "completed",
-  },
-  {
-    date: "February 4, 2024",
-    topic: "Building a Basic Neural Network",
-    leading: "Sagar Patil",
-    status: "completed",
-  },
-];
+import { workshopItems } from "~/data-entries";
 
 const { site } = Astro;
 const description = "ML@Purdue Website";
@@ -83,7 +44,7 @@ const description = "ML@Purdue Website";
                 class="flex w-screen border-y-[1px] border-purple-500 -mt-6 py-6"
             >
                 <p class="max-w-[75%] pl-8 text-sm">
-                  Sundays 6-7 PM (not every Sunday - upcoming workshops will show below)
+                  The “Pending” Status means the event will either change or we are working on finalizing it.
                 </p>
             </div>
         </ContentSection>
@@ -94,13 +55,13 @@ const description = "ML@Purdue Website";
               class="flex w-screen border-y-[1px] border-purple-500 -mt-6 py-6"
             >
                 <p class="max-w-[75%] pl-8 text-sm">
-                  The “Pending” Status means the event will either change or we are working on finalizing it.
+                  Sundays 6-7 PM (not every Sunday - upcoming workshops will show below)
                 </p>
             </div>
             {
                 workshopItems.map(({ date, topic, leading, status }) => (
                     <section class="relative flex w-screen border-b-[1px] border-purple-500 -mt-4 h-[16vh]">
-                        <div class="flex flex-col justify-between items-end border-r-[1px] h-[16vh] w-[26vw] text-right border-purple-500 p-2 lg:p-4">
+                        <div class="flex flex-col justify-between items-end border-r-[1px] h-[16vh] w-[30vw] lg:w-[26vw] text-right border-purple-500 p-2 lg:p-4">
                             <h2 class="text-xs lg:text-sm leading-snug mb-2">{date}</h2>
                             <span class="bg-purple-900 ml-3 text-white rounded-md py-1 px-4 text-xs leading-snug">
                                 {status}
@@ -117,7 +78,7 @@ const description = "ML@Purdue Website";
         </ContentSection>
     </article>
     <div
-      class="flex flex-col items-center justify-center gap-[5px] md:flex-row md:items-start md:gap-12"
+      class="flex flex-col items-center justify-center -mr-7 gap-[5px] md:flex-row md:items-start md:gap-12"
     >
       <div
         class="mt-20 -mb-20 flex flex-col items-center text-left md:mb-0 md:items-start"

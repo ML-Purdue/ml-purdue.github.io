@@ -37,3 +37,13 @@ export interface WorkshopItem {
   leading: string,
   status: string,
 }
+
+export interface RGItem {
+  date: string,
+  topic: string,
+  leading: string,
+  status: string,
+  room?: string,
+  domain: Array<string>,
+  extra?: string,
+}
