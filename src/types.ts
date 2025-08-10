@@ -47,3 +47,18 @@ export interface RGItem {
   domain: Array<string>,
   extra?: string,
 }
+
+export interface ProjectItem {
+  link?: string,
+  name: string,
+  desc: string,
+  pm: string,
+  status: string,
+  commitment?: string,
+  proficiency?: string,
+  domain: Array<string>,
+  duration?: string,
+  advisor?: string,
+  assess?: string,
+  memberInfo: string,
+}
