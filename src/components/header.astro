@@ -55,7 +55,7 @@ const { fixed } = Astro.props;
                         width="16"
                         fill="none"
                         viewBox="0 0 24 24"
-                        stroke="white"
+                        stroke="light"
                         height="8rem"
                         width="8rem"
                       >
@@ -78,7 +78,7 @@ const { fixed } = Astro.props;
                     </ul>
                   </>
                 ) : (
-                  <a class="font-semibold text-sm" href={url}>
+                  <a class={`font-semibold text-sm`} href={url}>
                     {title}
                   </a>
                 )}
@@ -234,8 +234,8 @@ const { fixed } = Astro.props;
   [data-hover-link-container] {
     position: absolute;
     left: 0;
-    z-index: 10;
-    top: 100%; /* fallback in case JS hasn’t run yet */
+    z-index: 100;
+    top: 100%;
   }
 
   ul:hover,

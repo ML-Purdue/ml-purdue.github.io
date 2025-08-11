@@ -67,9 +67,9 @@ const description = "ML@Purdue Website";
                 </p>
             </div>
             {
-                projectItems.map(({ link, name, desc, pm, status, commitment, proficiency, domain, duration, advisor, assess, memberInfo }) => (
-                    <section class="relative flex w-screen border-b-[1px] border-purple-500 -mt-4 h-[54vh] lg:h-[42vh]">
-                        <div class="flex flex-col justify-between items-end border-r-[1px] h-[54vh] lg:h-[42vh] w-[30vw] lg:w-[26vw] text-right border-purple-500 p-2 lg:p-4">
+                projectItems.map(({ link, name, desc, pm, status, commitment, proficiency, domain, duration, advisor, memberInfo, accomplishments }) => (
+                    <section class="relative flex w-screen border-b-[1px] border-purple-500 -mt-4">
+                        <div class="flex flex-col justify-between items-end w-[30vw] lg:w-[26vw] text-right p-2 pb-3">
                             <div class="flex flex-col items-end">
                               <h2 class="text-xs lg:text-sm leading-snug">{duration}</h2>
                               <span class="-mt-2">
@@ -77,13 +77,13 @@ const description = "ML@Purdue Website";
                                 {commitment && (<span class="whitespace-nowrap text-xs lg:text-sm leading-snug">{commitment} hrs/week</span>)}
                               </span>
                             </div>
-                            <span class="bg-purple-900 ml-3 text-white rounded-md py-1 px-4 text-xs leading-snug">
+                            <span class={`bg-${(status == "closed") ? "gray-700" : "purple-900"} ml-3 text-white rounded-md py-1 px-4 text-xs leading-snug`}>
                                 {status}
                             </span>
                         </div>
 
-                        <div class="flex flex-col lg:justify-center pt-2 lg:pt-0 h-full pl-2 lg:pl-4 max-w-[63vw]">
-                            <span class="orbitron text-xl lg:text-2xl lowercase leading-tight mb-1">
+                        <div class="flex border-l-[1px] border-purple-500 ml-2 flex-col p-5 lg:justify-center pt-2 lg:pt-0 h-full pl-2 lg:pl-4 max-w-[63vw]">
+                            <span class="orbitron text-xl lg:text-2xl leading-tight sm:mt-3 mb-1">
                               {link ? 
                                 <a href={link}>{name}</a>
                                 :
@@ -97,18 +97,20 @@ const description = "ML@Purdue Website";
                                     </span>
                                 ))}
                             </div>
-                            <p class="text-sm mt-3">{desc}</p>
-                            <h2 class="text-sm lg:text-base mt-2">
+                            <p class="text-xs mt-3">{desc}</p>
+                            <h2 class="text-xs lg:text-sm mt-2">
+                                <div class="flex flex-wrap mt-1 gap-2 mb-4">
+                                  {accomplishments && accomplishments.map((a) => (
+                                    <span class="text-xs -mt-2 mr-2 font-semibold text-purple-400">
+                                      ★ {a}
+                                    </span>
+                                  ))}
+                                </div>
                                 <span>{pm} {advisor && (<span>, Advisor: {advisor}</span>)}</span>
-                                <div class="flex flex-wrap gap-2">
+                                <div class="flex flex-wrap mt-1 gap-2">
                                     {memberInfo && (
                                         <a href={memberInfo} class="whitespace-nowrap bg-purple-900 hover:bg-purple-100 text-white rounded-md py-1 px-4 text-xs leading-snug">
                                             member info
-                                        </a>
-                                    )}
-                                    {assess && (
-                                        <a href={assess} class="whitespace-nowrap bg-purple-900 hover:bg-purple-100 text-white rounded-md py-1 px-4 text-xs leading-snug">
-                                            assessment link
                                         </a>
                                     )}
                                 </div>
@@ -119,16 +121,6 @@ const description = "ML@Purdue Website";
             }
         </ContentSection>
     </article>
-    <div
-      class="flex flex-col items-center justify-center -mr-7 gap-[5px] md:flex-row md:items-start md:gap-12"
-    >
-      <div
-        class="mt-20 -mb-20 flex flex-col items-center text-left md:mb-0 md:items-start"
-      >
-        <span class="pt-4 font-semibold text-2xl">Contact Us!</span>
-        <span class="text-sm"><b>🖂</b> aiml@purdue.edu</span>
-      </div>
-      <Footer />
-    </div>
+    <Footer />
   </body>
 </html>

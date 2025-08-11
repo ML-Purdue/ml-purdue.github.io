@@ -10,6 +10,11 @@ const links: Array<FooterLink> = [
     icon: "mdi:home",
   },
   {
+    url: "mailto:aiml@purdue.edu",
+    description: "Contact ML@Purdue",
+    icon: "heroicons-outline:mail",
+  },
+  {
     url: "https://discord.gg/KphYQFSVsu",
     description: "ML-Purdue Discord",
     icon: "fa-brands:discord",
@@ -39,13 +44,13 @@ const { ignoreHome = false } = Astro.props;
 
 <footer class="relative flex h-64 items-center justify-center">
   <ul
-    class=`relative grid grid-cols-5 gap-3 -ml-5 sm:ml-0 sm:gap-3 sm:grid-cols-${ignoreHome ? 4 : 5}`
+    class=`relative grid grid-cols-4 -ml-${ignoreHome ? 5 : 0} sm:ml-0 gap-2 sm:gap-3 sm:grid-cols-${ignoreHome ? 5 : 6}`
   >
     {
-      links.slice(ignoreHome ? 1 : 0).map((link) => (
+      links.slice(ignoreHome ? 2 : 0).map((link) => (
         <li>
           <a
-            class="flex h-16 w-16 items-center justify-center rounded-full border-2 border-current p-4"
+            class="flex h-14 w-14 items-center justify-center rounded-full border-2 border-current p-3"
             href={link.url}
           >
             <span class="sr-only">{link.description}</span>

@@ -59,6 +59,6 @@ export interface ProjectItem {
   domain: Array<string>,
   duration?: string,
   advisor?: string,
-  assess?: string,
   memberInfo: string,
+  accomplishments?: Array<string>,
 }
