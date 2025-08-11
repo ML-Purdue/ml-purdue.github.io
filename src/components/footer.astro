@@ -42,9 +42,13 @@ export interface Props {
 const { ignoreHome = false } = Astro.props;
 ---
 
-<footer class="relative flex h-64 items-center justify-center">
+<footer class="relative flex h-64 items-center justify-center ">
   <ul
-    class=`relative grid grid-cols-4 -ml-${ignoreHome ? 5 : 0} sm:ml-0 gap-2 sm:gap-3 sm:grid-cols-${ignoreHome ? 5 : 6}`
+    class={[
+      "relative grid -ml-" + (ignoreHome ? "5" : "0") + " gap-2 sm:gap-3",
+      ignoreHome ? "grid-cols-4 sm:grid-cols-4" : "grid-cols-4 sm:grid-cols-6",
+      "sm:ml-0"
+    ].join(" ")}
   >
     {
       links.slice(ignoreHome ? 2 : 0).map((link) => (
@@ -61,3 +65,4 @@ const { ignoreHome = false } = Astro.props;
     }
   </ul>
 </footer>
+
