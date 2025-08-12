@@ -46,12 +46,12 @@ const { ignoreHome = false } = Astro.props;
   <ul
     class={[
       "relative grid -ml-" + (ignoreHome ? "5" : "0") + " gap-2 sm:gap-3",
-      ignoreHome ? "grid-cols-4 sm:grid-cols-4" : "grid-cols-4 sm:grid-cols-6",
+      ignoreHome ? "grid-cols-5 sm:grid-cols-5" : "grid-cols-4 sm:grid-cols-6",
       "sm:ml-0"
     ].join(" ")}
   >
     {
-      links.slice(ignoreHome ? 2 : 0).map((link) => (
+      links.slice(ignoreHome ? 1 : 0).map((link) => (
         <li>
           <a
             class="flex h-14 w-14 items-center justify-center rounded-full border-2 border-current p-3"
