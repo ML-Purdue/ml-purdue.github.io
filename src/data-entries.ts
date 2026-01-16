@@ -50,7 +50,7 @@ export const projectItems: Array<ProjectItem> = [
   {
     name: "AI Student Advisor",
     desc: "LLM chatbot that acts as a student advisor.",
-    pm: "Andrew Qiang",
+    pm: "Andrew Qian",
     status: "closed",
     domain: ["NLP", "Generative AI"],
     duration: "Fall 2025",
