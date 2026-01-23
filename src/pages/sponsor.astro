@@ -10,6 +10,9 @@ import janestreet from "~/assets/sponsor/janestreet.png";
 import uniformsierra from "~/assets/sponsor/uniformsierra.png";
 import teconnectivity from "~/assets/sponsor/TE_Connectivity_logo.png";
 import numerade from "~/assets/sponsor/numerade.png";
+import purduecs from "~/assets/sponsor/purduecs.png";
+import purdueinnovates from "~/assets/sponsor/purdueinnovates.jpg";
+import benevity from "~/assets/sponsor/benevity.png";
 
 const { site } = Astro;
 const description = "ML@Purdue Sponsorship";
@@ -62,14 +65,9 @@ const description = "ML@Purdue Sponsorship";
           </div>
           <div class="ml-3 flex flex-col sm:flex-row">
             <img 
-              src={dagshub.src} 
-              alt="DagsHub" 
-              class="w-[60vw] sm:w-[35vw] pl-4 md:pl-10 rounded-md object-contain" 
-            />
-            <img
-              src={uniformsierra.src}
-              alt="Uniform Sierra"
-              class="w-[60vw] sm:w-[35vw] mt-5 -mr-11 rounded-md object-contain"
+              src={purdueinnovates.src} 
+              alt="Purdue Innovates" 
+              class="w-[60vw] sm:w-[35vw] pl-4 md:pl-10 mb-4 rounded-md object-contain" 
             />
           </div>
         </div>
@@ -90,6 +88,18 @@ const description = "ML@Purdue Sponsorship";
             </h1>
             <h2 class="sponsor-t2 text-sm font-semibold leading-tight mb-2">SVM Sorcerer</h2>
           </div>
+          <div class="flex flex-row">
+            <img 
+              src={teconnectivity.src} 
+              alt="TE Connectivity" 
+              class="w-[43vw] sm:w-[23vw] ml-4 md:ml-10 rounded-md object-contain" 
+            />
+            <img 
+              src={purduecs.src} 
+              alt="Purdue CS Department" 
+              class="w-[20vw] sm:w-[23vw] ml-4 md:ml-10 mb-4 rounded-md object-contain" 
+            />
+          </div>
         </div>
 
         <div class="flex w-screen border-b-[1px] border-purple-500 h-[32vh]">
@@ -106,18 +116,25 @@ const description = "ML@Purdue Sponsorship";
               class="w-[43vw] sm:w-[23vw] ml-4 md:ml-10 rounded-md object-contain"
               style="filter:invert(1)"
             />
-            <img
-              src={teconnectivity.src}
-              alt="TE Connectivity"
-              class="w-[30vw] sm:w-[20vw] mt-3 ml-5 rounded-md object-contain"
-            />
+          </div>
+        </div>
+
+        <div class="flex w-screen border-b-[1px] border-purple-500 h-[32vh]">
+          <div class="flex flex-col justify-between items-end border-r-[1px] h-[34vh] w-[26vw] -mt-4 text-right border-purple-500 p-4">
+            <h1 class="gen-donation orbitron text-xl">
+              
+            </h1>
+            <h2 class="gen-donation text-sm font-semibold leading-tight mb-2">Generous Donations</h2>
+          </div>
+          <div class="flex flex-col sm:flex-row">
             <img 
-              src={numerade.src} 
-              alt="Numerade" 
-              class="w-[43vw] sm:w-[23vw] rounded-md object-contain" 
+              src={benevity.src} 
+              alt="Benevity" 
+              class="ml-10 w-[43vw] sm:w-[23vw] rounded-md object-contain" 
             />
           </div>
         </div>
+
         <br />
       </ContentSection>
     </article>
