@@ -2,6 +2,8 @@
 import ContentSection from "./content-section.astro";
 import Spacer from "./Spacer.astro";
 import TeamMember from "./team/member.astro";
+import clubStructureImage from "~/assets/club_structure.png";
+
 ---
 
 <br />
@@ -9,83 +11,115 @@ import TeamMember from "./team/member.astro";
 <div>
   <ContentSection id="mlpurdue" title="ABOUT">
     <div
-      class="flex w-screen border-y-[1px] border-purple-500 -mt-6 py-6"
+      class="-mt-6 flex w-screen flex-col gap-4 border-y-[1px] border-purple-500 py-6"
     >
       <p class="max-w-[75%] pl-8 text-sm">
-        ML@Purdue is the central club for AI/ML career growth for Purdue
-        students. We support careers in industry, research, and entrepreneurial
-        ventures through projects and various events. The club also connects
-        Purdue students to AI/ML leaders in and out of Purdue.
+        ML@Purdue is Purdue University's premier student organization for
+        machine learning and artificial intelligence. Founded in Fall 2010 and
+        rebranded from ACM SIG AI in January 2023, we've built a thriving
+        community where students explore, learn, and build at the cutting edge
+        of AI/ML.
+      </p>
+
+      <p class="max-w-[75%] pl-8 text-sm">
+        We support three pathways to success: Industry, Research, and
+        Entrepreneurship. Whether you're aiming for a role at a top tech
+        company, pursuing graduate research, or launching your own AI-powered
+        venture, ML@Purdue provides the mentorship, hands-on experience, and
+        community to help you get there.
+      </p>
+
+      <p class="max-w-[75%] pl-8 text-sm">
+        Our members and alumni have gone on to work at organizations including
+        Google, Amazon, Tesla, Apple, SpaceX, NASA, and Shield AI, as well as
+        research labs like Purdue's CORAL Lab and Duality Lab. Through
+        collaborative projects, weekly reading groups that dive into
+        cutting-edge research papers, hands-on workshops, and our flagship
+        Catapult hackathon, we give students real opportunities to build skills
+        that matter.
+      </p>
+
+      <p class="max-w-[75%] pl-8 text-sm">
+        More than events and projects, ML@Purdue is a community. We connect you
+        with mentors, collaborators, and opportunities that extend well beyond
+        campus. Whether you're writing your first line of PyTorch or training
+        models on Purdue's HPC clusters, there's a place for you here.
       </p>
     </div>
   </ContentSection>
 </div>
 
 <Spacer y={150} />
+<ContentSection id="structure" title="CLUB STRUCTURE">
+  <div
+    class="-mt-6 flex w-screen items-center justify-center border-y-[1px] border-purple-500 py-10"
+  >
+    <img
+      src={clubStructureImage.src}
+      alt="ML@Purdue club structure diagram"
+      class="max-w-[80%]"
+    />
+  </div>
+</ContentSection>
+
+<Spacer y={150} />
 <ContentSection id="Executive" title="EXECUTIVE BRANCH">
   <div
-    class="grid w-screen gap-y-10 gap-x-6 border-y-[1px] -mt-6 border-purple-500 pl-4 pr-10 py-10 sm:grid-cols-2 lg:grid-cols-3"
+    class="-mt-6 grid w-screen gap-y-10 gap-x-6 border-y-[1px] border-purple-500 py-10 pl-4 pr-10 sm:grid-cols-2 lg:grid-cols-3"
   >
     <TeamMember
-      title="Co-President"
-      url="https://www.linkedin.com/in/arnav-gr0ver/"
-      fullname="arnav grover"
-      major="CS"
-      year="Junior"
-    />
-    <TeamMember
-      title="Co-President"
+      title="President"
       url="https://www.linkedin.com/in/lavangiyadava/"
-      fullname="lavangi yadava"
+      fullname="Lavangi Yadava"
       major="CS"
       year="Junior"
     />
     <TeamMember
-      title="Vice Co-President of Marketing"
+      title="Vice President of Marketing"
       url="https://www.linkedin.com/in/bisti-potdar-0a0aa8244/"
-      fullname="bisti potdar"
+      fullname="Bisti Potdar"
       major="CS"
       year="Sophomore"
     />
     <TeamMember
-      title="Vice Co-President of Marketing"
+      title="Vice President of Marketing"
       url="https://www.linkedin.com/in/nshriya/"
-      fullname="shriya nichenametla"
+      fullname="Shriya Nichenametla"
       major="CS & Web-Design"
       year="Sophomore"
     />
     <TeamMember
       title="Head Project Advisor"
       url="https://www.linkedin.com/in/alexandre-sauquet/"
-      fullname="alexandre sauquet"
-      major="CS & AI"
+      fullname="Alexandre Sauquet"
+      major="CS & AI & Math & Stat"
       year="Junior"
     />
     <TeamMember
       title="Vice President of Operations"
       url="https://www.linkedin.com/in/shrung-patel/"
-      fullname="shrung patel"
+      fullname="Shrung Patel"
       major="CS & AI"
       year="Junior"
     />
     <TeamMember
       title="Vice President of Finance"
       url="https://www.linkedin.com/in/aadipatel5/"
-      fullname="aadi patel"
+      fullname="Aadi Patel"
       major="Finance"
       year="Senior"
     />
     <TeamMember
       title="Accelerator Advisor"
       url="https://www.linkedin.com/in/alex-li1/"
-      fullname="alex li"
+      fullname="Alex Li"
       major="CS"
       year="Sophomore"
     />
     <TeamMember
       title="Accelerator Advisor"
       url="https://www.linkedin.com/in/katheriinema/"
-      fullname="katherine ma"
+      fullname="Katherine Ma"
       major="Computer Engr."
       year="Sophomore"
     />
