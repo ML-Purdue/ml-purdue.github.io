@@ -2,92 +2,111 @@ import { RGItem } from "./types";
 import { WorkshopItem } from "~/types";
 import { ProjectItem } from "./types";
 
+// PROJECTS
 export const projectItems: Array<ProjectItem> = [
+  // OPEN PROJECTS
   {
-    name: "NFL Predicitve Resource Allocation",
-    desc: "Predicting Team Success in the NFL.",
-    pm: "Pranay Nandkeolyar",
-    status: "closed",
-    proficiency: "Beginner",
-    domain: ["Time Series Modelling"],
-    duration: "Fall 2025",
+    name: "Dermatological Image Analysis",
+    desc: "Exploring multimodal foundation models for dermatological image analysis for acne grading and scar classification.",
+    pm: "Ishaan Buddharaju",
+    status: "open",
+    commitment: "4-6",
+    domain: ["Computer Vision", "Healthcare"],
+    duration: "Spring 2026",
+    advisor: "Dr. Josephine Nguyen",
   },
   {
-    name: "Kaggle",
-    desc: "Learning through Participation in Kaggle Competitions.",
-    pm: "Arnav Mandal",
-    status: "closed",
-    proficiency: "Beginner",
-    domain: ["General"],
-    duration: "Fall 2025",
+    name: "Autonomous Drone Mapping",
+    desc: "Mapping the world with drones autonomously. Requires C++/Python, robotics experience (SLAM), Linux CLI, VMs, and Docker.",
+    pm: "Nathan Miller",
+    status: "open",
+    commitment: "4-6",
+    domain: ["Computer Vision", "Process Control", "Robotics"],
+    duration: "Spring 2026",
   },
   {
-    name: "Deep Query",
-    desc: "Benchmarking platform for AI search tools. Works with a YC startup.",
-    pm: "Taaha Khan",
-    status: "closed",
-    domain: ["Software Engineering", "Generative AI"],
-    duration: "Fall 2025",
-    advisor: "Lewis Polansky (Captain)",
+    name: "VGCRL",
+    desc: "Using pretrained language models and transformers with reinforcement learning to play Pokémon Video Game Championship competitively.",
+    pm: "Akkshay Rajan",
+    status: "open",
+    commitment: "3-5",
+    domain: ["Reinforcement Learning"],
+    duration: "Fall 2025 - Spring 2026",
   },
   {
-    name: "Geospacial Machine Learning Research Group [GeoML]",
-    desc: "Pollutant concentration analysis from Satellite Data",
-    pm: "Aakarsh Rai",
-    status: "closed",
-    domain: ["Time Series Modelling", "Computer Vision"],
-    duration: "Fall 2025",
-    advisor: "Prof. Guang Lin, Dr. Gary Doran, Dr. Sina Hasheminassab",
-  },
-  {
-    name: "NumerAI",
-    desc: "Predicting and trading markets on NumerAI with time series transformers.",
+    name: "Kalshi",
+    desc: "Building an ML model to predict the weekly average amount of TSA check-ins in the US to place profitable bets on Kalshi.",
     pm: "Eubene In",
-    status: "closed",
+    status: "open",
+    commitment: "4-5",
     domain: ["Finance", "Time Series Modelling"],
-    duration: "Fall 2025",
+    duration: "Fall 2025 - Spring 2026",
   },
   {
     name: "AI Student Advisor",
-    desc: "LLM chatbot that acts as a student advisor.",
-    pm: "Andrew Qian",
-    status: "closed",
-    domain: ["NLP", "Generative AI"],
-    duration: "Fall 2025",
+    desc: "LLM chatbot that acts as a student advisor. Involves various flavors of RAG and NLP techniques.",
+    pm: "Andrew Qiang",
+    status: "open",
+    commitment: "4-8",
+    domain: ["Generative AI", "NLP", "Software Engineering"],
+    duration: "Fall 2025 - Spring 2026",
   },
   {
-    name: "VGC-RL",
-    desc: "Using Monte Carlo Tree Search with reinforcement learning to play Pokémon Video Game Championships.",
-    pm: "Akkshay Rajan",
+    name: "Kaggle",
+    desc: "Learning through participation in Kaggle Competitions. Requires basic Python and willingness to learn!",
+    pm: "Arnav Mandal",
+    status: "open",
+    commitment: "3-4",
+    proficiency: "Beginner",
+    domain: ["General"],
+    duration: "Fall 2025 - Spring 2026",
+  },
+  // CLOSED PROJECTS
+  {
+    name: "DeepQuery",
+    desc: "Benchmarking platform for AI search tools. Works with a YC startup.",
+    pm: "Taaha Khan",
     status: "closed",
-    domain: ["Reinforcement Learning"],
-    duration: "Fall 2025",
+    commitment: "10",
+    domain: ["Generative AI", "Software Engineering"],
+    duration: "Fall 2025 - Spring 2026",
+    advisor: "Lewis Polansky (Captain)",
   },
   {
-    name: "Robot Vision",
-    desc: "Computer vision algorithms for autonomous robotic navigation. Submits to industry challenges.",
-    pm: "Manav Gagani",
+    name: "NFL Predictive Resource Allocation",
+    desc: "Predicting Team Success in the NFL.",
+    pm: "Pranay Nandkeolyar",
     status: "closed",
-    proficiency: "Intermediate",
-    domain: ["Computer Vision", "Generative AI", "Software Engineering"],
-    duration: "Fall 2025",
+    commitment: "3",
+    domain: ["Time Series Modelling"],
+    duration: "Fall 2025 - Spring 2026",
   },
   {
     name: "TE AI Cup 2025-2026",
     desc: "Scholarship project with TE Connectivity. Full year commitment.",
     pm: "Paul Jiang",
     status: "closed",
+    commitment: "10",
     proficiency: "Advanced",
-    domain: ["Process Control", "Computer Vision"],
+    domain: ["Computer Vision", "Process Control"],
     duration: "Fall 2025 - Spring 2026",
     advisor: "Sonny Osunkwo",
   },
-]
+  {
+    name: "Robot Vision",
+    desc: "Computer vision algorithms for autonomous robotic navigation. Submits to industry challenges.",
+    pm: "Manav Gagvani",
+    status: "closed",
+    commitment: "6-7",
+    domain: ["Computer Vision", "Generative AI", "Robotics"],
+    duration: "Fall 2025 - Spring 2026",
+  },
+];
 
 // WORKSHOPS
 // input most recent ones at top
 export const workshopItems: Array<WorkshopItem> = [
-  { 
+  {
     date: "September 12, 2024",
     topic: "Intro to Neural Networks with PyTorch",
     leading: "Harmya Bhatt",
@@ -128,7 +147,7 @@ export const workshopItems: Array<WorkshopItem> = [
 // READING GROUPS
 // input most recent ones at top
 export const RGItems: Array<RGItem> = [
-  { 
+  {
     date: "April 24, 2025",
     topic: "Recurrent Depth LLMs",
     leading: "Alexandre Sauquet",
@@ -137,7 +156,7 @@ export const RGItems: Array<RGItem> = [
     domain: ["Theory", "Intrepretability"],
     extra: "https://youtu.be/ZnPkZuPdsCg",
   },
-  { 
+  {
     date: "April 17, 2025",
     topic: "Optimal Transport [2/2]",
     leading: "Jinen Setpal",
@@ -146,7 +165,7 @@ export const RGItems: Array<RGItem> = [
     domain: ["Theory", "Generative Models"],
     extra: "https://youtu.be/QNMfLp6YOF0",
   },
-  { 
+  {
     date: "April 10, 2025",
     topic: "Optimal Transport [1/2]",
     leading: "Jinen Setpal",
@@ -155,7 +174,7 @@ export const RGItems: Array<RGItem> = [
     domain: ["Theory", "Generative Models"],
     extra: "https://youtu.be/5rGF7ytTjeI",
   },
-  { 
+  {
     date: "April 3, 2025",
     topic: "Cube: A Roblox View of 3D Intelligence",
     leading: "Nicholas Wade",
@@ -164,7 +183,7 @@ export const RGItems: Array<RGItem> = [
     domain: ["Applied AI", "3D", "Generative Models"],
     extra: "https://youtu.be/0zGTDYgZ9d8",
   },
-  { 
+  {
     date: "March 27, 2025",
     topic: "Robot Foundation Models (RT1, RT2, OpenVLA)",
     leading: "Alexiy Buynitsky",
@@ -172,7 +191,7 @@ export const RGItems: Array<RGItem> = [
     room: "LWSN B151",
     domain: ["Robotics"],
   },
-  { 
+  {
     date: "March 6, 2025",
     topic: "Neural Tangent Kernel",
     leading: "Jinen Setpal",
@@ -180,15 +199,16 @@ export const RGItems: Array<RGItem> = [
     room: "LWSN B151",
     domain: ["Theory"],
   },
-  { 
+  {
     date: "February 27, 2025",
-    topic: "ZeRO: Memory Optimizations Toward Training Trillion Parameter Models",
+    topic:
+      "ZeRO: Memory Optimizations Toward Training Trillion Parameter Models",
     leading: "Saad Sharief",
     status: "completed",
     room: "LWSN B151",
     domain: ["Applied AI", "Engineering"],
   },
-  { 
+  {
     date: "February 20, 2025",
     topic: "Titans",
     leading: "Alexandre Sauquet",
@@ -197,7 +217,7 @@ export const RGItems: Array<RGItem> = [
     domain: ["NLP", "Theory"],
     extra: "https://youtu.be/xwg6Ng3QsFE",
   },
-  { 
+  {
     date: "February 13, 2025",
     topic: "Sparse AutoEncoders",
     leading: "Jinen Setpal",
@@ -206,7 +226,7 @@ export const RGItems: Array<RGItem> = [
     domain: ["NLP", "Interpretability"],
     extra: "https://youtu.be/_vUKIPYOaJw",
   },
-  { 
+  {
     date: "February 6, 2025",
     topic: "NVIDIA Cosmos",
     leading: "Alexiy Buynitsky",
@@ -215,7 +235,7 @@ export const RGItems: Array<RGItem> = [
     domain: ["Robotics", "Applied AI", "Generative Models"],
     extra: "https://youtu.be/xVGqFH7naWg",
   },
-  { 
+  {
     date: "January 30, 2025",
     topic: "SoTA Approaches to Reasoning in LLMs — DeepSeek R1",
     leading: "Jinen Setpal",
@@ -224,7 +244,7 @@ export const RGItems: Array<RGItem> = [
     domain: ["Reinforcement Learning", "Applied AI", "Generative Models"],
     extra: "https://youtu.be/MHwTvrAvYWs",
   },
-  { 
+  {
     date: "January 23, 2025",
     topic: "RoPE",
     leading: "Alexiy Buynitsky",
@@ -232,7 +252,7 @@ export const RGItems: Array<RGItem> = [
     room: "LWSN B151",
     domain: ["Theory", "Generative Models"],
   },
-  { 
+  {
     date: "November 21, 2024",
     topic: "Lumos : Empowering Multimodal LLMs with Scene Text Recognition",
     leading: "Adrien Qi",
@@ -240,7 +260,7 @@ export const RGItems: Array<RGItem> = [
     room: "WALC 2088",
     domain: ["Applied AI", "Vision", "NLP", "Generative Models"],
   },
-  { 
+  {
     date: "November 14, 2024",
     topic: "An Overview of Catastrophic AI Risks",
     leading: "Nathan Reed",
@@ -249,7 +269,7 @@ export const RGItems: Array<RGItem> = [
     domain: ["Safety"],
     extra: "https://youtu.be/jLddV1GVaHw",
   },
-  { 
+  {
     date: "November 7, 2024",
     topic: "Diffusion Policy for MPC",
     leading: "Alexiy Buynitsky",
@@ -257,7 +277,7 @@ export const RGItems: Array<RGItem> = [
     room: "WALC 2088",
     domain: ["Applied AI", "Robotics", "Generative Models"],
   },
-  { 
+  {
     date: "October 24, 2024",
     topic: "AGOP for Deep Neural Collapse",
     leading: "Jinen Setpal",
@@ -266,7 +286,7 @@ export const RGItems: Array<RGItem> = [
     domain: ["Interpretability", "Theory"],
     extra: "https://youtu.be/za8kA4GJDTQ",
   },
-  { 
+  {
     date: "October 10, 2024",
     topic: "Deep Neural Collapse",
     leading: "Jinen Setpal",
@@ -275,7 +295,7 @@ export const RGItems: Array<RGItem> = [
     domain: ["Interpretability", "Theory"],
     extra: "https://youtu.be/DdxaSTnEcO0",
   },
-  { 
+  {
     date: "October 3, 2024",
     topic: "Graph Neural Network Explainer",
     leading: "Aaron",
@@ -283,7 +303,7 @@ export const RGItems: Array<RGItem> = [
     room: "WALC 2088",
     domain: ["Graph Learning"],
   },
-  { 
+  {
     date: "September 26, 2024",
     topic: "Group Transformation Invariance",
     leading: "Jinen Setpal",
@@ -291,7 +311,7 @@ export const RGItems: Array<RGItem> = [
     room: "WALC 2088",
     domain: ["Robustness", "Theory", "OOD Generalization"],
   },
-  { 
+  {
     date: "September 19, 2024",
     topic: "Physics Informed Machine Learning",
     leading: "Rohan Dekate",
@@ -300,7 +320,7 @@ export const RGItems: Array<RGItem> = [
     domain: ["Robustness", "Theory"],
     extra: "https://youtu.be/q8I5I1m2_Bk",
   },
-  { 
+  {
     date: "September 11, 2024",
     topic: "Intro to Reinforcement Learning",
     leading: "Alexiy Buynitsky",
@@ -308,7 +328,7 @@ export const RGItems: Array<RGItem> = [
     room: "WALC 2088",
     domain: ["Robotics", "Reinforcement Learning"],
   },
-  { 
+  {
     date: "September 3, 2024",
     topic: "Transformers (Rerun)",
     leading: "Jinen Setpal",
@@ -316,7 +336,7 @@ export const RGItems: Array<RGItem> = [
     room: "LWSN B155",
     domain: ["Theory", "NLP"],
   },
-  { 
+  {
     date: "August 29, 2024",
     topic: "GNN, Graphformer, Body Transformer",
     leading: "Alexiy Buynitsky",
@@ -324,14 +344,14 @@ export const RGItems: Array<RGItem> = [
     room: "LWSN B134",
     domain: ["Graph Learning"],
   },
-  { 
+  {
     date: "April 18, 2024",
     topic: "Omnipredictors",
     leading: "Jinen Setpal",
     status: "completed",
     domain: ["Theory", "Robustness"],
   },
-  { 
+  {
     date: "March 28, 2024",
     topic: "DPO",
     leading: "Jinen Setpal",
@@ -339,36 +359,37 @@ export const RGItems: Array<RGItem> = [
     domain: ["Theory", "NLP", "Generative Models"],
     extra: "https://youtu.be/RA1ddgkiWGM",
   },
-  { 
+  {
     date: "March 21, 2024",
     topic: "LoRA",
     leading: "Ref",
     status: "completed",
     domain: ["Theory", "NLP"],
   },
-  { 
+  {
     date: "March 7, 2024",
     topic: "DDPM & DDIM",
     leading: "Jeremy Lu",
     status: "completed",
     domain: ["Theory", "Vision", "Generative Models"],
   },
-  { 
+  {
     date: "February 29, 2024",
     topic: "Version-Space Algebra Program Synthesis",
     leading: "Mikail K",
     status: "completed",
     domain: ["Theory", "PL"],
   },
-  { 
+  {
     date: "February 22, 2024",
-    topic: "A Software-defined Tensor Streaming Multiprocessor for Large-scale Machine Learning",
+    topic:
+      "A Software-defined Tensor Streaming Multiprocessor for Large-scale Machine Learning",
     leading: "Saad Sharief",
     status: "completed",
     domain: ["Hardware"],
     extra: "https://youtu.be/QcsCTI2cMFM",
   },
-  { 
+  {
     date: "February 15, 2024",
     topic: "AI Inference in Production",
     leading: "Saad Sharief",
@@ -376,7 +397,7 @@ export const RGItems: Array<RGItem> = [
     domain: ["Deployment", "Applied AI"],
     extra: "https://youtu.be/a3F6j2YCmcM",
   },
-  { 
+  {
     date: "February 8, 2024",
     topic: "Monosemanticity",
     leading: "Jinen Setpal",
@@ -384,7 +405,7 @@ export const RGItems: Array<RGItem> = [
     domain: ["Interpretability"],
     extra: "https://youtu.be/WrqRpj2DCxw",
   },
-  { 
+  {
     date: "February 1, 2024",
     topic: "Transformer Circuits",
     leading: "Jinen Setpal",
@@ -392,12 +413,13 @@ export const RGItems: Array<RGItem> = [
     domain: ["Interpretability", "Theory"],
     extra: "https://youtu.be/NWKhKy1Vh8Q",
   },
-  { 
+  {
     date: "January 25, 2024",
     topic: "Transformers",
     leading: "Alexiy Buynitsky",
     status: "completed",
     domain: ["Theory", "NLP"],
-    extra: "https://docs.google.com/document/d/1weXnv8kk9z9XILqVZF5Eg1WPy-eGr07O4OxZ5-MukzY/edit",
+    extra:
+      "https://docs.google.com/document/d/1weXnv8kk9z9XILqVZF5Eg1WPy-eGr07O4OxZ5-MukzY/edit",
   },
 ];

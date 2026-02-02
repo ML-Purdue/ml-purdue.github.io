@@ -38,87 +38,212 @@ const description = "ML@Purdue Website";
   >
     <Header fixed />
     <br />
-    <article class="pt-10 mt-11 w-[90vw] max-w-[80ch]">
-        <ContentSection id="projects" title="PROJECTS">
-            <div
-                class="flex w-screen border-y-[1px] border-purple-500 -mt-6 py-6"
-            >
-                <p class="max-w-[75%] pl-8 text-sm">
-                  The activities and layout of each project will vary based on content. Average projects will consist of recruitment, member training, and about 3-4 milestones each month.
-                  <br><br>
-                  Join our <a href="https://discord.gg/KphYQFSVsu" class="font-black">Discord</a> and ask in the general/help-desk channels!
-                  <br>
-                </p>
-            </div>
-        </ContentSection>
+    <article class="mt-11 w-[90vw] max-w-[80ch] pt-10">
+      <ContentSection id="projects" title="PROJECTS">
+        <div class="-mt-6 flex w-screen border-y-[1px] border-purple-500 py-6">
+          <p class="max-w-[75%] pl-8 text-sm">
+            Projects are where members go deep. Small teams, real stakes, weekly
+            syncs, and deliverables that go on your resume. Past teams have
+            filed patents, won national competitions, and deployed products with
+            real users.
+          </p>
+        </div>
+      </ContentSection>
 
-        <Spacer y={150} />
-        <ContentSection id="workshopArchive" title="CURRENT PROJECTS">
+      <Spacer y={80} />
+      <ContentSection id="highlights" title="PROJECT HIGHLIGHTS">
+        <div class="-mt-6 flex w-screen border-y-[1px] border-purple-500 py-6">
+          <div class="grid max-w-[90%] grid-cols-1 gap-6 pl-8 md:grid-cols-3">
             <div
-              class="flex w-screen border-y-[1px] border-purple-500 -mt-6 py-6"
+              class="rounded-lg border border-purple-500/50 bg-purple-900/30 p-4"
             >
-                <p class="max-w-[75%] pl-8 text-sm">
-                    <b>Beginner:</b> Not expected to have experience with ML but they should be familiar with programming. Ex. Kaggle competitions, building applications with OpenAI’s API.
-                    <br><br>
-                    <b>Intermediate:</b> Project members have taken CS373/CS471/CS290 or an equivalent class, or self-taught to that level. Project members are familiar with TensorFlow or PyTorch. Ex. Building an autonomous RC car, creating a chatbot from scratch.
-                    <br><br>
-                    <b>Advanced:</b> Project members are going beyond class work knowledge, or the project requires a large time commitment. Ex. Original research (technically difficult), Creating a startup (time commitment).
-                </p>
+              <span class="font-semibold text-purple-400 text-xs"
+                >COMPETITION</span
+              >
+              <h3 class="orbitron mt-1 text-lg">TE AI Cup</h3>
+              <p class="mt-2 text-gray-300 text-xs">
+                1st National / 2nd Global (2024)<br />2nd National / 3rd Global
+                (2025)<br />2 Patents Filed
+              </p>
             </div>
-            {
-                projectItems.map(({ link, name, desc, pm, status, commitment, proficiency, domain, duration, advisor, memberInfo, accomplishments }) => (
-                    <section class="relative flex w-screen border-b-[1px] border-purple-500 -mt-4">
-                        <div class="flex flex-col justify-between items-end w-[30vw] lg:w-[26vw] text-right p-2 pb-3">
-                            <div class="flex flex-col items-end">
-                              <h2 class="text-xs lg:text-sm leading-snug">{duration}</h2>
-                              <span class="-mt-2">
-                                {proficiency && (<span class="text-xs lg:text-sm leading-snug font-semibold">{proficiency}</span>)}
-                                {commitment && (<span class="whitespace-nowrap text-xs lg:text-sm leading-snug">{commitment} hrs/week</span>)}
-                              </span>
-                            </div>
-                            <span class={`bg-${(status == "closed") ? "gray-700" : "purple-900"} ml-3 text-white rounded-md py-1 px-4 text-xs leading-snug`}>
-                                {status}
-                            </span>
-                        </div>
+            <div
+              class="rounded-lg border border-purple-500/50 bg-purple-900/30 p-4"
+            >
+              <span class="font-semibold text-purple-400 text-xs">ROBOTICS</span
+              >
+              <h3 class="orbitron mt-1 text-lg">RoBoat</h3>
+              <p class="mt-2 text-gray-300 text-xs">
+                2nd Overall Grand Champion<br />AIMM ICC Competition
+              </p>
+            </div>
+            <div
+              class="rounded-lg border border-purple-500/50 bg-purple-900/30 p-4"
+            >
+              <span class="font-semibold text-purple-400 text-xs">PRODUCT</span>
+              <h3 class="orbitron mt-1 text-lg">InboxPilot</h3>
+              <p class="mt-2 text-gray-300 text-xs">
+                4,000+ emails processed<br />100+ auto-generated drafts
+              </p>
+            </div>
+          </div>
+        </div>
+      </ContentSection>
 
-                        <div class="flex border-l-[1px] border-purple-500 ml-2 flex-col p-5 lg:justify-center pt-2 lg:pt-0 h-full pl-2 lg:pl-4 max-w-[63vw]">
-                            <span class="orbitron text-xl lg:text-2xl leading-tight sm:mt-3 mb-1">
-                              {link ? 
-                                <a href={link}>{name}</a>
-                                :
-                                <span>{name}</span>
-                              }
-                            </span>
-                            <div class="flex flex-wrap gap-2">
-                                {domain.map((a) => (
-                                    <span class="whitespace-nowrap bg-gray-700 text-white rounded-md py-1 px-3 text-xs leading-snug">
-                                        {a}
-                                    </span>
-                                ))}
-                            </div>
-                            <p class="text-xs mt-3">{desc}</p>
-                            <h2 class="text-xs lg:text-sm mt-2">
-                                <div class="flex flex-wrap mt-1 gap-2 mb-4">
-                                  {accomplishments && accomplishments.map((a) => (
-                                    <span class="text-xs -mt-2 mr-2 font-semibold text-purple-400">
-                                      ★ {a}
-                                    </span>
-                                  ))}
-                                </div>
-                                <span>{pm} {advisor && (<span>, Advisor: {advisor}</span>)}</span>
-                                <div class="flex flex-wrap mt-1 gap-2">
-                                    {memberInfo && (
-                                        <a href={memberInfo} class="whitespace-nowrap bg-purple-900 hover:bg-purple-100 text-white rounded-md py-1 px-4 text-xs leading-snug">
-                                            member info
-                                        </a>
-                                    )}
-                                </div>
-                            </h2>
-                        </div>
-                    </section>
-                ))
-            }
-        </ContentSection>
+      <Spacer y={80} />
+      <ContentSection id="workshopArchive" title="CURRENT PROJECTS">
+        <div class="-mt-6 flex w-screen border-y-[1px] border-purple-500 py-6">
+          <p class="max-w-[75%] pl-8 text-sm">
+            Each project operates as a focused team with clear milestones,
+            weekly syncs, and deliverable goals. Projects typically run for a
+            few semesters with 3-4 major milestones. Projects are time intensive
+            and expose members to a wide range of skills and technologies. More
+            information can be found on our <a
+              class="font-black"
+              href="https://www.notion.so/mlpurdue/8e83150770684e118ed6f423ba54fb81?v=b403456229e8436f8f80740ac735e90a"
+              >notion page</a
+            >.
+          </p>
+        </div>
+        {
+          projectItems.map(
+            ({
+              link,
+              name,
+              desc,
+              pm,
+              status,
+              commitment,
+              proficiency,
+              domain,
+              duration,
+              advisor,
+              memberInfo,
+              accomplishments,
+            }) => (
+              <section class="relative -mt-4 flex w-screen border-b-[1px] border-purple-500">
+                <div class="flex w-[30vw] flex-col items-end justify-between p-2 pb-3 text-right lg:w-[26vw]">
+                  <div class="flex flex-col items-end">
+                    <h2 class="leading-snug text-xs lg:text-sm">{duration}</h2>
+                    <span class="-mt-2">
+                      {proficiency && (
+                        <span class="font-semibold leading-snug text-xs lg:text-sm">
+                          {proficiency}
+                        </span>
+                      )}
+                      {commitment && (
+                        <span class="whitespace-nowrap leading-snug text-xs lg:text-sm">
+                          {commitment} hrs/week
+                        </span>
+                      )}
+                    </span>
+                  </div>
+                  <span
+                    class={`bg-${
+                      status == "closed" ? "gray-700" : "purple-900"
+                    } ml-3 rounded-md py-1 px-4 leading-snug text-white text-xs`}
+                  >
+                    {status}
+                  </span>
+                </div>
+
+                <div class="ml-2 flex h-full max-w-[63vw] flex-col border-l-[1px] border-purple-500 p-5 pt-2 pl-2 lg:justify-center lg:pt-0 lg:pl-4">
+                  <span class="orbitron mb-1 leading-tight text-xl sm:mt-3 lg:text-2xl">
+                    {link ? <a href={link}>{name}</a> : <span>{name}</span>}
+                  </span>
+                  <div class="flex flex-wrap gap-2">
+                    {domain.map((a) => (
+                      <span class="whitespace-nowrap rounded-md bg-gray-700 py-1 px-3 leading-snug text-white text-xs">
+                        {a}
+                      </span>
+                    ))}
+                  </div>
+                  <p class="mt-3 text-sm">{desc}</p>
+                  <h2 class="mt-2 text-xs lg:text-sm">
+                    <div class="mt-1 mb-4 flex flex-wrap gap-2">
+                      {accomplishments &&
+                        accomplishments.map((a) => (
+                          <span class="-mt-2 mr-2 font-semibold text-purple-400 text-xs">
+                            ★ {a}
+                          </span>
+                        ))}
+                    </div>
+                    <span>
+                      {pm} {advisor && <span>, Advisor: {advisor}</span>}
+                    </span>
+                    <div class="mt-1 flex flex-wrap gap-2">
+                      {memberInfo && (
+                        <a
+                          href={memberInfo}
+                          class="whitespace-nowrap rounded-md bg-purple-900 py-1 px-4 leading-snug text-white text-xs hover:bg-purple-100"
+                        >
+                          member info
+                        </a>
+                      )}
+                    </div>
+                  </h2>
+                </div>
+              </section>
+            )
+          )
+        }
+      </ContentSection>
+
+      <Spacer y={80} />
+      <ContentSection id="getInvolved" title="GET INVOLVED">
+        <div class="-mt-6 flex w-screen border-y-[1px] border-purple-500 py-6">
+          <div class="max-w-[75%] space-y-4 pl-8 text-sm">
+            <div>
+              <h3 class="font-bold text-purple-400">Join a Project</h3>
+              <p class="text-gray-300">
+                Applications open at the start of each semester. Projects are
+                competitive (~20-30% acceptance) and require demonstrated ML
+                experience or strong technical background.
+              </p>
+              <p class="text-gray-300">
+                Applications work in two phases:
+                <ul class="mt-2 list-inside list-disc text-gray-300">
+                  <li>
+                    A general application form consisting of general information
+                    about yourself, your resume, and an ML assessment (or
+                    equivalent for non-ML roles).
+                  </li>
+                  <li>
+                    A project selection form to indicate your interest in a
+                    project. This usually releases after all new projects have
+                    been announced.
+                  </li>
+                </ul>
+
+                To be considered for a project, you must complete both phases. A
+                project manager will review your application and select you for
+                a project if they believe you to be a good fit. The project
+                manager may have additional questions or requests before you are
+                selected.
+              </p>
+            </div>
+            <div>
+              <h3 class="font-bold text-purple-400">Lead a Project</h3>
+              <p class="text-gray-300">
+                Have an innovative idea? PM applications open before project
+                recruitment. You'll work with our Project Advisor to scope,
+                recruit, and execute. Please note that we expect excellence from
+                project managers in both leadership skills and technical
+                expertise.
+              </p>
+            </div>
+            <div>
+              <h3 class="font-bold text-purple-400">Not Ready Yet?</h3>
+              <p class="text-gray-300">
+                Join the Accelerator Program on our <a
+                  href="https://discord.gg/KphYQFSVsu"
+                  class="font-black">Discord server</a
+                >: a 12-week structured learning experience designed to prepare
+                you for project work.
+              </p>
+            </div>
+          </div>
+        </div>
+      </ContentSection>
     </article>
     <Footer />
   </body>

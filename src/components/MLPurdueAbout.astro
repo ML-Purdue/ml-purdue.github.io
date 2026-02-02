@@ -3,7 +3,6 @@ import ContentSection from "./content-section.astro";
 import Spacer from "./Spacer.astro";
 import TeamMember from "./team/member.astro";
 import clubStructureImage from "~/assets/club_structure.png";
-
 ---
 
 <br />
@@ -32,11 +31,12 @@ import clubStructureImage from "~/assets/club_structure.png";
       <p class="max-w-[75%] pl-8 text-sm">
         Our members and alumni have gone on to work at organizations including
         Google, Amazon, Tesla, Apple, SpaceX, NASA, and Shield AI, as well as
-        research labs like Purdue's CORAL Lab and Duality Lab. Through
-        collaborative projects, weekly reading groups that dive into
-        cutting-edge research papers, hands-on workshops, and our flagship
-        Catapult hackathon, we give students real opportunities to build skills
-        that matter.
+        research labs like Purdue's CORAL Lab and Duality Lab. We are currently
+        advised by Professor Culurciello, an expert in both professional use of
+        machine learning and academia. Through collaborative projects, weekly
+        reading groups that dive into cutting-edge research papers, hands-on
+        workshops, and our flagship Catapult hackathon, we give students real
+        opportunities to build skills that matter.
       </p>
 
       <p class="max-w-[75%] pl-8 text-sm">
@@ -57,13 +57,13 @@ import clubStructureImage from "~/assets/club_structure.png";
     <img
       src={clubStructureImage.src}
       alt="ML@Purdue club structure diagram"
-      class="max-w-[80%]"
+      class="max-w-[70%]"
     />
   </div>
 </ContentSection>
 
 <Spacer y={150} />
-<ContentSection id="Executive" title="EXECUTIVE BRANCH">
+<ContentSection id="Executive" title="EXECUTIVE BOARD">
   <div
     class="-mt-6 grid w-screen gap-y-10 gap-x-6 border-y-[1px] border-purple-500 py-10 pl-4 pr-10 sm:grid-cols-2 lg:grid-cols-3"
   >
@@ -108,6 +108,48 @@ import clubStructureImage from "~/assets/club_structure.png";
       fullname="Aadi Patel"
       major="Finance"
       year="Senior"
+    />
+  </div>
+</ContentSection>
+
+<ContentSection id="Officers" title="OFFICERS">
+  <div
+    class="-mt-6 grid w-screen gap-y-10 gap-x-6 border-y-[1px] border-purple-500 py-10 pl-4 pr-10 sm:grid-cols-2 lg:grid-cols-3"
+  >
+    <TeamMember
+      title="Operations Officer"
+      url="https://www.linkedin.com/in/nikhilmchaudhary/"
+      fullname="Nikhil Chaudary"
+      major="Computer Engr."
+      year="Senior"
+    />
+    <TeamMember
+      title="Operations Officer"
+      url="mailto:dougl111@purdue.edu"
+      fullname="Elijah Douglass"
+      major="CS"
+      year="Junior"
+    />
+    <TeamMember
+      title="Operations Officer"
+      url="https://www.linkedin.com/in/kabir-jain-2b46b922b/"
+      fullname="Kabir Jain"
+      major="CS"
+      year="Junior"
+    />
+    <TeamMember
+      title="Operations Officer"
+      url="https://www.linkedin.com/in/ryan-zhang-b57424172/"
+      fullname="Ryan Zhang"
+      major="CS"
+      year="Sophomore"
+    />
+    <TeamMember
+      title="Finance Officer"
+      url="https://www.linkedin.com/in/nishaant-k-shah/"
+      fullname="Nishaant Shah"
+      major="Computer Engr."
+      year="Junior"
     />
     <TeamMember
       title="Accelerator Advisor"
