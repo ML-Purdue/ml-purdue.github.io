@@ -1,0 +1,103 @@
+---
+import "@fontsource/inter/variable.css";
+import ContentSection from "~/components/content-section.astro";
+import Spacer from "~/components/Spacer.astro";
+import Footer from "~/components/footer.astro";
+import Header from "~/components/header.astro";
+import "~/styles/index.css";
+
+const { site } = Astro;
+const description = "ML@Purdue Accelerator Program";
+
+const timelineItems = [
+  { phase: "Weeks 1-12", title: "Foundations", description: "Workshops and mini projects covering ML fundamentals" },
+  { phase: "Weeks 13-14", title: "Capstone", description: "Build a project of your choice with your mentor group" },
+  { phase: "Finale", title: "Symposium", description: "Present your capstone project at the ML@P Symposium" },
+];
+---
+
+<!DOCTYPE html>
+<html lang="en" class="h-full motion-safe:scroll-smooth" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>ML@Purdue - Accelerator Program</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content="ML@Purdue Accelerator" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/social.png" />
+    <meta property="og:url" content={site} />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+
+  <body
+    class="h-full overflow-x-hidden bg-default text-default text-base selection:bg-secondary selection:text-white"
+  >
+    <Header fixed />
+    <br />
+    <article class="pt-10 mt-11 w-[90vw] max-w-[80ch]">
+      <ContentSection id="accelerator" title="ACCELERATOR PROGRAM">
+        <div class="flex w-screen border-y-[1px] border-purple-500 -mt-6 py-6">
+          <p class="max-w-[75%] pl-8 text-sm">
+            The Accelerator is ML@Purdue's structured learning program designed for
+            <span class="font-black">beginner and intermediate students</span> who want to
+            build a strong foundation in machine learning.
+            <br /><br />
+            Over 14 weeks, you'll go from fundamentals to building your own ML project—guided
+            by experienced mentors every step of the way. By the end, you'll have the skills
+            to join ML@P's competitive project teams.
+          </p>
+        </div>
+      </ContentSection>
+
+      <Spacer y={100} />
+
+      <ContentSection id="structure" title="PROGRAM STRUCTURE">
+        <div class="flex w-screen border-y-[1px] border-purple-500 -mt-6 py-6">
+          <p class="max-w-[75%] pl-8 text-sm">
+            Small mentor groups of 3-5 students ensure personalized guidance throughout the program.
+          </p>
+        </div>
+        {
+          timelineItems.map(({ phase, title, description }) => (
+            <section class="relative flex w-screen border-b-[1px] border-purple-500 -mt-4 h-[20vh]">
+              <div class="flex flex-col justify-center items-end border-r-[1px] h-[20vh] w-[30vw] lg:w-[26vw] text-right border-purple-500 p-2 lg:p-4">
+                <span class="bg-purple-900 text-white rounded-md py-1 px-4 text-xs leading-snug">
+                  {phase}
+                </span>
+              </div>
+              <div class="flex flex-col justify-center h-full pl-2 lg:pl-4">
+                <span class="orbitron text-xl lg:text-2xl max-w-[63vw] leading-tight mb-1">
+                  {title}
+                </span>
+                <p class="text-sm text-gray-300 max-w-[55vw]">{description}</p>
+              </div>
+            </section>
+          ))
+        }
+      </ContentSection>
+
+      <Spacer y={100} />
+
+      <ContentSection id="apply" title="HOW TO JOIN">
+        <div class="flex w-screen border-y-[1px] border-purple-500 -mt-6 py-6">
+          <div class="max-w-[75%] pl-8 text-sm">
+            <p class="mb-4">
+              <span class="font-black">Applications open:</span> Summer
+              <br />
+              <span class="font-black">Program starts:</span> Fall semester
+            </p>
+            <p>
+              No prior ML experience required—just curiosity and commitment.
+              Join our Discord and watch for announcements in <span class="font-mono text-purple-300">#announcements</span>!
+            </p>
+          </div>
+        </div>
+      </ContentSection>
+
+      <Spacer y={150} />
+    </article>
+    <Footer />
+  </body>
+</html>
