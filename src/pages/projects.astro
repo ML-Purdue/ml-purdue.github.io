@@ -146,7 +146,7 @@ const description = "ML@Purdue Website";
                   </span>
                 </div>
 
-                <div class="ml-2 flex h-full max-w-[63vw] flex-col border-l-[1px] border-purple-500 p-5 pt-2 pl-2 lg:justify-center lg:pt-0 lg:pl-4">
+                <div class="ml-2 flex h-full max-w-[63vw] flex-col border-l-[1px] border-purple-500 p-2 pt-2 pl-2 lg:pt-0 lg:pl-4">
                   <span class="orbitron mb-1 leading-tight text-xl sm:mt-3 lg:text-2xl">
                     {link ? <a href={link}>{name}</a> : <span>{name}</span>}
                   </span>
@@ -167,7 +167,7 @@ const description = "ML@Purdue Website";
                           </span>
                         ))}
                     </div>
-                    <span>
+                    <span class="mt-auto pt-2 text-xs lg:text-sm">
                       {pm} {advisor && <span>, Advisor: {advisor}</span>}
                     </span>
                     <div class="mt-1 flex flex-wrap gap-2">
@@ -201,6 +201,7 @@ const description = "ML@Purdue Website";
               </p>
               <p class="text-gray-300">
                 Applications work in two phases:
+              </p>
                 <ul class="mt-2 list-inside list-disc text-gray-300">
                   <li>
                     A general application form consisting of general information
@@ -213,7 +214,7 @@ const description = "ML@Purdue Website";
                     been announced.
                   </li>
                 </ul>
-
+                <p class="text-gray-300">
                 To be considered for a project, you must complete both phases. A
                 project manager will review your application and select you for
                 a project if they believe you to be a good fit. The project
@@ -234,11 +235,10 @@ const description = "ML@Purdue Website";
             <div>
               <h3 class="font-bold text-purple-400">Not Ready Yet?</h3>
               <p class="text-gray-300">
-                Join the Accelerator Program on our <a
-                  href="https://discord.gg/KphYQFSVsu"
-                  class="font-black">Discord server</a
-                >: a 12-week structured learning experience designed to prepare
-                you for project work.
+                Join the <a
+                  href="/accelerator"
+                  class="font-black">Accelerator Program</a
+                > and build up the skills you need to succeed in our projects.
               </p>
             </div>
           </div>
