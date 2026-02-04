@@ -35,65 +35,85 @@ const description = "ML@Purdue Website";
   >
     <Header fixed />
     <br />
-    <article class="pt-10 mt-11 w-[90vw] max-w-[80ch]">
-        <ContentSection id="workshops" title="READING GROUP">
-            <div
-                class="flex w-screen border-y-[1px] border-purple-500 -mt-6 py-6"
-            >
-                <p class="max-w-[75%] pl-8 text-sm">
-                  At the heart of research lies a <a class="font-black" href="https://arxiv.org/stats/monthly_submissions">mountain of papers</a>.
-                  It is hard to keep up with the field individually, since breakthroughs are made and published every single day.
-                  <br><br>
-                  The reading group’s objective is to work together to make keeping up a manageable task. Every week, a person or a group of people present
-                  a research paper or book chapter they find interesting. If you participate, you will have studied ~15 new papers through the semester!
-                </p>
-            </div>
-        </ContentSection>
+    <article class="mt-11 w-[90vw] max-w-[80ch] pt-10">
+      <ContentSection id="workshops" title="READING GROUP">
+        <div class="-mt-6 flex w-screen border-y-[1px] border-purple-500 py-6">
+          <p class="max-w-[75%] pl-8 text-sm">
+            At the heart of research lies a <a
+              class="font-black"
+              href="https://arxiv.org/stats/monthly_submissions"
+              >mountain of papers</a
+            >. It is hard to keep up with the field individually, since
+            breakthroughs are made and published every single day.
+            <br /><br />
+            The reading group’s objective is to work together to make keeping up
+            a manageable task. Every week, a person or a group of people present
+            a research paper or book chapter they find interesting. If you participate,
+            you will have studied ~15 new papers through the semester!
+            <br /><br />
+            If you'd like to present, please check out our <a
+              href="https://discord.gg/KphYQFSVsu"
+              class="font-black">Discord server</a
+            >. We recommend checking out <a
+              href="https://huggingface.co/papers/trending"
+              class="font-black">HuggingFace's trending papers</a
+            > to find interesting papers to present.
+          </p>
+        </div>
+      </ContentSection>
 
-        <Spacer y={150} />
-        <ContentSection id="workshopArchive" title="ARCHIVE">
-            <div
-              class="flex w-screen border-y-[1px] border-purple-500 -mt-6 py-6"
-            >
-                <p class="max-w-[75%] pl-8 text-sm">
-                  Every week, usually on Thursdays from 8pm-9pm. Location in the table.
-                </p>
-            </div>
-            {
-                RGItems.map(({ date, topic, leading, status, room, domain, extra }) => (
-                    <section class="relative flex w-screen border-b-[1px] border-purple-500 -mt-4 h-[34vh] lg:h-[30vh]">
-                        <div class="flex flex-col justify-between items-end border-r-[1px] h-[34vh] lg:h-[30vh] w-[30vw] lg:w-[26vw] text-right border-purple-500 p-2 lg:p-4">
-                            <div class="flex flex-col items-end">
-                              <h2 class="text-xs lg:text-sm leading-snug">{date}</h2>
-                              {room && (<h2 class="text-xs lg:text-sm leading-snug">{room}</h2>)}
-                            </div>
-                            <span class="bg-purple-900 ml-3 text-white rounded-md py-1 px-4 text-xs leading-snug">
-                                {status}
-                            </span>
-                        </div>
+      <Spacer y={150} />
+      <ContentSection id="workshopArchive" title="ARCHIVE">
+        <div class="-mt-6 flex w-screen border-y-[1px] border-purple-500 py-6">
+          <p class="max-w-[75%] pl-8 text-sm">
+            Every week, usually on Thursdays from 8pm-9pm. Location in the
+            table.
+          </p>
+        </div>
+        {
+          RGItems.map(
+            ({ date, topic, leading, status, room, domain, extra }) => (
+              <section class="relative -mt-4 flex h-[34vh] w-screen border-b-[1px] border-purple-500 lg:h-[30vh]">
+                <div class="flex h-[34vh] w-[30vw] flex-col items-end justify-between border-r-[1px] border-purple-500 p-2 text-right lg:h-[30vh] lg:w-[26vw] lg:p-4">
+                  <div class="flex flex-col items-end">
+                    <h2 class="leading-snug text-xs lg:text-sm">{date}</h2>
+                    {room && (
+                      <h2 class="leading-snug text-xs lg:text-sm">{room}</h2>
+                    )}
+                  </div>
+                  <span class="ml-3 rounded-md bg-purple-900 py-1 px-4 leading-snug text-white text-xs">
+                    {status}
+                  </span>
+                </div>
 
-                        <div class="flex flex-col lg:justify-center pt-2 lg:pt-0 h-full pl-2 lg:pl-4">
-                            <span class="orbitron text-xl lg:text-2xl max-w-[63vw] leading-tight mb-1">{topic}</span>
-                            <div class="flex flex-wrap gap-2">
-                                {domain.map((a) => (
-                                    <span class="whitespace-nowrap bg-gray-700 text-white rounded-md py-1 px-3 text-xs leading-snug">
-                                        {a}
-                                    </span>
-                                ))}
-                            </div>
-                            <h2 class="text-sm lg:text-base mt-2">
-                                {leading}
-                                {extra && (
-                                    <a href={extra} class="bg-purple-900 hover:bg-purple-100 mx-2 text-white rounded-md py-1 px-4 text-xs leading-snug">
-                                        learn more!
-                                    </a>
-                                )}
-                            </h2>
-                        </div>
-                    </section>
-                ))
-            }
-        </ContentSection>
+                <div class="flex h-full flex-col pt-2 pl-2 lg:justify-center lg:pt-0 lg:pl-4">
+                  <span class="orbitron mb-1 max-w-[63vw] leading-tight text-xl lg:text-2xl">
+                    {topic}
+                  </span>
+                  <div class="flex flex-wrap gap-2">
+                    {domain.map((a) => (
+                      <span class="whitespace-nowrap rounded-md bg-gray-700 py-1 px-3 leading-snug text-white text-xs">
+                        {a}
+                      </span>
+                    ))}
+                  </div>
+                  <h2 class="mt-2 text-sm lg:text-base">
+                    {leading}
+                    {extra && (
+                      <a
+                        href={extra}
+                        class="mx-2 rounded-md bg-purple-900 py-1 px-4 leading-snug text-white text-xs hover:bg-purple-100"
+                      >
+                        learn more!
+                      </a>
+                    )}
+                  </h2>
+                </div>
+              </section>
+            )
+          )
+        }
+      </ContentSection>
     </article>
     <Footer />
   </body>
