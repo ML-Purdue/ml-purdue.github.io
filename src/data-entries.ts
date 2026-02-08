@@ -105,6 +105,42 @@ export const projectItems: Array<ProjectItem> = [
 // input most recent ones at top
 export const workshopItems: Array<WorkshopItem> = [
   {
+    date: "November 9, 2025",
+    topic: "Intro to GPU Programming",
+    leading: "Pranav Jadhav",
+    status: "completed",
+  },
+  {
+    date: "October 5, 2025",
+    topic: "Building a Fullstack RAG Application",
+    leading: "Pranav Jadhav (in collaboration with Purdue Stack)",
+    status: "completed",
+  },
+  {
+    date: "March 3, 2025",
+    topic: "Diffusion Model from Scratch",
+    leading: "Harmya Bhatt",
+    status: "completed",
+  },
+  {
+    date: "February 2, 2025",
+    topic: "Neural Network from Scratch with NumPy",
+    leading: "Pranav Jadhav",
+    status: "completed",
+  },
+  {
+    date: "October 19, 2024",
+    topic: "Intro to CNNs",
+    leading: "Harmya Bhatt",
+    status: "completed",
+  },
+  {
+    date: "September 30, 2024",
+    topic: "Machine Learning Workshop",
+    leading: "Harmya Bhatt in collaboration with Purdue MIND",
+    status: "completed",
+  },
+  {
     date: "September 12, 2024",
     topic: "Intro to Neural Networks with PyTorch",
     leading: "Harmya Bhatt",
