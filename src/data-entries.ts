@@ -182,13 +182,98 @@ export const workshopItems: Array<WorkshopItem> = [
 // input most recent ones at top
 export const RGItems: Array<RGItem> = [
   {
+    date: "February 5, 2026",
+    topic: "Modern Vision Transformers",
+    leading: "Manav Gagvani",
+    status: "completed",
+    room: "WALC 2127",
+    domain: ["CV"],
+  },
+  {
+    date: "January 29, 2026",
+    topic: "Modern Attention Architectures",
+    leading: "Alexandre Sauquet",
+    status: "completed",
+    room: "WALC 2127",
+    domain: ["Theory", "NLP"],
+  },
+  {
+    date: "December 4, 2025",
+    topic: "Efficient Reasoning via Reward Model",
+    leading: "Elijah D.",
+    status: "completed",
+    room: "LWSN B151",
+    domain: ["Applied AI", "LLM", "RL"],
+  },
+  {
+    date: "November 20, 2025",
+    topic: "Inference Optimization Techniques",
+    leading: "Shay Manor",
+    status: "completed",
+    room: "WALC 3132",
+    domain: ["Applied AI", "Optimization"],
+  },
+  {
+    date: "November 13, 2025",
+    topic: "DeepSeek OCR",
+    leading: "Oskar Jonientz",
+    status: "completed",
+    room: "WALC 3132",
+    domain: ["Applied AI", "LLM"],
+  },
+  {
+    date: "October 23, 2025",
+    topic: "Optimizers",
+    leading: "Alexandre Sauquet",
+    status: "completed",
+    room: "WALC 3132",
+    domain: ["Theory", "Optimizers"],
+    video: "https://youtu.be/llPtooDHF3s?si=GU7xrNAp3IJ2hHuv",
+  },
+  {
+    date: "October 9, 2025",
+    topic: "BFGS",
+    leading: "Alexandre Sauquet",
+    status: "completed",
+    room: "WALC 3132",
+    domain: ["Theory", "Optimizers"],
+    video: "https://youtu.be/uojMg0gC_1o?si=y5rJNM_kcHhzR4LR",
+  },
+  {
+    date: "October 2, 2025",
+    topic: "Large Language Diffusion Models",
+    leading: "Oskar Jonientz",
+    status: "completed",
+    room: "WALC 3132",
+    domain: ["Theory", "CV"],
+    video: "https://youtu.be/OAdYIWm4yS0?si=CnTAC-R8OkFGIzz6",
+  },
+  {
+    date: "September 22, 2025",
+    topic: "Byte Latent Transformers",
+    leading: "Arnav Grover",
+    status: "completed",
+    room: "WALC 3132",
+    domain: ["NLP"],
+  },
+  {
+    date: "September 9, 2025",
+    topic: "3D Gaussian Splitting",
+    leading: "Alexandre Sauquet",
+    status: "completed",
+    room: "WALC 3132",
+    domain: ["Rendering"],
+    video: "https://youtu.be/-1Y7AFLMDos?si=4xbWrdZtqezdDs-0",
+  },
+  {
     date: "April 24, 2025",
     topic: "Recurrent Depth LLMs",
     leading: "Alexandre Sauquet",
     status: "completed",
     room: "LWSN B151",
     domain: ["Theory", "Intrepretability"],
-    extra: "https://youtu.be/ZnPkZuPdsCg",
+    video: "https://youtu.be/ZnPkZuPdsCg",
+    slides: "https://docs.google.com/presentation/d/17_bTD-0bbImTNP_V99rmx5PxPbtp4aI6kPTbwkDdr8w/",
   },
   {
     date: "April 17, 2025",
@@ -197,7 +282,8 @@ export const RGItems: Array<RGItem> = [
     status: "completed",
     room: "LWSN B151",
     domain: ["Theory", "Generative Models"],
-    extra: "https://youtu.be/QNMfLp6YOF0",
+    video: "https://youtu.be/QNMfLp6YOF0",
+    slides: "https://jinen.setpal.net/slides/ot.pdf",
   },
   {
     date: "April 10, 2025",
@@ -206,7 +292,8 @@ export const RGItems: Array<RGItem> = [
     status: "completed",
     room: "LWSN B151",
     domain: ["Theory", "Generative Models"],
-    extra: "https://youtu.be/5rGF7ytTjeI",
+    video: "https://youtu.be/5rGF7ytTjeI",
+    slides: "https://jinen.setpal.net/slides/ot.pdf",
   },
   {
     date: "April 3, 2025",
@@ -215,7 +302,8 @@ export const RGItems: Array<RGItem> = [
     status: "completed",
     room: "LWSN B151",
     domain: ["Applied AI", "3D", "Generative Models"],
-    extra: "https://youtu.be/0zGTDYgZ9d8",
+    video: "https://youtu.be/0zGTDYgZ9d8",
+    slides: "https://docs.google.com/presentation/d/1NqqAKYAdZisTfZGVArk0du1Y6wHDOuNJsTBKewLBJeQ/edit?usp=sharing",
   },
   {
     date: "March 27, 2025",
@@ -232,6 +320,7 @@ export const RGItems: Array<RGItem> = [
     status: "completed",
     room: "LWSN B151",
     domain: ["Theory"],
+    slides: "https://jinen.setpal.net/slides/ntk.pdf",
   },
   {
     date: "February 27, 2025",
@@ -249,7 +338,8 @@ export const RGItems: Array<RGItem> = [
     status: "completed",
     room: "LWSN B151",
     domain: ["NLP", "Theory"],
-    extra: "https://youtu.be/xwg6Ng3QsFE",
+    video: "https://youtu.be/xwg6Ng3QsFE",
+    slides: "https://docs.google.com/presentation/d/1Tuz9ycTU8U-wdV5pgbcsf874NaMLOx_7hCsITV8nJ0c/edit",
   },
   {
     date: "February 13, 2025",
@@ -258,7 +348,8 @@ export const RGItems: Array<RGItem> = [
     status: "completed",
     room: "LWSN B151",
     domain: ["NLP", "Interpretability"],
-    extra: "https://youtu.be/_vUKIPYOaJw",
+    video: "https://youtu.be/_vUKIPYOaJw",
+    slides: "https://jinen.setpal.net/slides/sae.pdf",
   },
   {
     date: "February 6, 2025",
@@ -267,7 +358,8 @@ export const RGItems: Array<RGItem> = [
     status: "completed",
     room: "LWSN B151",
     domain: ["Robotics", "Applied AI", "Generative Models"],
-    extra: "https://youtu.be/xVGqFH7naWg",
+    video: "https://youtu.be/xVGqFH7naWg",
+    slides: "https://github.com/Abuynits/presentations/blob/main/nvidia_cosmos/main.pdf"
   },
   {
     date: "January 30, 2025",
@@ -276,7 +368,8 @@ export const RGItems: Array<RGItem> = [
     status: "completed",
     room: "LWSN B151",
     domain: ["Reinforcement Learning", "Applied AI", "Generative Models"],
-    extra: "https://youtu.be/MHwTvrAvYWs",
+    video: "https://youtu.be/MHwTvrAvYWs",
+    slides: "https://jinen.setpal.net/slides/dsr1.pdf",
   },
   {
     date: "January 23, 2025",
@@ -285,6 +378,7 @@ export const RGItems: Array<RGItem> = [
     status: "completed",
     room: "LWSN B151",
     domain: ["Theory", "Generative Models"],
+    slides: "https://github.com/Abuynits/presentations/blob/main/rope/main.pdf",
   },
   {
     date: "November 21, 2024",
@@ -301,7 +395,8 @@ export const RGItems: Array<RGItem> = [
     status: "completed",
     room: "WALC 2088",
     domain: ["Safety"],
-    extra: "https://youtu.be/jLddV1GVaHw",
+    video: "https://youtu.be/jLddV1GVaHw",
+    slides: "https://docs.google.com/presentation/d/1e9A4aXTNtmA4v62UvG9MxFslEX1qxAGbaN_p0I2bNN8/edit",
   },
   {
     date: "November 7, 2024",
@@ -310,6 +405,7 @@ export const RGItems: Array<RGItem> = [
     status: "completed",
     room: "WALC 2088",
     domain: ["Applied AI", "Robotics", "Generative Models"],
+    slides: "https://raw.githubusercontent.com/Abuynits/presentations/refs/heads/main/diffusion-policy/main.pdf",
   },
   {
     date: "October 24, 2024",
@@ -318,7 +414,8 @@ export const RGItems: Array<RGItem> = [
     status: "completed",
     room: "WALC 2088",
     domain: ["Interpretability", "Theory"],
-    extra: "https://youtu.be/za8kA4GJDTQ",
+    video: "https://youtu.be/za8kA4GJDTQ",
+    slides: "https://jinen.setpal.net/slides/dnc_by_agop.pdf",
   },
   {
     date: "October 10, 2024",
@@ -327,7 +424,8 @@ export const RGItems: Array<RGItem> = [
     status: "completed",
     room: "WALC 2088",
     domain: ["Interpretability", "Theory"],
-    extra: "https://youtu.be/DdxaSTnEcO0",
+    video: "https://youtu.be/DdxaSTnEcO0",
+    slides: "https://jinen.setpal.net/slides/dnc_by_agop.pdf",
   },
   {
     date: "October 3, 2024",
@@ -344,6 +442,7 @@ export const RGItems: Array<RGItem> = [
     status: "completed",
     room: "WALC 2088",
     domain: ["Robustness", "Theory", "OOD Generalization"],
+    slides: "https://jinen.setpal.net/slides/gti.pdf",
   },
   {
     date: "September 19, 2024",
@@ -352,7 +451,8 @@ export const RGItems: Array<RGItem> = [
     status: "completed",
     room: "WALC 2088",
     domain: ["Robustness", "Theory"],
-    extra: "https://youtu.be/q8I5I1m2_Bk",
+    video: "https://youtu.be/q8I5I1m2_Bk",
+    slides: "https://drive.google.com/file/d/1PfnTUDORtbox2E7_D94s2sq0Aa711RFr/view?usp=sharing",
   },
   {
     date: "September 11, 2024",
@@ -369,6 +469,7 @@ export const RGItems: Array<RGItem> = [
     status: "completed",
     room: "LWSN B155",
     domain: ["Theory", "NLP"],
+    slides: "https://jinen.setpal.net/slides/transformer.pdf",
   },
   {
     date: "August 29, 2024",
@@ -384,6 +485,7 @@ export const RGItems: Array<RGItem> = [
     leading: "Jinen Setpal",
     status: "completed",
     domain: ["Theory", "Robustness"],
+    slides: "https://jinen.setpal.net/slides/omnipredictors.pdf",
   },
   {
     date: "March 28, 2024",
@@ -391,7 +493,8 @@ export const RGItems: Array<RGItem> = [
     leading: "Jinen Setpal",
     status: "completed",
     domain: ["Theory", "NLP", "Generative Models"],
-    extra: "https://youtu.be/RA1ddgkiWGM",
+    video: "https://youtu.be/RA1ddgkiWGM",
+    slides: "https://jinen.setpal.net/slides/dpo.pdf",
   },
   {
     date: "March 21, 2024",
@@ -399,6 +502,7 @@ export const RGItems: Array<RGItem> = [
     leading: "Ref",
     status: "completed",
     domain: ["Theory", "NLP"],
+    slides: "https://docs.google.com/presentation/d/12Gn2dwzE2Iz5rxUhzHSz-dMQEUJFEOkO0X50LoVXIaU/edit",
   },
   {
     date: "March 7, 2024",
@@ -406,6 +510,7 @@ export const RGItems: Array<RGItem> = [
     leading: "Jeremy Lu",
     status: "completed",
     domain: ["Theory", "Vision", "Generative Models"],
+    slides: "https://docs.google.com/presentation/d/1k7zUjKYO7Arl4gQLSOpl8f2OM7tGTQP_SnYu0mLSyQo/edit",
   },
   {
     date: "February 29, 2024",
@@ -421,7 +526,8 @@ export const RGItems: Array<RGItem> = [
     leading: "Saad Sharief",
     status: "completed",
     domain: ["Hardware"],
-    extra: "https://youtu.be/QcsCTI2cMFM",
+    video: "https://youtu.be/QcsCTI2cMFM",
+    slides: "https://docs.google.com/presentation/d/1_x_rrHjlluqnWJ7zWhEoXampfGJgoCTy5jPywLpMLyM/edit#slide=id.p",
   },
   {
     date: "February 15, 2024",
@@ -429,7 +535,8 @@ export const RGItems: Array<RGItem> = [
     leading: "Saad Sharief",
     status: "completed",
     domain: ["Deployment", "Applied AI"],
-    extra: "https://youtu.be/a3F6j2YCmcM",
+    video: "https://youtu.be/a3F6j2YCmcM",
+    slides: "https://docs.google.com/presentation/d/1XYPXHWV4HgJ8eG6FAKU4MqzMfS7Wi8u44tK48kLLu9A/edit#slide=id.p",
   },
   {
     date: "February 8, 2024",
@@ -437,7 +544,8 @@ export const RGItems: Array<RGItem> = [
     leading: "Jinen Setpal",
     status: "completed",
     domain: ["Interpretability"],
-    extra: "https://youtu.be/WrqRpj2DCxw",
+    video: "https://youtu.be/WrqRpj2DCxw",
+    slides: "https://jinen.setpal.net/slides/mechinterp.pdf",
   },
   {
     date: "February 1, 2024",
@@ -445,7 +553,8 @@ export const RGItems: Array<RGItem> = [
     leading: "Jinen Setpal",
     status: "completed",
     domain: ["Interpretability", "Theory"],
-    extra: "https://youtu.be/NWKhKy1Vh8Q",
+    video: "https://youtu.be/NWKhKy1Vh8Q",
+    slides: "https://jinen.setpal.net/slides/mechinterp.pdf",
   },
   {
     date: "January 25, 2024",
@@ -453,7 +562,8 @@ export const RGItems: Array<RGItem> = [
     leading: "Alexiy Buynitsky",
     status: "completed",
     domain: ["Theory", "NLP"],
-    extra:
+    video:
       "https://docs.google.com/document/d/1weXnv8kk9z9XILqVZF5Eg1WPy-eGr07O4OxZ5-MukzY/edit",
+    slides: "https://docs.google.com/presentation/d/1EK8YH5TOiiya-H0lSzIm3phnxYeNCutf2dGUosCuwlY/edit",
   },
 ];
