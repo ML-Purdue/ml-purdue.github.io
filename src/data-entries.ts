@@ -109,7 +109,7 @@ export const workshopItems: Array<WorkshopItem> = [
     topic: "ML From Scratch",
     leading: "Christine Xu",
     status: "completed",
-  }
+  },
   {
     date: "November 9, 2025",
     topic: "Intro to GPU Programming",
