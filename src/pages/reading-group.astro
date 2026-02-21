@@ -72,9 +72,9 @@ const description = "ML@Purdue Website";
         </div>
         {
           RGItems.map(
-            ({ date, topic, leading, status, room, domain, extra }) => (
-              <section class="relative -mt-4 flex h-[34vh] w-screen border-b-[1px] border-purple-500 lg:h-[30vh]">
-                <div class="flex h-[34vh] w-[30vw] flex-col items-end justify-between border-r-[1px] border-purple-500 p-2 text-right lg:h-[30vh] lg:w-[26vw] lg:p-4">
+          ({ date, topic, leading, status, room, domain, video, slides }) => (
+              <section class="relative -mt-4 flex w-screen border-b-[1px] border-purple-500">
+                <div class="flex flex-col items-end justify-between border-r-[1px] border-purple-500 p-4 text-right lg:w-[26vw] lg:p-6">
                   <div class="flex flex-col items-end">
                     <h2 class="leading-snug text-xs lg:text-sm">{date}</h2>
                     {room && (
@@ -86,8 +86,8 @@ const description = "ML@Purdue Website";
                   </span>
                 </div>
 
-                <div class="flex h-full flex-col pt-2 pl-2 lg:justify-center lg:pt-0 lg:pl-4">
-                  <span class="orbitron mb-1 max-w-[63vw] leading-tight text-xl lg:text-2xl">
+                <div class="flex flex-col p-4 lg:p-6 lg:pt-0 lg:pl-4">
+                  <span class="orbitron mb-1 max-w-[63vw] leading-tight text-xl sm:mt-3 lg:text-2xl">
                     {topic}
                   </span>
                   <div class="flex flex-wrap gap-2">
@@ -99,15 +99,27 @@ const description = "ML@Purdue Website";
                   </div>
                   <h2 class="mt-2 text-sm lg:text-base">
                     {leading}
-                    {extra && (
-                      <a
-                        href={extra}
-                        class="mx-2 rounded-md bg-purple-900 py-1 px-4 leading-snug text-white text-xs hover:bg-purple-100"
-                      >
-                        learn more!
-                      </a>
-                    )}
                   </h2>
+                  <div class="mt-2 text-sm lg:text-base">
+                      {video && (
+                        <a
+                          href={video}
+                          class="mx-2 rounded-md bg-purple-900 py-1 px-4 leading-snug text-white text-xs hover:bg-purple-100"
+                        >
+                          YouTube Video
+                        </a>
+                      )}
+                  </div>
+                  <div class="mt-2 text-sm lg:text-base">
+                      {slides && (
+                        <a
+                          href={slides}
+                          class="mx-2 rounded-md bg-purple-900 py-1 px-4 leading-snug text-white text-xs hover:bg-purple-100"
+                        >
+                          Presentation Slides
+                        </a>
+                      )}
+                </div>
                 </div>
               </section>
             )
