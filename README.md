@@ -1,5 +1,7 @@
 # ML-Purdue Website
 
+See at [https://mlpurdue.com/](https://mlpurdue.com/)
+
 V2
 
 Template: https://github.com/mhyfritz/astro-landing-page
