@@ -105,6 +105,12 @@ export const projectItems: Array<ProjectItem> = [
 // input most recent ones at top
 export const workshopItems: Array<WorkshopItem> = [
   {
+    date: "February 15, 2026",
+    topic: "ML From Scratch",
+    leading: "Christine Xu",
+    status: "completed",
+  }
+  {
     date: "November 9, 2025",
     topic: "Intro to GPU Programming",
     leading: "Pranav Jadhav",
