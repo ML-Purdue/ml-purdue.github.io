@@ -188,12 +188,22 @@ export const workshopItems: Array<WorkshopItem> = [
 // input most recent ones at top
 export const RGItems: Array<RGItem> = [
   {
+    date: "February 19, 2026",
+    topic: "Steering Vectors",
+    leading: "Kabir Jain",
+    status: "completed",
+    room: "WALC 2127",
+    domain: ["Theory"],
+    slides: "https://drive.google.com/file/d/1b_-fDqS1euBtMB1JxY9UFPKLRpnNADmV/view?usp=sharing"
+  },
+  {
     date: "February 5, 2026",
     topic: "Modern Vision Transformers",
     leading: "Manav Gagvani",
     status: "completed",
     room: "WALC 2127",
     domain: ["CV"],
+    slides: "https://drive.google.com/file/d/1HWrDCgeIXA7J_PrCQF_pNW0iyAUglvT1/view?usp=sharing"
   },
   {
     date: "January 29, 2026",
@@ -202,6 +212,7 @@ export const RGItems: Array<RGItem> = [
     status: "completed",
     room: "WALC 2127",
     domain: ["Theory", "NLP"],
+    slides: "https://drive.google.com/file/d/1cx9Bm28anw8rHmURm-RaEE5uA2dE8eZB/view?usp=sharing"
   },
   {
     date: "December 4, 2025",
@@ -210,6 +221,7 @@ export const RGItems: Array<RGItem> = [
     status: "completed",
     room: "LWSN B151",
     domain: ["Applied AI", "LLM", "RL"],
+    slides: "https://drive.google.com/file/d/1IMjvxS90jZiqluHGlm5nabFvJ9TTZ_Y3/view?usp=sharing"
   },
   {
     date: "November 20, 2025",
@@ -218,6 +230,7 @@ export const RGItems: Array<RGItem> = [
     status: "completed",
     room: "WALC 3132",
     domain: ["Applied AI", "Optimization"],
+    slides: "https://drive.google.com/file/d/1DxrskSdykx9M4aXCuTQcwrv1SvtkpQF2/view?usp=sharing"
   },
   {
     date: "November 13, 2025",
@@ -235,6 +248,7 @@ export const RGItems: Array<RGItem> = [
     room: "WALC 3132",
     domain: ["Theory", "Optimizers"],
     video: "https://youtu.be/llPtooDHF3s?si=GU7xrNAp3IJ2hHuv",
+    slides: "https://drive.google.com/file/d/1wpd8o-6ILtq876r_pb5MxusR8IrDxFSI/view?usp=sharing"
   },
   {
     date: "October 9, 2025",
@@ -244,6 +258,7 @@ export const RGItems: Array<RGItem> = [
     room: "WALC 3132",
     domain: ["Theory", "Optimizers"],
     video: "https://youtu.be/uojMg0gC_1o?si=y5rJNM_kcHhzR4LR",
+    slides: "https://drive.google.com/file/d/1ifhUc-ucXakdrL5aY_6jHHWKGuucelrP/view?usp=sharing"
   },
   {
     date: "October 2, 2025",
@@ -261,6 +276,7 @@ export const RGItems: Array<RGItem> = [
     status: "completed",
     room: "WALC 3132",
     domain: ["NLP"],
+    slides: "https://docs.google.com/presentation/d/1vbhXnvhkoKzISZ3SV39-tpF263bvPd9HGlrcL8QrUgg"
   },
   {
     date: "September 9, 2025",
@@ -270,6 +286,7 @@ export const RGItems: Array<RGItem> = [
     room: "WALC 3132",
     domain: ["Rendering"],
     video: "https://youtu.be/-1Y7AFLMDos?si=4xbWrdZtqezdDs-0",
+    slides: "https://drive.google.com/file/d/1GKAeNIPlMRNdBF9VZ2DqiDcs0ZkmsRR8/view?usp=sharing"
   },
   {
     date: "April 24, 2025",
