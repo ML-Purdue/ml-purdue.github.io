@@ -188,6 +188,15 @@ export const workshopItems: Array<WorkshopItem> = [
 // input most recent ones at top
 export const RGItems: Array<RGItem> = [
   {
+    date: "March 5, 2026",
+    topic: "Reinforcement Learning and Game Theory",
+    leading: "Kabir Jain",
+    status: "completed",
+    room: "WALC 2127",
+    domain: ["Theory", "RL"],
+    slides: "https://drive.google.com/file/d/1aGIgn-oGsdgxFgX5yZkg9LIkvtL5BTvd/view?usp=sharing"
+  },
+  {
     date: "February 26, 2026",
     topic: "Parameter-Efficient Fine-Tuning",
     leading: "Fiyin",
