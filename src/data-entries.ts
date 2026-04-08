@@ -187,6 +187,24 @@ export const workshopItems: Array<WorkshopItem> = [
 // READING GROUPS
 // input most recent ones at top
 export const RGItems: Array<RGItem> = [
+ {
+    date: "March 12, 2026",
+    topic: "Gaussian Processes",
+    leading: "Alexandre Sauquet",
+    status: "completed",
+    room: "WALC 2127",
+    domain: ["Theory"],
+    slides: "https://drive.google.com/file/d/14lqRN-SquyASxWceHmjlX6nb_otQQ4nX/view?usp=sharing"
+  },
+  {
+    date: "March 5, 2026",
+    topic: "Reinforcement Learning and Game Theory",
+    leading: "Kabir Jain",
+    status: "completed",
+    room: "WALC 2127",
+    domain: ["Theory", "RL"],
+    slides: "https://drive.google.com/file/d/1aGIgn-oGsdgxFgX5yZkg9LIkvtL5BTvd/view?usp=sharing"
+  },
   {
     date: "February 26, 2026",
     topic: "Parameter-Efficient Fine-Tuning",
