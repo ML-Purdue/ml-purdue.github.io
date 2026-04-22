@@ -188,6 +188,15 @@ export const workshopItems: Array<WorkshopItem> = [
 // input most recent ones at top
 export const RGItems: Array<RGItem> = [
  {
+    date: "April 16, 2026",
+    topic: "Vector Quantization",
+    leading: "Kabir Jain",
+    status: "completed",
+    room: "WALC 2127",
+    domain: ["Theory", "Optimization", "NLP"],
+    slides: "https://drive.google.com/file/d/1hrlMIh5u6rlhVkIX1c1faSXKRzhjNYAw/view?usp=sharing"
+  },
+ {
     date: "March 12, 2026",
     topic: "Gaussian Processes",
     leading: "Alexandre Sauquet",
