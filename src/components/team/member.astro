@@ -5,8 +5,9 @@ export interface Props {
   major: string;
   year: string;
   url?: string;
+  vacant?: boolean;
 }
-const { fullname, title, major, year, url } = Astro.props;
+const { fullname, title, major, year, url, vacant = false } = Astro.props;
 
 // just debug, remove if causes an issue
 const n = `data-title`;
@@ -14,7 +15,12 @@ const sp = { [n]: title };
 ---
 
 <div {...sp}>
-  <div class="leading-tight flex glass flex-col w-full m:w-[45vw] lg:w-[29vw] px-5 xl:px-0 py-5 text-center">
+  <div
+    class:list={[
+      "leading-tight flex glass flex-col w-full m:w-[45vw] lg:w-[29vw] px-5 xl:px-0 py-5 text-center",
+      vacant && "opacity-50 grayscale",
+    ]}
+  >
     <h2 class="orbitron tracking-tight text-white text-xl">
       <span>{fullname}</span>
     </h2>
