@@ -1,0 +1,331 @@
+---
+// Self-contained club org chart. Renders the executive board / officers /
+// members structure and draws SVG connector arrows between boxes.
+---
+
+<div class="chart-wrap">
+  <div class="chart" id="org-chart">
+    <!-- Column headers — "EXECUTIVE BOARD" spans the Pres/VP + Directors area -->
+    <div class="h h--board">EXECUTIVE BOARD</div>
+    <div class="h h--teams">OFFICERS &amp; PROGRAMS</div>
+    <div class="h h--ext">MEMBERS</div>
+
+    <!-- Leadership (col 1, spans rows 2–7) -->
+    <div class="leadership">
+      <div class="box box--lead" id="b-pres">President</div>
+      <div class="box box--lead" id="b-vp">Vice President</div>
+    </div>
+
+    <!-- Row 2: Marketing -->
+    <div class="director" style="grid-row: 2">
+      <div class="box box--dir" id="d-mkt">Director of Marketing</div>
+    </div>
+    <div class="team" style="grid-row: 2">
+      <div class="box" id="t-mkt">Marketing Officers</div>
+    </div>
+
+    <!-- Row 3: Operations -->
+    <div class="director" style="grid-row: 3">
+      <div class="box box--dir" id="d-ops">Director of Operations</div>
+    </div>
+    <div class="team" style="grid-row: 3">
+      <div class="box" id="t-ops">Operations Officers</div>
+      <div class="box" id="t-workshop">Workshop Officers</div>
+      <div class="box" id="t-reading">Reading Group Officers</div>
+    </div>
+
+    <!-- Row 4: Projects -->
+    <div class="director" style="grid-row: 4">
+      <div class="box box--dir" id="d-proj">Director of Projects</div>
+    </div>
+    <div class="team" style="grid-row: 4">
+      <div class="box" id="t-pms">Project Managers</div>
+    </div>
+    <div class="ext" style="grid-row: 4">
+      <div class="box" id="t-pmembers">Project Members</div>
+    </div>
+
+    <!-- Row 5: Finance -->
+    <div class="director" style="grid-row: 5">
+      <div class="box box--dir" id="d-fin">Director of Finance</div>
+    </div>
+    <div class="team" style="grid-row: 5">
+      <div class="box" id="t-fin">Finance Officers</div>
+    </div>
+
+    <!-- Row 6: Catapult -->
+    <div class="director" style="grid-row: 6">
+      <div class="box box--dir" id="d-cat">Director of Catapult</div>
+    </div>
+    <div class="team" style="grid-row: 6">
+      <div class="box" id="t-cat">Catapult Officers</div>
+    </div>
+
+    <!-- Row 7: Accelerator -->
+    <div class="director" style="grid-row: 7">
+      <div class="box box--dir" id="d-acc">Director of Accelerator</div>
+    </div>
+    <div class="team" style="grid-row: 7">
+      <div class="box" id="t-mentors">Mentors</div>
+    </div>
+    <div class="ext" style="grid-row: 7">
+      <div class="box" id="t-mentees">Mentees</div>
+    </div>
+
+    <svg class="arrows" id="org-arrows" xmlns="http://www.w3.org/2000/svg"></svg>
+  </div>
+</div>
+
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap");
+
+  .chart-wrap {
+    --bg: #000;
+    --ink: #fff;
+    --soft: rgba(255, 255, 255, 0.55);
+    --sans: "Geist", ui-sans-serif, system-ui, -apple-system, sans-serif;
+    --mono: "Geist Mono", ui-monospace, monospace;
+
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 40px;
+    overflow-x: auto;
+    font-family: var(--sans);
+    color: var(--ink);
+  }
+
+  /* ── Horizontal chart grid ─────────────────────────────────────────── */
+  .chart {
+    position: relative;
+    display: grid;
+    grid-template-columns:
+      160px /* 1 leadership (P/VP) */
+      72px /* 2 gap (trunk) */
+      210px /* 3 directors */
+      72px /* 4 gap */
+      280px /* 5 teams */
+      72px /* 6 gap */
+      180px; /* 7 extension */
+    grid-template-rows: auto auto auto auto auto auto auto;
+    column-gap: 0;
+    row-gap: 28px;
+    align-items: center;
+    padding: 4px 0;
+    min-width: 1080px;
+  }
+
+  /* SVG arrow overlay (boxes are z-index 2) */
+  .arrows {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: visible;
+    z-index: 1;
+  }
+
+  /* Column headers (row 1) */
+  .h {
+    text-align: center;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.22em;
+    color: var(--soft);
+    padding-bottom: 18px;
+    grid-row: 1;
+  }
+  .h--board {
+    grid-column: 1 / 4;
+  }
+  .h--teams {
+    grid-column: 5;
+  }
+  .h--ext {
+    grid-column: 7;
+  }
+
+  /* Leadership block — spans rows 2–7 in col 1 */
+  .leadership {
+    grid-column: 1;
+    grid-row: 2 / 8;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 36px;
+    z-index: 2;
+    position: relative;
+  }
+
+  /* Box styling */
+  .box {
+    border: 1px solid var(--ink);
+    background: var(--bg);
+    padding: 14px 12px;
+    text-align: center;
+    font-size: 13.5px;
+    font-weight: 500;
+    line-height: 1.3;
+    min-height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .box--lead {
+    padding: 22px 14px;
+    font-size: 16px;
+    font-weight: 600;
+    min-height: 72px;
+  }
+  .box--dir {
+    font-size: 13.5px;
+    min-height: 60px;
+    padding: 14px 10px;
+  }
+
+  .director {
+    grid-column: 3;
+    z-index: 2;
+  }
+  .team {
+    grid-column: 5;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .ext {
+    grid-column: 7;
+    z-index: 2;
+  }
+
+  @media (max-width: 760px) {
+    .chart-wrap {
+      padding: 0 20px;
+    }
+  }
+</style>
+
+<script is:inline>
+  (function () {
+    const svg = document.getElementById("org-arrows");
+    const chart = document.getElementById("org-chart");
+    if (!svg || !chart) return;
+
+    function rect(id) {
+      const el = document.getElementById(id);
+      if (!el) return null;
+      const c = chart.getBoundingClientRect();
+      const r = el.getBoundingClientRect();
+      return {
+        top: r.top - c.top,
+        bottom: r.bottom - c.top,
+        left: r.left - c.left,
+        right: r.right - c.left,
+        cx: r.left - c.left + r.width / 2,
+        cy: r.top - c.top + r.height / 2,
+      };
+    }
+
+    const BRANCHES = [
+      ["d-mkt", ["t-mkt"]],
+      ["d-ops", ["t-ops", "t-workshop", "t-reading"]],
+      ["d-proj", ["t-pms"]],
+      ["d-fin", ["t-fin"]],
+      ["d-cat", ["t-cat"]],
+      ["d-acc", ["t-mentors"]],
+    ];
+
+    const EXTS = [
+      ["t-pms", "t-pmembers"],
+      ["t-mentors", "t-mentees"],
+    ];
+
+    function draw() {
+      const c = chart.getBoundingClientRect();
+      svg.setAttribute("width", c.width);
+      svg.setAttribute("height", c.height);
+      svg.setAttribute("viewBox", `0 0 ${c.width} ${c.height}`);
+
+      let inner = `
+        <defs>
+          <marker id="org-ah" viewBox="0 0 10 10" refX="9.5" refY="5"
+                  markerWidth="8" markerHeight="8" orient="auto">
+            <path d="M0,0 L10,5 L0,10 Z" fill="#fff"/>
+          </marker>
+        </defs>
+      `;
+
+      // 1) President → VP (VP reports to President)
+      const pres = rect("b-pres");
+      const vp = rect("b-vp");
+      if (pres && vp) {
+        inner += `<path d="M ${pres.cx} ${pres.bottom} L ${vp.cx} ${vp.top}"
+                  stroke="#fff" stroke-width="1.4" fill="none" marker-end="url(#org-ah)" />`;
+      }
+
+      // 2) President + VP → shared trunk → each director.
+      const dirIds = BRANCHES.map((b) => b[0]);
+      const dirRects = dirIds.map(rect).filter(Boolean);
+      if (pres && vp && dirRects.length) {
+        const trunkX = (Math.max(pres.right, vp.right) + dirRects[0].left) / 2;
+        inner += `<path d="M ${pres.right} ${pres.cy} L ${trunkX} ${pres.cy}"
+                  stroke="#fff" stroke-width="1.4" fill="none" />`;
+        inner += `<path d="M ${vp.right} ${vp.cy} L ${trunkX} ${vp.cy}"
+                  stroke="#fff" stroke-width="1.4" fill="none" />`;
+        const ys = [pres.cy, vp.cy, ...dirRects.map((d) => d.cy)];
+        const minY = Math.min(...ys),
+          maxY = Math.max(...ys);
+        inner += `<path d="M ${trunkX} ${minY} L ${trunkX} ${maxY}"
+                  stroke="#fff" stroke-width="1.4" fill="none" />`;
+        for (const d of dirRects) {
+          inner += `<path d="M ${trunkX} ${d.cy} L ${d.left} ${d.cy}"
+                    stroke="#fff" stroke-width="1.4" fill="none" marker-end="url(#org-ah)" />`;
+        }
+      }
+
+      // 3) Director → team(s)
+      for (const [parentId, childIds] of BRANCHES) {
+        const p = rect(parentId);
+        if (!p) continue;
+        const cs = childIds.map(rect).filter(Boolean);
+        if (!cs.length) continue;
+
+        if (cs.length === 1) {
+          inner += `<path d="M ${p.right} ${p.cy} L ${cs[0].left} ${cs[0].cy}"
+                    stroke="#fff" stroke-width="1.4" fill="none" marker-end="url(#org-ah)" />`;
+        } else {
+          const trunkX = (p.right + cs[0].left) / 2;
+          inner += `<path d="M ${p.right} ${p.cy} L ${trunkX} ${p.cy}"
+                    stroke="#fff" stroke-width="1.4" fill="none" />`;
+          const ys = [p.cy, ...cs.map((x) => x.cy)];
+          const minY = Math.min(...ys),
+            maxY = Math.max(...ys);
+          inner += `<path d="M ${trunkX} ${minY} L ${trunkX} ${maxY}"
+                    stroke="#fff" stroke-width="1.4" fill="none" />`;
+          for (const cc of cs) {
+            inner += `<path d="M ${trunkX} ${cc.cy} L ${cc.left} ${cc.cy}"
+                      stroke="#fff" stroke-width="1.4" fill="none" marker-end="url(#org-ah)" />`;
+          }
+        }
+      }
+
+      // 4) Lead → extension
+      for (const [from, to] of EXTS) {
+        const a = rect(from),
+          b = rect(to);
+        if (!a || !b) continue;
+        inner += `<path d="M ${a.right} ${a.cy} L ${b.left} ${b.cy}"
+                  stroke="#fff" stroke-width="1.4" fill="none" marker-end="url(#org-ah)" />`;
+      }
+
+      svg.innerHTML = inner;
+    }
+
+    draw();
+    window.addEventListener("resize", draw);
+    new ResizeObserver(draw).observe(chart);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(draw);
+    setTimeout(draw, 600);
+  })();
+</script>
