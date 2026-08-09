@@ -1,0 +1,200 @@
+---
+// Home-page "What's up at ML@Purdue" carousel.
+// Placeholder slides — swap `image`/copy/links for real promo content.
+// Auto-advances every 5s; also clickable via arrows and dots. Pauses on hover.
+interface Slide {
+  tag: string;
+  title: string;
+  blurb: string;
+  ctaLabel: string;
+  ctaHref: string;
+  gradient: string; // placeholder banner background (until a real image is added)
+}
+
+const slides: Array<Slide> = [
+  {
+    tag: "RECRUITING",
+    title: "Accelerator — Spring Cohort",
+    blurb:
+      "Build a real ML project with mentorship, compute, and a team over one semester.",
+    ctaLabel: "Apply now",
+    ctaHref: "/accelerator",
+    gradient: "from-purple-600 to-pink-500",
+  },
+  {
+    tag: "GET INVOLVED",
+    title: "Join a Project Team",
+    blurb:
+      "Ship hands-on ML across computer vision, NLP, RL, and more alongside fellow students.",
+    ctaLabel: "Browse projects",
+    ctaHref: "/projects",
+    gradient: "from-indigo-600 to-purple-500",
+  },
+  {
+    tag: "WEEKLY",
+    title: "Paper Reading Group",
+    blurb:
+      "Discuss cutting-edge research with the community every week — no experience required.",
+    ctaLabel: "See sessions",
+    ctaHref: "/reading-group",
+    gradient: "from-fuchsia-600 to-purple-600",
+  },
+];
+
+const AUTOPLAY_MS = 5000;
+---
+
+<div
+  class="!mx-0 !block text-left"
+  data-carousel
+  data-interval={AUTOPLAY_MS}
+  aria-roledescription="carousel"
+  aria-label="What's happening at ML@Purdue"
+>
+  <div class="flex items-center gap-2 sm:gap-4">
+    <button
+      type="button"
+      data-carousel-prev
+      aria-label="Previous slide"
+      class="grid h-10 w-10 shrink-0 place-items-center text-white transition hover:!text-secondary"
+    >
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+    </button>
+
+    <div class="relative flex-1 overflow-hidden">
+      <!-- track -->
+      <ul class="flex transition-transform duration-500 ease-out" data-carousel-track>
+      {
+        slides.map((slide, i) => (
+          <li
+            class="min-w-full"
+            role="group"
+            aria-roledescription="slide"
+            aria-label={`${i + 1} of ${slides.length}`}
+          >
+            {/* banner (placeholder image area) */}
+            <div
+              class={`relative grid h-[52vh] min-h-[340px] place-items-center bg-gradient-to-br sm:h-[calc(100vh-15rem)] ${slide.gradient}`}
+            >
+              <span class="absolute left-4 top-4 bg-black/30 px-3 py-1 text-xs font-semibold tracking-wide text-white backdrop-blur">
+                {slide.tag}
+              </span>
+              <span class="px-6 text-center text-2xl font-bold text-white drop-shadow sm:text-3xl">
+                {slide.title}
+              </span>
+            </div>
+            {/* caption + CTA */}
+            <div class="flex flex-col items-start gap-4 pt-5">
+              <p class="text-offset">{slide.blurb}</p>
+              <a
+                href={slide.ctaHref}
+                class="group inline-flex items-center gap-2 font-semibold text-white transition hover:!text-secondary"
+              >
+                {slide.ctaLabel}
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true" class="transition-transform duration-200 group-hover:translate-x-1">
+                  <path
+                    d="M5 12h14M13 6l6 6-6 6"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </a>
+            </div>
+          </li>
+        ))
+      }
+      </ul>
+    </div>
+
+    <button
+      type="button"
+      data-carousel-next
+      aria-label="Next slide"
+      class="grid h-10 w-10 shrink-0 place-items-center text-white transition hover:!text-secondary"
+    >
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- dots -->
+  <div class="flex items-center justify-center gap-2 pb-5" data-carousel-dots>
+    {
+      slides.map((_, i) => (
+        <button
+          type="button"
+          data-carousel-dot={i}
+          aria-label={`Go to slide ${i + 1}`}
+          class="h-2.5 w-2.5 bg-white/40 transition hover:bg-white/70"
+        />
+      ))
+    }
+  </div>
+</div>
+
+<script>
+  const root = document.querySelector<HTMLElement>("[data-carousel]");
+  if (root) {
+    const track = root.querySelector<HTMLElement>("[data-carousel-track]")!;
+    const slides = Array.from(track.children);
+    const dots = Array.from(
+      root.querySelectorAll<HTMLButtonElement>("[data-carousel-dot]")
+    );
+    const interval = Number(root.dataset.interval) || 5000;
+    const count = slides.length;
+    let index = 0;
+    let timer: ReturnType<typeof setInterval> | undefined;
+
+    const render = () => {
+      track.style.transform = `translateX(-${index * 100}%)`;
+      dots.forEach((dot, i) => {
+        const active = i === index;
+        dot.classList.toggle("bg-white", active);
+        dot.classList.toggle("bg-white/40", !active);
+        if (active) dot.setAttribute("aria-current", "true");
+        else dot.removeAttribute("aria-current");
+      });
+    };
+
+    const goTo = (i: number) => {
+      index = (i + count) % count;
+      render();
+    };
+    const next = () => goTo(index + 1);
+    const prev = () => goTo(index - 1);
+
+    const start = () => {
+      stop();
+      timer = setInterval(next, interval);
+    };
+    const stop = () => {
+      if (timer) clearInterval(timer);
+    };
+
+    root.querySelector("[data-carousel-next]")?.addEventListener("click", () => {
+      next();
+      start();
+    });
+    root.querySelector("[data-carousel-prev]")?.addEventListener("click", () => {
+      prev();
+      start();
+    });
+    dots.forEach((dot, i) =>
+      dot.addEventListener("click", () => {
+        goTo(i);
+        start();
+      })
+    );
+
+    root.addEventListener("mouseenter", stop);
+    root.addEventListener("mouseleave", start);
+
+    render();
+    start();
+  }
+</script>
