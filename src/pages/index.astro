@@ -2,12 +2,82 @@
 import "@fontsource/inter/variable.css";
 import Footer from "~/components/footer.astro";
 import Header from "~/components/header.astro";
-import Intro from "~/components/intro.astro";
-import Splash from "~/components/splash.astro";
+import Carousel from "~/components/Carousel.astro";
+import purdueinnovates from "~/assets/sponsor/purdueinnovates.jpg";
+import teconnectivity from "~/assets/sponsor/TE_Connectivity_logo.png";
+import purduecs from "~/assets/sponsor/purduecs.png";
+import janestreet from "~/assets/sponsor/janestreet.png";
+import benevity from "~/assets/sponsor/benevity.png";
 import "~/styles/index.css";
 
 const { site } = Astro;
 const description = "ML@Purdue Website";
+
+// "Join a team" panel — three ways to get involved.
+const joinCards: Array<{
+  title: string;
+  bullets: string[];
+  href: string;
+  cta: string;
+}> = [
+  {
+    title: "Projects",
+    bullets: [
+      "Semester-long, student-led builds",
+      "Develop complex, novel ML systems",
+    ],
+    href: "/projects",
+    cta: "Explore projects",
+  },
+  {
+    title: "Accelerator",
+    bullets: [
+      "Learn the fundamentals from experienced mentors",
+      "Designed for beginner and intermediate students",
+      "Build and present a capstone ML project",
+    ],
+    href: "/accelerator",
+    cta: "Apply now",
+  },
+  {
+    title: "Field Lab",
+    bullets: [
+      "Solve real ML problems for partners",
+      "Work directly with industry clients",
+    ],
+    href: "#",
+    cta: "Work with Companies",
+  },
+];
+
+// Reading Group + Workshops share one screen alongside the events calendar.
+const readingGroup = {
+  title: "Reading Group",
+  blurb: "Weekly discussions of cutting-edge research papers.",
+  href: "/reading-group",
+  cta: "See sessions",
+};
+const workshops = {
+  title: "Workshops",
+  blurb: "Hands-on sessions to build practical ML skills from scratch.",
+  href: "/workshops",
+  cta: "View workshops",
+};
+
+const sponsors: Array<{ src: ImageMetadata; alt: string }> = [
+  { src: purdueinnovates, alt: "Purdue Innovates" },
+  { src: teconnectivity, alt: "TE Connectivity" },
+  { src: purduecs, alt: "Purdue CS Department" },
+  { src: janestreet, alt: "Jane Street" },
+  { src: benevity, alt: "Benevity" },
+];
+
+// Cycle backgrounds: black, white, mlp purple.
+const palette = [
+  { bg: "bg-black", text: "text-white" },
+  { bg: "bg-white", text: "text-black" },
+  { bg: "bg-[#A45DF5]", text: "text-white" },
+];
 ---
 
 <!DOCTYPE html>
@@ -15,7 +85,6 @@ const description = "ML@Purdue Website";
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <!-- <meta name="generator" content={generator} /> -->
 
     <title>ML@Purdue</title>
     <meta name="description" content={description} />
@@ -31,11 +100,150 @@ const description = "ML@Purdue Website";
   <body
     class="h-full overflow-x-hidden bg-default text-default text-base selection:bg-secondary selection:text-white"
   >
-    <Header />
-    <Splash />
-    <div class="space-y-10 px-8 pt-20">
-      <Intro />
-    </div>
+    <Header fixed />
+
+    <!-- Hero: full-width carousel with the wordmark overlaid on the left -->
+    <section class="w-full pt-24 sm:min-h-screen">
+      <div class="relative mx-auto w-[98vw] max-w-[100rem]">
+        <Carousel />
+        <div
+          class="orbitron pointer-events-none absolute left-1/2 top-[44vh] z-20 flex -translate-x-1/2 items-center drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)] sm:left-20 sm:translate-x-0 sm:top-[calc(80vh-11.25rem)]"
+        >
+          <span class="font-bold text-white text-7xl sm:text-9xl">ML</span>
+          <span class="-ml-2 mb-4 self-start text-white text-3xl sm:text-5xl">@</span>
+          <span class="ml-2 font-semibold text-white text-5xl sm:text-7xl">PURDUE</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Join a team: one full screen with three ways to get involved -->
+    <section
+      class={`flex min-h-[calc(100vh-6rem)] w-full items-center ${palette[0].bg} ${palette[0].text}`}
+    >
+      <div class="mx-auto w-[90vw] max-w-6xl">
+        <h2 class="mb-10 font-bold text-5xl sm:text-7xl">Join a team</h2>
+        <div class="grid gap-6 sm:grid-cols-3">
+          {
+            joinCards.map((card) => (
+              <div class="flex flex-col border border-white/25 bg-white/5 p-6 sm:aspect-[4/5]">
+                <h3 class="font-bold text-2xl">{card.title}</h3>
+                <ul class="mt-4 list-disc space-y-2 pl-5 opacity-90">
+                  {card.bullets.map((b) => (
+                    <li>{b}</li>
+                  ))}
+                </ul>
+                <a
+                  href={card.href}
+                  class="group mt-8 inline-flex items-center justify-center gap-2 border-2 border-current px-4 py-2 font-semibold transition hover:border-[#A45DF5] hover:!text-[#A45DF5] sm:mt-auto"
+                >
+                  {card.cta}
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true" class="transition-transform duration-200 group-hover:translate-x-1">
+                    <path
+                      d="M5 12h14M13 6l6 6-6 6"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </a>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- Reading Group + Workshops + events calendar on one screen -->
+    <section
+      class={`flex min-h-[calc(100vh-6rem)] w-full items-center py-[5vw] ${palette[1].bg} ${palette[1].text} sm:py-0`}
+    >
+      <div class="mx-auto w-[90vw] max-w-6xl">
+        <div class="grid gap-6 md:h-[80vh] md:grid-cols-2">
+          <!-- Left: events calendar -->
+        <iframe
+          src="https://lu.ma/embed/calendar/cal-aOhcnJ1PuLTOK9G/events"
+          class="h-[60vh] w-full md:h-full"
+          style="border: 1px solid rgba(0,0,0,0.15);"
+          title="ML@Purdue events calendar"
+          allowfullscreen=""
+          aria-hidden="false"
+          tabindex="0"></iframe>
+
+        <!-- Right: heading + Reading Group + Workshops -->
+        <div class="flex flex-col gap-6">
+          <h2 class="font-bold text-4xl sm:text-6xl">Attend an Event</h2>
+          {
+            [readingGroup, workshops].map((item) => (
+              <div class="flex flex-1 flex-col bg-black p-6 text-white">
+                <h3 class="font-bold text-3xl sm:text-4xl">{item.title}</h3>
+                <p class="mt-3 flex-1 text-lg opacity-90">{item.blurb}</p>
+                <a
+                  href={item.href}
+                  class="group mt-6 inline-flex items-center justify-center gap-2 self-start border-2 border-current px-5 py-2.5 font-semibold transition hover:border-[#A45DF5] hover:!text-[#A45DF5]"
+                >
+                  {item.cta}
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true" class="transition-transform duration-200 group-hover:translate-x-1">
+                    <path
+                      d="M5 12h14M13 6l6 6-6 6"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </a>
+              </div>
+            ))
+          }
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sponsor -->
+    <section
+      class={`flex min-h-[calc(100vh-6rem)] w-full flex-col ${palette[2].bg} ${palette[2].text} sm:flex-row`}
+    >
+      <!-- Left: heading + CTA -->
+      <div class="flex flex-1 items-center py-16 pl-[5vw] pr-8 sm:pl-[max(5vw,calc((100vw-72rem)/2))]">
+        <div class="max-w-2xl">
+          <h2 class="font-bold text-5xl sm:text-7xl">Sponsor</h2>
+          <p class="mt-6 text-xl sm:text-2xl opacity-90">
+            Partner with Purdue's machine learning community.
+          </p>
+          <a
+            href="/sponsor"
+            class="group mt-12 inline-flex items-center gap-3 border-2 border-current px-6 py-3 font-semibold transition hover:!text-current hover:opacity-60"
+          >
+            Get in touch
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" class="transition-transform duration-200 group-hover:translate-x-1">
+              <path
+                d="M5 12h14M13 6l6 6-6 6"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right: white strip with sponsor logos -->
+      <div class="flex w-full flex-col items-center justify-center gap-10 bg-white p-10 sm:mr-16 sm:w-1/3">
+        {
+          sponsors.map((s) => (
+            <img
+              src={s.src.src}
+              alt={s.alt}
+              class="max-h-28 w-3/4 object-contain"
+            />
+          ))
+        }
+      </div>
+    </section>
+
     <Footer />
   </body>
 </html>

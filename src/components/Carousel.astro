@@ -1,0 +1,209 @@
+---
+// Home-page carousel — shows every image in src/carousel/, cropped to fill.
+// Auto-advances every 5s; also clickable via arrows and dots. Pauses on hover.
+import { Image } from "@astrojs/image/components";
+
+const modules = import.meta.glob("../carousel/*.{jpg,jpeg,png,webp}", {
+  eager: true,
+  import: "default",
+});
+const byName = Object.fromEntries(
+  Object.entries(modules).map(([path, img]) => [path.split("/").pop(), img])
+);
+// Explicit slide order — edit/reorder freely (currently filename order).
+const order = [
+  "IMG_1833.jpg",
+  "gpu-workshop2.jpg",
+  "IMG_1850.jpg",
+  "IMG_1840.jpg",
+  "IMG_1854.jpg",
+  "gpu-workshop1.jpg",
+];
+const slides = order.map((name) => byName[name] as ImageMetadata);
+
+const AUTOPLAY_MS = 5000;
+---
+
+<div
+  class="!mx-0 !block text-left"
+  data-carousel
+  data-interval={AUTOPLAY_MS}
+  aria-roledescription="carousel"
+  aria-label="ML@Purdue highlights"
+>
+  <div class="flex items-center gap-2 sm:gap-4">
+    <button
+      type="button"
+      data-carousel-prev
+      aria-label="Previous slide"
+      class="grid h-10 w-10 shrink-0 place-items-center text-white transition hover:!text-secondary"
+    >
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+    </button>
+
+    <div class="relative flex-1 overflow-hidden">
+      <!-- track -->
+      <ul class="flex transition-transform duration-500 ease-out" data-carousel-track>
+        {
+          slides.map((img, i) => (
+            <li
+              class="min-w-full"
+              role="group"
+              aria-roledescription="slide"
+              aria-label={`${i + 1} of ${slides.length}`}
+            >
+              <Image
+                src={img}
+                alt=""
+                width={1600}
+                format="webp"
+                quality={70}
+                class="h-[52vh] min-h-[340px] w-full object-cover sm:h-[calc(100vh-8rem)]"
+              />
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <button
+      type="button"
+      data-carousel-next
+      aria-label="Next slide"
+      class="grid h-10 w-10 shrink-0 place-items-center text-white transition hover:!text-secondary"
+    >
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- dots -->
+  <div class="flex items-center justify-center gap-2 pb-5 pt-4" data-carousel-dots>
+    {
+      slides.map((_, i) => (
+        <button
+          type="button"
+          data-carousel-dot={i}
+          aria-label={`Go to slide ${i + 1}`}
+          class="h-2.5 w-2.5 bg-white/40 transition hover:bg-white/70"
+        />
+      ))
+    }
+  </div>
+</div>
+
+<script>
+  const root = document.querySelector<HTMLElement>("[data-carousel]");
+  if (root) {
+    const track = root.querySelector<HTMLElement>("[data-carousel-track]")!;
+    const dots = Array.from(
+      root.querySelectorAll<HTMLButtonElement>("[data-carousel-dot]")
+    );
+    const interval = Number(root.dataset.interval) || 5000;
+    const originals = Array.from(track.children) as HTMLElement[];
+    const n = originals.length;
+    let timer: ReturnType<typeof setInterval> | undefined;
+    let pos = 0;
+    let animating = false;
+
+    // Clone the last & first slides so wrapping keeps moving in the same
+    // direction, then snaps back invisibly (seamless infinite loop).
+    if (n > 1) {
+      const firstClone = originals[0].cloneNode(true) as HTMLElement;
+      const lastClone = originals[n - 1].cloneNode(true) as HTMLElement;
+      firstClone.setAttribute("aria-hidden", "true");
+      lastClone.setAttribute("aria-hidden", "true");
+      track.insertBefore(lastClone, originals[0]);
+      track.appendChild(firstClone);
+      pos = 1; // start on the real first slide (index 0 is the leading clone)
+    }
+
+    const setTransition = (on: boolean) => {
+      track.style.transition = on ? "" : "none";
+    };
+    const move = () => {
+      track.style.transform = `translateX(-${pos * 100}%)`;
+    };
+    const syncDots = () => {
+      const real = n > 1 ? (pos - 1 + n) % n : pos;
+      dots.forEach((dot, i) => {
+        const active = i === real;
+        dot.classList.toggle("bg-white", active);
+        dot.classList.toggle("bg-white/40", !active);
+        if (active) dot.setAttribute("aria-current", "true");
+        else dot.removeAttribute("aria-current");
+      });
+    };
+
+    const step = (delta: number) => {
+      if (animating || n <= 1) return;
+      animating = true;
+      pos += delta;
+      setTransition(true);
+      move();
+      syncDots();
+    };
+    const next = () => step(1);
+    const prev = () => step(-1);
+    const goTo = (real: number) => {
+      if (animating || n <= 1 || real + 1 === pos) return;
+      animating = true;
+      pos = real + 1;
+      setTransition(true);
+      move();
+      syncDots();
+    };
+
+    track.addEventListener("transitionend", (e) => {
+      if (e.target !== track) return;
+      // Jump across the clone boundaries without animating.
+      if (pos === n + 1) {
+        setTransition(false);
+        pos = 1;
+        move();
+      } else if (pos === 0) {
+        setTransition(false);
+        pos = n;
+        move();
+      }
+      animating = false;
+    });
+
+    const stop = () => {
+      if (timer) clearInterval(timer);
+    };
+    const start = () => {
+      stop();
+      if (n > 1) timer = setInterval(next, interval);
+    };
+
+    root.querySelector("[data-carousel-next]")?.addEventListener("click", () => {
+      next();
+      start();
+    });
+    root.querySelector("[data-carousel-prev]")?.addEventListener("click", () => {
+      prev();
+      start();
+    });
+    dots.forEach((dot, i) =>
+      dot.addEventListener("click", () => {
+        goTo(i);
+        start();
+      })
+    );
+
+    root.addEventListener("mouseenter", stop);
+    root.addEventListener("mouseleave", start);
+
+    // Position without animating on first paint.
+    setTransition(false);
+    move();
+    void track.offsetHeight;
+    setTransition(true);
+    syncDots();
+    start();
+  }
+</script>
