@@ -8,30 +8,28 @@ export interface Props {
   fixed?: boolean;
 }
 const navItems: Array<NavItem> = [
-  { title: "About", url: "/about" },
   {
-    title: "Projects",
-    url: "/projects",
+    title: "Join A Team",
+    sublinks: [
+      { title: "Projects", url: "/projects" },
+      { title: "Accelerator", url: "/accelerator" },
+      { title: "Field Lab", url: "/field-lab" },
+    ],
   },
   {
-    title: "Reading Group",
-    url: "/reading-group",
+    title: "Attend An Event",
+    sublinks: [
+      { title: "Reading Group", url: "/reading-group" },
+      { title: "Workshops", url: "/workshops" },
+    ],
   },
+  { title: "Sponsor", url: "/sponsor" },
   {
-    title: "Workshops",
-    url: "/workshops",
-  },
-  {
-    title: "Accelerator",
-    url: "/accelerator",
-  },
-  {
-    title: "Sponsor",
-    url: "/sponsor",
-  },
-  {
-    title: "Catapult",
-    url: "https://catapulthack.com/",
+    title: "More",
+    sublinks: [
+      { title: "About", url: "/about" },
+      { title: "Catapult", url: "https://catapulthack.com/" },
+    ],
   },
 ];
 const { fixed } = Astro.props;
@@ -52,20 +50,18 @@ const { fixed } = Astro.props;
       <nav class="hidden sm:block">
         <ul class="flex items-center gap-6">
           {
-            navItems.map(({ title, url, sublinks }) => (
-              <li class="relative">
+            navItems.map(({ title, url, sublinks }, i) => (
+              <li class={`relative ${i === navItems.length - 1 ? "sm:mr-12" : ""}`}>
                 {(sublinks?.length || 0) > 0 ? (
                   <>
                     <button class="hover-button flex items-center justify-center gap-2 font-bold text-sm">
                       {title}
                       <svg
-                        height="16"
-                        width="16"
+                        height="14"
+                        width="14"
                         fill="none"
                         viewBox="0 0 24 24"
-                        stroke="light"
-                        height="8rem"
-                        width="8rem"
+                        stroke="currentColor"
                       >
                         <path
                           stroke-linecap="round"
@@ -77,11 +73,13 @@ const { fixed } = Astro.props;
                     </button>
                     <ul
                       data-hover-link-container
-                      class="pointer-events-none  absolute flex w-max min-w-[100px]
-                     flex-col border-2  border-solid border-[white] bg-[var(--color-background)] p-2 opacity-0 transition-opacity text-sm"
+                      class="pointer-events-none absolute flex w-max min-w-[140px]
+                     flex-col bg-[#1a1a1a] p-2 opacity-0 text-sm shadow-xl shadow-black/40"
                     >
                       {sublinks?.map((x) => (
-                        <a href={x.url}>{x.title}</a>
+                        <a class="block whitespace-nowrap px-3 py-2 font-semibold hover:text-secondary" href={x.url}>
+                          {x.title}
+                        </a>
                       ))}
                     </ul>
                   </>
@@ -244,6 +242,9 @@ const { fixed } = Astro.props;
     left: 0;
     z-index: 100;
     top: 100%;
+    transform-origin: top center;
+    transform: scaleY(0);
+    transition: opacity 200ms ease, transform 200ms ease;
   }
 
   ul:hover,
@@ -252,6 +253,7 @@ const { fixed } = Astro.props;
   .hover-button:hover + ul {
     opacity: 1;
     pointer-events: all;
+    transform: scaleY(1);
   }
 
   header.fixed-header[data-fixed="1"] {

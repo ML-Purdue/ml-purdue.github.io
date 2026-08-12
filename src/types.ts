@@ -36,6 +36,7 @@ export interface WorkshopItem {
   topic: string,
   leading: string,
   status: string,
+  tags?: Array<string>,
 }
 
 export interface RGItem {
@@ -45,6 +46,8 @@ export interface RGItem {
   status: string,
   room?: string,
   domain: Array<string>,
+  video?: string,
+  slides?: string,
   extra?: string,
 }
 

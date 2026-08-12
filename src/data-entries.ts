@@ -2,6 +2,70 @@ import { RGItem } from "./types";
 import { WorkshopItem } from "~/types";
 import { ProjectItem } from "./types";
 
+// ---------------------------------------------------------------------------
+// Shared ML/AI tag vocabulary + normalization for the searchable archives.
+// Maps assorted raw `domain` labels onto a canonical vocabulary and expands
+// with high-confidence tags inferred from the title. Reusable across pages.
+// ---------------------------------------------------------------------------
+const TAG_ALIASES: Record<string, string> = {
+  theory: "Theory",
+  optimization: "Optimization",
+  optimizers: "Optimization",
+  nlp: "NLP",
+  rl: "Reinforcement Learning",
+  "reinforcement learning": "Reinforcement Learning",
+  cv: "Computer Vision",
+  vision: "Computer Vision",
+  rendering: "Computer Vision",
+  "3d": "Computer Vision",
+  "applied ai": "Applied AI",
+  llm: "LLMs",
+  "generative models": "Generative AI",
+  interpretability: "Interpretability",
+  intrepretability: "Interpretability",
+  "graph learning": "Graph ML",
+  engineering: "Systems/GPU",
+  hardware: "Systems/GPU",
+  deployment: "Systems/GPU",
+  robustness: "Robustness",
+  "ood generalization": "Robustness",
+  pl: "Theory",
+  safety: "Safety",
+  robotics: "Robotics",
+};
+
+const TAG_KEYWORDS: Array<[RegExp, string]> = [
+  [/transformer|attention|\brope\b|\bbert\b|titans/i, "Transformers"],
+  [/diffusion|ddpm|ddim/i, "Diffusion"],
+  [/\bllm|deepseek|language model|reasoning|byte latent/i, "LLMs"],
+  [/lora|fine-?tun|peft|parameter-efficient/i, "Fine-Tuning"],
+  [/\brag\b|retrieval/i, "RAG"],
+  [/\bgraph\b/i, "Graph ML"],
+  [/robot|openvla|\bvla\b/i, "Robotics"],
+  [/\bgpu\b|slurm|\bhpc\b|tensor streaming|inference|zero:/i, "Systems/GPU"],
+  [/gaussian sp|\bnerf\b|\bocr\b|vision transformer/i, "Computer Vision"],
+  [/monosemantic|sparse autoencoder|circuits|neural collapse|steering vector/i, "Interpretability"],
+];
+
+/**
+ * Normalize raw tags to the canonical vocabulary and expand with tags inferred
+ * from `text` (usually the item's title). Order-preserving, de-duplicated.
+ */
+export function canonicalizeTags(
+  rawTags: Array<string> = [],
+  text = ""
+): Array<string> {
+  const out = new Set<string>();
+  for (const t of rawTags) {
+    const key = t.trim().toLowerCase();
+    out.add(TAG_ALIASES[key] ?? t.trim());
+  }
+  for (const [re, tag] of TAG_KEYWORDS) {
+    if (re.test(text)) out.add(tag);
+  }
+  return Array.from(out);
+}
+
 // PROJECTS
 export const projectItems: Array<ProjectItem> = [
   // OPEN PROJECTS
@@ -107,78 +171,91 @@ export const workshopItems: Array<WorkshopItem> = [
   {
     date: "February 15, 2026",
     topic: "ML From Scratch",
+    tags: ["Deep Learning", "Theory"],
     leading: "Christine Xu",
     status: "completed",
   },
   {
     date: "November 9, 2025",
     topic: "Intro to GPU Programming",
+    tags: ["Systems/GPU"],
     leading: "Pranav Jadhav",
     status: "completed",
   },
   {
     date: "October 5, 2025",
     topic: "Building a Fullstack RAG Application",
+    tags: ["RAG", "LLMs", "Applied AI"],
     leading: "Pranav Jadhav (in collaboration with Purdue Stack)",
     status: "completed",
   },
   {
     date: "March 3, 2025",
     topic: "Diffusion Model from Scratch",
+    tags: ["Diffusion", "Generative AI"],
     leading: "Harmya Bhatt",
     status: "completed",
   },
   {
     date: "February 2, 2025",
     topic: "Neural Network from Scratch with NumPy",
+    tags: ["Deep Learning", "Theory"],
     leading: "Pranav Jadhav",
     status: "completed",
   },
   {
     date: "October 19, 2024",
     topic: "Intro to CNNs",
+    tags: ["Computer Vision", "Deep Learning"],
     leading: "Harmya Bhatt",
     status: "completed",
   },
   {
     date: "September 30, 2024",
     topic: "Machine Learning Workshop",
+    tags: ["Deep Learning"],
     leading: "Harmya Bhatt in collaboration with Purdue MIND",
     status: "completed",
   },
   {
     date: "September 12, 2024",
     topic: "Intro to Neural Networks with PyTorch",
+    tags: ["Deep Learning"],
     leading: "Harmya Bhatt",
     status: "completed",
   },
   {
     date: "April 7, 2024",
     topic: "BERT",
+    tags: ["NLP", "Transformers"],
     leading: "Brian S",
     status: "completed",
   },
   {
     date: "March 24, 2024",
     topic: "Transformer Architecture",
+    tags: ["Transformers", "NLP"],
     leading: "Harmya Bhatt",
     status: "completed",
   },
   {
     date: "March 3, 2024",
     topic: "Large-Scale Training on HPC (SLURM)",
+    tags: ["Systems/GPU"],
     leading: "Jinen Setpal",
     status: "completed",
   },
   {
     date: "February 20, 2024",
     topic: "CNNs and Transfer Learning",
+    tags: ["Computer Vision", "Deep Learning"],
     leading: "candysha",
     status: "completed",
   },
   {
     date: "February 4, 2024",
     topic: "Building a Basic Neural Network",
+    tags: ["Deep Learning"],
     leading: "Sagar Patil",
     status: "completed",
   },

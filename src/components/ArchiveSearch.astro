@@ -1,0 +1,105 @@
+---
+// Reusable searchable archive shell (used by Workshops & Reading Group; can be
+// adopted by Projects/Events later). Renders a search box + tag chips and
+// filters the slotted items client-side.
+//
+// Each slotted item MUST carry:
+//   data-archive-item
+//   data-title  = item title, lowercased
+//   data-tags   = item tags, lowercased, joined with "|"
+//
+// Styled for a LIGHT (white) panel.
+export interface Props {
+  tags?: Array<string>;
+  placeholder?: string;
+}
+const { tags = [], placeholder = "Search by title or tag…" } = Astro.props;
+---
+
+<div data-archive>
+  <div class="flex flex-col gap-4">
+    <input
+      type="text"
+      data-archive-input
+      placeholder={placeholder}
+      aria-label="Search"
+      class="w-full border-2 border-black/15 bg-transparent px-4 py-3 text-black outline-none transition placeholder:text-black/40 focus:border-[#A45DF5]"
+    />
+
+    {
+      tags.length > 0 && (
+        <div class="flex flex-wrap gap-2">
+          {tags.map((t) => (
+            <button
+              type="button"
+              data-tag-chip={t}
+              class="chip border border-black/20 px-3 py-1 text-sm font-semibold transition hover:border-[#A45DF5]"
+            >
+              {t}
+            </button>
+          ))}
+        </div>
+      )
+    }
+  </div>
+
+  <div class="mt-8">
+    <slot />
+    <p data-archive-empty class="hidden py-10 text-center text-lg opacity-60">
+      No results. Try a different search or tag.
+    </p>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>("[data-archive]").forEach((root) => {
+    const input = root.querySelector<HTMLInputElement>("[data-archive-input]");
+    const chips = Array.from(
+      root.querySelectorAll<HTMLButtonElement>("[data-tag-chip]")
+    );
+    const items = Array.from(
+      root.querySelectorAll<HTMLElement>("[data-archive-item]")
+    );
+    const empty = root.querySelector<HTMLElement>("[data-archive-empty]");
+    const active = new Set<string>();
+
+    const apply = () => {
+      const q = (input?.value || "").trim().toLowerCase();
+      let visible = 0;
+      items.forEach((el) => {
+        const title = el.getAttribute("data-title") || "";
+        const tags = (el.getAttribute("data-tags") || "")
+          .split("|")
+          .filter(Boolean);
+        const textMatch =
+          !q || title.includes(q) || tags.some((t) => t.includes(q));
+        const chipMatch = active.size === 0 || tags.some((t) => active.has(t));
+        const show = textMatch && chipMatch;
+        el.classList.toggle("hidden", !show);
+        if (show) visible++;
+      });
+      empty?.classList.toggle("hidden", visible !== 0);
+    };
+
+    input?.addEventListener("input", apply);
+    chips.forEach((chip) => {
+      chip.addEventListener("click", () => {
+        const tag = (chip.dataset.tagChip || "").toLowerCase();
+        if (active.has(tag)) active.delete(tag);
+        else active.add(tag);
+        chip.classList.toggle("chip-active", active.has(tag));
+        apply();
+      });
+    });
+
+    apply();
+  });
+</script>
+
+<style>
+  .chip-active {
+    background: #a45df5;
+    border-color: #a45df5;
+    color: #fff;
+  }
+</style>
