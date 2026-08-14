@@ -3,19 +3,26 @@ import "@fontsource/inter/variable.css";
 import Footer from "~/components/footer.astro";
 import Header from "~/components/header.astro";
 import "~/styles/index.css";
-import ContentSection from "~/components/content-section.astro";
 
-import dagshub from "~/assets/sponsor/dagshub.png";
-import janestreet from "~/assets/sponsor/janestreet.png";
-import uniformsierra from "~/assets/sponsor/uniformsierra.png";
 import teconnectivity from "~/assets/sponsor/TE_Connectivity_logo.png";
-import numerade from "~/assets/sponsor/numerade.png";
 import purduecs from "~/assets/sponsor/purduecs.png";
 import purdueinnovates from "~/assets/sponsor/purdueinnovates.jpg";
+import janestreet from "~/assets/sponsor/janestreet.png";
 import benevity from "~/assets/sponsor/benevity.png";
 
 const { site } = Astro;
 const description = "ML@Purdue Sponsorship";
+
+const PACKET_URL = "/ML@P_Sponsorship_Packet.pdf";
+const CONTACT_EMAIL = "mailto:mlp@purdue.edu";
+
+const sponsors: Array<{ src: ImageMetadata; alt: string; imgClass?: string }> = [
+  { src: purdueinnovates, alt: "Purdue Innovates", imgClass: "scale-110" },
+  { src: teconnectivity, alt: "TE Connectivity" },
+  { src: purduecs, alt: "Purdue CS Department" },
+  { src: janestreet, alt: "Jane Street", imgClass: "scale-90" },
+  { src: benevity, alt: "Benevity", imgClass: "scale-110" },
+];
 ---
 
 <!DOCTYPE html>
@@ -23,12 +30,8 @@ const description = "ML@Purdue Sponsorship";
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <!-- <meta name="generator" content={generator} /> -->
-
     <title>ML@Purdue - Sponsorship</title>
     <meta name="description" content={description} />
-
-    <!-- social media -->
     <meta property="og:title" content="ML@Purdue" />
     <meta property="og:type" content="website" />
     <meta property="og:description" content={description} />
@@ -36,109 +39,105 @@ const description = "ML@Purdue Sponsorship";
     <meta property="og:url" content={site} />
     <meta name="twitter:card" content="summary_large_image" />
   </head>
+
   <body
     class="h-full overflow-x-hidden bg-default text-default text-base selection:bg-secondary selection:text-white"
   >
     <Header fixed />
-    <br />
-    <article class="pt-10 mt-11 w-[90vw] max-w-[80ch]">
-      <ContentSection id="sponsors-title" title="SPONSORS">
-        <div
-          class="flex w-screen border-y-[1px] -mt-6 border-purple-500 pl-8 py-6"
+
+    <!-- Hero -->
+    <section class="w-full bg-black pt-28 pb-20 text-white">
+      <div class="mx-auto w-[90vw] max-w-6xl">
+        <h2 class="orbitron font-bold text-6xl sm:text-8xl">Sponsor</h2>
+        <p class="mt-6 max-w-2xl text-base opacity-90 sm:text-lg">
+          We're grateful to the organizations powering Purdue's premier machine learning
+          community.
+        </p>
+
+        <a
+          href={CONTACT_EMAIL}
+          class="group mt-10 inline-flex items-center gap-3 bg-[#A45DF5] px-8 py-4 text-lg font-semibold text-white transition hover:opacity-90 hover:!text-white"
         >
-          <p class="max-w-[75%] text-start text-sm">
-            We thank all of our sponsors for supporting us and helping us achieve
-            our mission! To learn more about who we are, our mission, and our
-            sponsorship tiers, please view our 
-            <a href="/ML@P Sponsorship Packet.pdf" target="_blank" class="font-black">
-              sponsorship packet
-            </a>.
+          Contact Us
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true" class="transition-transform duration-200 group-hover:translate-x-1">
+            <path
+              d="M5 12h14M13 6l6 6-6 6"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- Why sponsor us + sponsors -->
+    <section class="w-full bg-white py-20 text-black">
+      <div class="mx-auto grid w-[90vw] max-w-6xl gap-12 md:grid-cols-[1.5fr_1fr]">
+        <!-- Left: copy -->
+        <div>
+          <h2 class="font-bold text-4xl sm:text-6xl">Why Sponsor Us?</h2>
+          <div class="mt-8 space-y-6 text-base opacity-90 sm:text-lg">
+            <p>
+              Sponsoring ML@P provides direct access to Purdue's top ML and AI talent across all
+              academic levels. As the university's premier ML organization, we offer high-impact
+              recruiting exposure and brand visibility among the country's most technically
+              skilled students.
+            </p>
+            <p>
+              Through our strong campus presence, industry events, and digital reach, we help you
+              build brand loyalty among future innovators and early adopters. Your sponsorship
+              enables our competitive teams' travel, funds hackathon prizes that drive
+              participation, and supports community-building merchandise and projects.
+            </p>
+          </div>
+
+          <h3 class="mt-12 font-bold text-2xl sm:text-3xl">In-kind contributions</h3>
+          <p class="mt-4 text-base opacity-90 sm:text-lg">
+            As a valued sponsor, you can support us through funding, server access, cloud
+            credits, or other in-kind contributions. We're also open to exploring collaborative
+            opportunities on business challenges.
           </p>
+
+          <p class="mt-10 text-xl font-semibold text-[#A45DF5] sm:text-2xl">
+            Supporting ML@P is a strategic investment in the next generation of ML leaders.
+          </p>
+
+          <a
+            href={CONTACT_EMAIL}
+            class="group mt-10 inline-flex items-center gap-3 bg-[#A45DF5] px-8 py-4 text-lg font-semibold text-white transition hover:opacity-90 hover:!text-white"
+          >
+            Become a sponsor
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true" class="transition-transform duration-200 group-hover:translate-x-1">
+              <path
+                d="M5 12h14M13 6l6 6-6 6"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </a>
         </div>
 
-        <div class="flex w-screen border-b-[1px] border-purple-500 h-[32vh]">
-          <div class="flex flex-col justify-between items-end border-r-[1px] h-[34vh] w-[26vw] -mt-4 text-right border-purple-500 p-4">
-            <h1 class="sponsor-t4 orbitron text-xl">
-              TIER <span class="font-bold text-4xl">4</span>
-            </h1>
-            <h2 class="sponsor-t4 text-sm font-semibold leading-tight mb-2">ML@P Maestro</h2>
-          </div>
-          <div class="ml-3 flex flex-col sm:flex-row">
-            <img 
-              src={purdueinnovates.src} 
-              alt="Purdue Innovates" 
-              class="w-[60vw] sm:w-[35vw] pl-4 md:pl-10 mb-4 rounded-md object-contain" 
-            />
-          </div>
+        <!-- Right: sponsor logos, single column down the page -->
+        <div class="flex flex-col gap-10 self-start">
+          {
+            sponsors.map((s) => (
+              <div class="flex h-28 items-center justify-center">
+                <img
+                  src={s.src.src}
+                  alt={s.alt}
+                  class={`max-h-full max-w-full object-contain ${s.imgClass ?? ""}`}
+                />
+              </div>
+            ))
+          }
         </div>
+      </div>
+    </section>
 
-        <div class="flex w-screen border-b-[1px] border-purple-500 h-[32vh]">
-          <div class="flex flex-col justify-between items-end border-r-[1px] h-[34vh] w-[26vw] -mt-4 text-right border-purple-500 p-4">
-            <h1 class="sponsor-t3 orbitron text-xl">
-              TIER <span class="font-bold text-4xl">3</span>
-            </h1>
-            <h2 class="sponsor-t3 text-sm  font-semibold leading-tight mb-2">Neural Network Ninja</h2>
-          </div>
-        </div>
-
-        <div class="flex w-screen border-b-[1px] border-purple-500 h-[32vh]">
-          <div class="flex flex-col justify-between items-end border-r-[1px] h-[34vh] w-[26vw] -mt-4 text-right border-purple-500 p-4">
-            <h1 class="sponsor-t2 orbitron text-xl">
-              TIER <span class="font-bold text-4xl">2</span>
-            </h1>
-            <h2 class="sponsor-t2 text-sm font-semibold leading-tight mb-2">SVM Sorcerer</h2>
-          </div>
-          <div class="flex flex-row">
-            <img 
-              src={teconnectivity.src} 
-              alt="TE Connectivity" 
-              class="w-[43vw] sm:w-[23vw] ml-4 md:ml-10 rounded-md object-contain" 
-            />
-            <img 
-              src={purduecs.src} 
-              alt="Purdue CS Department" 
-              class="w-[20vw] sm:w-[23vw] ml-4 md:ml-10 mb-4 rounded-md object-contain" 
-            />
-          </div>
-        </div>
-
-        <div class="flex w-screen border-b-[1px] border-purple-500 h-[32vh]">
-          <div class="flex flex-col justify-between items-end border-r-[1px] h-[34vh] w-[26vw] -mt-4 text-right border-purple-500 p-4">
-            <h1 class="sponsor-t1 orbitron text-xl">
-              TIER <span class="font-bold text-4xl">1</span>
-            </h1>
-            <h2 class="sponsor-t1 text-sm font-semibold leading-tight mb-2">Perceptron Pro</h2>
-          </div>
-          <div class="flex flex-col sm:flex-row">
-            <img
-              src={janestreet.src}
-              alt="Jane Street"
-              class="w-[43vw] sm:w-[23vw] ml-4 md:ml-10 rounded-md object-contain"
-              style="filter:invert(1)"
-            />
-          </div>
-        </div>
-
-        <div class="flex w-screen border-b-[1px] border-purple-500 h-[32vh]">
-          <div class="flex flex-col justify-between items-end border-r-[1px] h-[34vh] w-[26vw] -mt-4 text-right border-purple-500 p-4">
-            <h1 class="gen-donation orbitron text-xl">
-              
-            </h1>
-            <h2 class="gen-donation text-sm font-semibold leading-tight mb-2">Generous Donations</h2>
-          </div>
-          <div class="flex flex-col sm:flex-row">
-            <img 
-              src={benevity.src} 
-              alt="Benevity" 
-              class="ml-10 w-[43vw] sm:w-[23vw] rounded-md object-contain" 
-            />
-          </div>
-        </div>
-
-        <br />
-      </ContentSection>
-    </article>
-    
     <Footer />
   </body>
 </html>

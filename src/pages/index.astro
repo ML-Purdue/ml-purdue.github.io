@@ -8,6 +8,7 @@ import teconnectivity from "~/assets/sponsor/TE_Connectivity_logo.png";
 import purduecs from "~/assets/sponsor/purduecs.png";
 import janestreet from "~/assets/sponsor/janestreet.png";
 import benevity from "~/assets/sponsor/benevity.png";
+import { FIELD_LAB_ENABLED } from "~/config";
 import "~/styles/index.css";
 
 const { site } = Astro;
@@ -17,8 +18,9 @@ const description = "ML@Purdue Website";
 const joinCards: Array<{
   title: string;
   bullets: string[];
-  href: string;
+  href?: string;
   cta: string;
+  disabled?: boolean;
 }> = [
   {
     title: "Projects",
@@ -45,8 +47,9 @@ const joinCards: Array<{
       "Solve real ML problems for partners",
       "Work directly with industry clients",
     ],
-    href: "/field-lab",
-    cta: "Work with Companies",
+    href: FIELD_LAB_ENABLED ? "/field-lab" : undefined,
+    cta: FIELD_LAB_ENABLED ? "Work with Companies" : "Coming soon",
+    disabled: !FIELD_LAB_ENABLED,
   },
 ];
 
@@ -132,21 +135,27 @@ const palette = [
                     <li>{b}</li>
                   ))}
                 </ul>
-                <a
-                  href={card.href}
-                  class="group mt-8 inline-flex items-center justify-center gap-2 border-2 border-current px-4 py-2 font-semibold transition hover:border-[#A45DF5] hover:!text-[#A45DF5] sm:mt-auto"
-                >
-                  {card.cta}
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true" class="transition-transform duration-200 group-hover:translate-x-1">
-                    <path
-                      d="M5 12h14M13 6l6 6-6 6"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                </a>
+                {card.disabled ? (
+                  <span class="mt-8 inline-flex items-center justify-center gap-2 border-2 border-white/25 px-4 py-2 font-semibold text-white/50 sm:mt-auto">
+                    {card.cta}
+                  </span>
+                ) : (
+                  <a
+                    href={card.href}
+                    class="group mt-8 inline-flex items-center justify-center gap-2 border-2 border-current px-4 py-2 font-semibold transition hover:border-[#A45DF5] hover:!text-[#A45DF5] sm:mt-auto"
+                  >
+                    {card.cta}
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true" class="transition-transform duration-200 group-hover:translate-x-1">
+                      <path
+                        d="M5 12h14M13 6l6 6-6 6"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </a>
+                )}
               </div>
             ))
           }
