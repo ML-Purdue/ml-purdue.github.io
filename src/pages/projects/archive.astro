@@ -1,0 +1,102 @@
+---
+import "@fontsource/inter/variable.css";
+import { getCollection } from "astro:content";
+import Footer from "~/components/footer.astro";
+import Header from "~/components/header.astro";
+import ArchiveSearch from "~/components/ArchiveSearch.astro";
+import ProjectCard from "~/components/ProjectCard.astro";
+import "~/styles/index.css";
+import { groupByEndYear } from "~/lib/projects";
+
+const { site } = Astro;
+const description = "Every project ML@Purdue has run, going back to 2023.";
+
+const archived = (await getCollection("projects")).filter(
+  (p) => !p.data.draft && p.data.status === "archived"
+);
+const groups = groupByEndYear(archived);
+const tags = [...new Set(archived.flatMap((p) => p.data.domain))].sort();
+const approximateCount = archived.filter((p) => p.data.dateApproximate).length;
+---
+
+<!DOCTYPE html>
+<html lang="en" class="h-full motion-safe:scroll-smooth" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>ML@Purdue - Project Archive</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content="ML@Purdue - Project Archive" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/social.png" />
+    <meta property="og:url" content={site} />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+
+  <body
+    class="h-full overflow-x-hidden bg-default text-default text-base selection:bg-secondary selection:text-white"
+  >
+    <Header fixed />
+
+    <!-- Hero -->
+    <section class="w-full bg-black pt-28 pb-20 text-white">
+      <div class="mx-auto w-[90vw] max-w-6xl">
+        <a
+          href="/projects"
+          class="font-semibold opacity-70 transition text-sm hover:!text-[#A45DF5] hover:opacity-100"
+        >
+          ← Back to current projects
+        </a>
+        <h2 class="orbitron mt-4 font-bold text-5xl sm:text-7xl">
+          Project Archive
+        </h2>
+        <p class="mt-6 opacity-90 text-base sm:text-lg">
+          Every project ML@Purdue has run, grouped by the year it wrapped up.
+          {archived.length} projects; each one keeps its full write-up, the team
+          behind it, and whatever it shipped.
+        </p>
+      </div>
+    </section>
+
+    <!-- Archive -->
+    <section class="w-full bg-white py-20 text-black">
+      <div class="mx-auto w-[90vw] max-w-6xl">
+        <ArchiveSearch
+          groups={[{ label: "Topic", tags }]}
+          placeholder="Search by project, lead, or tag…"
+        >
+          <div class="flex flex-col gap-14">
+            {
+              groups.map(({ year, projects }) => (
+                <div>
+                  <h3 class="mb-6 border-b-2 border-black/10 pb-2 font-bold text-3xl">
+                    {year}
+                  </h3>
+                  <div class="grid gap-4 sm:grid-cols-2">
+                    {projects.map((project) => (
+                      <ProjectCard project={project} />
+                    ))}
+                  </div>
+                </div>
+              ))
+            }
+          </div>
+        </ArchiveSearch>
+
+        {
+          approximateCount > 0 && (
+            <p class="mt-14 border-t border-black/10 pt-6 opacity-60 text-sm">
+              Dates marked "circa" are approximate; {approximateCount} of these
+              projects predate our record-keeping, and their dates are inferred.
+              If you ran one of them and know the real semesters, let an officer
+              know and we'll correct it.
+            </p>
+          )
+        }
+      </div>
+    </section>
+
+    <Footer />
+  </body>
+</html>

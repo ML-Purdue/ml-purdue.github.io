@@ -1,0 +1,302 @@
+---
+import "@fontsource/inter/variable.css";
+import { getCollection } from "astro:content";
+import Footer from "~/components/footer.astro";
+import Header from "~/components/header.astro";
+import ArchiveSearch from "~/components/ArchiveSearch.astro";
+import ProjectCard from "~/components/ProjectCard.astro";
+import "~/styles/index.css";
+import {
+  INTAKE_LABELS,
+  PM_APPLICATION_URL,
+  findStaleProjects,
+  sortByRecency,
+} from "~/lib/projects";
+
+const { site } = Astro;
+const description = "ML@Purdue Website";
+
+const D2L_URL = "https://d2l.ai/";
+
+const all = (await getCollection("projects")).filter((p) => !p.data.draft);
+const active = sortByRecency(all.filter((p) => p.data.status === "active"));
+const archivedCount = all.length - active.length;
+
+// Guard against the projects page silently going stale, the way it did when
+// every entry's end date passed while the page still called them current.
+for (const project of findStaleProjects(all)) {
+  console.warn(
+    `[projects] "${project.data.name}" is still marked active but ended in ` +
+      `${project.data.endTerm}. Set status: archived, or clear endTerm.`
+  );
+}
+
+// One achievement per line rather than joined with separators.
+const highlights = [
+  {
+    title: "TE AI Cup",
+    achievements: [
+      "1st National / 2nd Global (2024 & 2026)",
+      "2nd National / 3rd Global (2025)",
+    ],
+  },
+  {
+    title: "RoBoat",
+    achievements: ["2nd Overall Grand Champion", "AIMM ICC Competition"],
+  },
+  {
+    title: "InboxPilot",
+    achievements: ["4,000+ emails processed", "100+ auto-generated drafts"],
+  },
+];
+
+const projectTags = [...new Set(active.flatMap((p) => p.data.domain))].sort();
+// All three intake states are always offered, even when nothing currently
+// matches — the filter row doubles as a legend for what the card chips mean.
+const intakeTags = Object.values(INTAKE_LABELS);
+---
+
+<!DOCTYPE html>
+<html lang="en" class="h-full motion-safe:scroll-smooth" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>ML@Purdue - Projects</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content="ML@Purdue" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/social.png" />
+    <meta property="og:url" content={site} />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+
+  <body
+    class="h-full overflow-x-hidden bg-default text-default text-base selection:bg-secondary selection:text-white"
+  >
+    <Header fixed />
+
+    <!-- Hero -->
+    <section class="w-full bg-black pt-28 pb-20 text-white">
+      <div class="mx-auto w-[90vw] max-w-6xl">
+        <h2 class="orbitron font-bold text-6xl sm:text-8xl">Projects</h2>
+        <p class="mt-6 max-w-3xl opacity-90 text-base sm:text-lg">
+          Projects are where members go deep. Small teams, real stakes, weekly
+          syncs, and deliverables that go on your resume. Past teams have filed
+          patents, won national competitions, and deployed products with real
+          users.
+        </p>
+      </div>
+    </section>
+
+    <!-- Highlights -->
+    <section class="w-full bg-[#A45DF5] py-14 text-white">
+      <div class="mx-auto w-[90vw] max-w-6xl">
+        <h2 class="font-bold text-4xl sm:text-6xl">Project Highlights</h2>
+        <div class="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
+          {
+            highlights.map(({ title, achievements }) => (
+              <div class="rounded-lg border border-white/30 bg-black/20 p-6">
+                <h3 class="font-bold text-2xl">{title}</h3>
+                <ul class="mt-3 flex flex-col gap-1 opacity-90 text-sm">
+                  {achievements.map((a) => (
+                    <li>{a}</li>
+                  ))}
+                </ul>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- Current projects -->
+    <section class="w-full bg-white py-20 text-black">
+      <div class="mx-auto w-[90vw] max-w-6xl">
+        <h2 class="font-bold text-4xl sm:text-6xl">Current Projects</h2>
+        <!-- No max-width: the blurb spans the full container so it lines up
+             with the heading, search box, and card grid rather than stopping
+             short and leaving a gap on the right. -->
+        <p class="mt-6 mb-10 opacity-70 text-lg">
+          Each project runs as a focused team with weekly syncs and 3-4 major
+          milestones, typically over a few semesters. They're time intensive,
+          and they expose members to a wide range of skills and technologies.
+        </p>
+
+        {
+          active.length === 0 ? (
+            <p class="border-black/15 border p-8 opacity-70 text-lg">
+              No projects are running right now. New projects are announced at
+              the start of each semester. In the meantime, browse the{" "}
+              <a
+                href="/projects/archive"
+                class="font-bold underline decoration-2 underline-offset-4 hover:opacity-70"
+              >
+                project archive
+              </a>
+              .
+            </p>
+          ) : (
+            <ArchiveSearch
+              groups={[
+                {
+                  label: "Recruiting Status",
+                  tags: intakeTags,
+                  variant: "status",
+                },
+                { label: "Topic", tags: projectTags },
+              ]}
+              placeholder="Search by project, lead, or tag…"
+            >
+              <div class="grid gap-4 sm:grid-cols-2">
+                {active.map((project) => (
+                  <ProjectCard project={project} />
+                ))}
+              </div>
+            </ArchiveSearch>
+          )
+        }
+
+        <div class="mt-16 border-t border-black/10 pt-10">
+          <h3 class="font-bold text-3xl">Archived Projects</h3>
+          <a
+            href="/projects/archive"
+            class="group mt-6 inline-flex items-center gap-3 bg-[#A45DF5] px-8 py-4 font-semibold text-white transition text-lg hover:!text-white hover:opacity-90"
+          >
+            Browse {archivedCount} archived projects
+            <svg
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="none"
+              aria-hidden="true"
+              class="transition-transform duration-200 group-hover:translate-x-1"
+            >
+              <path
+                d="M5 12h14M13 6l6 6-6 6"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Get involved -->
+    <section class="w-full bg-black py-20 text-white">
+      <div class="mx-auto w-[90vw] max-w-6xl">
+        <h2 class="font-bold text-4xl sm:text-6xl">Get Involved</h2>
+
+        <!-- Join a project: full width -->
+        <div class="border-white/15 mt-10 border p-8">
+          <div class="flex flex-wrap items-baseline justify-between gap-3">
+            <h3 class="font-bold text-[#A45DF5] text-2xl">Join a Project</h3>
+            <span
+              class="font-semibold uppercase tracking-wide opacity-60 text-xs"
+            >
+              ~20-30% acceptance rate
+            </span>
+          </div>
+          <p class="mt-3 max-w-3xl opacity-80 text-sm">
+            Applications open at the start of each semester. Projects are
+            competitive and require demonstrated ML experience or a strong
+            technical background. A project manager reviews your application and
+            selects you if they believe you're a good fit, and may follow up
+            with additional questions before confirming.
+          </p>
+
+          <div class="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2">
+            <div class="bg-white/5 p-6">
+              <span
+                class="font-semibold uppercase tracking-wide text-[#A45DF5] text-xs"
+              >
+                Phase 1
+              </span>
+              <h4 class="mt-1 font-bold text-lg">General Application</h4>
+              <p class="mt-2 opacity-80 text-sm">
+                Covers your background, resume, and an ML assessment (or
+                equivalent for non-ML roles).
+              </p>
+            </div>
+            <div class="bg-white/5 p-6">
+              <span
+                class="font-semibold uppercase tracking-wide text-[#A45DF5] text-xs"
+              >
+                Phase 2
+              </span>
+              <h4 class="mt-1 font-bold text-lg">Project Selection</h4>
+              <p class="mt-2 opacity-80 text-sm">
+                Indicate your interest in specific projects. Released after all
+                new projects for the semester have been announced.
+              </p>
+            </div>
+          </div>
+          <p class="mt-6 opacity-60 text-xs">
+            Both phases must be completed to be considered for a project.
+          </p>
+        </div>
+
+        <!-- Lead a project / not ready yet: split -->
+        <div class="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2">
+          <div class="border-white/15 border p-8">
+            <h3 class="font-bold text-[#A45DF5] text-lg">Lead a Project</h3>
+            <p class="mt-3 opacity-80 text-sm">
+              Have an innovative idea? PM applications open before project
+              recruitment. You'll work with our Director of Projects to scope,
+              recruit, and execute. We expect excellence from project managers
+              in both leadership and technical skills.
+            </p>
+            <a
+              href={PM_APPLICATION_URL}
+              class="group mt-5 inline-flex items-center gap-2 border-2 border-current px-4 py-2 font-semibold transition text-sm hover:border-[#A45DF5] hover:!text-[#A45DF5]"
+            >
+              Apply to be a PM
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                aria-hidden="true"
+                class="transition-transform duration-200 group-hover:translate-x-1"
+              >
+                <path
+                  d="M5 12h14M13 6l6 6-6 6"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"></path>
+              </svg>
+            </a>
+          </div>
+
+          <div class="border-white/15 border p-8">
+            <h3 class="font-bold text-[#A45DF5] text-lg">Not Ready Yet?</h3>
+            <p class="mt-3 opacity-80 text-sm">
+              Join the{" "}
+              <a
+                href="/accelerator"
+                class="font-semibold underline decoration-2 underline-offset-4 hover:opacity-70"
+              >
+                Accelerator Program
+              </a>{" "}
+              and build the skills you need to succeed in our projects. We also recommend{
+                " "
+              }
+              <a
+                href={D2L_URL}
+                class="font-semibold underline decoration-2 underline-offset-4 hover:opacity-70"
+              >
+                Dive into Deep Learning
+              </a>{" "}
+              to build a solid foundation in machine learning.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <Footer />
+  </body>
+</html>

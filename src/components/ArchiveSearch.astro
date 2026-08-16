@@ -9,11 +9,33 @@
 //   data-tags   = item tags, lowercased, joined with "|"
 //
 // Styled for a LIGHT (white) panel.
+//
+// Pass `tags` for a single unlabelled row of chips, or `groups` to split the
+// chips into labelled rows — filtering treats them identically, but a reader
+// shouldn't have to guess that "Team Full" and "Robotics" mean different kinds
+// of thing. `variant: "status"` renders the filled style.
+export interface ChipGroup {
+  label: string;
+  tags: Array<string>;
+  variant?: "status" | "topic";
+}
 export interface Props {
   tags?: Array<string>;
+  groups?: Array<ChipGroup>;
   placeholder?: string;
 }
-const { tags = [], placeholder = "Search by title or tag…" } = Astro.props;
+const {
+  tags = [],
+  groups = [],
+  placeholder = "Search by title or tag…",
+} = Astro.props;
+
+const chipGroups: Array<ChipGroup> =
+  groups.length > 0
+    ? groups.filter((g) => g.tags.length > 0)
+    : tags.length > 0
+    ? [{ label: "", tags }]
+    : [];
 ---
 
 <div data-archive>
@@ -23,29 +45,40 @@ const { tags = [], placeholder = "Search by title or tag…" } = Astro.props;
       data-archive-input
       placeholder={placeholder}
       aria-label="Search"
-      class="w-full border-2 border-black/15 bg-transparent px-4 py-3 text-black outline-none transition placeholder:text-black/40 focus:border-[#A45DF5]"
+      class="border-black/15 w-full border-2 bg-transparent px-4 py-3 text-black outline-none transition placeholder:text-black/40 focus:border-[#A45DF5]"
     />
 
     {
-      tags.length > 0 && (
-        <div class="flex flex-wrap gap-2">
-          {tags.map((t) => (
-            <button
-              type="button"
-              data-tag-chip={t}
-              class="chip border border-black/20 px-3 py-1 text-sm font-semibold transition hover:border-[#A45DF5]"
-            >
-              {t}
-            </button>
-          ))}
+      chipGroups.map(({ label, tags: groupTags, variant = "topic" }) => (
+        <div>
+          {label && (
+            <p class="mb-2 font-semibold uppercase tracking-wide opacity-50 text-xs">
+              {label}
+            </p>
+          )}
+          <div class="flex flex-wrap gap-2">
+            {groupTags.map((t) => (
+              <button
+                type="button"
+                data-tag-chip={t}
+                class={`chip px-3 py-1 font-semibold transition text-sm ${
+                  variant === "status"
+                    ? "rounded-full border-2 border-[#A45DF5]/40 hover:border-[#A45DF5]"
+                    : "border border-black/20 hover:border-[#A45DF5]"
+                }`}
+              >
+                {t}
+              </button>
+            ))}
+          </div>
         </div>
-      )
+      ))
     }
   </div>
 
   <div class="mt-8">
     <slot />
-    <p data-archive-empty class="hidden py-10 text-center text-lg opacity-60">
+    <p data-archive-empty class="hidden py-10 text-center opacity-60 text-lg">
       No results. Try a different search or tag.
     </p>
   </div>
