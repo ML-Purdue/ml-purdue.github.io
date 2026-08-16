@@ -83,7 +83,7 @@ const { fixed } = Astro.props;
                     </ul>
                   </>
                 ) : (
-                  <a class={`font-semibold text-sm`} href={url}>
+                  <a class="flex items-center font-bold text-sm" href={url}>
                     {title}
                   </a>
                 )}
@@ -149,10 +149,8 @@ const { fixed } = Astro.props;
                         </div>
                       </div>
                     ) : (
-                      <a class="flex text-base items-center justify-center" href={url}>
-                        <div class="flex w-[90vw] font-semibold hover:text-purple-500 glass py-4 mb-3">
-                          {title}
-                        </div>
+                      <a class="ml-8 block py-4 text-xl" href={url}>
+                        {title}
                       </a>
                     )}
                   </li>

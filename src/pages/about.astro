@@ -10,7 +10,9 @@ const description = "ML@Purdue Website";
 // Company logo wall via the Brandfetch Logo API (light wordmarks for the black bg).
 // Set your Brandfetch Logo API client ID here; until then the text names show.
 const BRANDFETCH_CLIENT_ID = "1idhhwt56ctcfP7O404";
-const companies = [
+// `invert`: Brandfetch has no light wordmark for these (it serves a placeholder),
+// so pull the dark one and invert it for the black background.
+const companies: Array<{ name: string; domain: string; invert?: boolean }> = [
   { name: "Google", domain: "google.com" },
   { name: "Amazon", domain: "amazon.com" },
   { name: "Tesla", domain: "tesla.com" },
@@ -19,9 +21,12 @@ const companies = [
   { name: "NVIDIA", domain: "nvidia.com" },
   { name: "Datadog", domain: "datadoghq.com" },
   { name: "Notion", domain: "notion.so" },
+  { name: "Databricks", domain: "databricks.com" },
+  { name: "a16z", domain: "a16z.com", invert: true },
+  { name: "Epic", domain: "epic.com" },
 ];
-const logoUrl = (domain: string) =>
-  `https://cdn.brandfetch.io/${domain}/theme/light/logo?c=${BRANDFETCH_CLIENT_ID}`;
+const logoUrl = ({ domain, invert }: (typeof companies)[number]) =>
+  `https://cdn.brandfetch.io/${domain}/theme/${invert ? "dark" : "light"}/logo?c=${BRANDFETCH_CLIENT_ID}`;
 
 type Member = { name: string; role: string; url?: string };
 
@@ -91,10 +96,10 @@ const initials = (name: string) =>
             companies.map((c) =>
               BRANDFETCH_CLIENT_ID ? (
                 <img
-                  src={logoUrl(c.domain)}
+                  src={logoUrl(c)}
                   alt={c.name}
                   loading="lazy"
-                  class="max-h-10 w-auto max-w-[70%] object-contain sm:max-h-12"
+                  class={`max-h-10 w-auto max-w-[70%] object-contain sm:max-h-12 ${c.invert ? "invert" : ""}`}
                 />
               ) : (
                 <span class="text-2xl font-bold text-white/80 sm:text-3xl">{c.name}</span>
