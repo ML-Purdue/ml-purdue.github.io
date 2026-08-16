@@ -3,13 +3,13 @@ import "@fontsource/inter/variable.css";
 import Footer from "~/components/footer.astro";
 import Header from "~/components/header.astro";
 import "~/styles/index.css";
-import { FIELD_LAB_ENABLED } from "~/config";
+//import { FIELD_LAB_ENABLED } from "~/config";
 
 // Field Lab is gated behind a feature flag — when off, the page is not
 // accessible (redirects home).
-if (!FIELD_LAB_ENABLED) {
-  return Astro.redirect("/");
-}
+//if (!FIELD_LAB_ENABLED) {
+  //return Astro.redirect("/");
+//}
 
 const { site } = Astro;
 const description = "ML@Purdue Field Lab";

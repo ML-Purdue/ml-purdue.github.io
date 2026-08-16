@@ -4,7 +4,6 @@ import { Icon } from "astro-icon";
 import type { NavItem } from "~/types";
 import mlPurdueLogo from "~/assets/mlp.png";
 import Logo from "./logo.astro";
-import { FIELD_LAB_ENABLED } from "~/config";
 export interface Props {
   fixed?: boolean;
 }
@@ -14,7 +13,6 @@ const navItems: Array<NavItem> = [
     sublinks: [
       { title: "Projects", url: "/projects" },
       { title: "Accelerator", url: "/accelerator" },
-      ...(FIELD_LAB_ENABLED ? [{ title: "Field Lab", url: "/field-lab" }] : []),
     ],
   },
   {
@@ -25,8 +23,13 @@ const navItems: Array<NavItem> = [
     ],
   },
   { title: "Sponsor", url: "/sponsor" },
-  { title: "About", url: "/about" },
-  { title: "Catapult", url: "https://catapulthack.com/" },
+  {
+    title: "More",
+    sublinks: [
+      { title: "About", url: "/about" },
+      { title: "Catapult", url: "https://catapulthack.com/" },
+    ],
+  },
 ];
 const { fixed } = Astro.props;
 ---
@@ -46,8 +49,8 @@ const { fixed } = Astro.props;
       <nav class="hidden sm:block">
         <ul class="flex items-center gap-6">
           {
-            navItems.map(({ title, url, sublinks }) => (
-              <li class="relative">
+            navItems.map(({ title, url, sublinks }, i) => (
+              <li class={`relative ${i === navItems.length - 1 ? "sm:mr-12" : ""}`}>
                 {(sublinks?.length || 0) > 0 ? (
                   <>
                     <button class="hover-button flex items-center justify-center gap-2 font-bold text-sm">
