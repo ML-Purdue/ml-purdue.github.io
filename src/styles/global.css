@@ -5,7 +5,9 @@ a,
 .btn {
   @apply transition-colors duration-200;
   @apply hover:text-secondary;
-  @apply focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 focus:ring-offset-transparent;
+  /* focus-visible, not focus: a mouse click focuses links/buttons too, and the
+     ring would linger around whatever was last clicked. Keyboard nav still gets it. */
+  @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2 focus-visible:ring-offset-transparent;
 }
 
 .gradient-text {
