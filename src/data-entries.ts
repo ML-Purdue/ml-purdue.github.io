@@ -1,6 +1,5 @@
 import { RGItem } from "./types";
 import { WorkshopItem } from "~/types";
-import { ProjectItem } from "./types";
 
 // ---------------------------------------------------------------------------
 // Shared ML/AI tag vocabulary + normalization for the searchable archives.
@@ -65,105 +64,6 @@ export function canonicalizeTags(
   }
   return Array.from(out);
 }
-
-// PROJECTS
-export const projectItems: Array<ProjectItem> = [
-  // OPEN PROJECTS
-  {
-    name: "Dermatological Image Analysis",
-    desc: "Exploring multimodal foundation models for dermatological image analysis for acne grading and scar classification.",
-    pm: "Ishaan Buddharaju",
-    status: "closed",
-    commitment: "4-6",
-    domain: ["Computer Vision", "Healthcare"],
-    duration: "Spring 2026",
-    advisor: "Dr. Josephine Nguyen",
-  },
-  {
-    name: "Autonomous Drone Mapping",
-    desc: "Mapping the world with drones autonomously. Requires C++/Python, robotics experience (SLAM), Linux CLI, VMs, and Docker.",
-    pm: "Nathan Miller",
-    status: "closed",
-    commitment: "4-6",
-    domain: ["Computer Vision", "Process Control", "Robotics"],
-    duration: "Spring 2026",
-  },
-  {
-    name: "VGCRL",
-    desc: "Using pretrained language models and transformers with reinforcement learning to play Pokémon Video Game Championship competitively.",
-    pm: "Akkshay Rajan",
-    status: "closed",
-    commitment: "3-5",
-    domain: ["Reinforcement Learning"],
-    duration: "Fall 2025 - Spring 2026",
-  },
-  {
-    name: "Kalshi",
-    desc: "Building an ML model to predict the weekly average amount of TSA check-ins in the US to place profitable bets on Kalshi.",
-    pm: "Eubene In",
-    status: "closed",
-    commitment: "4-5",
-    domain: ["Finance", "Time Series Modelling"],
-    duration: "Fall 2025 - Spring 2026",
-  },
-  {
-    name: "AI Student Advisor",
-    desc: "LLM chatbot that acts as a student advisor. Involves various flavors of RAG and NLP techniques.",
-    pm: "Andrew Qiang",
-    status: "closed",
-    commitment: "4-8",
-    domain: ["Generative AI", "NLP", "Software Engineering"],
-    duration: "Fall 2025 - Spring 2026",
-  },
-  {
-    name: "Kaggle",
-    desc: "Learning through participation in Kaggle Competitions. Requires basic Python and willingness to learn!",
-    pm: "Arnav Mandal",
-    status: "closed",
-    commitment: "3-4",
-    domain: ["General"],
-    duration: "Fall 2025 - Spring 2026",
-  },
-  // CLOSED PROJECTS
-  {
-    name: "DeepQuery",
-    desc: "Benchmarking platform for AI search tools. Works with a YC startup.",
-    pm: "Taaha Khan",
-    status: "closed",
-    commitment: "10",
-    domain: ["Generative AI", "Software Engineering"],
-    duration: "Fall 2025 - Spring 2026",
-    advisor: "Lewis Polansky (Captain)",
-  },
-  {
-    name: "NFL Predictive Resource Allocation",
-    desc: "Predicting Team Success in the NFL.",
-    pm: "Pranay Nandkeolyar",
-    status: "closed",
-    commitment: "3",
-    domain: ["Time Series Modelling"],
-    duration: "Fall 2025 - Spring 2026",
-  },
-  {
-    name: "TE AI Cup 2025-2026",
-    desc: "Scholarship project with TE Connectivity. Full year commitment.",
-    pm: "Paul Jiang",
-    status: "closed",
-    commitment: "10",
-    domain: ["Computer Vision", "Process Control"],
-    duration: "Fall 2025 - Spring 2026",
-    advisor: "Sonny Osunkwo",
-  },
-  {
-    name: "Robot Vision",
-    desc: "Computer vision algorithms for autonomous robotic navigation. Submits to industry challenges.",
-    pm: "Manav Gagvani",
-    status: "closed",
-    commitment: "6-7",
-    domain: ["Computer Vision", "Generative AI", "Robotics"],
-    duration: "Fall 2025 - Spring 2026",
-  },
-];
 
 // WORKSHOPS
 // input most recent ones at top

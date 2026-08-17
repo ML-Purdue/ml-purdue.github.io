@@ -51,17 +51,5 @@ export interface RGItem {
   extra?: string,
 }
 
-export interface ProjectItem {
-  link?: string,
-  name: string,
-  desc: string,
-  pm: string,
-  status: string,
-  commitment?: string,
-  proficiency?: string,
-  domain: Array<string>,
-  duration?: string,
-  advisor?: string,
-  memberInfo?: string,
-  accomplishments?: Array<string>,
-}
+// Projects live in the `projects` content collection (src/content/projects/*.md),
+// typed by the Zod schema in src/content/config.ts. Helpers: src/lib/projects.ts.
