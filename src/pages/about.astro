@@ -26,23 +26,61 @@ const companies: Array<{ name: string; domain: string; invert?: boolean }> = [
   { name: "Epic", domain: "epic.com" },
 ];
 const logoUrl = ({ domain, invert }: (typeof companies)[number]) =>
-  `https://cdn.brandfetch.io/${domain}/theme/${invert ? "dark" : "light"}/logo?c=${BRANDFETCH_CLIENT_ID}`;
+  `https://cdn.brandfetch.io/${domain}/theme/${
+    invert ? "dark" : "light"
+  }/logo?c=${BRANDFETCH_CLIENT_ID}`;
 
 type Member = { name: string; role: string; url?: string };
 
 const execBoard: Array<Member> = [
-  { name: "Bisti Potdar", role: "President", url: "https://www.linkedin.com/in/bisti-potdar-0a0aa8244/" },
-  { name: "Saloni Dhawale", role: "Vice President", url: "https://www.linkedin.com/in/saloni-dhawale-0313b4316/" },
-  { name: "Alexandre Sauquet", role: "Director of Projects", url: "https://www.linkedin.com/in/alexandre-sauquet/" },
-  { name: "Keshav Sreekantham", role: "Director of Accelerator", url: "https://www.linkedin.com/in/ksreekan/" },
-  { name: "Shriya Nichenametla", role: "Director of Marketing", url: "https://www.linkedin.com/in/nshriya/" },
-  { name: "Elijah Douglass", role: "Director of Finance", url: "mailto:dougl111@purdue.edu" },
-  { name: "Ryan Zhang", role: "Director of Operations", url: "https://www.linkedin.com/in/ryan-zhang-b57424172/" },
+  {
+    name: "Bisti Potdar",
+    role: "President",
+    url: "https://www.linkedin.com/in/bisti-potdar-0a0aa8244/",
+  },
+  {
+    name: "Saloni Dhawale",
+    role: "Vice President",
+    url: "https://www.linkedin.com/in/saloni-dhawale-0313b4316/",
+  },
+  {
+    name: "Alexandre Sauquet",
+    role: "Director of Projects",
+    url: "https://www.linkedin.com/in/alexandre-sauquet/",
+  },
+  {
+    name: "Keshav Sreekantham",
+    role: "Director of Accelerator",
+    url: "https://www.linkedin.com/in/ksreekan/",
+  },
+  {
+    name: "Shriya Nichenametla",
+    role: "Director of Marketing",
+    url: "https://www.linkedin.com/in/nshriya/",
+  },
+  {
+    name: "Elijah Douglass",
+    role: "Director of Finance",
+    url: "mailto:dougl111@purdue.edu",
+  },
+  {
+    name: "Ryan Zhang",
+    role: "Director of Operations",
+    url: "https://www.linkedin.com/in/ryan-zhang-b57424172/",
+  },
+  {
+    name: "Christine Xu",
+    role: "Director of Workshops",
+    url: "https://www.linkedin.com/in/christinexu1211/",
+  },
 ];
 
 const officers: Array<Member> = [
-  { name: "Christine Xu", role: "Workshop Officer", url: "https://www.linkedin.com/in/christinexu1211/" },
-  { name: "Manav Gagvani", role: "Finance Officer", url: "https://www.linkedin.com/in/manav-gagvani/" },
+  {
+    name: "Manav Gagvani",
+    role: "Finance Officer",
+    url: "https://www.linkedin.com/in/manav-gagvani/",
+  },
 ];
 
 const initials = (name: string) =>
@@ -76,22 +114,25 @@ const initials = (name: string) =>
 
     <!-- Hero: centered About + intro + logo wall -->
     <section class="w-full bg-black pt-28 pb-16 text-white">
-      <div class="mx-auto w-[90vw] max-w-5xl text-center">
+      <div class="mx-auto w-[90vw] max-w-6xl">
         <h2 class="orbitron font-bold text-6xl sm:text-8xl">About</h2>
-        <p class="mx-auto mt-8 max-w-4xl text-base opacity-90 sm:text-lg">
-          ML@Purdue is Purdue University's premier student organization for machine learning and
-          artificial intelligence. More than events and projects, ML@Purdue is a community. We
-          connect you with mentors, collaborators, and opportunities that extend well beyond
-          campus. Whether you're writing your first line of PyTorch or training models on
-          Purdue's HPC clusters, there's a place for you here.
+        <p class="mt-6 max-w-3xl opacity-90 text-base sm:text-lg">
+          ML@Purdue is Purdue University's premier student organization for
+          machine learning and artificial intelligence. More than events and
+          projects, ML@Purdue is a community. We connect you with mentors,
+          collaborators, and opportunities that extend well beyond campus.
+          Whether you're writing your first line of PyTorch or training models
+          on Purdue's HPC clusters, there's a place for you here.
         </p>
       </div>
 
       <div class="mx-auto mt-20 w-[90vw] max-w-6xl">
-        <p class="text-center text-xs uppercase tracking-[0.2em] opacity-50">
+        <p class="text-center uppercase tracking-[0.2em] opacity-50 text-xs">
           Our members &amp; alumni work at
         </p>
-        <div class="mt-12 grid grid-cols-2 items-center justify-items-center gap-x-10 gap-y-10 sm:grid-cols-4">
+        <div
+          class="mt-12 grid grid-cols-2 items-center justify-items-center gap-x-10 gap-y-10 sm:grid-cols-4"
+        >
           {
             companies.map((c) =>
               BRANDFETCH_CLIENT_ID ? (
@@ -99,10 +140,14 @@ const initials = (name: string) =>
                   src={logoUrl(c)}
                   alt={c.name}
                   loading="lazy"
-                  class={`max-h-10 w-auto max-w-[70%] object-contain sm:max-h-12 ${c.invert ? "invert" : ""}`}
+                  class={`max-h-10 w-auto max-w-[70%] select-none object-contain sm:max-h-12 ${
+                    c.invert ? "invert" : ""
+                  }`}
                 />
               ) : (
-                <span class="text-2xl font-bold text-white/80 sm:text-3xl">{c.name}</span>
+                <span class="font-bold text-white/80 text-2xl sm:text-3xl">
+                  {c.name}
+                </span>
               )
             )
           }
@@ -117,12 +162,19 @@ const initials = (name: string) =>
         <div class="mt-10 grid grid-cols-2 gap-6 sm:grid-cols-3">
           {
             execBoard.map((m) => (
-              <a href={m.url} target="_blank" rel="noopener" class="group block">
+              <a
+                href={m.url}
+                target="_blank"
+                rel="noopener"
+                class="group block"
+              >
                 <div class="flex aspect-square items-center justify-center bg-black text-white transition-transform duration-200 group-hover:scale-[1.03]">
-                  <span class="text-4xl font-bold sm:text-5xl">{initials(m.name)}</span>
+                  <span class="font-bold text-4xl sm:text-5xl">
+                    {initials(m.name)}
+                  </span>
                 </div>
                 <h3 class="mt-4 font-bold text-lg">{m.name}</h3>
-                <p class="text-sm opacity-70">{m.role}</p>
+                <p class="opacity-70 text-sm">{m.role}</p>
               </a>
             ))
           }
@@ -132,12 +184,19 @@ const initials = (name: string) =>
         <div class="mt-10 grid grid-cols-2 gap-6 sm:grid-cols-3">
           {
             officers.map((m) => (
-              <a href={m.url} target="_blank" rel="noopener" class="group block">
+              <a
+                href={m.url}
+                target="_blank"
+                rel="noopener"
+                class="group block"
+              >
                 <div class="flex aspect-square items-center justify-center bg-black text-white transition-transform duration-200 group-hover:scale-[1.03]">
-                  <span class="text-4xl font-bold sm:text-5xl">{initials(m.name)}</span>
+                  <span class="font-bold text-4xl sm:text-5xl">
+                    {initials(m.name)}
+                  </span>
                 </div>
                 <h3 class="mt-4 font-bold text-lg">{m.name}</h3>
-                <p class="text-sm opacity-70">{m.role}</p>
+                <p class="opacity-70 text-sm">{m.role}</p>
               </a>
             ))
           }

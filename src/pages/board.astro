@@ -1,0 +1,395 @@
+---
+import "@fontsource/inter/variable.css";
+import Footer from "~/components/footer.astro";
+import Header from "~/components/header.astro";
+import "~/styles/index.css";
+
+const { site } = Astro;
+const description =
+  "Apply to join the ML@Purdue executive board or become an officer.";
+
+// ---------------------------------------------------------------------------
+// Application links — the two tracks, board and officer, are separate
+// applications. Swap the `url`s for the live forms each recruiting cycle;
+// leaving `url: "#"` renders the button as a non-clickable "Opening soon".
+// ---------------------------------------------------------------------------
+const applicationLinks: Array<{
+  title: string;
+  description: string;
+  url: string;
+}> = [
+  {
+    title: "Join the Board",
+    description:
+      "For the executive board: president, vice president, and directors. You own a program and drive its execution.",
+    url: "https://docs.google.com/forms/d/e/1FAIpQLSfvYZvb1wITIQIqmBsUGYhHBya4rfJPXKN3sagYsCyQSc8-8Q/viewform",
+  },
+  {
+    title: "Become an Officer",
+    description:
+      "Officers run the club week to week alongside directors. A great way to get involved with ML@Purdue at a lower time commitment.",
+    url: "https://docs.google.com/forms/d/e/1FAIpQLSfBVn_N2CX9cACNIIM-BLvfjhXNxxSG2dNYPQcynn0O7dXruA/viewform",
+  },
+];
+
+// ---------------------------------------------------------------------------
+// Role cards. Descriptions and time estimates come from the role docs in the
+// shared exec Drive folder — keep them in sync when a role's scope changes.
+// To add a role, copy a block and edit it:
+//   title       – the role name
+//   team        – the program the role sits under (shown as the badge)
+//   description – one or two sentences on what the role actually does
+//   time        – rough weekly commitment, shown in the card footer
+//   url         – optional role-specific form; omit to use the track
+//                 application above
+// ---------------------------------------------------------------------------
+interface Role {
+  title: string;
+  team: string;
+  description: string;
+  time?: string;
+  url?: string;
+}
+
+const boardRoles: Array<Role> = [
+  {
+    title: "President",
+    team: "Executive",
+    description:
+      "Sets the club's goals across every program, runs exec meetings, and keeps ML@Purdue in good standing with the university. Primary contact for our faculty advisor, Purdue CS, and industry partners.",
+    time: "6–10+ hrs/week",
+  },
+  {
+    title: "Vice President",
+    team: "Executive",
+    description:
+      "The president's operating partner and backup. A jack of all trades who picks up slack wherever the club needs it, from recruiting to sponsors to events. Usually steps up to president the following year.",
+    time: "6–10 hrs/week",
+  },
+  {
+    title: "Director of Marketing",
+    team: "Marketing",
+    description:
+      "Owns how ML@Purdue is seen and found: brand, the websites, socials, and the recruitment funnel behind callouts, applications, and Catapult registration.",
+    time: "4–8 hrs/week",
+  },
+  {
+    title: "Director of Operations",
+    team: "Operations",
+    description:
+      "Makes the club's recurring programming happen: reading groups, workshops, general meetings, and the Symposium. Rooms, food, and logistics all run through here.",
+    time: "3–8 hrs/week",
+  },
+  {
+    title: "Director of Reading Group",
+    team: "Reading Group",
+    description:
+      "Owns the weekly paper reading groups, roughly 15 a semester. Fills the presenter schedule, curates a balanced slate across subfields, and hosts the sessions.",
+    time: "2–3 hrs/week",
+  },
+  {
+    title: "Director of Workshops",
+    team: "Workshops",
+    description:
+      "Runs the hands-on weekend workshops, the club's most accessible entry point. Designs a lineup that ladders from beginner to advanced and preps the instructors who teach it.",
+    time: "0–4 hrs/week",
+  },
+  {
+    title: "Director of Projects",
+    team: "Projects",
+    description:
+      "Decides which projects run each cycle and keeps the slate balanced across subfields. Recruits and supports project managers, and runs the two-phase member application.",
+    time: "6–10 hrs/week",
+  },
+  {
+    title: "Director of Finance",
+    team: "Finance",
+    description:
+      "Owns the money: semester budgets, the sponsorship pipeline that funds them, reimbursements, and the records that keep the club solvent and in good standing with Purdue.",
+    time: "5–9 hrs/week",
+  },
+  {
+    title: "Director of Catapult",
+    team: "Catapult",
+    description:
+      "Owns the club's flagship event: a 36-hour AI/ML × entrepreneurship hackathon. Venue, budget, sponsors, prize tracks, judging, and the weekend itself.",
+    time: "4–6 hrs/week, 20+ near the event",
+  },
+  {
+    title: "Director of Accelerator",
+    team: "Accelerator",
+    description:
+      "Owns the 14-week program that takes beginners from ML fundamentals to a capstone. Curriculum, mentor roster, admissions, and demos at the Symposium.",
+    time: "5–8 hrs/week",
+  },
+];
+
+const officerRoles: Array<Role> = [
+  {
+    title: "Marketing Officer",
+    team: "Marketing",
+    description:
+      "Produces the club's content: event graphics, flyers, captions, and Discord announcements, plus photos and recordings from every event.",
+    time: "2–4 hrs/week",
+  },
+  {
+    title: "Operations Officer",
+    team: "Operations",
+    description:
+      "Runs event logistics on the ground: room requests, setup, sign-in, food, and attendance. The most flexible commitment in the club.",
+    time: "1–4 hrs/week",
+  },
+  {
+    title: "Outreach Officer",
+    team: "Outreach",
+    description:
+      "Works the cold-email pipeline: builds and qualifies lead lists, sends outreach on the director's cadence, and keeps the contact tracker current.",
+    time: "2–4 hrs/week",
+  },
+  {
+    title: "Finance Officer",
+    team: "Finance",
+    description:
+      "Keeps the ledger and the sponsor tracker straight, gets members reimbursed quickly, and verifies that what we sold a sponsor actually shipped.",
+    time: "2–4 hrs/week",
+  },
+  {
+    title: "Catapult Officer",
+    team: "Catapult",
+    description:
+      "Helps plan and run Catapult: sponsor outreach, catering and signage, DevPost setup, participant comms, and staffing the 36 hours.",
+    time: "2–4 hrs/week, 10–15 near the event",
+  },
+  {
+    title: "Project Manager",
+    team: "Projects",
+    description:
+      "Leads one project team end to end. Sets the technical direction, selects 3–6 members, runs the weekly sync, and delivers the promised output.",
+    time: "3–10 hrs/week",
+  },
+  {
+    title: "Accelerator Mentor",
+    team: "Accelerator",
+    description:
+      "Guides a group of 3–5 mentees through all 14 weeks: teaches from first principles, unblocks them without doing the work, and coaches them to a capstone demo.",
+    time: "2–4 hrs/week",
+  },
+];
+---
+
+<!DOCTYPE html>
+<html lang="en" class="h-full motion-safe:scroll-smooth" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>ML@Purdue - Board & Officer Applications</title>
+    <meta name="description" content={description} />
+    <meta
+      property="og:title"
+      content="ML@Purdue Board & Officer Applications"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/social.png" />
+    <meta property="og:url" content={site} />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+
+  <body
+    class="h-full overflow-x-hidden bg-default text-default text-base selection:bg-secondary selection:text-white"
+  >
+    <Header fixed />
+
+    <!-- Hero: the two tracks + the application links themselves -->
+    <section class="w-full bg-black pt-28 pb-20 text-white">
+      <div class="mx-auto w-[90vw] max-w-6xl">
+        <h2 class="orbitron font-bold text-6xl sm:text-8xl">
+          Board & Officers
+        </h2>
+        <p class="mt-6 max-w-3xl opacity-90 text-base sm:text-lg">
+          ML@Purdue is run entirely by students. The <span class="font-bold"
+            >executive board</span
+          > (president, vice president, and directors) sets the club's direction
+          and owns a program each. <span class="font-bold">Officers</span> run those
+          programs week to week alongside a director. They're separate roles with
+          distinct responsibilities; pick the one that best fits you.
+        </p>
+
+        <div class="mt-10 grid gap-6 sm:grid-cols-2">
+          {
+            applicationLinks.map((link) => {
+              const open = link.url !== "#";
+              return (
+                <div class="border-white/15 flex flex-col border p-6">
+                  <h3 class="font-bold text-2xl">{link.title}</h3>
+                  <p class="mt-3 flex-1 opacity-80 text-base">
+                    {link.description}
+                  </p>
+                  {open ? (
+                    <a
+                      href={link.url}
+                      class="group mt-6 inline-flex items-center gap-3 self-start bg-[#A45DF5] px-6 py-3 font-semibold text-white transition text-base hover:!text-white hover:opacity-90"
+                    >
+                      Apply now
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        aria-hidden="true"
+                        class="transition-transform duration-200 group-hover:translate-x-1"
+                      >
+                        <path
+                          d="M5 12h14M13 6l6 6-6 6"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </a>
+                  ) : (
+                    <span class="mt-6 inline-flex self-start border border-white/25 px-6 py-3 font-semibold opacity-60 text-base">
+                      Opening soon
+                    </span>
+                  )}
+                </div>
+              );
+            })
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- Executive board roles -->
+    <section class="w-full bg-white py-20 text-black">
+      <div class="mx-auto w-[90vw] max-w-6xl">
+        <h2 class="font-bold text-4xl sm:text-6xl">Executive Board</h2>
+        <p class="mt-6 max-w-2xl opacity-80 text-xl sm:text-2xl">
+          Year-long leadership positions. Each director owns a program, its
+          budget, and the officers under it.
+        </p>
+
+        <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {
+            boardRoles.map((role) => (
+              <div class="border-black/15 flex flex-col border p-6 transition hover:border-[#A45DF5]">
+                <span class="self-start bg-[#A45DF5] px-3 py-1 font-semibold text-white text-xs">
+                  {role.team}
+                </span>
+                <h3 class="mt-4 font-bold leading-tight text-2xl">
+                  {role.title}
+                </h3>
+                <p class="mt-3 flex-1 opacity-80 text-sm">{role.description}</p>
+                <div class="border-black/15 mt-5 border-t pt-4 opacity-60 text-sm">
+                  {role.time && <p>{role.time}</p>}
+                </div>
+                {role.url && (
+                  <a
+                    href={role.url}
+                    class="group mt-4 inline-flex items-center gap-2 self-start font-semibold text-[#A45DF5] hover:!text-[#A45DF5] hover:opacity-80"
+                  >
+                    Apply
+                    <svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      aria-hidden="true"
+                      class="transition-transform duration-200 group-hover:translate-x-1"
+                    >
+                      <path
+                        d="M5 12h14M13 6l6 6-6 6"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </a>
+                )}
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- Officer roles -->
+    <section class="w-full bg-black py-20 text-white">
+      <div class="mx-auto w-[90vw] max-w-6xl">
+        <h2 class="font-bold text-4xl sm:text-6xl">Officers</h2>
+        <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {
+            officerRoles.map((role) => (
+              <div class="border-white/15 flex flex-col border p-6">
+                <span class="self-start border border-white/25 px-3 py-1 font-semibold text-sm">
+                  {role.team}
+                </span>
+                <h3 class="mt-5 font-bold text-2xl">{role.title}</h3>
+                <p class="mt-3 flex-1 opacity-80 text-base">
+                  {role.description}
+                </p>
+                <div class="border-white/15 mt-5 border-t pt-4 opacity-60 text-sm">
+                  {role.time && <p>{role.time}</p>}
+                </div>
+                {role.url && (
+                  <a
+                    href={role.url}
+                    class="group mt-4 inline-flex items-center gap-2 self-start font-semibold text-[#A45DF5] hover:!text-[#A45DF5] hover:opacity-80"
+                  >
+                    Apply
+                    <svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      aria-hidden="true"
+                      class="transition-transform duration-200 group-hover:translate-x-1"
+                    >
+                      <path
+                        d="M5 12h14M13 6l6 6-6 6"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </a>
+                )}
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- Closing note for people who aren't ready for a leadership role -->
+    <section class="w-full bg-[#A45DF5] py-20 text-white">
+      <div class="mx-auto w-[90vw] max-w-6xl">
+        <h2 class="font-bold text-4xl sm:text-6xl">Not looking to lead yet?</h2>
+        <p class="mt-8 max-w-4xl opacity-90 text-lg sm:text-xl">
+          You don't have to be on the board or an officer to be part of
+          ML@Purdue. Join a
+          <a
+            href="/projects"
+            class="font-semibold underline decoration-2 underline-offset-4 hover:!text-white hover:opacity-70"
+            >Project Team</a
+          >, start with the
+          <a
+            href="/accelerator"
+            class="font-semibold underline decoration-2 underline-offset-4 hover:!text-white hover:opacity-70"
+            >Accelerator</a
+          >, or just show up to a
+          <a
+            href="/reading-group"
+            class="font-semibold underline decoration-2 underline-offset-4 hover:!text-white hover:opacity-70"
+            >Reading Group</a
+          >. Most of our board started exactly there.
+        </p>
+      </div>
+    </section>
+
+    <Footer />
+  </body>
+</html>
