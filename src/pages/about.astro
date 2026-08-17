@@ -5,18 +5,23 @@ import Header from "~/components/header.astro";
 import "~/styles/index.css";
 
 const { site } = Astro;
-const title = "About ML@Purdue";
-const description =
-  "ML@Purdue is Purdue University's student organization for machine learning and AI: project teams, weekly paper reading groups, hands-on workshops, the Accelerator program, and the Catapult hackathon.";
-const canonical = new URL("/about", site);
+const description = "ML@Purdue Website";
 
 // Company logo wall via the Brandfetch Logo API (light wordmarks for the black bg).
 // Set your Brandfetch Logo API client ID here; until then the text names show.
 const BRANDFETCH_CLIENT_ID = "1idhhwt56ctcfP7O404";
 // `invert`: Brandfetch has no light wordmark for these (it serves a placeholder),
 // so pull the dark one and invert it for the black background.
-const companies: Array<{ name: string; domain: string; invert?: boolean }> = [
+// `asset`: a specific asset id from the brand's Brandfetch library, for when the
+// theme endpoint picks the wrong file. Overrides `invert`.
+const companies: Array<{
+  name: string;
+  domain: string;
+  invert?: boolean;
+  asset?: string;
+}> = [
   { name: "Google", domain: "google.com" },
+  { name: "Meta", domain: "meta.com", asset: "id0D-m9C5l" },
   { name: "Amazon", domain: "amazon.com" },
   { name: "Tesla", domain: "tesla.com" },
   { name: "Apple", domain: "apple.com" },
@@ -28,10 +33,12 @@ const companies: Array<{ name: string; domain: string; invert?: boolean }> = [
   { name: "a16z", domain: "a16z.com", invert: true },
   { name: "Epic", domain: "epic.com" },
 ];
-const logoUrl = ({ domain, invert }: (typeof companies)[number]) =>
-  `https://cdn.brandfetch.io/${domain}/theme/${
-    invert ? "dark" : "light"
-  }/logo?c=${BRANDFETCH_CLIENT_ID}`;
+const logoUrl = ({ domain, invert, asset }: (typeof companies)[number]) =>
+  asset
+    ? `https://cdn.brandfetch.io/${domain}/${asset}?c=${BRANDFETCH_CLIENT_ID}`
+    : `https://cdn.brandfetch.io/${domain}/theme/${
+        invert ? "dark" : "light"
+      }/logo?c=${BRANDFETCH_CLIENT_ID}`;
 
 type Member = { name: string; role: string; url?: string };
 
@@ -102,19 +109,12 @@ const initials = (name: string) =>
     <meta name="viewport" content="width=device-width" />
     <title>ML@Purdue - About</title>
     <meta name="description" content={description} />
-    <link rel="canonical" href={canonical} />
-
-    <meta property="og:site_name" content="ML@Purdue" />
-    <meta property="og:title" content={title} />
+    <meta property="og:title" content="ML@Purdue" />
     <meta property="og:type" content="website" />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={new URL("/social.png", site)} />
-    <meta property="og:image:alt" content="ML@Purdue" />
-    <meta property="og:url" content={canonical} />
-
+    <meta property="og:image" content="/social.png" />
+    <meta property="og:url" content={site} />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
   </head>
 
   <body
