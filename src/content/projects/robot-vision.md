@@ -14,7 +14,13 @@ skills: >-
   ML fundamentals (backpropagation, universal approximation, MLP, CNN,
   Transformer). Experience with PyTorch or TensorFlow. Understanding of Linux
   systems and bash.
+links:
+  - {
+      label: CoRL 2026 paper,
+      url: https://drive.google.com/file/d/1fhfEGn67tOXgUdNObr0WhBDver_WIEcZ/view?usp=sharing,
+    }
 results:
+  - Paper submitted to CoRL 2026 (Conference on Robot Learning)
   - Submitted to the 2025 Waymo Open Dataset leaderboard
 ---
 
