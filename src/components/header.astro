@@ -10,10 +10,11 @@ export interface Props {
 const navItems: Array<NavItem> = [
   { title: "About", url: "/about" },
   {
-    title: "Join A Team",
+    title: "Join The Team",
     sublinks: [
       { title: "Projects", url: "/projects" },
       { title: "Accelerator", url: "/accelerator" },
+      { title: "Board & Officers", url: "/board" },
     ],
   },
   {
@@ -45,7 +46,11 @@ const { fixed } = Astro.props;
         <ul class="flex items-center gap-6">
           {
             navItems.map(({ title, url, sublinks }, i) => (
-              <li class={`relative ${i === navItems.length - 1 ? "sm:mr-12" : ""}`}>
+              <li
+                class={`relative ${
+                  i === navItems.length - 1 ? "sm:mr-12" : ""
+                }`}
+              >
                 {(sublinks?.length || 0) > 0 ? (
                   <>
                     <button class="hover-button flex items-center justify-center gap-2 font-bold text-sm">
@@ -68,10 +73,13 @@ const { fixed } = Astro.props;
                     <ul
                       data-hover-link-container
                       class="pointer-events-none absolute flex w-max min-w-[140px]
-                     flex-col bg-[#1a1a1a] p-2 opacity-0 text-sm shadow-xl shadow-black/40"
+                     flex-col bg-[#1a1a1a] p-2 opacity-0 shadow-xl shadow-black/40 text-sm"
                     >
                       {sublinks?.map((x) => (
-                        <a class="block whitespace-nowrap px-3 py-2 font-semibold hover:text-secondary" href={x.url}>
+                        <a
+                          class="block whitespace-nowrap px-3 py-2 font-semibold hover:text-secondary"
+                          href={x.url}
+                        >
                           {x.title}
                         </a>
                       ))}
@@ -97,59 +105,56 @@ const { fixed } = Astro.props;
       </button>
     </div>
     <div id="menu-modal" class="modal hidden" aria-hidden="true">
-      <div class="fixed inset-0 flex flex-col overflow-y-auto bg-black text-white">
-        <div class="flex flex-col" role="dialog" aria-modal="true">
-          <!-- Top bar: small logo + close -->
-          <header class="flex items-center justify-between px-6 py-4">
-            <a href="/" class="flex items-center gap-2">
-              <img src={mlPurdueLogo.src} alt="Logo" class="h-16" />
-            </a>
+      <div class="fixed inset-0 bg-default py-4 text-default">
+        <div class="space-y-4" role="dialog" aria-modal="true">
+          <header class="text-right">
             <button
               id="close-nav-button"
               type="button"
-              class="btn rounded-full p-2 transition hover:bg-white/10"
+              class="btn"
               aria-label="Close navigation"
             >
-              <Icon pack="mdi" name="close" class="h-7 w-7" />
+              <Icon pack="mdi" name="close" class="h-8" />
             </button>
           </header>
-
-          <!-- Wordmark -->
-          <div class="flex items-baseline justify-center gap-1.5 pb-8 pt-2">
-            <span class="orbitron font-bold text-5xl">ML</span>
-            <span class="orbitron text-3xl font-light">@</span>
-            <span class="orbitron font-semibold text-3xl">PURDUE</span>
+          <div class="-ml-3 flex w-screen items-center justify-center pb-2">
+            <a class="hover:!text-default" href="/">
+              <img src={mlPurdueLogo.src} alt="Logo" class="h-[5rem]" />
+            </a>
+            <div class="flex items-center justify-center lg:mb-0">
+              <h1 class="orbitron text-center font-bold text-white text-8xl">
+                ML
+              </h1>
+              <h2
+                class="orbitron -ml-6 mb-4 text-center text-white text-3xl md:-ml-10 md:text-5xl"
+              >
+                @
+              </h2>
+              <h1
+                class="orbitron ml-3 text-center font-semibold text-white text-6xl sm:ml-5"
+              >
+                PURDUE
+              </h1>
+            </div>
           </div>
-
-          <!-- Nav links -->
-          <nav class="flex-1 px-6 pb-10">
-            <ul class="flex flex-col divide-y divide-white/10">
+          <nav>
+            <ul class="-mt-2 flex flex-col sm:mt-0">
               {
                 navItems.map(({ title, url, sublinks }) => (
-                  <li class="py-1">
+                  <li>
                     {(sublinks?.length || 0) > 0 ? (
-                      <div class="py-2">
-                        <span class="block py-2 font-bold text-lg uppercase tracking-wide text-white/90">
-                          {title}
-                        </span>
-                        <div class="ml-1 flex flex-col gap-0.5 border-l-2 border-[#A45DF5]/60 pb-2 pl-5">
+                      <div>
+                        <span class="ml-8 block py-4 text-xl">{title}</span>
+                        <div>
                           {sublinks?.map(({ title, url }) => (
-                            <a
-                              class="group flex items-center gap-2 py-2.5 text-base text-white/70 transition hover:text-[#A45DF5]"
-                              href={url}
-                            >
-                              <span class="transition-transform duration-150 group-hover:translate-x-1">
-                                {title}
-                              </span>
+                            <a class="ml-16 block py-4 text-xl" href={url}>
+                              {title}
                             </a>
                           ))}
                         </div>
                       </div>
                     ) : (
-                      <a
-                        class="block py-4 font-bold text-lg uppercase tracking-wide text-white/90 transition hover:text-[#A45DF5]"
-                        href={url}
-                      >
+                      <a class="ml-8 block py-4 text-xl" href={url}>
                         {title}
                       </a>
                     )}
