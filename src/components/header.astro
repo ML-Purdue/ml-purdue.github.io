@@ -10,10 +10,11 @@ export interface Props {
 const navItems: Array<NavItem> = [
   { title: "About", url: "/about" },
   {
-    title: "Join A Team",
+    title: "Join The Team",
     sublinks: [
       { title: "Projects", url: "/projects" },
       { title: "Accelerator", url: "/accelerator" },
+      { title: "Board", url: "/officers" },
     ],
   },
   {
@@ -45,7 +46,11 @@ const { fixed } = Astro.props;
         <ul class="flex items-center gap-6">
           {
             navItems.map(({ title, url, sublinks }, i) => (
-              <li class={`relative ${i === navItems.length - 1 ? "sm:mr-12" : ""}`}>
+              <li
+                class={`relative ${
+                  i === navItems.length - 1 ? "sm:mr-12" : ""
+                }`}
+              >
                 {(sublinks?.length || 0) > 0 ? (
                   <>
                     <button class="hover-button flex items-center justify-center gap-2 font-bold text-sm">
@@ -68,10 +73,13 @@ const { fixed } = Astro.props;
                     <ul
                       data-hover-link-container
                       class="pointer-events-none absolute flex w-max min-w-[140px]
-                     flex-col bg-[#1a1a1a] p-2 opacity-0 text-sm shadow-xl shadow-black/40"
+                     flex-col bg-[#1a1a1a] p-2 opacity-0 shadow-xl shadow-black/40 text-sm"
                     >
                       {sublinks?.map((x) => (
-                        <a class="block whitespace-nowrap px-3 py-2 font-semibold hover:text-secondary" href={x.url}>
+                        <a
+                          class="block whitespace-nowrap px-3 py-2 font-semibold hover:text-secondary"
+                          href={x.url}
+                        >
                           {x.title}
                         </a>
                       ))}
@@ -109,12 +117,14 @@ const { fixed } = Astro.props;
               <Icon pack="mdi" name="close" class="h-8" />
             </button>
           </header>
-          <div class="flex items-center justify-center -ml-3 w-screen pb-2">
+          <div class="-ml-3 flex w-screen items-center justify-center pb-2">
             <a class="hover:!text-default" href="/">
               <img src={mlPurdueLogo.src} alt="Logo" class="h-[5rem]" />
             </a>
             <div class="flex items-center justify-center lg:mb-0">
-              <h1 class="orbitron text-center font-bold text-white text-8xl">ML</h1>
+              <h1 class="orbitron text-center font-bold text-white text-8xl">
+                ML
+              </h1>
               <h2
                 class="orbitron -ml-6 mb-4 text-center text-white text-3xl md:-ml-10 md:text-5xl"
               >
@@ -128,7 +138,7 @@ const { fixed } = Astro.props;
             </div>
           </div>
           <nav>
-            <ul class="flex flex-col -mt-2 sm:mt-0">
+            <ul class="-mt-2 flex flex-col sm:mt-0">
               {
                 navItems.map(({ title, url, sublinks }) => (
                   <li>
