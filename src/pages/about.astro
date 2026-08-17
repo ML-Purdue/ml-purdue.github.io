@@ -5,7 +5,10 @@ import Header from "~/components/header.astro";
 import "~/styles/index.css";
 
 const { site } = Astro;
-const description = "ML@Purdue Website";
+const title = "About ML@Purdue";
+const description =
+  "ML@Purdue is Purdue University's student organization for machine learning and AI: project teams, weekly paper reading groups, hands-on workshops, the Accelerator program, and the Catapult hackathon.";
+const canonical = new URL("/about", site);
 
 // Company logo wall via the Brandfetch Logo API (light wordmarks for the black bg).
 // Set your Brandfetch Logo API client ID here; until then the text names show.
@@ -99,12 +102,19 @@ const initials = (name: string) =>
     <meta name="viewport" content="width=device-width" />
     <title>ML@Purdue - About</title>
     <meta name="description" content={description} />
-    <meta property="og:title" content="ML@Purdue" />
+    <link rel="canonical" href={canonical} />
+
+    <meta property="og:site_name" content="ML@Purdue" />
+    <meta property="og:title" content={title} />
     <meta property="og:type" content="website" />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content="/social.png" />
-    <meta property="og:url" content={site} />
+    <meta property="og:image" content={new URL("/social.png", site)} />
+    <meta property="og:image:alt" content="ML@Purdue" />
+    <meta property="og:url" content={canonical} />
+
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
   </head>
 
   <body
