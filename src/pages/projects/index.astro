@@ -45,8 +45,14 @@ const highlights = [
     achievements: ["2nd Overall Grand Champion", "AIMM ICC Competition"],
   },
   {
-    title: "InboxPilot",
-    achievements: ["4,000+ emails processed", "100+ auto-generated drafts"],
+    title: "Robot Vision",
+    achievements: [
+      "Submitted paper to robotics conference (CoRL 2026)",
+      {
+        text: "Paper Link",
+        url: "https://drive.google.com/file/d/1fhfEGn67tOXgUdNObr0WhBDver_WIEcZ/view?usp=sharing",
+      },
+    ],
   },
 ];
 
@@ -99,9 +105,20 @@ const intakeTags = Object.values(INTAKE_LABELS);
               <div class="rounded-lg border border-white/30 bg-black/20 p-6">
                 <h3 class="font-bold text-2xl">{title}</h3>
                 <ul class="mt-3 flex flex-col gap-1 opacity-90 text-sm">
-                  {achievements.map((a) => (
-                    <li>{a}</li>
-                  ))}
+                  {achievements.map((a) =>
+                    typeof a === "string" ? (
+                      <li>{a}</li>
+                    ) : (
+                      <li>
+                        <a
+                          href={a.url}
+                          class="underline decoration-white/40 underline-offset-4 transition hover:!text-white hover:decoration-white"
+                        >
+                          {a.text}
+                        </a>
+                      </li>
+                    )
+                  )}
                 </ul>
               </div>
             ))
