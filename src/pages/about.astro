@@ -12,8 +12,16 @@ const description = "ML@Purdue Website";
 const BRANDFETCH_CLIENT_ID = "1idhhwt56ctcfP7O404";
 // `invert`: Brandfetch has no light wordmark for these (it serves a placeholder),
 // so pull the dark one and invert it for the black background.
-const companies: Array<{ name: string; domain: string; invert?: boolean }> = [
+// `asset`: a specific asset id from the brand's Brandfetch library, for when the
+// theme endpoint picks the wrong file. Overrides `invert`.
+const companies: Array<{
+  name: string;
+  domain: string;
+  invert?: boolean;
+  asset?: string;
+}> = [
   { name: "Google", domain: "google.com" },
+  { name: "Meta", domain: "meta.com", asset: "id0D-m9C5l" },
   { name: "Amazon", domain: "amazon.com" },
   { name: "Tesla", domain: "tesla.com" },
   { name: "Apple", domain: "apple.com" },
@@ -25,10 +33,12 @@ const companies: Array<{ name: string; domain: string; invert?: boolean }> = [
   { name: "a16z", domain: "a16z.com", invert: true },
   { name: "Epic", domain: "epic.com" },
 ];
-const logoUrl = ({ domain, invert }: (typeof companies)[number]) =>
-  `https://cdn.brandfetch.io/${domain}/theme/${
-    invert ? "dark" : "light"
-  }/logo?c=${BRANDFETCH_CLIENT_ID}`;
+const logoUrl = ({ domain, invert, asset }: (typeof companies)[number]) =>
+  asset
+    ? `https://cdn.brandfetch.io/${domain}/${asset}?c=${BRANDFETCH_CLIENT_ID}`
+    : `https://cdn.brandfetch.io/${domain}/theme/${
+        invert ? "dark" : "light"
+      }/logo?c=${BRANDFETCH_CLIENT_ID}`;
 
 type Member = { name: string; role: string; url?: string };
 

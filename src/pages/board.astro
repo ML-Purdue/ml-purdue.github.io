@@ -40,6 +40,9 @@ const applicationLinks: Array<{
 //   team        – the program the role sits under (shown as the badge)
 //   description – one or two sentences on what the role actually does
 //   time        – rough weekly commitment, shown in the card footer
+//   recruiting  – true while the seat is vacant or we want more people in it.
+//                 Highlights the card and keeps it visible under the
+//                 "only show what we're recruiting" toggle.
 //   url         – optional role-specific form; omit to use the track
 //                 application above
 // ---------------------------------------------------------------------------
@@ -48,6 +51,7 @@ interface Role {
   team: string;
   description: string;
   time?: string;
+  recruiting?: boolean;
   url?: string;
 }
 
@@ -86,6 +90,7 @@ const boardRoles: Array<Role> = [
     description:
       "Owns the weekly paper reading groups, roughly 15 a semester. Fills the presenter schedule, curates a balanced slate across subfields, and hosts the sessions.",
     time: "2–3 hrs/week",
+    recruiting: true,
   },
   {
     title: "Director of Workshops",
@@ -114,6 +119,7 @@ const boardRoles: Array<Role> = [
     description:
       "Owns the club's flagship event: a 36-hour AI/ML × entrepreneurship hackathon. Venue, budget, sponsors, prize tracks, judging, and the weekend itself.",
     time: "4–6 hrs/week, 20+ near the event",
+    recruiting: true,
   },
   {
     title: "Director of Accelerator",
@@ -131,6 +137,7 @@ const officerRoles: Array<Role> = [
     description:
       "Produces the club's content: event graphics, flyers, captions, and Discord announcements, plus photos and recordings from every event.",
     time: "2–4 hrs/week",
+    recruiting: true,
   },
   {
     title: "Operations Officer",
@@ -138,6 +145,7 @@ const officerRoles: Array<Role> = [
     description:
       "Runs event logistics on the ground: room requests, setup, sign-in, food, and attendance. The most flexible commitment in the club.",
     time: "1–4 hrs/week",
+    recruiting: true,
   },
   {
     title: "Outreach Officer",
@@ -145,6 +153,7 @@ const officerRoles: Array<Role> = [
     description:
       "Works the cold-email pipeline: builds and qualifies lead lists, sends outreach on the director's cadence, and keeps the contact tracker current.",
     time: "2–4 hrs/week",
+    recruiting: true,
   },
   {
     title: "Finance Officer",
@@ -152,6 +161,7 @@ const officerRoles: Array<Role> = [
     description:
       "Keeps the ledger and the sponsor tracker straight, gets members reimbursed quickly, and verifies that what we sold a sponsor actually shipped.",
     time: "2–4 hrs/week",
+    recruiting: true,
   },
   {
     title: "Catapult Officer",
@@ -159,6 +169,7 @@ const officerRoles: Array<Role> = [
     description:
       "Helps plan and run Catapult: sponsor outreach, catering and signage, DevPost setup, participant comms, and staffing the 36 hours.",
     time: "2–4 hrs/week, 10–15 near the event",
+    recruiting: true,
   },
   {
     title: "Project Manager",
@@ -166,6 +177,7 @@ const officerRoles: Array<Role> = [
     description:
       "Leads one project team end to end. Sets the technical direction, selects 3–6 members, runs the weekly sync, and delivers the promised output.",
     time: "3–10 hrs/week",
+    recruiting: true,
   },
   {
     title: "Accelerator Mentor",
@@ -173,6 +185,7 @@ const officerRoles: Array<Role> = [
     description:
       "Guides a group of 3–5 mentees through all 14 weeks: teaches from first principles, unblocks them without doing the work, and coaches them to a capstone demo.",
     time: "2–4 hrs/week",
+    recruiting: true,
   },
 ];
 ---
@@ -264,14 +277,49 @@ const officerRoles: Array<Role> = [
     <!-- Executive board roles -->
     <section class="w-full bg-white py-20 text-black">
       <div class="mx-auto w-[90vw] max-w-6xl">
-        <h2 class="font-bold text-4xl sm:text-6xl">Executive Board</h2>
-        <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="flex flex-wrap items-center justify-between gap-4">
+          <h2 class="font-bold text-4xl sm:text-6xl">Executive Board</h2>
+          <label
+            class="inline-flex cursor-pointer select-none items-center gap-3 font-semibold text-sm"
+          >
+            <input
+              type="checkbox"
+              data-recruiting-toggle
+              class="peer sr-only"
+            />
+            <span
+              class="relative h-6 w-11 rounded-full bg-black/20 transition after:absolute after:top-[3px] after:left-[3px] after:h-[18px] after:w-[18px] after:rounded-full after:bg-white after:transition peer-checked:bg-[#A45DF5] peer-checked:after:translate-x-5"
+            ></span>
+            Only show open roles
+          </label>
+        </div>
+
+        <div
+          data-role-grid
+          class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+        >
           {
-            boardRoles.map((role) => (
-              <div class="border-black/15 flex flex-col border p-6 transition hover:border-[#A45DF5]">
-                <span class="self-start bg-[#A45DF5] px-3 py-1 font-semibold text-white text-xs">
-                  {role.team}
-                </span>
+            boardRoles.map((role, i) => (
+              <div
+                data-role-card="light"
+                data-recruiting={role.recruiting ? "true" : undefined}
+                style={`--glint-delay: ${i * 0.45}s`}
+                class={`flex flex-col border p-6 transition hover:border-[#A45DF5] ${
+                  role.recruiting
+                    ? "border-[#A45DF5] bg-[#A45DF5]/5"
+                    : "border-black/15"
+                }`}
+              >
+                <div class="flex flex-wrap items-center gap-2">
+                  <span class="bg-[#A45DF5] px-3 py-1 font-semibold text-white text-xs">
+                    {role.team}
+                  </span>
+                  {role.recruiting && (
+                    <span class="border border-[#A45DF5] px-3 py-1 font-semibold text-[#A45DF5] text-xs">
+                      Recruiting
+                    </span>
+                  )}
+                </div>
                 <h3 class="mt-4 font-bold leading-tight text-2xl">
                   {role.title}
                 </h3>
@@ -313,14 +361,49 @@ const officerRoles: Array<Role> = [
     <!-- Officer roles -->
     <section class="w-full bg-black py-20 text-white">
       <div class="mx-auto w-[90vw] max-w-6xl">
-        <h2 class="font-bold text-4xl sm:text-6xl">Officers</h2>
-        <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="flex flex-wrap items-center justify-between gap-4">
+          <h2 class="font-bold text-4xl sm:text-6xl">Officers</h2>
+          <label
+            class="inline-flex cursor-pointer select-none items-center gap-3 font-semibold text-sm"
+          >
+            <input
+              type="checkbox"
+              data-recruiting-toggle
+              class="peer sr-only"
+            />
+            <span
+              class="relative h-6 w-11 rounded-full bg-white/20 transition after:absolute after:top-[3px] after:left-[3px] after:h-[18px] after:w-[18px] after:rounded-full after:bg-white after:transition peer-checked:bg-[#A45DF5] peer-checked:after:translate-x-5"
+            ></span>
+            Only show open roles
+          </label>
+        </div>
+
+        <div
+          data-role-grid
+          class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+        >
           {
-            officerRoles.map((role) => (
-              <div class="border-white/15 flex flex-col border p-6">
-                <span class="self-start border border-white/25 px-3 py-1 font-semibold text-sm">
-                  {role.team}
-                </span>
+            officerRoles.map((role, i) => (
+              <div
+                data-role-card="dark"
+                data-recruiting={role.recruiting ? "true" : undefined}
+                style={`--glint-delay: ${i * 0.45}s`}
+                class={`flex flex-col border p-6 ${
+                  role.recruiting
+                    ? "border-[#A45DF5] bg-[#A45DF5]/10"
+                    : "border-white/15"
+                }`}
+              >
+                <div class="flex flex-wrap items-center gap-2">
+                  <span class="border border-white/25 px-3 py-1 font-semibold text-sm">
+                    {role.team}
+                  </span>
+                  {role.recruiting && (
+                    <span class="border border-[#A45DF5] px-3 py-1 font-semibold text-[#A45DF5] text-xs">
+                      Recruiting
+                    </span>
+                  )}
+                </div>
                 <h3 class="mt-5 font-bold text-2xl">{role.title}</h3>
                 <p class="mt-3 flex-1 opacity-80 text-base">
                   {role.description}
@@ -386,5 +469,78 @@ const officerRoles: Array<Role> = [
     </section>
 
     <Footer />
+
+    <script>
+      // Both section toggles drive the same filter, so flipping one keeps the
+      // other in sync and hides every card we're not currently recruiting for.
+      const toggles = document.querySelectorAll<HTMLInputElement>(
+        "[data-recruiting-toggle]"
+      );
+      const grids = document.querySelectorAll("[data-role-grid]");
+
+      toggles.forEach((toggle) =>
+        toggle.addEventListener("change", () => {
+          toggles.forEach((other) => (other.checked = toggle.checked));
+          grids.forEach((grid) =>
+            grid.classList.toggle("recruiting-only", toggle.checked)
+          );
+        })
+      );
+    </script>
+
+    <style>
+      .recruiting-only [data-role-card]:not([data-recruiting]) {
+        display: none;
+      }
+
+      /* Slow sheen sweeping across the cards we're recruiting for. Cards are
+         staggered by --glint-delay so the wall doesn't flash all at once. */
+      [data-role-card][data-recruiting] {
+        position: relative;
+        overflow: hidden;
+      }
+
+      [data-role-card][data-recruiting]::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background: linear-gradient(
+          105deg,
+          transparent 42%,
+          rgba(164, 93, 245, 0.28) 50%,
+          transparent 58%
+        );
+        transform: translateX(-130%);
+        animation: glint 5s ease-in-out infinite;
+        animation-delay: var(--glint-delay, 0s);
+      }
+
+      [data-role-card="dark"][data-recruiting]::after {
+        background: linear-gradient(
+          105deg,
+          transparent 42%,
+          rgba(255, 255, 255, 0.14) 50%,
+          transparent 58%
+        );
+      }
+
+      @keyframes glint {
+        0%,
+        70% {
+          transform: translateX(-130%);
+        }
+        100% {
+          transform: translateX(130%);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        [data-role-card][data-recruiting]::after {
+          animation: none;
+          opacity: 0;
+        }
+      }
+    </style>
   </body>
 </html>
