@@ -4,3 +4,21 @@
 [data-mdx-article] a {
   text-decoration: underline;
 }
+
+/* Selection on the brand purple (#A45DF5): the site-wide highlight colour set
+   on <body> is --color-secondary (purple.500, #a855f7), which is all but
+   identical to it — and the text on those surfaces is already white, so
+   selecting text there changed nothing visible. Invert the highlight instead.
+
+   Keyed on the background utility itself, so every purple surface is covered:
+   the section bands on the home, accelerator, and reading-group pages as well
+   as the smaller intake badges and buttons. `~=` matches the exact class token,
+   so variants like `hover:bg-[#A45DF5]` are left alone. The leading `html`
+   is there for specificity: it puts this above Tailwind's
+   `.selection\:bg-secondary *::selection`, which the tag would otherwise tie
+   with and lose to depending on stylesheet order. */
+html [class~="bg-[#A45DF5]"] ::selection,
+html [class~="bg-[#A45DF5]"]::selection {
+  background: #ffffff;
+  color: #a45df5;
+}
