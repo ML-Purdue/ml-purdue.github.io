@@ -45,6 +45,31 @@ body,
   font-style: normal;
 }
 
+/* Home hero wordmark, mobile sizing. The fluid-type scale clamps near its
+   floor on phones, so "ML@PURDUE" stays ~280px wide no matter how narrow the
+   screen gets and spills past both edges below ~305px — which also widens the
+   document and drags the whole page into browser shrink-to-fit. Sizing in vw
+   keeps it proportional; the min() caps match the fluid sizes at 390px so
+   nothing changes on a normal phone. Above the sm breakpoint the Tailwind
+   sm:text-* classes take over, so this is scoped below it (639.98px avoids a
+   gap at fractional viewport widths). Raw font-size rather than the fluid
+   scale is deliberate here: this is a fixed display lockup that must never
+   overflow. */
+@media (max-width: 639.98px) {
+  .wordmark-ml {
+    font-size: min(12.4vw, 48px);
+    line-height: 1;
+  }
+  .wordmark-at {
+    font-size: min(7.6vw, 29px);
+    line-height: 1.2;
+  }
+  .wordmark-purdue {
+    font-size: min(9.7vw, 38px);
+    line-height: 1.1;
+  }
+}
+
 .mask-radial {
   mask-image: radial-gradient(
     circle at center,

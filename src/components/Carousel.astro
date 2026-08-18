@@ -31,12 +31,12 @@ const AUTOPLAY_MS = 5000;
   aria-roledescription="carousel"
   aria-label="ML@Purdue highlights"
 >
-  <div class="flex items-center gap-2 sm:gap-4">
+  <div class="relative flex items-center sm:gap-4">
     <button
       type="button"
       data-carousel-prev
       aria-label="Previous slide"
-      class="grid h-10 w-10 shrink-0 place-items-center text-white transition hover:!text-secondary"
+      class="absolute inset-y-0 left-0 z-10 grid w-12 place-items-center text-white drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)] transition hover:!text-secondary sm:static sm:h-10 sm:w-10 sm:shrink-0 sm:drop-shadow-none"
     >
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
         <path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -72,7 +72,7 @@ const AUTOPLAY_MS = 5000;
       type="button"
       data-carousel-next
       aria-label="Next slide"
-      class="grid h-10 w-10 shrink-0 place-items-center text-white transition hover:!text-secondary"
+      class="absolute inset-y-0 right-0 z-10 grid w-12 place-items-center text-white drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)] transition hover:!text-secondary sm:static sm:h-10 sm:w-10 sm:shrink-0 sm:drop-shadow-none"
     >
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
         <path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
