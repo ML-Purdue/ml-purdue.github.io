@@ -7,8 +7,6 @@ import "~/styles/index.css";
 const { site } = Astro;
 const description = "ML@Purdue Accelerator Program";
 
-const APPLY_URL = "#";
-
 const timelineItems = [
   {
     phase: "Weeks 1–9",
@@ -52,28 +50,28 @@ const timelineItems = [
     <section class="w-full bg-black pt-28 pb-20 text-white">
       <div class="mx-auto w-[90vw] max-w-6xl">
         <h2 class="orbitron font-bold text-6xl sm:text-8xl">Accelerator</h2>
-        <p class="mt-6 max-w-2xl text-base opacity-90 sm:text-lg">
+        <p class="mt-6 max-w-2xl opacity-90 text-base sm:text-lg">
           ML@Purdue's structured learning program for
-          <span class="font-bold">beginner and intermediate students</span> who want to build a
-          strong foundation in machine learning. Over 14 weeks you'll go from fundamentals to
-          building your own ML project, guided by experienced mentors every step of the way.
+          <span class="font-bold">beginner and intermediate students</span> who want
+          to build a strong foundation in machine learning. Over 14 weeks you'll
+          go from fundamentals to building your own ML project, guided by experienced
+          mentors every step of the way.
         </p>
 
-        <a
-          href={APPLY_URL}
-          class="group mt-10 inline-flex items-center gap-3 bg-[#A45DF5] px-8 py-4 text-lg font-semibold text-white transition hover:opacity-90 hover:!text-white"
-        >
-          Apply now
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true" class="transition-transform duration-200 group-hover:translate-x-1">
-            <path
-              d="M5 12h14M13 6l6 6-6 6"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-        </a>
+        <div class="mt-10 flex flex-col items-start gap-3">
+          <button
+            type="button"
+            disabled
+            aria-disabled="true"
+            class="inline-flex cursor-not-allowed items-center gap-3 bg-white/20 px-8 py-4 font-semibold text-white/60 text-lg"
+          >
+            Applications open soon
+          </button>
+          <p class="opacity-70 text-sm">
+            Applications for the next cohort aren't open yet. Check back here
+            for the link.
+          </p>
+        </div>
       </div>
     </section>
 
@@ -81,20 +79,20 @@ const timelineItems = [
     <section class="w-full bg-white py-20 text-black">
       <div class="mx-auto w-[90vw] max-w-6xl">
         <h2 class="font-bold text-4xl sm:text-6xl">Program Structure</h2>
-        <p class="mt-6 max-w-2xl text-xl sm:text-2xl opacity-80">
-          Small mentor groups of 3–5 students ensure personalized guidance throughout the
-          program.
+        <p class="mt-6 max-w-2xl opacity-80 text-xl sm:text-2xl">
+          Small mentor groups of 3–5 students ensure personalized guidance
+          throughout the program.
         </p>
 
         <div class="mt-10 grid gap-6 sm:grid-cols-3">
           {
             timelineItems.map((item) => (
               <div class="flex flex-col bg-black p-6 text-white">
-                <span class="self-start bg-[#A45DF5] px-3 py-1 text-sm font-semibold">
+                <span class="self-start bg-[#A45DF5] px-3 py-1 font-semibold text-sm">
                   {item.phase}
                 </span>
                 <h3 class="mt-5 font-bold text-3xl">{item.title}</h3>
-                <p class="mt-3 text-lg opacity-90">{item.description}</p>
+                <p class="mt-3 opacity-90 text-lg">{item.description}</p>
               </div>
             ))
           }
@@ -107,38 +105,40 @@ const timelineItems = [
       <div class="mx-auto w-[90vw] max-w-6xl">
         <h2 class="font-bold text-4xl sm:text-6xl">Who is Accelerator for?</h2>
 
-        <p class="mt-8 max-w-4xl text-lg opacity-90 sm:text-xl">
-          ML@Purdue Accelerator is designed for those who are passionate about ML, but don't have
-          heavy prior experience. Accelerator alumni often join a
+        <p class="mt-8 max-w-4xl opacity-90 text-lg sm:text-xl">
+          ML@Purdue Accelerator is designed for those who are passionate about
+          ML, but don't have any prior experience. Accelerator alumni often join
+          a
           <a
             href="/projects"
-            class="font-semibold underline decoration-2 underline-offset-4 hover:opacity-70 hover:!text-white"
+            class="font-semibold underline decoration-2 underline-offset-4 hover:!text-white hover:opacity-70"
             >Project Team</a
           >
-          or
+          or step up as a director or committee member on our
           <a
-            href="/field-lab"
-            class="font-semibold underline decoration-2 underline-offset-4 hover:opacity-70 hover:!text-white"
-            >Field Lab team</a
+            href="/board"
+            class="font-semibold underline decoration-2 underline-offset-4 hover:!text-white hover:opacity-70"
+            >Board</a
           >
           in subsequent semesters!
         </p>
 
-        <a
-          href={APPLY_URL}
-          class="group mt-10 inline-flex items-center gap-3 bg-white px-8 py-4 text-lg font-semibold text-[#A45DF5] transition hover:opacity-90 hover:!text-[#A45DF5]"
-        >
-          Apply now
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true" class="transition-transform duration-200 group-hover:translate-x-1">
-            <path
-              d="M5 12h14M13 6l6 6-6 6"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-        </a>
+        <p class="mt-6 max-w-4xl opacity-90 text-lg sm:text-xl">
+          Accelerator isn't the only way in. Our
+          <a
+            href="/reading-group"
+            class="font-semibold underline decoration-2 underline-offset-4 hover:!text-white hover:opacity-70"
+            >Reading Group</a
+          >
+          and
+          <a
+            href="/workshops"
+            class="font-semibold underline decoration-2 underline-offset-4 hover:!text-white hover:opacity-70"
+            >Workshops</a
+          >
+          are open to everyone and are a great way to get hands-on with ML while
+          you wait for applications to open.
+        </p>
       </div>
     </section>
 
