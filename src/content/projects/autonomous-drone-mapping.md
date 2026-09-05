@@ -4,7 +4,7 @@ desc: >-
   Simulation-first drone stack pairing SLAM with reinforcement learning path
   planning, built to transfer onto real hardware.
 status: active
-intake: tbd
+intake: open
 startTerm: 2026-spring
 pm: Nathan Miller
 domain: [Computer Vision, Process Control, Robotics]

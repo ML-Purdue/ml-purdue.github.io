@@ -4,7 +4,7 @@ desc: >-
   Year-long industry competition solving a real TE Connectivity
   manufacturing problem, with scholarships and patents on the line.
 status: active
-intake: tbd
+intake: open
 startTerm: 2021-fall
 recurring: true
 editions:

@@ -4,7 +4,7 @@ desc: >-
   Team-based entry point to applied ML: work through Kaggle competitions
   together, then graduate to an original project.
 status: active
-intake: tbd
+intake: open
 startTerm: 2022-spring
 pm: Arnav Mandal
 domain: [General]
