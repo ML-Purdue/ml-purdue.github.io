@@ -17,6 +17,7 @@ const { site } = Astro;
 const description = "ML@Purdue Website";
 
 const D2L_URL = "https://d2l.ai/";
+const MEMBER_APPLICATION_URL = "https://forms.gle/h6h5gPaTm5TZxmHBA";
 
 const all = (await getCollection("projects")).filter((p) => !p.data.draft);
 const active = sortByRecency(all.filter((p) => p.data.status === "active"));
@@ -217,7 +218,7 @@ const intakeTags = Object.values(INTAKE_LABELS);
             </span>
           </div>
           <p class="mt-3 max-w-3xl opacity-80 text-sm">
-            Applications open at the start of each semester. Projects are
+            Applications are open now for this semester. Projects are
             competitive and require demonstrated ML experience or a strong
             technical background. A project manager reviews your application and
             selects you if they believe you're a good fit, and may follow up
@@ -236,6 +237,29 @@ const intakeTags = Object.values(INTAKE_LABELS);
                 Covers your background, resume, and an ML assessment (or
                 equivalent for non-ML roles).
               </p>
+              <a
+                href={MEMBER_APPLICATION_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="group mt-5 inline-flex items-center gap-2 border-2 border-current px-4 py-2 font-semibold transition text-sm hover:border-[#A45DF5] hover:!text-[#A45DF5]"
+              >
+                Apply now
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  aria-hidden="true"
+                  class="transition-transform duration-200 group-hover:translate-x-1"
+                >
+                  <path
+                    d="M5 12h14M13 6l6 6-6 6"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"></path>
+                </svg>
+              </a>
             </div>
             <div class="bg-white/5 p-6">
               <span
