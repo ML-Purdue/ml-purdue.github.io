@@ -7,7 +7,7 @@ export type Project = CollectionEntry<"projects">;
  * changed without touching any page markup.
  */
 export const INTAKE_LABELS = {
-  open: "Applications Open",
+  open: "Recruiting Members",
   full: "Team Full",
   tbd: "Applications not yet open",
 } as const;
