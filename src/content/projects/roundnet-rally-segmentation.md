@@ -27,7 +27,9 @@ rally boundaries and cuts dead time between points, tracks the ball and all
 players across frames, attributes each ball contact to a player, and
 classifies rally-ending events like aces, faults, and unforced errors.
 
-Roundnet is a fast-growing competitive sport with essentially no existing
+![Example of player segmentation](../../../src/assets/projects/roundnet_rally_segmentation_example.png)
+
+Roundnet is a fast-growing competitive sport with few existing
 automated video analysis tools, unlike volleyball, tennis, or basketball. The
 end goal is a tool a player or club could feed a raw phone/tripod recording
 into and get back a short, watchable highlight video plus a structured stat
