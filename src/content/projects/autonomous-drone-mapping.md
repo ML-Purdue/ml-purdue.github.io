@@ -7,8 +7,8 @@ intake: open
 startTerm: 2026-spring
 pm: Nathan Miller
 domain: [Computer Vision, Process Control, Robotics]
-hoursPerWeek: "3-4"
-openings: "5-7"
+hoursPerWeek: "4-6"
+openings: "3-4"
 skills: >-
   Proficiency in Python, including PyTorch. Comfort with Linux CLI, VMs, and
   Docker. Foundational knowledge of reinforcement learning. Robotics
