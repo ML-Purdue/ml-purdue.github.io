@@ -18,6 +18,7 @@ const description = "ML@Purdue Website";
 
 const D2L_URL = "https://d2l.ai/";
 const MEMBER_APPLICATION_URL = "https://forms.gle/h6h5gPaTm5TZxmHBA";
+const PROJECT_PREFERENCE_URL = "https://forms.gle/UQeooCpL51v2vqbC7";
 
 const all = (await getCollection("projects")).filter((p) => !p.data.draft);
 const active = sortByRecency(all.filter((p) => p.data.status === "active"));
@@ -214,7 +215,7 @@ const intakeTags = Object.values(INTAKE_LABELS);
             <span
               class="font-semibold uppercase tracking-wide opacity-60 text-xs"
             >
-              ~20-30% acceptance rate
+              Applications due 9/19 @ 11:59pm
             </span>
           </div>
           <p class="mt-3 max-w-3xl opacity-80 text-sm">
@@ -269,9 +270,32 @@ const intakeTags = Object.values(INTAKE_LABELS);
               </span>
               <h4 class="mt-1 font-bold text-lg">Project Selection</h4>
               <p class="mt-2 opacity-80 text-sm">
-                Indicate your interest in specific projects. Released after all
+                Indicate your interest in specific projects. Released once
                 new projects for the semester have been announced.
               </p>
+              <a
+                href={PROJECT_PREFERENCE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="group mt-5 inline-flex items-center gap-2 border-2 border-current px-4 py-2 font-semibold transition text-sm hover:border-[#A45DF5] hover:!text-[#A45DF5]"
+              >
+                Fill out now
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  aria-hidden="true"
+                  class="transition-transform duration-200 group-hover:translate-x-1"
+                >
+                  <path
+                    d="M5 12h14M13 6l6 6-6 6"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"></path>
+                </svg>
+              </a>
             </div>
           </div>
           <p class="mt-6 opacity-60 text-xs">
@@ -289,7 +313,7 @@ const intakeTags = Object.values(INTAKE_LABELS);
               recruit, and execute. We expect excellence from project managers
               in both leadership and technical skills.
             </p>
-            <a
+            <!-- <a
               href={PM_APPLICATION_URL}
               class="group mt-5 inline-flex items-center gap-2 border-2 border-current px-4 py-2 font-semibold transition text-sm hover:border-[#A45DF5] hover:!text-[#A45DF5]"
             >
@@ -309,7 +333,7 @@ const intakeTags = Object.values(INTAKE_LABELS);
                   stroke-linecap="round"
                   stroke-linejoin="round"></path>
               </svg>
-            </a>
+            </a> -->
           </div>
 
           <div class="border-white/15 border p-8">
