@@ -14,16 +14,20 @@ editions:
   - { years: "2023" }
   - { years: "2022" }
   - { years: "2021" }
-advisor: Sonny Osunkwo
+pm: Sanchay Devnath
+advisor: Shu Wang
 domain: [Computer Vision, Process Control]
 hoursPerWeek: "~10"
-openings: "0"
+openings: "3-4"
 skills: ML knowledge, presentation skills, and a lot of commitment.
 results:
   - 1st National / 2nd Global (2026)
   - 2nd National / 3rd Global (2025)
   - 1st National / 2nd Global (2024)
 ---
+
+**We are awaiting confirmation for details from TE Connectivity for this
+year.**
 
 TE AI Cup is an annual international collegiate competition with over 40
 universities competing. Teams work with professionals from TE Connectivity to
