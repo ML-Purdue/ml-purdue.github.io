@@ -12,7 +12,8 @@ import shriya from "~/assets/team/shriya.jpg";
 import ryan from "~/assets/team/ryan.jpg";
 import caleb from "~/assets/team/caleb.png";
 import elijah from "~/assets/team/elijah.png";
-import christine from "~/assets/team/christine.jpg"
+import christine from "~/assets/team/christine.jpg";
+import karthik from "~/assets/team/karthik.jpg";
 
 const { site } = Astro;
 const description = "ML@Purdue Website";
@@ -115,8 +116,13 @@ const execBoard: Array<Member> = [
     name: "Christine Xu",
     role: "Director of Workshops",
     url: "https://www.linkedin.com/in/christinexu1211/",
-    img: christine
-  }
+    img: christine,
+  },
+  {
+    name: "Karthik Thyagarajan",
+    role: "Director of Outreach",
+    img: karthik,
+  },
 ];
 
 // Officers section temporarily hidden.
@@ -237,7 +243,8 @@ const initials = (name: string) =>
           }
         </div>
 
-        {/* Officers section temporarily hidden.
+        {
+          /* Officers section temporarily hidden.
         <h2 class="mt-20 font-bold text-4xl sm:text-6xl">Officers</h2>
         <div class="mt-10 grid grid-cols-2 gap-6 sm:grid-cols-3">
           {
@@ -271,7 +278,8 @@ const initials = (name: string) =>
             ))
           }
         </div>
-        */}
+        */
+        }
       </div>
     </section>
 
