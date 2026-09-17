@@ -15,14 +15,38 @@ const description = "ML@Purdue Sponsorship";
 
 const PACKET_URL = "/ML@P_Sponsorship_Packet.pdf";
 const CONTACT_EMAIL = "mailto:mlp@purdue.edu";
+const PROJECT_EMAIL =
+  "mailto:mlp@purdue.edu?subject=Company%20project%20sponsorship";
 
-const sponsors: Array<{ src: ImageMetadata; alt: string; imgClass?: string }> = [
-  { src: purdueinnovates, alt: "Purdue Innovates", imgClass: "scale-110" },
-  { src: teconnectivity, alt: "TE Connectivity" },
-  { src: purduecs, alt: "Purdue CS Department" },
-  { src: janestreet, alt: "Jane Street", imgClass: "scale-90" },
-  { src: benevity, alt: "Benevity", imgClass: "scale-110" },
+const projectSteps = [
+  {
+    number: "01",
+    title: "Bring us a problem",
+    description:
+      "Share a real ML challenge, the context behind it, and what a useful result would look like for your team.",
+  },
+  {
+    number: "02",
+    title: "Build with students",
+    description:
+      "We scope the work, assemble a student team, and run the project with regular input from a contact at your company.",
+  },
+  {
+    number: "03",
+    title: "Review the result",
+    description:
+      "The team presents its work and hands off the agreed code, findings, or prototype at the end of the project.",
+  },
 ];
+
+const sponsors: Array<{ src: ImageMetadata; alt: string; imgClass?: string }> =
+  [
+    { src: purdueinnovates, alt: "Purdue Innovates", imgClass: "scale-110" },
+    { src: teconnectivity, alt: "TE Connectivity" },
+    { src: purduecs, alt: "Purdue CS Department" },
+    { src: janestreet, alt: "Jane Street", imgClass: "scale-90" },
+    { src: benevity, alt: "Benevity", imgClass: "scale-110" },
+  ];
 ---
 
 <!DOCTYPE html>
@@ -49,91 +73,184 @@ const sponsors: Array<{ src: ImageMetadata; alt: string; imgClass?: string }> = 
     <section class="w-full bg-black pt-28 pb-20 text-white">
       <div class="mx-auto w-[90vw] max-w-6xl">
         <h2 class="orbitron font-bold text-6xl sm:text-8xl">Sponsor</h2>
-        <p class="mt-6 max-w-2xl text-base opacity-90 sm:text-lg">
-          We're grateful to the organizations powering Purdue's premier machine learning
-          community.
+        <p class="mt-6 max-w-2xl opacity-90 text-base sm:text-lg">
+          We're grateful to the organizations powering Purdue's premier machine
+          learning community.
         </p>
 
         <a
           href={CONTACT_EMAIL}
-          class="group mt-10 inline-flex items-center gap-3 bg-[#A45DF5] px-8 py-4 text-lg font-semibold text-white transition hover:opacity-90 hover:!text-white"
+          class="group mt-10 inline-flex items-center gap-3 bg-[#A45DF5] px-8 py-4 font-semibold text-white transition text-lg hover:!text-white hover:opacity-90"
         >
           Contact Us
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true" class="transition-transform duration-200 group-hover:translate-x-1">
+          <svg
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            aria-hidden="true"
+            class="transition-transform duration-200 group-hover:translate-x-1"
+          >
             <path
               d="M5 12h14M13 6l6 6-6 6"
               stroke="currentColor"
               stroke-width="2"
               stroke-linecap="round"
-              stroke-linejoin="round"
-            />
+              stroke-linejoin="round"></path>
           </svg>
         </a>
       </div>
     </section>
 
-    <!-- Why sponsor us + sponsors -->
+    <!-- Company-sponsored projects -->
     <section class="w-full bg-white py-20 text-black">
-      <div class="mx-auto grid w-[90vw] max-w-6xl gap-12 md:grid-cols-[1.5fr_1fr]">
-        <!-- Left: copy -->
-        <div>
-          <h2 class="font-bold text-4xl sm:text-6xl">Why Sponsor Us?</h2>
-          <div class="mt-8 space-y-6 text-base opacity-90 sm:text-lg">
-            <p>
-              Sponsoring ML@P provides direct access to Purdue's top ML and AI talent across all
-              academic levels. As the university's premier ML organization, we offer high-impact
-              recruiting exposure and brand visibility among the country's most technically
-              skilled students.
-            </p>
-            <p>
-              Through our strong campus presence, industry events, and digital reach, we help you
-              build brand loyalty among future innovators and early adopters. Your sponsorship
-              enables our competitive teams' travel, funds hackathon prizes that drive
-              participation, and supports community-building merchandise and projects.
-            </p>
-          </div>
-
-          <h3 class="mt-12 font-bold text-2xl sm:text-3xl">In-kind contributions</h3>
-          <p class="mt-4 text-base opacity-90 sm:text-lg">
-            As a valued sponsor, you can support us through funding, server access, cloud
-            credits, or other in-kind contributions. We're also open to exploring collaborative
-            opportunities on business challenges.
-          </p>
-
-          <p class="mt-10 text-xl font-semibold text-[#A45DF5] sm:text-2xl">
-            Supporting ML@P is a strategic investment in the next generation of ML leaders.
-          </p>
-
-          <a
-            href={CONTACT_EMAIL}
-            class="group mt-10 inline-flex items-center gap-3 bg-[#A45DF5] px-8 py-4 text-lg font-semibold text-white transition hover:opacity-90 hover:!text-white"
+      <div class="mx-auto w-[90vw] max-w-6xl">
+        <div class="max-w-4xl">
+          <p
+            class="font-semibold uppercase tracking-[0.18em] text-[#A45DF5] text-sm"
           >
-            Become a sponsor
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true" class="transition-transform duration-200 group-hover:translate-x-1">
+            Company-sponsored projects
+          </p>
+          <h2 class="mt-4 font-bold text-4xl sm:text-6xl">
+            Put a student team on a real ML problem
+          </h2>
+          <p class="mt-6 opacity-80 text-base sm:text-xl">
+            Sponsor a semester-long project built around a challenge your
+            company cares about. You bring the problem, technical context, and
+            regular feedback. ML@Purdue brings the project lead, student team,
+            and weekly execution.
+          </p>
+        </div>
+
+        <div class="mt-10 grid gap-6 md:grid-cols-3">
+          {
+            projectSteps.map((step) => (
+              <div class="flex flex-col bg-black p-6 text-white">
+                <span class="font-bold text-[#A45DF5] text-sm">
+                  {step.number}
+                </span>
+                <h3 class="mt-5 font-bold text-2xl">{step.title}</h3>
+                <p class="mt-3 flex-1 opacity-80 text-base">
+                  {step.description}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+
+        <p class="mt-8 max-w-3xl opacity-70 text-sm sm:text-base">
+          Before a project begins, we agree on its scope, timeline, data access,
+          company contact, and sponsorship contribution.
+        </p>
+
+        <div class="mt-8 flex flex-wrap gap-4">
+          <a
+            href={PROJECT_EMAIL}
+            class="group inline-flex items-center gap-3 bg-[#A45DF5] px-8 py-4 font-semibold text-white transition text-lg hover:!text-white hover:opacity-90"
+          >
+            Propose a project
+            <svg
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="none"
+              aria-hidden="true"
+              class="transition-transform duration-200 group-hover:translate-x-1"
+            >
               <path
                 d="M5 12h14M13 6l6 6-6 6"
                 stroke="currentColor"
                 stroke-width="2"
                 stroke-linecap="round"
-                stroke-linejoin="round"
-              />
+                stroke-linejoin="round"></path>
             </svg>
+          </a>
+          <a
+            href="/projects"
+            class="inline-flex items-center border border-black/20 px-8 py-4 font-semibold text-black transition text-lg hover:border-[#A45DF5] hover:!text-[#A45DF5]"
+          >
+            See our projects
           </a>
         </div>
 
-        <!-- Right: sponsor logos, single column down the page -->
-        <div class="flex flex-col gap-10 self-start">
-          {
-            sponsors.map((s) => (
-              <div class="flex h-28 items-center justify-center">
-                <img
-                  src={s.src.src}
-                  alt={s.alt}
-                  class={`max-h-full max-w-full object-contain ${s.imgClass ?? ""}`}
-                />
-              </div>
-            ))
-          }
+        <div class="border-black/15 my-20 border-t"></div>
+
+        <!-- Why sponsor us + sponsors -->
+        <div class="grid gap-12 md:grid-cols-[1.5fr_1fr]">
+          <!-- Left: copy -->
+          <div>
+            <h2 class="font-bold text-4xl sm:text-6xl">Why Sponsor Us?</h2>
+            <div class="mt-8 space-y-6 opacity-90 text-base sm:text-lg">
+              <p>
+                Sponsoring ML@P provides direct access to Purdue's top ML and AI
+                talent across all academic levels. As the university's premier
+                ML organization, we offer high-impact recruiting exposure and
+                brand visibility among the country's most technically skilled
+                students.
+              </p>
+              <p>
+                Through our strong campus presence, industry events, and digital
+                reach, we help you build brand loyalty among future innovators
+                and early adopters. Your sponsorship enables our competitive
+                teams' travel, funds hackathon prizes that drive participation,
+                and supports community-building merchandise and projects.
+              </p>
+            </div>
+
+            <h3 class="mt-12 font-bold text-2xl sm:text-3xl">
+              In-kind contributions
+            </h3>
+            <p class="mt-4 opacity-90 text-base sm:text-lg">
+              As a valued sponsor, you can support us through funding, server
+              access, cloud credits, or other in-kind contributions. We're also
+              open to exploring collaborative opportunities on business
+              challenges.
+            </p>
+
+            <p class="mt-10 font-semibold text-[#A45DF5] text-xl sm:text-2xl">
+              Supporting ML@P is a strategic investment in the next generation
+              of ML leaders.
+            </p>
+
+            <a
+              href={CONTACT_EMAIL}
+              class="group mt-10 inline-flex items-center gap-3 bg-[#A45DF5] px-8 py-4 font-semibold text-white transition text-lg hover:!text-white hover:opacity-90"
+            >
+              Become a sponsor
+              <svg
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                aria-hidden="true"
+                class="transition-transform duration-200 group-hover:translate-x-1"
+              >
+                <path
+                  d="M5 12h14M13 6l6 6-6 6"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"></path>
+              </svg>
+            </a>
+          </div>
+
+          <!-- Right: sponsor logos, single column down the page -->
+          <div class="flex flex-col gap-10 self-start">
+            {
+              sponsors.map((s) => (
+                <div class="flex h-28 items-center justify-center">
+                  <img
+                    src={s.src.src}
+                    alt={s.alt}
+                    class={`max-h-full max-w-full object-contain ${
+                      s.imgClass ?? ""
+                    }`}
+                  />
+                </div>
+              ))
+            }
+          </div>
         </div>
       </div>
     </section>
