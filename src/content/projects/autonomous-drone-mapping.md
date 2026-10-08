@@ -3,7 +3,7 @@ name: Autonomous Drone Mapping
 desc: >-
   Developing sim-to-real pipeline for autonomously exploring and mapping unknown 3D environments with a drone.
 status: active
-intake: open
+intake: full
 startTerm: 2026-spring
 pm: Nathan Miller
 domain: [Computer Vision, Process Control, Robotics]

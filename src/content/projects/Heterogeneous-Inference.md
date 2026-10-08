@@ -4,7 +4,7 @@ desc: >-
   Improving local LLM performance by splitting speculative decoding across
   CPU, GPU, and NPU resources.
 status: active
-intake: open
+intake: full
 startTerm: 2026-fall
 pm: Mofiyinfoluwa Orekoya
 domain: [LLMs, Inference, ML Systems]

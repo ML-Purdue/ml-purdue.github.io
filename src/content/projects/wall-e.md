@@ -4,7 +4,7 @@ desc: >-
   Bringing WALL-E to life with Embedded Systems at Purdue, 
   with NLP capabilities, autonomous navigation, and learned object search.
 status: active
-intake: open
+intake: full
 startTerm: 2026-fall
 endTerm: 2027-spring
 pm: Shrey Sharma
