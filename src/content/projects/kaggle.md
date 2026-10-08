@@ -3,9 +3,9 @@ name: Kaggle
 desc: >-
   Team-based entry point to applied ML: work through Kaggle competitions
   together, then graduate to an original project.
-status: active
-intake: open
+status: archived
 startTerm: 2022-spring
+endTerm: 2026-spring
 pm: Arnav Mandal
 domain: [General]
 hoursPerWeek: "3-4"

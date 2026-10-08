@@ -4,7 +4,7 @@ desc: >-
   A computer vision pipeline that turns raw roundnet (Spikeball) match footage 
   into condensed highlight reels and live stats, automatically.
 status: active
-intake: open
+intake: full
 startTerm: 2026-fall
 endTerm: 2027-spring
 pm: Henry Cheung
